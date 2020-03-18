@@ -1,0 +1,19 @@
+[user]
+	email = XXX@exemple.com
+	name = NAME
+
+[web]
+	browser = firefox
+
+[alias]
+	a = add -all
+	ai = add -i
+	ap = apply
+	as = apply --stat
+	ac = apply -- check
+	c = commit
+	ca = commit -a
+	cm = commit -m
+	cl = clone
+[cola]
+	spellcheck = false
