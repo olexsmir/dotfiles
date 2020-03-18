@@ -8,14 +8,14 @@ Config for
 - TMUX
 - ZSH
 
-####Vim
+#### Vim
 Instlling [vim-plug](https://github.com/junegunn/vim-plug)
 ~~~bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ~~~
 
-####Tmux
+#### Tmux
 Installing [OhMyTMUX](https://github.com/gpakosz/.tmux)
 ~~~bash
 git clone https://github.com/gpakosz/.tmux.git
@@ -23,7 +23,7 @@ ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 ~~~
 
-####Zsh
+#### Zsh
 Installing [Oh my zsh](https://github.com/ohmyzsh/ohmyzsh)
 ~~~bash
 sudo apt-get install zsh curl git
