@@ -39,7 +39,7 @@ vim ~/.zshrc
 - Plugins
 ~~~bash
 vim ~/.zshrc
-	plugins=( autopep8 django pip git systemd debian )
+	plugins=( autopep8 pip django sublime systemd debian git tmux  )
 ~~~
 - Alias
 ~~~bash
