@@ -1,0 +1,42 @@
+set atblanks
+set autoindent
+set backup
+set backupdir ""
+set boldtext
+set casesensitive
+set constantshow
+set cutfromcursor
+set historylog
+set linenumbers
+set locking
+set morespace
+set mouse
+set multibuffer
+set noconvert
+set nohelp
+set nopauses
+set nonewlines
+set nowrap
+set operatingdir ""
+set positionlog
+set preserve
+set punct "!.?"
+set quickblank
+set quotestr "^([ 	]*[#:>\|}])+"
+set quotestr "> "
+set regexp
+set showcursor
+set smarthome
+set smooth
+set softwrap
+set speller "aspell -x -c"
+set suspend
+set tabsize 4 
+set tabstospaces
+set tempfile
+set trimblanks
+set view
+set whitespace "»·"
+set whitespace ">."
+set wordbounds
+include "/usr/share/nano/*.nanorc"
