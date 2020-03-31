@@ -33,8 +33,6 @@ set showtabline=1
 set background=dark
 colorscheme OceanicNext
 
-map <C-n> :NERDTreeToggle<CR>
-
 set nobackup
 set noswapfile
 set encoding=utf-8 
@@ -47,7 +45,7 @@ let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp',
 let NERDTreeShowHidden=1
 let g:NERDTreeWinPos="left"
 let g:NERDTreeDirArrows=0
-map <C-t> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 
 nmap <silent> <F8> <Plug>MarkdownPreview 
