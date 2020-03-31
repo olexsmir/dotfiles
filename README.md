@@ -9,15 +9,31 @@ Config for
 - TMUX
 - ZSH
 
+#### Git
+Move settings git
+~~~bash
+mv gitconfig ~/.gitconfig
+~~~
+
 #### Vim
+Move settings vim
+~~~bash
+mv vimrc ~/.vimrc
+~~~
 Instlling [vim-plug](https://github.com/junegunn/vim-plug)
 ~~~bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ~~~
 
+#### Nano
+Move settings nano
+~~~bash
+sudo mv nanorc /etc/nanorc
+~~~
+
 #### Tmux
-Installing [OhMyTMUX](https://github.com/gpakosz/.tmux)
+Installing [Oh My TMUX](https://github.com/gpakosz/.tmux)
 ~~~bash
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
