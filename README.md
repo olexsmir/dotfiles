@@ -4,6 +4,7 @@
 Config for
 - GIT
 - VIM
+- NANO
 - BASH
 - TMUX
 - ZSH
