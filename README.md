@@ -1,6 +1,5 @@
 # Dotfiles
 
-
 Config for
 - GIT
 - VIM
@@ -61,7 +60,7 @@ vim ~/.zshrc
 - Plugins
 ~~~bash
 vim ~/.zshrc
-	plugins=( autopep8 pip django sublime systemd debian git tmux  )
+	plugins=( autopep8 djando pip systemd debian git tmux docker ansible golang )
 ~~~
 - Alias
 ~~~bash
@@ -72,6 +71,4 @@ vim ~/.zshrc
 	alias py='python3'
 	alias py3='python3'
 	alias py2='python2'
-	alias gor='go run'
-	alias gob='go build'
 ~~~
