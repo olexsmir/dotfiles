@@ -1,19 +1,26 @@
 [user]
-	email = XXX@exemple.com
-	name = NAME
+	name = Smirnov-O
+	email = ss2316544@gmail.com
 
 [web]
 	browser = firefox
 
+[core]
+	editor = vim
+
 [alias]
-	a = add -all
-	ai = add -i
-	ap = apply
-	as = apply --stat
-	ac = apply -- check
-	c = commit
-	ca = commit -a
-	cm = commit -m
+	ada = add -all
+	cm = commit
+	ch = checkout
 	cl = clone
-[cola]
-	spellcheck = false
+	st = status
+	br = branch
+
+[color]
+	ui = true
+	interactive = true
+	branch = true
+	status = true
+
+[credential]
+	helper = cache --timeout=1800
