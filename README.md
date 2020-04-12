@@ -1,5 +1,4 @@
 # Dotfiles
-|License|
 Config for
 - GIT
 - VIM
