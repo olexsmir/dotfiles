@@ -9,7 +9,7 @@
 	editor = vim
 
 [alias]
-	ada = add -all
+	ada = add -A
 	cm = commit
 	ch = checkout
 	cl = clone
