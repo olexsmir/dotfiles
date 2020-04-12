@@ -1,9 +1,9 @@
 # Dotfiles
-
+|License|
 Config for
-- | GIT |
-- | VIM |
-- | NANO |
+- GIT
+- VIM
+- NANO
 - BASH
 - TMUX
 - ZSH
