@@ -1,0 +1,44 @@
+call plug#begin('~/.vim/plugged')
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
+Plug 'airblade/vim-gitgutter'
+Plug 'flazz/vim-colorschemes'
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
+
+
+syntax on
+set number
+set hidden
+set ignorecase
+set hlsearch
+set incsearch
+set smartcase
+set autoindent
+set smartindent
+set mouse=a
+set termencoding=utf8
+set t_Co=256
+set background=dark
+colorscheme OceanicNext
+"set expandtab
+"set tabstop=4
+
+"Maping chenge window
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
+"Maping Russian letters
+map ш i
+map м v
+map ч x
+map в d
+map р h
+map о j
+map л k
+map д l
+
+"Delete excess space for python files
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
