@@ -1,54 +1,85 @@
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
-Plug 'flazz/vim-colorschemes'
-Plug 'airblade/vim-gitgutter'
-Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERTreeToggle' }	"Side bar, tree
+Plug 'flazz/vim-colorschemes'				"Color thems
+Plug 'airblade/vim-gitgutter'				"Git startus line
+Plug 'tpope/vim-fugitive'				"Git comands in vim
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}	"Python syntax
+Plug 'stanangeloff/php.vim', {'for': 'php'}		"PHP syntax
+Plug 'pangloss/vim-javascript', {'for': 'js'}		"JavaScript syntax
+Plug 'ap/vim-css-color', {'for': 'css'}			"Hilighting color in css
+Plug 'auxiliary/vim-layout', {'for': 'sh'}		"BASH syntax
+Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'} "MarkDown syntax
+Plug 'elzr/vim-json', {'for': 'json'}			"JSON syntax
+Plug 'stacruz/sparkup'					"A parser for a condensed HTML
 Plug 'jiangmiao/auto-pairs'
-Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'stanangeloff/php.vim', {'for': 'php'}
-Plug 'ap/vim-css-color', {'for': 'css'}
-Plug 'pangloss/vim-javascript', {'for': 'js'}
-Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
-Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'auxiliary/vim-layout', {'for': 'sh'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'} 
+Plug 'kien/ctrlp.vim'
 call plug#end()
 
-set guifont=DroidSansMono\ Nerd\ Font\ 11
-set termencoding=utf8
 syntax on
 set number
-set mouse=a
-set autoindent
+set ignorecase
 set hlsearch
 set incsearch
-set hidden
-set ignorecase
 set smartcase
-"set expandtab
-"set tabstop=4
+set autoindent
+set smartindent
+set mouse=a
+set termencoding=utf8
+set guifont=DroidSansMono\ Nerd\ Font\ 11
 set t_Co=256
-set showtabline=1
 set background=dark
 colorscheme OceanicNext
+set nocompatible 
+filetype off
+set encoding=utf-8
+set fileencodings=utf8,cp1251
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
+Tab settings for Python, according to the recommendations
+set tabstop=4 
+set shiftwidth=4
+set smarttab
+set expandtab
+set softtabstop=4 
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+map ш i
+map м v
+map ч x
+map в d
+map р h
+map о j
+map л k
+map д l
+
+"All highlight 
+let python_highlight_all = 1
+
+"Turn off the sound in Vim
+set visualbell t_vb=
+
+"Delate swap vim files
 set nobackup
 set noswapfile
-set encoding=utf-8 
-set fileencodings=utf8,cp1251
 
+"Delate excess spase for python files
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
+"NerdTree
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
 let NERDTreeShowHidden=1
 let g:NERDTreeWinPos="left"
 let g:NERDTreeDirArrows=0
-map <C-n> :NERDTreeToggle<CR>
 
-
-nmap <silent> <F8> <Plug>MarkdownPreview 
-imap <silent> <F8> <Plug>MarkdownPreview 
-nmap <silent> <F9> <Plug>StopMarkdownPreview 
-imap <silent> <F9> <Plug>StopMarkdownPreview 
+"Maping MarkdownPreview
+nmap <silent> <F8> <Plug>MarkdownPreview
+imap <silent> <F8> <Plug>MarkdownPreview
+nmap <silent> <F9> <Plug>StopMarkdownPreview
+imap <silent> <F9> <Plug>StopMarkdownPreview
