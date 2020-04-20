@@ -59,7 +59,7 @@ vim ~/.zshrc
 - Plugins
 ~~~bash
 vim ~/.zshrc
-	plugins=( autopep8 djando pip systemd debian git tmux docker ansible golang )
+	plugins=( autopep8 djando pip systemd debian git tmux docker ansible )
 ~~~
 - Alias
 ~~~bash
