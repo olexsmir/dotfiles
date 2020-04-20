@@ -70,4 +70,7 @@ vim ~/.zshrc
 	alias py='python3'
 	alias py3='python3'
 	alias py2='python2'
+	alias ipy='ipython3'
+	alias ipy3='ipython3'
+	alias ipy2='ipython2'
 ~~~
