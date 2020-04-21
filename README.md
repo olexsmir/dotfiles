@@ -39,8 +39,9 @@ sudo mv nanorc /etc/nanorc
 Installing [Oh My TMUX](https://github.com/gpakosz/.tmux)
 ~~~bash
 git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
+mv ~/.tmux/.tmux.conf ~
+mv ~/.tmux/.tmux.conf.local ~
+rm -rf ~/.tmux
 ~~~
 
 #### Zsh
