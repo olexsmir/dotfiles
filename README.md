@@ -6,6 +6,7 @@ Config for
 - BASH
 - TMUX
 - ZSH
+- RANGER
 
 #### Git
 Move settings git
@@ -33,6 +34,12 @@ Open vim and enter
 Move settings nano
 ~~~bash
 sudo mv nanorc /etc/nanorc
+~~~
+
+#### BASH
+Move setting bash
+~~~bash
+mv bashrc ~/.bashrc
 ~~~
 
 #### Tmux
@@ -75,3 +82,51 @@ vim ~/.zshrc
 	alias ipy3='ipython3'
 	alias ipy2='ipython2'
 ~~~
+
+|  Command   |         Art          |
+|------------|----------------------|
+| cls        | clear                |
+| py2/3      | python2/3            |
+| ipy2/3     | ipython2/3           |
+| ai         | apt-get install      |
+| ar         | apt-get remove       | 
+| aplaybook  | ansible-playbook     |
+| apull      | ansible-pull         |
+| sc-stop	 | sudo systemctl stop  |
+| sc-start   | sudo systemctl start |
+
+
+#### Ranger
+Installing [Ranger file maneger](https://github.com/ranger/ranger)
+~~~bash
+sudo apt-get install ranger
+~~~
+
+Configuration ranger
+~~~bash
+ranger --copy-config=all
+~~~
+
+- Images preview
+~~~bash
+vim .config/ranger/rc.conf
+    setpreview_images_method w3m
+    set preview_images true
+~~~
+
+- Maping
+~~~bash
+vim .config/ranger/rc.conf
+    map DD shell mv %s /home/${USER}/.local/share/Trash/files/
+    map gc cd ~/code
+    map gd cd ~/Documents
+    map gm cd ~/Music
+~~~
+
+| Hot key |       Act          |
+|---------|--------------------|
+| G-c     | cd ~/code          |
+| G-d     | cd ~/Documents     |
+| G-m     | cd ~/Music         |
+| D-D     | Move file to trash |
+
