@@ -92,41 +92,6 @@ vim ~/.zshrc
 | ar         | apt-get remove       | 
 | aplaybook  | ansible-playbook     |
 | apull      | ansible-pull         |
-| sc-stop	 | sudo systemctl stop  |
-| sc-start   | sudo systemctl start |
-
-
-#### Ranger
-Installing [Ranger file maneger](https://github.com/ranger/ranger)
-~~~bash
-sudo apt-get install ranger
-~~~
-
-Configuration ranger
-~~~bash
-ranger --copy-config=all
-~~~
-
-- Images preview
-~~~bash
-vim .config/ranger/rc.conf
-    setpreview_images_method w3m
-    set preview_images true
-~~~
-
-- Maping
-~~~bash
-vim .config/ranger/rc.conf
-    map DD shell mv %s /home/${USER}/.local/share/Trash/files/
-    map gc cd ~/code
-    map gd cd ~/Documents
-    map gm cd ~/Music
-~~~
-
-| Hot key |       Act          |
-|---------|--------------------|
-| G-c     | cd ~/code          |
-| G-d     | cd ~/Documents     |
-| G-m     | cd ~/Music         |
-| D-D     | Move file to trash |
+| sc-stop    | systemctl stop       |
+| sc-start   | systemctl start      |
 
