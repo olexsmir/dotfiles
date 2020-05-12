@@ -6,7 +6,6 @@ Config for
 - BASH
 - TMUX
 - ZSH
-- RANGER
 
 #### Git
 Move settings git
