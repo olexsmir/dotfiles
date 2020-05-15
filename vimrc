@@ -22,6 +22,9 @@ set noswapfile		" Disable *.swp files
 set history=1000	" History size 1000 edits
 set autoread		" Auto reade file for edit
 
+set showmode
+set showcmd
+
 " Tab
 set tabstop=4		" Tab size 4
 set shiftwidth=4    " Tab size 4
@@ -35,9 +38,9 @@ set smartcase		" Smart Rigger
 
 " ColoerCheme
 set background=dark
-colorscheme gruvbox
+colorscheme OceanicNext
 " Color cheme list
-" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanocNext, gruvbox, Monokai, vmaterial
+" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, vmaterial
 " Light: newspaper, newspaper, wikipedia, Atelier_CaveLight, mac_classic
 " Outher: off
 
