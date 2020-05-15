@@ -40,8 +40,8 @@ set smartcase		" Smart Rigger
 set background=dark
 colorscheme OceanicNext
 " Color cheme list
-" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, vmaterial
-" Light: newspaper, newspaper, wikipedia, Atelier_CaveLight, mac_classic
+" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, material
+" Light: newspaper, wikipedia, Atelier_CaveLight, mac_classic
 " Outher: off
 
 """"""""""
@@ -56,10 +56,19 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+map <leader>tn :tabnew<cr>      " Create new tab
+map <leader>to :tabonly<cr>     " Kill all tab
+map <leader>tc :tabclose<cr>    " Tab kill
+map <leader>1 :tabn 1<cr>       " Change tab
+map <leader>2 :tabn 2<cr>       " Change tab
+map <leader>3 :tabn 3<cr>       " Change tab
+map <leader>4 :tabn 4<cr>       " Change tab
+map <leader>5 :tabn 5<cr>       " Change tab
+map <leader>6 :tabn 6<cr>       " Change tab
+map <leader>7 :tabn 7<cr>       " Change tab
+map <leader>8 :tabn 8<cr>       " Change tab
+map <leader>9 :tabn 9<cr>       " Change tab
+map <leader>0 :tablast<cr>      " Change tab
 
 " Russian letters
 map ш i
@@ -71,3 +80,9 @@ map п g
 map о j
 map л k
 map д l
+
+if has("gui_running")
+    colorscheme Monokai
+    set guioptions -=m
+    set guioptions -=T
+endif
