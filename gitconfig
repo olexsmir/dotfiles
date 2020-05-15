@@ -15,6 +15,7 @@
 	cl = clone
 	st = status
 	br = branch
+	l = log
 
 [color]
 	ui = true
