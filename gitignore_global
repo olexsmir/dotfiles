@@ -1,0 +1,26 @@
+# IDE
+.idea
+.idea_modules
+*~
+# Logs and databases
+*.log
+*.sqlite
+# Temp files
+*.pyc
+*.swp
+.*.swp
+*.swo
+# Packages
+*.7z
+*.bz2
+*.gz
+*.iso
+*.rar
+*.tar
+*.z
+# Compiled siurce
+*.dll
+*.exe
+*.o
+*.so
+*.out
