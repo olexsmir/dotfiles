@@ -81,8 +81,14 @@ map о j
 map л k
 map д l
 
+" Unmap arrows
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 if has("gui_running")
-    colorscheme Monokai
     set guioptions -=m
     set guioptions -=T
+    map <leader>p "+gP 
 endif

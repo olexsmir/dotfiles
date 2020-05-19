@@ -2,10 +2,18 @@
 Config for
 - GIT
 - VIM
-- NANO
 - BASH
 - TMUX
 - ZSH
+
+## Install my config
+Script
+~~~bash
+chmod +x install.sh
+./install.sh
+~~~
+
+### Or
 
 #### Git
 Move settings git
@@ -27,12 +35,6 @@ Open vim and enter
 ~~~vim
 :source ~/.vimrc
 :PlugInstall
-~~~
-
-#### Nano
-Move settings nano
-~~~bash
-sudo mv nanorc /etc/nanorc
 ~~~
 
 #### BASH

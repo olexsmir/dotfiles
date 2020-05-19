@@ -1,38 +1,47 @@
-#!/bin/bash
-read -p "Enter user path: " PATH_HOME
+#/bin/bash
+read -p "Enter home paht: " $HOME_PAHT
 
-echo "Install program"
-sudo apt-get install vim git bash tmux zsh curl
+function install_program {
+	sudo apt-get install git python3 python3-pip curl vim tmux
+}
 
-echo "Move settings git"
-mv gitconfig PATH_HOME/.gitconfig
 
-echo "Vim configuration"
-mv vimrc PATH_HOME/.vimrc
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PATH_HOME/.vimrc +PlugInstall
+function LN {
+	ln bashrc $HOME_PAHT
+	ln gitconfig $HOME_PAHT
+	ln gitignore_global $HOME_PAHT
+}
 
-echo "Move settings bash"
-mv bashrc PATH_HOME/.bashrc
+function ZSH {
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "TMUX"
-git clone https://github.com/gpakosz/.tmux.git
-mv ~/.tmux/.tmux.conf ~
-mv ~/.tmux/.tmux.conf.local ~
-rm -rf ~/.tmux
+	echo "alias cls='clear'" >> .zshrc
+	echo "alias sl='ls'" >> .zshrc
+	echo "alias cd..='cd ..'" >> .zshrc
+	echo "alias py='python3'" >> .zshrc
+	echo "alias py3='python3'" >> .zshrc
+	echo "alias ipy='ipython3'" >> .zshrc
+	echo "alias ipy3='ipython3'" >> .zshrc
 
-echo "ZSH"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sed -i "s/plugins=(git)/plugins=(autopep8 djando pip systemd debian git tmux docker ansible)"
+	sed -i "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"bureau\"" $HOME_PAHT/.zshrc
+}
 
-echo "alias cls='clear'" >> PATH_HOME/.zshrc
-echo "alias sl='ls'" >> PATH_HOME/.zshrc
-echo "alias cd..='cd ..'" >> PATH_HOME/.zshrc
-echo "alias cd..='cd ..'" >> PATH_HOME/.zshrc
-echo "alias py='python3'" >> PATH_HOME/.zshrc
-echo "alias py3='python3'" >> PATH_HOME/.zshrc
-echo "alias ipy='ipython3'" >> PATH_HOME/.zshrc
-echo "alias ipy='python3'" >> PATH_HOME/.zshrc
+function TMUX {
+	git clone https://github.com/gpakosz/.tmux.git
+	mv ~/.tmux/.tmux.conf ~
+	mv ~/.tmux/.tmux.conf.local ~
+	rm -rf ~/.tmux
+}
 
-set -i "s~ZSH_THEME="robbyrussell"~ZSH_THEME="bureau"~g" PATH_HOME/.zshrc
-set -i "s~plugins=(git)~plugins=(autopep8 djando pip systemd debian git tmux docker ansible)~g" PATH_HOME/.zshrc
+function VIM {
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	ln vimrc  $HOME_PAHT
+	vim +source$HOME_PAHT/.vimrc +PlugInstall
+}
+
+install_program
+LN
+ZSH
+TMUX
+VIM
