@@ -6,42 +6,42 @@ call plug#end()
 
 set nocompatible    " be iMproved
 
-set number		    " Number line
+set number          " Number line
 set relativenumber  " Number line
 
-syntax on		    " Support syntax
-set mouse=a		    " Mousr support
-set ruler		    " Cursor position
-set t_Co=256		" Enable 265 colors
+syntax on           " Support syntax
+set mouse=a         " Mousr support
+set ruler           " Cursor position
+set t_Co=256        " Enable 265 colors
 
-set encoding=utf-8	" Use utf-8 encoding
+set encoding=utf-8  " Use utf-8 encoding
 set fileencodings=utf8,cp1251
 
-set cursorline		" The line with the cursor will be highlighted
-set wrap	    	" Line wrappingv
-set linebreak      	" Line wrappingv
+set cursorline      " The line with the cursor will be highlighted
+set wrap            " Line wrappingv
+set linebreak       " Line wrappingv
 
-set nobackup		" Disable backup files
-set noswapfile		" Disable *.swp files
-set history=1000	" History size 1000 edits
-set autoread		" Auto reade file for edit
+set nobackup        " Disable backup files
+set noswapfile      " Disable *.swp files
+set history=1000    " History size 1000 edits
+set autoread        " Auto reade file for edit
 
 set showmode
 set showcmd
 
 " Tab
-set tabstop=4		" Tab size 4
+set tabstop=4       " Tab size 4
 set shiftwidth=4    " Tab size 4
 set softtabstop=4   " Tab size 4
-set expandtab		" Tab consist of space
+set expandtab       " Tab consist of space
 set smarttab
 set autoindent
 
 
 " Search
-set incsearch		" Highlighted
-set ignorecase		" Highlighted
-set smartcase		" Smart Rigger
+set incsearch       " Highlighted
+set ignorecase      " Highlighted
+set smartcase   " Smart Rigger
 
 " Buffers
 set hidden
@@ -60,7 +60,7 @@ colorscheme OceanicNext
 """"""""""
 " MAPING "
 """"""""""
-let mapleader=','	" Leader key
+let mapleader=','   " Leader key
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -69,7 +69,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Tabs
-map <leader>tn :tabnew<CR>      " CReate new tab
+map <leader>tn :tabnew<CR>      " Create new tab
 map <leader>to :tabonly<CR>     " Kill all tab
 map <leader>tc :tabclose<CR>    " Tab kill
 map <leader>1 :tabn 1<CR>       " Change tab
