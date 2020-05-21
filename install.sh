@@ -1,5 +1,5 @@
 #/bin/bash
-read -p "Enter home paht: " $HOME_PAHT
+read -p "Enter home paht: " HOME_PAHT
 
 function install_program {
 	sudo apt-get install git python3 python3-pip curl vim tmux
@@ -29,9 +29,9 @@ function ZSH {
 
 function TMUX {
 	git clone https://github.com/gpakosz/.tmux.git
-	mv ~/.tmux/.tmux.conf ~
-	mv ~/.tmux/.tmux.conf.local ~
-	rm -rf ~/.tmux
+	mv $HOME_PAHT.tmux/.tmux.conf ~
+	mv $HOME_PAHT.tmux/.tmux.conf.local ~
+	rm -rf $HOME_PAHT.tmux
 }
 
 function VIM {
