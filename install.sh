@@ -1,12 +1,21 @@
 #/bin/bash
 read -p "Enter home paht(exemple: \"/home/user\"): " HOME_PAHT
+read -p "Remove old config [y/n]: " REMOVE_CONF
 read -p "Install vim config [y/n]: " VIM_CONF
 read -p "Install git config [y/n]: " GIT_CONF
 read -p "Install bash config [y/n]: " BASH_CONF
 read -p "Intall tmux config [y/n]: " TMUX_CONF
 read -p "Install zsh config [y/n]: " ZSH_CONF
 
-if [[ "$VIM_CONF" = "y" ]]; then
+
+if [[ "$REMOVE_CONF" = "y" ]]; then
+	rm -rf $HOME_PAHT/.vimrc $HOME_PAHT/.vim
+	rm -rf $HOME_PAHT/.gitconfig $HOME_PAHT/.gitignore_global
+	rm -rf $HOME_PAHT/.bashrc
+	rm -rf $HOME_PAHT/.tmux .tmux.conf
+	rm -rf $HOME_PAHT/.zshrc $HOME_PAHT/.oh-my-zsh
+	
+elif [[ "$VIM_CONF" = "y" ]]; then
 	sudo apt-get install vim curl git -y
 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
