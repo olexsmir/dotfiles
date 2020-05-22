@@ -1,56 +1,48 @@
 #/bin/bash
-read -p "Enter home paht(exemple: \"/home/user\"): " HOME_PAHT
-read -p "Remove old config [y/n]: " REMOVE_CONF
-read -p "Install vim config [y/n]: " VIM_CONF
-read -p "Install git config [y/n]: " GIT_CONF
-read -p "Install bash config [y/n]: " BASH_CONF
-read -p "Intall tmux config [y/n]: " TMUX_CONF
-read -p "Install zsh config [y/n]: " ZSH_CONF
-
-
-if [[ "$REMOVE_CONF" = "y" ]]; then
-	rm -rf $HOME_PAHT/.vimrc $HOME_PAHT/.vim
-	rm -rf $HOME_PAHT/.gitconfig $HOME_PAHT/.gitignore_global
-	rm -rf $HOME_PAHT/.bashrc
-	rm -rf $HOME_PAHT/.tmux .tmux.conf
-	rm -rf $HOME_PAHT/.zshrc $HOME_PAHT/.oh-my-zsh
+read -p "\e[31m All your git, vim, bash, tmux, zsh settings will be deleted [y/n]" CONTINUE
+if [[ "$CONTINUE" == "y" ]]; then
+	rm -rf ~/.vimrc ~/.vim
+	rm -rf ~/.gitconfig ~/.git*
+	rm -rf ~/.bashrc ~/.bash*
+	rm -rf ~/.tmux ~/.tmux*
+	rm -rf ~/.zshrc ~/.oh-my-zsh
 	
-elif [[ "$VIM_CONF" = "y" ]]; then
-	sudo apt-get install vim curl git -y
+	read -p "Install vim config [y/n]: " VIM_CONF
+	read -p "Install git config [y/n]: " GIT_CONF
+	read -p "Install bash config [y/n]: " BASH_CONF
+	read -p "Intall tmux config [y/n]: " TMUX_CONF
+	read -p "Install zsh config [y/n]: " ZSH_CONF
 
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	ln vimrc  $HOME_PAHT/.vimrc
-	vim +source$HOME_PAHT/.vimrc +PlugInstall
-
-elif [[ "$GIT_CONF" = "y" ]]; then
-	ln gitconfig $HOME_PAHT/.gitconfig
-	ln gitignore_global $HOME_PAHT/.gitignore_global
-
-elif [[ "$BASH_CONF" = "y" ]]; then
-	sudo apt-get install bash -y
-	ln bashrc $HOME_PAHT/.bashrc
-
-elif [[ "$TMUX_CONF" = "y" ]]; then
-	sudo apt-get install tmux git -y
-	git clone https://github.com/gpakosz/.tmux.git $HOME_PAHT/.tmux
-	mv $HOME_PAHT/.tmux/.tmux.conf $HOME_PAHT/.tmux.conf
-	mv $HOME_PAHT/.tmux/.tmux.conf.local $HOME_PAHT/.tmux.conf.local
-	# rm -rf $HOME_PAHT/.tmux
-
-elif [[ "$ZSH_CONF" = "y" ]]; then
-	sudo apt-get install zsh curl git 
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	
-	echo "alias cls='clear'" >> $HOME_PAHT/.zshrc
-	echo "alias sl='ls'" >> $HOME_PAHT/.zshrc
-	echo "alias cd..='cd ..'" >> $HOME_PAHT/.zshrc
-	echo "alias py='python3'" >> $HOME_PAHT/.zshrc
-	echo "alias py3='python3'" >> $HOME_PAHT/.zshrc
-	echo "alias ipy='ipython3'" >> $HOME_PAHT/.zshrc
-	echo "alias ipy3='ipython3'" >> $HOME_PAHT/.zshrc
-
-	sed -i "s/plugins=(git)/plugins=(autopep8 djando pip systemd debian git tmux docker ansible)"
-	sed -i "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"simple\"" $HOME_PAHT/.zshrc
-else
-	echo "OK"
+	cd ~/.dotfiles
+	if [[ "$VIM_CONF" = "y" ]]; then
+		sudo apt-get install vim vim-gui-common curl -y
+		curl -fLo ~.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		ln vimrc  ~/.vimrc
+		#vim +source~/.vimrc +PlugInstall
+	elif [[ "$GIT_CONF" = "y" ]]; then
+		ln gitconfig ~/.gitconfig
+		ln gitignore_global ~/.gitignore_global
+	elif [[ "$BASH_CONF" = "y" ]]; then
+		sudo apt-get install bash -y
+		ln bashrc ~/.bashrc
+	elif [[ "$TMUX_CONF" = "y" ]]; then
+		sudo apt-get install tmux -y
+		git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+		mv ~/.tmux/.tmux.conf ~/.tmux.conf
+		mv ~/.tmux/.tmux.conf.local ~/.tmux.conf.local
+	elif [[ "$ZSH_CONF" = "y" ]]; then
+		sudo apt-get install zsh curl -y
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		echo "alias cls='clear'" >> ~/.zshrc
+		echo "alias sl='ls'" >> ~/.zshrc
+		echo "alias cd..='cd ..'" >> ~/.zshrc
+		echo "alias py='python3'" >> ~/.zshrc
+		echo "alias py3='python3'" >> ~/.zshrc
+		echo "alias ipy='ipython3'" >> ~/.zshrc
+		echo "alias ipy3='ipython3'" >> ~/.zshrc
+		sed -i "s/plugins=(git)/plugins=(autopep8 djando pip git tmux docker)"
+		sed -i "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"simple\"" ~/.zshrc
+	else
+		echo ""
+	fi
 fi
