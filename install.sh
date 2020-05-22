@@ -1,47 +1,44 @@
 #/bin/bash
-read -p "Enter home paht: " HOME_PAHT
+read -p "Enter home paht(exemple: \"/home/user\"): " HOME_PAHT
+read -p "Install vim config [y/n]: " VIM_CONF
+read -p "Install git config [y/n]: " GIT_CONF
+read -p "Install bash config [y/n]: " BASH_CONF
+read -p "Intall tmux config [y/n]: " TMUX_CONF
+read -p "Install zsh config [y/n]: " ZSH_CONF
 
-function install_program {
-	sudo apt-get install git python3 python3-pip curl vim tmux
-}
+if [[ "$VIM_CONF" = "y" ]]; then
+	sudo apt-get install vim curl git
 
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	ln vimrc  $HOME_PAHT/.vimrc
+	vim +source$HOME_PAHT/.vimrc +PlugInstall
 
-function LN {
-	ln bashrc $HOME_PAHT
-	ln gitconfig $HOME_PAHT
-	ln gitignore_global $HOME_PAHT
-}
+elif [[ "$GIT_CONF" = "y" ]]; then
+	ln gitconfig $HOME_PAHT/.gitconfig
+	ln gitignore_global $HOME_PAHT/.gitignore_global
 
-function ZSH {
+elif [[ "$BASH_CONF" = "y" ]]; then
+	ln bashrc $HOME_PAHT/.bashrc
+
+elif [[ "$TMUX_CONF" = "y" ]]; then
+	git clone https://github.com/gpakosz/.tmux.git $HOME_PAHT/.tmux
+	mv $HOME_PAHT/.tmux/.tmux.conf $HOME_PAHT/.tmux.conf
+	mv $HOME_PAHT/.tmux/.tmux.conf.local $HOME_PAHT/.tmux.conf.local
+	# rm -rf $HOME_PAHT/.tmux
+
+elif [[ "$ZSH_CONF" = "y" ]]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-	echo "alias cls='clear'" >> .zshrc
-	echo "alias sl='ls'" >> .zshrc
-	echo "alias cd..='cd ..'" >> .zshrc
-	echo "alias py='python3'" >> .zshrc
-	echo "alias py3='python3'" >> .zshrc
-	echo "alias ipy='ipython3'" >> .zshrc
-	echo "alias ipy3='ipython3'" >> .zshrc
+	
+	echo "alias cls='clear'" >> $HOME_PAHT/.zshrc
+	echo "alias sl='ls'" >> $HOME_PAHT/.zshrc
+	echo "alias cd..='cd ..'" >> $HOME_PAHT/.zshrc
+	echo "alias py='python3'" >> $HOME_PAHT/.zshrc
+	echo "alias py3='python3'" >> $HOME_PAHT/.zshrc
+	echo "alias ipy='ipython3'" >> $HOME_PAHT/.zshrc
+	echo "alias ipy3='ipython3'" >> $HOME_PAHT/.zshrc
 
 	sed -i "s/plugins=(git)/plugins=(autopep8 djando pip systemd debian git tmux docker ansible)"
-	sed -i "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"bureau\"" $HOME_PAHT/.zshrc
-}
-
-function TMUX {
-	git clone https://github.com/gpakosz/.tmux.git
-	mv $HOME_PAHT.tmux/.tmux.conf ~
-	mv $HOME_PAHT.tmux/.tmux.conf.local ~
-	rm -rf $HOME_PAHT.tmux
-}
-
-function VIM {
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	ln vimrc  $HOME_PAHT
-	vim +source$HOME_PAHT/.vimrc +PlugInstall
-}
-
-install_program
-LN
-ZSH
-TMUX
-VIM
+	sed -i "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"simple\"" $HOME_PAHT/.zshrc
+else
+	echo "OK"
+fi
