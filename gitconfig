@@ -1,6 +1,9 @@
 [user]
-	name = Smirnov-O
+	name = Smirnov Olexander
 	email = ss2316544@gmail.com
+
+[github]
+    user = Smirnov-O
 
 [web]
 	browser = firefox
