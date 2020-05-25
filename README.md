@@ -17,3 +17,7 @@ chmod +x install.sh
 ./install.sh
 vim +source~/.vimrc +PlugInstall
 ~~~
+
+### Screenshot
+
+![](https://imgur.com/D47eTO9)
