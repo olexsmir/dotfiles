@@ -20,4 +20,4 @@ vim +source~/.vimrc +PlugInstall
 
 ### Screenshot
 
-![](https://imgur.com/D47eTO9)
+![](https://i.imgur.com/D47eTO9.png)
