@@ -45,6 +45,8 @@ source $ZSH/oh-my-zsh.sh
 alias cls='clear'
 alias sl='ls'
 alias cd..='cd ..'
+alias :q="exit"
+alias c="cd ~/code"
 alias ipy='ipython3'
 alias ipy3='ipython3'
 alias py='python3'
