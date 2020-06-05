@@ -18,6 +18,12 @@ chmod +x install.sh
 vim +source~/.vimrc +PlugInstall
 ~~~
 
-### Screenshot
+### Screen-shot
 
-![](https://i.imgur.com/D47eTO9.png)
+![](https://i.imgur.com/yHVgYZ7.png)
+
+---
+
+[Oh my ZSH](https://github.com/ohmyzsh/ohmyzsh)
+
+[Oh my Tmux](https://github.com/gpakosz/.tmux)

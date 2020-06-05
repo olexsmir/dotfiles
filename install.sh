@@ -1,12 +1,12 @@
 #!/bin/bash
-read -p "All your git, vim, bash, tmux, zsh settings will be deleted [y/n]" CONTINUE
+read -p "All your git, vim, bash, tmux, zsh settings will be deleted [y/n]: " CONTINUE
 
 if [[ "$CONTINUE" = "y" ]] || [[ "$CONTINUE" = "Y" ]]; then
     rm -rf ~/.vimrc ~/.vim
     rm -rf ~/.gitconfig ~/.git
     rm -rf ~/.bashrc ~/.bash
     rm -rf ~/.tmux ~/.tmux
-    rm -rf ~/.zshrci
+    rm -rf ~/.zshrc
 fi
 
 read -p "Install vim config [y/n]: " VIM_CONF
@@ -40,4 +40,10 @@ if [[ "$ZSH_CONF" = "y" ]] || [[ "$ZSH_CONF" = "Y" ]]; then
 	sudo apt-get install zsh curl git -y
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	mv zshrc ~/.zshrc
+fi
+
+if [[ "$VIM_CONF" = "y" ]] || [[ "$VIM_CONF" = "Y" ]]; then
+    clear
+    echo "vim +source~/.vimrc +PlugInstall"
+    echo "For install plugins in vim"
 fi
