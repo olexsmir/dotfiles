@@ -1,8 +1,9 @@
 call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'             " Automapic closing of quotes
 Plug 'flazz/vim-colorschemes'           " ColorChemes pack
-    "Plug 'airblade/vim-gitgutter'          " Git indecator
+Plug 'joshdick/onedark.vim'             " ColoeCheme
     "Plug 'pangloss/vim-javascript'         " JS syntax support
+    "Plug 'airblade/vim-gitgutter'          " Git indecator
 call plug#end()
 
 set nocompatible    " be iMproved
@@ -55,7 +56,7 @@ set visualbell t_vb=    " Mute Vim
 set background=dark
 colorscheme OceanicNext
 " Color cheme list
-" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, material
+" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, material, onedark
 " Light: newspaper, wikipedia, Atelier_CaveLight, mac_classic
 
 " Python

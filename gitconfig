@@ -1,25 +1,28 @@
 [user]
-	name = Smirnov Olexander
+    username = Smirnov-O
+    name = Smirnov Olexandr
 	email = ss2316544@gmail.com
 
 [github]
-    user = Smirnov-O
+    name = Smirnov-O
 
 [web]
-	browser = firefox
+    browser = firefox
+    #browser = google-chrome
 
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore_global
 
 [alias]
 	ada = add -A
-	cm = commit
+	rmc = rm --cached
+    cm = commit
+    cmm = commit -m
 	ch = checkout
 	cl = clone
 	st = status
-	br = branch
-	l = log
+    br = branch
+    l = log
 
 [color]
 	ui = true
