@@ -1,7 +1,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'             " Automapic closing of quotes
 Plug 'flazz/vim-colorschemes'           " ColorChemes pack
-Plug 'joshdick/onedark.vim'             " ColoeCheme
+Plug 'mattn/emmet-vim'                  " Emmet
+Plug 'sheerun/vim-polyglot'
     "Plug 'pangloss/vim-javascript'         " JS syntax support
     "Plug 'airblade/vim-gitgutter'          " Git indecator
 call plug#end()
@@ -56,13 +57,13 @@ set visualbell t_vb=    " Mute Vim
 set background=dark
 colorscheme OceanicNext
 " Color cheme list
-" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, material, onedark
+" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, material
 " Light: newspaper, wikipedia, Atelier_CaveLight, mac_classic
 
 " Python
 let python_highlight_all = 1
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e `
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd BufWritePre *.py normal m`:%s/\s\+$//e `
+"autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 """"""""""
 " MAPING "
