@@ -1,6 +1,5 @@
 #!/bin/bash
 read -p "All your git, vim, bash, tmux, zsh settings will be deleted [y/n]: " CONTINUE
-
 if [[ "$CONTINUE" = "y" ]] || [[ "$CONTINUE" = "Y" ]]; then
     rm -rf ~/.vimrc ~/.vim
     rm -rf ~/.gitconfig ~/.git
@@ -11,7 +10,11 @@ fi
 
 read -p "Install vim config [y/n]: " VIM_CONF
 if [[ "$VIM_CONF" = "y" ]] || [[ "$VIM_CONF" = "Y" ]]; then
-	sudo apt-get install vim vim-gui-common curl -y
+	read -p "Install GVim [y/n]:" INS_GVIM
+    if [[ "$INS_GVIM" = "y" ]] || [[ "$INS_GVIM" = "Y" ]]; then
+        sudo apt-get install -y vim-gui-common
+    fi
+    sudo apt-get install vim vim-gui-common curl -y
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	mv vimrc ~/.vimrc
 fi
