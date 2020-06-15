@@ -16,6 +16,7 @@ cd dotfiles
 chmod +x install.sh
 ./install.sh
 vim +source~/.vimrc +PlugInstall
+chsh -s $(which zsh)
 ~~~
 
 ### Screen-shot
