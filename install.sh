@@ -45,8 +45,15 @@ if [[ "$ZSH_CONF" = "y" ]] || [[ "$ZSH_CONF" = "Y" ]]; then
 	mv zshrc ~/.zshrc
 fi
 
+####################
 if [[ "$VIM_CONF" = "y" ]] || [[ "$VIM_CONF" = "Y" ]]; then
     clear
     echo "vim +source~/.vimrc +PlugInstall"
     echo "For install plugins in vim"
 fi
+if [[ "$ZSH_CONF" = "y" ]] || [[ "$ZSH_CONF" = "Y" ]]; then
+    echo "For change shell"
+    echo "chsh -s $(which zsh)"
+fi
+
+
