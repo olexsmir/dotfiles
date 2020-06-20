@@ -1,10 +1,11 @@
 call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'             " Automapic closing of quotes
 Plug 'flazz/vim-colorschemes'           " ColorChemes pack
-Plug 'mattn/emmet-vim'                  " Emmet
-Plug 'sheerun/vim-polyglot'
+    "Plug 'sheerun/vim-polyglot'
     "Plug 'pangloss/vim-javascript'         " JS syntax support
+    "Plug 'mattn/emmet-vim', {'for': 'html'} " Emmet
     "Plug 'airblade/vim-gitgutter'          " Git indecator
+    "Plug 'ap/vim-css-color', {'for': 'css'} " CSS color
 call plug#end()
 
 set nocompatible    " be iMproved
@@ -20,6 +21,7 @@ set mouse=a         " Mouse support
 set mousehide       " Mouse hide 
 
 set encoding=utf-8  " Use utf-8 encoding
+
 set fileencodings=utf8,cp1251
 
 "set cursorline      " The line with the cursor will be highlighted
