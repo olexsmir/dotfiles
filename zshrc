@@ -34,7 +34,7 @@ export UPDATE_ZSH_DAYS=24
 # Uncomment the following line to display red dots whilst waiting for completion.
 #COMPLETION_WAITING_DOTS="true"
 
-plugins=( autopep8 django pip node npm docker git tmux )
+plugins=(pip python git tmux docker)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
