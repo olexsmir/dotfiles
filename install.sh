@@ -1,5 +1,6 @@
 #!/bin/bash
 read -p "Your package manager[1-apt, 2-pacman]: " PACKAGE_MANAGER
+
 if [[ "$PACKAGE_MANAGER" = "1" ]]; then
 	read -p "Install vim config [y/n]: " VIM_CONF
 	if [[ "$VIM_CONF" = "y" ]] || [[ "$VIM_CONF" = "Y" ]]; then
@@ -37,7 +38,8 @@ if [[ "$PACKAGE_MANAGER" = "1" ]]; then
 		echo "chsh -s $(which zsh)"
 	fi
 fi
-if [[ "$PACKAGE_MANAGER" = "1" ]]; then
+
+if [[ "$PACKAGE_MANAGER" = "2" ]]; then
 read -p "Install vim config [y/n]: " VIM_CONF
 	if [[ "$VIM_CONF" = "y" ]] || [[ "$VIM_CONF" = "Y" ]]; then
 		sudo pacman -S vim -y
@@ -70,4 +72,9 @@ read -p "Install vim config [y/n]: " VIM_CONF
 		echo "For change shell"
 		echo "chsh -s $(which zsh)"
 	fi
+fi
+
+read -p "Install config for Sublime Text 3 [y/n]: " sublime
+if [[ "$sublime" = "y" ]] || [[ "$sublime" = "Y" ]]; then
+    mv ./sublime/* $HOME/.config/sublime-text-3/Packages/User
 fi
