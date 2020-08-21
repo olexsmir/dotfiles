@@ -1,16 +1,16 @@
 call plug#begin('~/.vim/plugged')
-Plug 'jiangmiao/auto-pairs'             " Automapic closing of quotes
-Plug 'flazz/vim-colorschemes'           " ColorChemes pack
-    "Plug 'sheerun/vim-polyglot'
-    "Plug 'pangloss/vim-javascript'         " JS syntax support
-    "Plug 'mattn/emmet-vim', {'for': 'html'} " Emmet
-    "Plug 'airblade/vim-gitgutter'          " Git indecator
-    "Plug 'ap/vim-css-color', {'for': 'css'} " CSS color
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'flazz/vim-colorschemes'
+    Plug 'itchyny/lightline.vim'
+    Plug'junegunn/goyo.vim'
+    Plug 'pangloss/vim-javascript', {'for': 'js'}
+    Plug 'mattn/emmet-vim', {'for': 'html'}
 call plug#end()
 
 set nocompatible    " be iMproved
+set laststatus=2
 
-"set number         " Number line
+set number         " Number line
 "set relativenumber " Number line
 
 syntax on           " Support syntax
@@ -58,14 +58,18 @@ set visualbell t_vb=    " Mute Vim
 " ColoerCheme
 set background=dark
 colorscheme OceanicNext
-" Color cheme list
-" Dark: adventurs, Atelier_DuneLight, colorsbox-material, colorsbox-faff, OceanicNext, gruvbox, Monokai, material
-" Light: newspaper, wikipedia, Atelier_CaveLight, mac_classic
 
-" Python
-let python_highlight_all = 1
-"autocmd BufWritePre *.py normal m`:%s/\s\+$//e `
-"autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+" Lightline
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
+let g:dcrpc_autostart = 1
+
+
+" Goyo
+let g:goyo_width = 125
+let g:goyo_height = '100%'
+
 
 """"""""""
 " MAPING "

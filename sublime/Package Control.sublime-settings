@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Agila Theme",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Color Highlight",
+		"Discord Rich Presence",
+		"Emmet",
+		"Package Control",
+		"VimL"
+	]
+}
