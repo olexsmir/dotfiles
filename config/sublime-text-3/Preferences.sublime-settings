@@ -1,0 +1,19 @@
+{
+	"color_scheme": "Packages/ayu/ayu-mirage.sublime-color-scheme",
+	"theme": "ayu-mirage.sublime-theme",
+	"auto_complete": true,
+	"draw_indent_guides": false,
+	"draw_white_space": "all",
+	"file_exclude_patterns": [ "package-lock.json" ],
+	"folder_exclude_patterns": [ "node_modules" ],
+	"font_size": 10,
+	"ignored_packages": [ "Vintage" ],
+	"margin": 0,
+	"remeber_open_files": true,
+	"save_on_focus_lost": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": false,
+	"update_check": false,
+	"word_wrap": true
+}

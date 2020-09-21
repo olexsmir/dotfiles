@@ -10,18 +10,32 @@ Config for
 
 ### Install
 
+Install [oh my zsh](https;//ohmyz.sh)
+
 ~~~bash
-git clone https://github.com/Smirnov-O/dotfiles
-cd dotfiles
-chmod +x install.sh
-./install.sh
-vim +source~/.vimrc +PlugInstall
+sudo pacman -S git curl zsh # Arch/Mnjaro
+sudo apt-get install git curl zsh # Debian/Ubuntu/Mint
+curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
 chsh -s $(which zsh)
 ~~~
 
-### Screen-shot
+Install config
 
-![](https://i.imgur.com/yHVgYZ7.png)
+~~~bash
+git clone https://github.com/Smirnov-O/dotfiles
+cd dotfiles
+bash install.sh
+~~~
+
+Install plugin in vim
+
+~~~bash
+vim +source~/.vimrc +PlugInstall
+~~~
+
+
+
+### Screen-shot
 
 ---
 

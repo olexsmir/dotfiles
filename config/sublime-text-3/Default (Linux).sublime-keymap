@@ -1,0 +1,9 @@
+[
+    // Unbind's
+    { "keys": ["ctrl+b"], "command": null },
+    { "keys": ["ctrl+shift+x"],"command": null },
+    // Bind's
+    { "keys": ["ctrl+shift+`"], "command": "ecsstractor", "args": {"bem_nesting": true } },
+    { "keys": ["ctrl+`"], "command": "ecsstractor"},
+    { "keys": ["ctrl+b"], "command": "toggle_side_bar" }
+]
