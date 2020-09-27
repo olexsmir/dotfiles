@@ -1,0 +1,171 @@
+############# General #############
+# Bind $MOD(super) key
+set $mod Mod4
+# Font
+font monospace 10
+font pango:hack 10
+# Disable window title
+default_border pixel
+
+############ Autostart ############
+exec --no-startup-id exec picom -b
+exec --no-startup-id exec feh --bg-scale ~/Imager/wallpaper.png
+exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle"
+exec --no-startup-id exec org.telegram.desktop
+exec --no-startup-id exec discord
+
+############ Key bindings #########
+# Terminal
+bindsym $mod+Return exec kitty
+#bindsym $mod+Return exec konsole
+
+# Kill focus window
+bindsym $mod+q kill
+bindsym Mod1+F4 kill
+
+# Program/Exit louncher
+bindsym $mod+space exec "rofi -show drun -show-icons -font 'hack 12' -show cobi -disable-history"
+bindsym $mod+Escape exec "rofi -show power-menu -show-icons -font 'hack 12' -width 30 -lines 6 -disable-history -modi power-menu:~/.config/rofi/rofi-power-menu"
+# Restart i3wm
+bindsym $mod+Shift+r restart
+
+# Load program
+bindsym $mod+F1 exec dolphin
+bindsym $mod+F2 exec chromium
+bindsym $mod+b exec firefox
+bindsym $mod+F3 exec spotify
+bindsym $mod+F4 exec subl
+bindsym $mod+F5 exec notable
+
+# Floating window
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f focus mode_toggle
+
+# Fullscreen mode
+bindsym $mod+f fullscreen toggle
+bindsym $mod+F11 fullscreen toggle
+
+# Splits
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Change container layout(stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Scratchpad
+bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+grave scratchpad show
+
+######### Window preferens ########
+assign [class="(?i)konsole|kitty"] $ws1
+assign [class="(?i)chromium|firefox"] $ws2
+assign [class="(?i)subl|code|atom|typora|prepros"] $ws3
+assign [class="(?i)dolphin"] $ws4
+assign [class="(?i)telegram|discord"] $ws6
+assign [title="Notable|Simplenote"] $ws7
+assign [title="KeePassXC"] $ws8
+for_window [class="Spotify"] move to workspace $ws10
+
+##### Change containet focus ######
+# Vim like keys container
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Alternatively cursor keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+##### Move focused container ######
+# Vim like keys
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+colon move right
+
+# Alternatively cursor keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+############ Workspaces ###########
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+########### Resize mode ###########
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+    
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+############### Bar ###############
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#bar {
+#   status_command i3status
+#   position top 
+#}
+
+############## Colors #############
+# class                 border  backgr. text    indicator child_border
+client.focused          #268bd2 #268bd2 #ffffff #268bd2   #268bd2
+client.focused_inactive #000000 #000000 #ffffff #000000   #000000
+client.unfocused        #000000 #000000 #888888 #000000   #000000
+client.urgent           #000000 #000000 #ffffff #000000   #000000
+client.placeholder      #000000 #000000 #ffffff #000000   #000000
+client.background       #ffffff
