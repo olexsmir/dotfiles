@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-import sys
-import dbus
-import argparse
+# -*- encoding: utf-8 -*-
+import sys, dbus, argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument(

@@ -3,26 +3,25 @@ pseudo-transparency = true
 
 [colors]
 background = #002B36
-background-alt = #073642
+background-alt = #002236
 foreground = #dfdfdf
-foreground-alt = #fdf6e3
+foreground-alt = #f0f0f0
 primary = #268bd2
 secondary = #218DC8
 alert = #268bd2
-;alert = #dc322f
 
-############################################################################################################
-[bar/example]
-#monitor = ${env:MONITOR:HDMI-1}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bar/bar]
+;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 26
+height = 25
 fixed-center = true 
 locale = en_US.UTF-8 
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 2
 line-color = #f00
 
 padding-left = 0
@@ -30,41 +29,22 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-; Fonts
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
-font-3 = FontAwesome5Brands:style=Solid:size=7.5;2.5
 
-############################################################################################################
-; Modules position
-modules-left = i3 sp2 openweathermap-simple updates-pacman
-;modules-center = title
-modules-center = spotify
-modules-right = pulseaudio xkeyboard powermenu sp2 calendar
+;; Modules positii3on ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+modules-left =  i3 sp2 weather updates-pacman
+modules-center =
+modules-right = pulseaudio microphone backlight keyboard clipmenu wlan date time sp2
 tray-position = right
 tray-padding = 2
 tray-detached = false
-
-############################################################################################################
-# INCLUDE MODULES
-############################################################################################################
-[module/filesystem]
-type = internal/fs
-interval = 25
-mount-0 = /
-mount-1 = /home
-
-label-mounted = %{F#c38611} %mountpoint%: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-############################################################################################################
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [settings]
 screenchange-reload = true
 
-############################################################################################################
-; Used for top and bottom aligned bars
+
 [global/wm]
 margin-top = 5
 margin-bottom = 5
@@ -72,8 +52,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 wm-restack = i3
 
-############################################################################################################
-; i3wm workspace indicator
+
 [module/i3]
 type = internal/i3
 format = <label-state><label-mode>
@@ -82,33 +61,28 @@ wrapping-scroll = false
 label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
+
 label-focused = %icon%
-label-focused-background = 002873C0
+label-focused-background =  073642
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 1
-label-focused-underline = 018BFF
-#label-focused-overline = ${colors.primary}
+label-focused-underline = 268bd2
 
 label-unfocused = %icon%
-label-unfocused-background = 00255498
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 1
-#label-unfocused-underline = 255498
-#label-unfocused-overline = ${colors.background}
 
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-foreground = ${colors.foreground}
 label-urgent-padding = 1
 label-urgent-underline = ${colors.alert}
-#label-urgent-overline = ${colors.background}
 
 label-visible = %icon%
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.foreground}
 label-visible-padding = 1
 label-visible-underline = ${colors.background}
-#label-visible-overline = ${colors.background}
 
 ws-icon-0 = "1;1 "
 ws-icon-1 = "2;2 "
@@ -118,19 +92,46 @@ ws-icon-4 = "5;5 "
 ws-icon-5 = "6;6 "
 ws-icon-6 = "7;7 "
 ws-icon-7 = 8;8
-ws-icon-8 = "9;9 "
+ws-icon-8 = 9;9
 ws-icon-9 = "10;10 "
 ;label-separator = |
 
-############################################################################################################
-# PulseAudio- https://github.com/polybar/polybar/wiki/Module:-pulseaudio
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; INCLUDE MODULES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/backlight]
+type = internal/xbacklight
+format = <ramp> <label>
+label = %percentage%%
+ramp-0 = 
+
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+format-disconnected =  No sing
+ramp-signal-0 = 
+interval = 3.0
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+mount-1 = /home
+label-mounted = %{F#c38611} %mountpoint%: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+
 [module/pulseaudio]
 type = internal/pulseaudio
-format-volume = %{F#61a8ff}<ramp-volume><label-volume> 
-label-volume = %{F#61a8ff} %percentage%%
+format-volume = <ramp-volume> <label-volume> 
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
-label-muted = 
-label-muted-foreground = #e8793e
+label-muted = 
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -138,8 +139,7 @@ ramp-volume-2 = 
 ramp-volume-3 = 
 ramp-volume-4 = 
 
-############################################################################################################
-; CPU Loads - https://github.com/polybar/polybar/wiki/Module:-cpu
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -148,98 +148,81 @@ format-prefix-foreground = ${colors.foreground-alt}
 label = %{F#1ecb0b} CPU %percentage%% 
 
 
-############################################################################################################
-# Memmory(RAM) - https://github.com/polybar/polybar/wiki/Module:-memory
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
-#format-prefix-foreground = ${colors.foreground-alt}
-#format-overline = #61C07C
-#format-underline = #61C07C
 label = %{F#8d61ff}  MEM %percentage_used%%
 
-############################################################################################################
-; Weather
-[module/openweathermap-simple]
-type = custom/script
-exec = ~/.config/polybar/scripts/openweathermap-simple.sh
-interval = 60
-label-font = 3
 
-############################################################################################################
-; Sporify inkator - https://github.com/Jvanrhijn/polybar-spotify
+[module/weather]
+type = custom/script
+exec = python3 ~/.config/polybar/scripts/weather.py
+interval = 60
+label-font = 1
+
+
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
-line-size
 format-underline = #1db954
 
-############################################################################################################
-; Updates cheacker (pacman)
+
 [module/updates-pacman]
 type = custom/script
-exec = ~/.config/polybar/scripts/updates-pacman.sh
-interval = 600
+exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
+interval = 60
 
-############################################################################################################
-; Keyboard layout - https://github.com/polybar/polybar/wiki/Module:-xkeyboard
-[module/xkeyboard]
+
+[module/keyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
 label-NAME-maxlen = 10
 format-prefix = ""
 label-layout =  %layout%
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = 2B7DBC
-label-indicator-overline = 2B7DBC
-label-indicator-underline = 2B7DBC
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+blacklist-2= caps lock
 
-############################################################################################################
-; Battery - https://github.com/polybar/polybar/wiki/Module:-battery
-[module/battery-combined-tlp]
+
+[module/microphone]
 type = custom/script
-exec = ~/.config/polybar/scripts/battery-combined-tlp.sh
-interval = 10
+label = %output:0:40:...%
+exec = ~/.config/polybar/scripts/microphone.sh  
+click-left = ~/.config/polybar/scripts/microphone.sh --click
+interval = 0
 
-############################################################################################################
-; Separator
+
 [module/sp2]
 type = custom/text
 content = "┇"
-; content-foreground = #93A1A1
 
-############################################################################################################
-; Calendar
-[module/calendar]
-type = custom/script
-exec = ~/.config/polybar/scripts/popup-calendar.sh
-interval = 5
-click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
 
-############################################################################################################
-# Date & time - https://github.com/polybar/polybar/wiki/Module:-date
 [module/date]
 type = internal/date
-interval = 1
-dqate =
-time =%{F#E0D9FF} %H:%M:%S 
-date-alt =%{F#E0D9FF} %a %e %B %Y
-time-alt = %H:%M
-format-prefix = 
-label = %date% %time%
+interval = 600
+date = %b %e
+label =  %date%
 
-############################################################################################################
-; Focus window name - https://github.com/polybar/polybar/wiki/Module:-xwindow
+
+[module/time]
+type = internal/date
+interval = 0
+time = %H:%M
+label =  %time%
+
+
 [module/title]
 type = internal/xwindow
 label = %{F#f0f0f0}%title:0:50:...%
 label-empty = Empty
 label-empty-foreground = #707880
 label-maxlen = 30
-label-padding = 0
+
+[module/clipmenu]
+type = custom/text
+content = ""
+click-left = "CM_LAUNCHER=rofi clipmenu"
+interval = 0

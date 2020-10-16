@@ -1,1 +1,4 @@
-rofi.theme: solarized
+rofi.theme: flat-solarized # solarized
+rofi.font: hack 12
+rofi.auto-select: false
+rofi.hide-scrollbar: true

@@ -3,39 +3,50 @@
 set $mod Mod4
 # Font
 font monospace 10
-font pango:hack 10
+font pango:JetBrains Mono 10
 # Disable window title
 default_border pixel
+new_float pixel
+# Borders
+hide_edge_borders smart
 
 ############ Autostart ############
 exec --no-startup-id exec picom -b
-exec --no-startup-id exec feh --bg-scale ~/Imager/wallpaper.png
+exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect <wifi-name> password <wifi-password> name net
+exec --no-startup-id exec redshift-gtk 
 exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle"
 exec --no-startup-id exec org.telegram.desktop
 exec --no-startup-id exec discord
+exec --no-startup-id exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id ecec clipmenud
 
 ############ Key bindings #########
 # Terminal
 bindsym $mod+Return exec kitty
-#bindsym $mod+Return exec konsole
+bindsym ctrl+Mod1+t exec kitty 
 
 # Kill focus window
 bindsym $mod+q kill
 bindsym Mod1+F4 kill
 
 # Program/Exit louncher
-bindsym $mod+space exec "rofi -show drun -show-icons -font 'hack 12' -show cobi -disable-history"
-bindsym $mod+Escape exec "rofi -show power-menu -show-icons -font 'hack 12' -width 30 -lines 6 -disable-history -modi power-menu:~/.config/rofi/rofi-power-menu"
+bindsym $mod+space exec "rofi -show drun -show cobi -show-icons"
+bindsym $mod+Escape exec "rofi -show power-menu -show-icons -width 30 -lines 6 -modi power-menu:~/.config/rofi/rofi-power-menu"
 # Restart i3wm
 bindsym $mod+Shift+r restart
 
+# Sceenshot
+bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
+
+# Clipboard menu
+bindsym $mod+c exec "CM_LAUNCHER=rofi clipmenu"
+
 # Load program
-bindsym $mod+F1 exec dolphin
+bindsym $mod+F1 exec kitty -T=Ranger_FM ranger
 bindsym $mod+F2 exec chromium
-bindsym $mod+b exec firefox
-bindsym $mod+F3 exec spotify
-bindsym $mod+F4 exec subl
-bindsym $mod+F5 exec notable
+bindsym $mod+F3 exec subl
+bindsym $mod+F4 exec notable
 
 # Floating window
 floating_modifier $mod
@@ -60,16 +71,21 @@ bindsym $mod+e layout toggle split
 
 # Scratchpad
 bindsym $mod+Shift+grave move scratchpad
-bindsym $mod+grave scratchpad show
+bindsym $mod+grave scratchpad show, floating disable
+
+# Move workspace on open window
+for_window [urgent=["lastet"]] focus
+focus_on_window_activation focus
 
 ######### Window preferens ########
-assign [class="(?i)konsole|kitty"] $ws1
+assign [class="(?i)kitty"] $ws1
 assign [class="(?i)chromium|firefox"] $ws2
-assign [class="(?i)subl|code|atom|typora|prepros"] $ws3
-assign [class="(?i)dolphin"] $ws4
+assign [class="(?i)subl|code|typora"] $ws3
+assign [class="(?i)thunar"] $ws4
+assign [title="Notable|Simplenote"] $ws5
 assign [class="(?i)telegram|discord"] $ws6
-assign [title="Notable|Simplenote"] $ws7
-assign [title="KeePassXC"] $ws8
+assign [title="KeePassXC"] $ws7
+for_window [title="Ranger_FM"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws10
 
 ##### Change containet focus ######
@@ -140,13 +156,13 @@ mode "resize" {
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
-    
+
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
-    
+
     # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -156,16 +172,12 @@ bindsym $mod+r mode "resize"
 
 ############### Bar ###############
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#bar {
-#   status_command i3status
-#   position top 
-#}
 
 ############## Colors #############
-# class                 border  backgr. text    indicator child_border
-client.focused          #268bd2 #268bd2 #ffffff #268bd2   #268bd2
-client.focused_inactive #000000 #000000 #ffffff #000000   #000000
-client.unfocused        #000000 #000000 #888888 #000000   #000000
-client.urgent           #000000 #000000 #ffffff #000000   #000000
-client.placeholder      #000000 #000000 #ffffff #000000   #000000
+# class                 border   backgr   text     indicator child_border
+client.focused          #268bd2  #268bd2  #ffffff  #268bd2   #268bd2
+client.focused_inactive #000000  #000000  #ffffff  #000000   #000000
+client.unfocused        #000000  #000000  #888888  #000000   #000000
+client.urgent           #000000  #000000  #ffffff  #000000   #000000
+client.placeholder      #000000  #000000  #ffffff  #000000   #000000
 client.background       #ffffff
