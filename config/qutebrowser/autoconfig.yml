@@ -1,0 +1,68 @@
+config_version: 2
+settings:
+  colors.completion.category.bg:
+    global: '#002b36'
+  colors.completion.category.border.bottom:
+    global: '#073642'
+  colors.completion.category.border.top:
+    global: '#073642'
+  colors.completion.even.bg:
+    global: '#073642'
+  colors.completion.fg:
+    global: '#ffffff'
+  colors.completion.item.selected.bg:
+    global: '#002b36'
+  colors.completion.item.selected.border.bottom:
+    global: '#002b36'
+  colors.completion.item.selected.border.top:
+    global: '#002b36'
+  colors.completion.item.selected.fg:
+    global: '#93a1a1'
+  colors.completion.odd.bg:
+    global: '#073642'
+  colors.completion.scrollbar.bg:
+    global: '#073642'
+  colors.completion.scrollbar.fg:
+    global: '#002b36'
+  colors.statusbar.caret.bg:
+    global: '#002b36'
+  colors.statusbar.command.bg:
+    global: '#002b36'
+  colors.statusbar.insert.bg:
+    global: '#002b36'
+  colors.statusbar.normal.bg:
+    global: '#002b36'
+  colors.statusbar.passthrough.bg:
+    global: '#002b36'
+  colors.statusbar.private.bg:
+    global: '#6c71c4'
+  colors.statusbar.url.error.fg:
+    global: '#dc322f'
+  colors.statusbar.url.fg:
+    global: '#2aa198'
+  colors.statusbar.url.success.http.fg:
+    global: '#2aa198'
+  colors.statusbar.url.success.https.fg:
+    global: '#2aa198'
+  colors.tabs.bar.bg:
+    global: '#073642'
+  colors.tabs.even.bg:
+    global: '#073642'
+  colors.tabs.indicator.error:
+    global: '#dc322f'
+  colors.tabs.indicator.start:
+    global: '#002b36'
+  colors.tabs.indicator.stop:
+    global: '#002b36'
+  colors.tabs.indicator.system:
+    global: rgb
+  colors.tabs.odd.bg:
+    global: '#073642'
+  colors.tabs.selected.even.bg:
+    global: '#002b36'
+  colors.tabs.selected.even.fg:
+    global: '#073642'
+  colors.tabs.selected.odd.bg:
+    global: '#002b36'
+  colors.tabs.selected.odd.fg:
+    global: '#073642'
