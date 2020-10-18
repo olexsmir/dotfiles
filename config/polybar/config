@@ -33,10 +33,10 @@ font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
 
-;; Modules positii3on ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Modules position ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;::;
 modules-left =  i3 sp2 weather updates-pacman
 modules-center =
-modules-right = pulseaudio microphone backlight keyboard clipmenu wlan date time sp2
+modules-right = pulseaudio microphone backlight keyboard clipmenu wifi-signal date time sp2
 tray-position = right
 tray-padding = 2
 tray-detached = false
@@ -106,13 +106,20 @@ label = %percentage%%
 ramp-0 = 
 
 
-[module/wlan]
+[module/wifi-name]
 type = internal/network
 interface = wlp3s0
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 format-disconnected =  No sing
 ramp-signal-0 = 
+interval = 3.0
+
+
+[module/wifi-signal]
+type = custom/script
+label =  %output:%%
+exec = ~/.config/polybar/scripts/wifi-signal.sh
 interval = 3.0
 
 
