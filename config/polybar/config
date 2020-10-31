@@ -2,30 +2,40 @@
 pseudo-transparency = true
 
 [colors]
-background = #002B36
-background-alt = #002236
-foreground = #dfdfdf
-foreground-alt = #f0f0f0
-primary = #268bd2
-secondary = #218DC8
-alert = #268bd2
+; Solarized ========
+;background = #002B36
+;foreground = #dfdfdf
+;secondary = #073642
+;alert = #268bd2
+
+; Nord ============
+background = #2E3440
+foreground = #ECEFF4
+secondary = #434C5E
+alert = #88C0D0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[bar/bar]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/i3bar]
 width = 100%
-height = 25
-fixed-center = true 
-locale = en_US.UTF-8 
+height = 20
+
+fixed-center = true
+;override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
-line-color = #f00
+line-color = #000000
 
-padding-left = 0
-padding-right = 0
+padding-left = 2
+padding-right = 2
+
+radius = 6.0
+border-left-size = 0.2%
+border-top-size = 0.2%
+border-right-size = 0.2%
+
 module-margin-left = 1
 module-margin-right = 1
 
@@ -33,25 +43,16 @@ font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
 
-;; Modules position ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;::;
-modules-left =  i3 sp2 weather updates-pacman
-modules-center =
-modules-right = pulseaudio microphone backlight keyboard clipmenu wifi-signal date time sp2
-tray-position = right
-tray-padding = 2
-tray-detached = false
+modules-left =  i3 weather title
+modules-right = keyboard pulseaudio backlight wifi-signal time
+tray-position = center
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [settings]
 screenchange-reload = true
 
-
 [global/wm]
-margin-top = 5
-margin-bottom = 5
-cursor-click = pointer
-cursor-scroll = ns-resize
 wm-restack = i3
-
 
 [module/i3]
 type = internal/i3
@@ -60,13 +61,13 @@ index-sort = true
 wrapping-scroll = false
 label-mode-padding = 1
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.secondary}
 
 label-focused = %icon%
-label-focused-background =  073642
+label-focused-background =  ${colors.secondary}
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 1
-label-focused-underline = 268bd2
+label-focused-underline = ${colors.alert}
 
 label-unfocused = %icon%
 label-unfocused-foreground = ${colors.foreground}
@@ -128,9 +129,9 @@ type = internal/fs
 interval = 25
 mount-0 = /
 mount-1 = /home
-label-mounted = %{F#c38611} %mountpoint%: %percentage_used%%
+label-mounted =  %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-foreground = ${colors.foreground}
 
 
 [module/pulseaudio]
@@ -151,15 +152,15 @@ ramp-volume-4 = 
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %{F#1ecb0b} CPU %percentage%% 
+format-prefix-foreground = ${colors.foreground}
+label =  CPU %percentage%% 
 
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
-label = %{F#8d61ff}  MEM %percentage_used%%
+label =  MEM %percentage_used%%
 
 
 [module/weather]
@@ -174,8 +175,8 @@ type = custom/script
 interval = 1
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
-format-underline = #1db954
-
+format-underline = ${colors.alert}
+2
 
 [module/updates-pacman]
 type = custom/script
@@ -223,10 +224,11 @@ label =  %time%
 
 [module/title]
 type = internal/xwindow
-label = %{F#f0f0f0}%title:0:50:...%
+label = %title:0:50:...%
 label-empty = Empty
 label-empty-foreground = #707880
-label-maxlen = 30
+label-maxlen = 50
+
 
 [module/clipmenu]
 type = custom/text

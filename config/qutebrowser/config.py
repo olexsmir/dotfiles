@@ -1,11 +1,10 @@
 ## Generall
-c.url.start_pages = ["https://www.google.com"]    # Start page
-config.load_autoconfig()                          # Load
+c.url.start_pages = ["https://start.duckduckgo.com"]    # Start page
+config.load_autoconfig()
+c.completion.shrink = True
 
-c.downloads.location.directory = '/home/sasha/Загрузки'     # Download folder
+c.downloads.location.directory = '/home/sasha/Downloads'    # Download folder
 c.tabs.show = 'multiple'                                    # When to show the tab bar. [always, never, multiple ,switching]
-
-config.set("colors.webpage.darkmode.enabled", True)                 # Dark mode on all site
 
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')  # Accept to cookie
 config.set('content.cookies.accept', 'all', 'devtools://*')         # Accept to cookie
@@ -18,7 +17,6 @@ config.set('content.javascript.enabled', True, 'devtools://*')        # Enable J
 config.set('content.javascript.enabled', True, 'chrome://*/*')        # Enable JavaScript
 config.set('content.javascript.enabled', True, 'qute://*/*')          # Enable JavaScript
 
-
 ## User agent
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://accounts.google.com/*')
@@ -29,23 +27,8 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko
 
 ## Search engines which can be used via the address bar.
 c.url.searchengines = {
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'archw': 'https://wiki.archlinux.org/?search={}',
-    'google': 'https://www.google.com/search?q={}',
-    'reddi': 'https://www.reddit.com/r/{}'
+    'DEFAULT': 'https://www.google.com/search?q={}',
+    'ddg': 'https://duckduckgo.com/?q={}',
+    'arw': 'https://wiki.archlinux.org/?search={}',
+    'rdd': 'https://www.reddit.com/r/{}'
 }
-
-
-## Aiases
-c.aliases = {
-    'q': 'quit',
-    'w': 'session-save',
-    'wq': 'quit --save'
-}
-
-## Tabs
-c.tabs.position = "bottom"
-c.completion.shrink = True
-
-
-

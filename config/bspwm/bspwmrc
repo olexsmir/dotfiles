@@ -1,0 +1,40 @@
+#! /bin/sh
+
+###### Auto start #####
+setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
+sxhkd &
+nmcli radio wifi on; nmcli device wifi connect Pechenka password 24032006 name net &
+picom -b &
+polybar test &
+feh --randomize --bg-scale ~/Изображения/Walpapper/* &
+# redshift-gtk &
+
+
+###### BSPWM #####
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+#bspc config border_radius                8
+bspc config border_width                  2
+bspc config window_gap                    10
+bspc config top_padding                   20
+bspc config bottom_padding                0
+bspc config left_padding                  0
+bspc config right_padding                 0
+bspc config single_monocle                false
+bspc config click_to_focus                true
+bspc config split_ratio                   0.50
+bspc config borderless_monocle            true
+bspc config gapless_monocle               true
+bspc config focus_by_distance             true
+bspc config focus_follows_pointer         true
+bspc config history_aware_focus           true 
+bspc config remove_disabled_monitors      true
+bspc config merge_overlapping_monitors    true
+bspc config pointer_modifier              mod4
+bspc config pointer_action1               move
+bspc config pointer_action2               resize_side
+bspc config pointer_action3               resize_corner
+
+####### Rules ######
+bspc rule -a Thunar desktop='^4'
+bspc rule -a Qutebrowser desktop='^2'

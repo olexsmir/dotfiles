@@ -8,7 +8,7 @@ CITY = "Horodnytsya,UA"
 try:
     JSON = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&lang=EN&&units=metric&appid={API_KEY}").json()
 except Exception as e:
-    print("No connection")
+    print("No connection ")
 
 try:
     if JSON['weather'][0]['main'] == "Clear": print("", int(JSON["main"]["temp"]),"°С")

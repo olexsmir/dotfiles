@@ -24,6 +24,20 @@ settings:
     global: '#073642'
   colors.completion.scrollbar.fg:
     global: '#002b36'
+  colors.downloads.bar.bg:
+    global: '#002b36'
+  colors.downloads.error.bg:
+    global: '#dc322f'
+  colors.downloads.start.bg:
+    global: '#268bd2'
+  colors.downloads.stop.bg:
+    global: '#619100'
+  colors.messages.info.bg:
+    global: '#002b36'
+  colors.messages.info.border:
+    global: '#002b36'
+  colors.messages.warning.border:
+    global: '#002b36'
   colors.statusbar.caret.bg:
     global: '#002b36'
   colors.statusbar.command.bg:
@@ -54,8 +68,6 @@ settings:
     global: '#002b36'
   colors.tabs.indicator.stop:
     global: '#002b36'
-  colors.tabs.indicator.system:
-    global: rgb
   colors.tabs.odd.bg:
     global: '#073642'
   colors.tabs.selected.even.bg:
@@ -66,3 +78,11 @@ settings:
     global: '#002b36'
   colors.tabs.selected.odd.fg:
     global: '#073642'
+  colors.webpage.bg:
+    global: white
+  colors.webpage.darkmode.enabled:
+    global: false
+  downloads.position:
+    global: bottom
+  tabs.position:
+    global: top

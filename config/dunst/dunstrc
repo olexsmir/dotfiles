@@ -30,12 +30,6 @@
     width = 0
     color = "#000000"
 
-[shortcuts]
-    close = mod4+m
-    close_all = mod4+shift+m
-    history = mod4+n
-    context = mod4+shift+i
-
 [urgency_low]
     background = "#002B36"
     foreground = "#dfdfdf"

@@ -7,8 +7,8 @@ __walpappers: [Dropbox](https://www.dropbox.com/s/yx7tsplowtyih7f/walpapper.zip?
 curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) && chsh -s $(which zsh)
 git clone https://github.com/Smirnov-O/zsh-simple-colors ~/.oh-my-zsh/custom/themes
 
-sudo pacman -S i3-wm polybar dunst rofi picom feh redshift \
-kitty ranger htop bash zsh git vim neofetch scrot clipboard yay \
+sudo pacman -S i3-wm bspwm polybar dunst rofi picom feh nitrogen redshift task \
+kitty ranger htop bash zsh git vim neofetch scrot clipboard yay bash zsh \
 ttf-font-awesome ttf-jetbrains-mono ttf-hack
 yay -S ttf-weather-icons
 ~~~
@@ -16,17 +16,20 @@ yay -S ttf-weather-icons
 ### Packages
 | Name                                                                     | Description       |
 | ------------------------------------------------------------------------ | ----------------- |
-| `i3-wm`                                                                  | Window Manager    |
+| `i3-wm`, `bspwm`                                                         | Window Manager    |
 | `polybar`                                                                | Panel             |
 | `dunst`                                                                  | Notify manager    |
 | `rofi`                                                                   | Program loncher   |
 | `picom`                                                                  | Compositor        |
-| `feh`                                                                    | Setting wallpaper |
+| `qutebrowser`                                                            | Browser           |
+| `feh`, `nitrogen`                                                        | Setting wallpaper |
 | `kitty`                                                                  | Terminal          |
 | `ranger`                                                                 | File manager      |
 | `htop`                                                                   | System motitor    |
 | `yay`                                                                    | AUR helper        |
 | `redshift`                                                               | Night light       |
+| `zsh`, `bash`                                                            | Shell             |
+| `task`                                                                   | Task manager      |
 | `ttf-font-awesome`, `ttf-jetbrains-mono`, `ttf-weather-icons` `ttf-hack` | Font              |
 | `arc-gtk-theme`                                                          | GTK theme         |
 | `papirus-icon-theme`                                                     | Icon theme        |

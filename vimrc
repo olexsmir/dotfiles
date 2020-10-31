@@ -1,10 +1,6 @@
 call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
-    Plug 'flazz/vim-colorschemes'
-    Plug 'itchyny/lightline.vim'
-    Plug'junegunn/goyo.vim'
-    Plug 'pangloss/vim-javascript', {'for': 'js'}
-    Plug 'mattn/emmet-vim', {'for': 'html'}
+    Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 set nocompatible    " be iMproved
@@ -24,7 +20,7 @@ set encoding=utf-8  " Use utf-8 encoding
 
 set fileencodings=utf8,cp1251
 
-"set cursorline      " The line with the cursor will be highlighted
+set cursorline      " The line with the cursor will be highlighted
 set wrap            " Line wrappingv
 set linebreak       " Line wrappingv
 
@@ -56,20 +52,10 @@ set smartindent
 set visualbell t_vb=    " Mute Vim
 
 " ColoerCheme
+set termguicolors
 set background=dark
-colorscheme OceanicNext
-
-" Lightline
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
-let g:dcrpc_autostart = 1
-
-
-" Goyo
-let g:goyo_width = 125
-let g:goyo_height = '100%'
-
+let ayucolor="mirage"
+colorscheme ayu
 
 """"""""""
 " MAPING "

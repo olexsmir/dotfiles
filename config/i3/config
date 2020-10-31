@@ -1,12 +1,17 @@
 ############# General #############
 # Bind $MOD(super) key
 set $mod Mod4
+set $alt Mod1
+floating_modifier $mod
+
 # Font
 font monospace 10
 font pango:JetBrains Mono 10
+
 # Disable window title
 default_border pixel
 new_float pixel
+
 # Borders
 hide_edge_borders smart
 
@@ -14,24 +19,33 @@ hide_edge_borders smart
 exec --no-startup-id exec picom -b
 exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect <wifi-name> password <wifi-password> name net
 exec --no-startup-id exec redshift-gtk 
-exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle"
+exec --no-startup-id exec nitrogen
+exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
-exec --no-startup-id exec discord
-exec --no-startup-id exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id ecec clipmenud
+#exec --no-startup-id exec discord
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ############ Key bindings #########
-# Terminal
+
+# Open terminal
 bindsym $mod+Return exec kitty
-bindsym ctrl+Mod1+t exec kitty 
+bindsym $mod+ctrl+Return exec kitty -T=Terminal-floating
+
+# Window switcher
+bindsym $mod+Tab exec "rofi -show window -show-icons"
+bindsym $alt+Tab exec "rofi -show window -show-icons"
 
 # Kill focus window
 bindsym $mod+q kill
-bindsym Mod1+F4 kill
 
 # Program/Exit louncher
 bindsym $mod+space exec "rofi -show drun -show cobi -show-icons"
-bindsym $mod+Escape exec "rofi -show power-menu -show-icons -width 30 -lines 6 -modi power-menu:~/.config/rofi/rofi-power-menu"
+bindsym $mod+Escape exec "rofi -show power-menu -width 30 -lines 6 -modi power-menu:~/.config/rofi/rofi-power-menu"
+
+bindsym $mod+$alt+u exec ~/.script/dmenu/dmenu-config-edit.sh
+bindsym $mod+$alt+i exec "rofi-keepassxc -d ~/Документы/text.kdbx"
+
 # Restart i3wm
 bindsym $mod+Shift+r restart
 
@@ -42,16 +56,19 @@ bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%
 # Clipboard menu
 bindsym $mod+c exec "CM_LAUNCHER=rofi clipmenu"
 
+# Volume
+bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
+bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -5%"
+bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
+
 # Load program
 bindsym $mod+F1 exec kitty -T=Ranger_FM ranger
-bindsym $mod+F2 exec chromium
+bindsym $mod+F2 exec qutebrowser
 bindsym $mod+F3 exec subl
 bindsym $mod+F4 exec notable
 
 # Floating window
-floating_modifier $mod
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+Shift+f focus mode_toggle
 
 # Fullscreen mode
 bindsym $mod+f fullscreen toggle
@@ -73,45 +90,46 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+grave move scratchpad
 bindsym $mod+grave scratchpad show, floating disable
 
-# Move workspace on open window
-for_window [urgent=["lastet"]] focus
-focus_on_window_activation focus
-
 ######### Window preferens ########
-assign [class="(?i)kitty"] $ws1
-assign [class="(?i)chromium|firefox"] $ws2
-assign [class="(?i)subl|code|typora"] $ws3
-assign [class="(?i)thunar"] $ws4
-assign [title="Notable|Simplenote"] $ws5
-assign [class="(?i)telegram|discord"] $ws6
+#assign [class="(?i)kitty"] $ws1
+#assign [class="(?i)chromium|firefox|qutebrowser"] $ws2
+#assign [class="(?i)subl|code|emacs"] $ws3
+#assign [class="(?i)thunar"] $ws4
+#assign [title="Notable|Simplenote"] $ws5
+assign [class="(?i)telegram|discord|viber"] $ws6
 assign [title="KeePassXC"] $ws7
-for_window [title="Ranger_FM"] move to workspace $ws4
-for_window [class="Spotify"] move to workspace $ws10
+#for_window [title="Ranger_FM"] move to workspace $ws4
+#for_window [class="Spotify"] move to workspace $ws10
+for_window [class="(?i)mousepad"] floating enable
+for_window [title="Terminal-floating"] floating enable
+for_window [class="(?i)lxappearance|qt5ct"] floating enable
+for_window [class="(?i)nitrogen"] floating enable
+#for_window [class=""]
+for_window [urgent="lastet"] focus
+#focus_on_window_activation focus
+
+############## Gaps ###############
+gaps inner 4
+#smart_gaps on
 
 ##### Change containet focus ######
-# Vim like keys container
 bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# Alternatively cursor keys
 bindsym $mod+Left focus left
+bindsym $mod+k focus down
 bindsym $mod+Down focus down
+bindsym $mod+l focus up
 bindsym $mod+Up focus up
+bindsym $mod+semicolon focus right
 bindsym $mod+Right focus right
 
 ##### Move focused container ######
-# Vim like keys
 bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+colon move right
-
-# Alternatively cursor keys
 bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+k move down
 bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+l move up
 bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+colon move right
 bindsym $mod+Shift+Right move right
 
 ############ Workspaces ###########
@@ -126,7 +144,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Switch workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -138,7 +155,6 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -151,30 +167,38 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 ########### Resize mode ###########
+bindsym $mod+$alt+r mode "resize"
+bindsym $mod+$alt+g mode "gaps"
+
 mode "resize" {
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
 }
-bindsym $mod+r mode "resize"
+mode "gaps" {
+        bindsym plus  gaps inner current plus 2
+        bindsym minus gaps inner current minus 2
+        bindsym 0     gaps inner current set 0
 
-############### Bar ###############
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+        bindsym Shift+plus  gaps inner all plus 4
+        bindsym Shift+minus gaps inner all minus 4
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 ############## Colors #############
-# class                 border   backgr   text     indicator child_border
+# Class                 Border   Backgr   Text     Indicator Child_border
 client.focused          #268bd2  #268bd2  #ffffff  #268bd2   #268bd2
 client.focused_inactive #000000  #000000  #ffffff  #000000   #000000
 client.unfocused        #000000  #000000  #888888  #000000   #000000

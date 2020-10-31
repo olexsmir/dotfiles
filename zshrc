@@ -1,8 +1,8 @@
 export ZSH="/home/sasha/.oh-my-zsh"
 #export ZSH="/root/.oh-my-zsh"
 
-ZSH_THEME="simple" 
 #ZSH_THEME="bureau"
+ZSH_THEME="cyan-simple"
 
 # Uncomment the following line to use case-sensitive completion.
 #CASE_SENSITIVE="true"
@@ -26,24 +26,28 @@ export UPDATE_ZSH_DAYS=24
 #DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-#DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 #ENABLE_CORRECTION="true"
 
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
 # Uncomment the following line to display red dots whilst waiting for completion.
 #COMPLETION_WAITING_DOTS="true"
 
-plugins=(pip python git tmux docker)
+# Plugins
+plugins=(pip python sudo git tmux taskwarrior) 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export EDITOR="vim"
 
-# You may need to manually set your language environment
-#export LANG=en_US.UTF-8
+echo "$(tput bold)Welcome:$(tput sgr0) $(whoami)"
+source ~/.env
+source ~/.profile
 
 alias cls='clear'
-alias sl='ls'
-alias cd..='cd ..'
 alias :q="exit"
 alias py='python3'

@@ -1,0 +1,15 @@
+# Taskwarrior program configuration file.
+
+### Files ###
+data.location=~/.task
+
+### Color theme ###
+include /usr/share/doc/task/rc/solarized-dark-256.theme
+
+### Variables ###
+weekstart=monday
+search.case.sensitive=no
+active.indicator=↪
+report.list.columns=id,project,priority,description,entry.age
+alias.burndown=burndown.daily
+default.command=ready limit:page
