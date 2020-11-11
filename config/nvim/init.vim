@@ -2,7 +2,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'overcache/NeoSolarized'
     Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
-    
+    Plug 'iamcco/markdown-preview.nvim'
+    Plug 'dhruvasagar/vim-table-mode'
+
     " File manger & seacher
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
@@ -10,12 +12,15 @@ call plug#begin('~/.vim/plugged')
     " Completion
     Plug 'jiangmiao/auto-pairs'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'easymotion/vim-easymotion'
 
     " Language support
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
     Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'vim-python/python-syntax', { 'for': 'python' }
-    Plug 'mattn/emmet-vim', { 'for': 'html' }
+    Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
+    Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+    Plug 'dag/vim-fish', { 'for': 'fish' }
     Plug 'ap/vim-css-color'
 call plug#end()
 
@@ -64,7 +69,12 @@ set termguicolors
 set background=dark
 colorscheme NeoSolarized
 
-"""" Plugins """"
+
+" =======================
+" == Plugins configure ==
+" =======================
+
+"""""""" Lightline """""""" 
 let g:lightline = {
 \ 'colorscheme': 'selenized_dark',
 \ 'active': {
@@ -74,26 +84,48 @@ let g:lightline = {
 \              [ 'percent' ],
 \              [ 'filename', 'fileencoding', 'filetype' ] ]
 \ }, }
+"""""""""""""""""""""""""""
 
+""""""""" Nerdtree """"""""
+map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="right"
+let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
 let NERDTreeMinimalUI = 1
 let NERDTreeShowLineNumbers=0
+"""""""""""""""""""""""""""
 
+"""""""""""" Coc """"""""""
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"""""""""""""""""""""""""""
 
-"""" Maping """"
+"""""""" Easymotion """""""
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap f <Plug>(easymotion-s)
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap F <Plug>(easymotion-overwin-line)
+nmap s <Plug>(easymotion-overwin-f2)
+"""""""""""""""""""""""""""
+
+"""" MarkDown Previw """"""
+let g:mkdp_path_to_chrome = "/usr/bin/qutebrowser"
+"""""""""""""""""""""""""""
+
+" ============
+" == Maping ==
+" ============
 let mapleader=","
+
+" Change window
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-map <C-b> :NERDTreeToggle<CR>
-
+" Tab's
 noremap <C-Tab> :tabnext<CR>
 noremap <C-S-Tab> :tabprev<CR>
-
 noremap <C-n> :tabnew<CR>
 noremap <C-t> :tabnew<CR>
 noremap <C-w> :tabclose<CR>
@@ -106,6 +138,5 @@ noremap <leader>6 :tabn 6<CR>
 noremap <leader>7 :tabn 7<CR>
 noremap <leader>8 :tabn 8<CR>
 noremap <leader>9 :tabn 9<CR>
-
 noremap <leader>n :bnext<CR>
 noremap <leader>p :bprev<CR>

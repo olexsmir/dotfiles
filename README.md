@@ -4,11 +4,12 @@ __walpappers: [Dropbox](https://www.dropbox.com/s/yx7tsplowtyih7f/walpapper.zip?
 
 **Preparing for installation**
 ~~~bash
-curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) && chsh -s $(which zsh)
+curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 git clone https://github.com/Smirnov-O/zsh-simple-colors ~/.oh-my-zsh/custom/themes
+curl -L https://get.oh-my.fish | fish
 
 sudo pacman -S i3-wm bspwm polybar dunst rofi picom feh nitrogen redshift task \
-kitty ranger htop bash zsh git vim neofetch scrot clipboard yay bash zsh \
+kitty ranger htop bash zsh git vim neofetch scrot clipboard yay bash zsh python-tldextract \
 ttf-font-awesome ttf-jetbrains-mono ttf-hack
 yay -S ttf-weather-icons
 ~~~
@@ -16,7 +17,7 @@ yay -S ttf-weather-icons
 ### Packages
 | Name                                                                     | Description       |
 | ------------------------------------------------------------------------ | ----------------- |
-| `i3-wm`, `bspwm`                                                         | Window Manager    |
+| `i3-wm`, `qtile`                                                | Window Manager    |
 | `polybar`                                                                | Panel             |
 | `dunst`                                                                  | Notify manager    |
 | `rofi`                                                                   | Program loncher   |
@@ -34,4 +35,3 @@ yay -S ttf-weather-icons
 | `arc-gtk-theme`                                                          | GTK theme         |
 | `papirus-icon-theme`                                                     | Icon theme        |
 | `scrot`                                                                  | Screenshot tool   |
-| `clipmenu`                                                               | Clipboard manager |

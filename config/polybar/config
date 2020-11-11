@@ -3,38 +3,39 @@ pseudo-transparency = true
 
 [colors]
 ; Solarized ========
-;background = #002B36
-;foreground = #dfdfdf
-;secondary = #073642
-;alert = #268bd2
+background = #002B36
+foreground = #dfdfdf
+secondary = #073642
+alert = #268bd2
 
-; Nord ============
-background = #2E3440
-foreground = #ECEFF4
-secondary = #434C5E
-alert = #88C0D0
+; Nord =============
+;background = #2E3440
+;foreground = #ECEFF4
+;secondary = #434C5E
+;alert = #88C0D0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [bar/i3bar]
 width = 100%
-height = 20
+height = 24
 
 fixed-center = true
+wm-restack = i3
 ;override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 3 
 line-color = #000000
 
-padding-left = 2
-padding-right = 2
+#padding-left = 2
+#padding-right = 2
 
-radius = 6.0
-border-left-size = 0.2%
-border-top-size = 0.2%
-border-right-size = 0.2%
+#radius = 6.0
+#border-left-size = 0.2%
+#border-top-size = 0.2%
+#border-right-size = 0.2%
 
 module-margin-left = 1
 module-margin-right = 1
@@ -43,25 +44,22 @@ font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
 
-modules-left =  i3 weather title
+modules-left =  i3 weather
 modules-right = keyboard pulseaudio backlight wifi-signal time
-tray-position = center
+tray-position = right
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [settings]
 screenchange-reload = true
 
-[global/wm]
-wm-restack = i3
-
 [module/i3]
 type = internal/i3
 format = <label-state><label-mode>
-index-sort = true
+index-sort = false
 wrapping-scroll = false
 label-mode-padding = 1
 label-mode-foreground = #000
-label-mode-background = ${colors.secondary}
+label-mode-background = ${colors.alert}
 
 label-focused = %icon%
 label-focused-background =  ${colors.secondary}
@@ -92,10 +90,8 @@ ws-icon-3 = "4;4 "
 ws-icon-4 = "5;5 "
 ws-icon-5 = "6;6 "
 ws-icon-6 = "7;7 "
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9
-ws-icon-9 = "10;10 "
-;label-separator = |
+ws-icon-7 = "8;8 "
+ws-icon-8 = "9;9 "
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INCLUDE MODULES
@@ -112,7 +108,7 @@ type = internal/network
 interface = wlp3s0
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
-format-disconnected =  No sing
+format-disconnected =   No sig
 ramp-signal-0 = 
 interval = 3.0
 
@@ -176,7 +172,6 @@ interval = 1
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 format-underline = ${colors.alert}
-2
 
 [module/updates-pacman]
 type = custom/script
@@ -225,8 +220,7 @@ label =  %time%
 [module/title]
 type = internal/xwindow
 label = %title:0:50:...%
-label-empty = Empty
-label-empty-foreground = #707880
+label-empty =
 label-maxlen = 50
 
 

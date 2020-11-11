@@ -17,9 +17,9 @@ hide_edge_borders smart
 
 ############ Autostart ############
 exec --no-startup-id exec picom -b
-exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect <wifi-name> password <wifi-password> name net
+exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect Pechenka password 24032006 name net
 exec --no-startup-id exec redshift-gtk 
-exec --no-startup-id exec nitrogen
+exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
 #exec --no-startup-id exec discord
@@ -27,59 +27,50 @@ exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-ag
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ############ Key bindings #########
-
-# Open terminal
+# Kill focus window
+bindsym $mod+q kill
+# Restart i3wm
+bindsym $mod+Shift+r restart
+# Terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+ctrl+Return exec kitty -T=Terminal-floating
+# Focus the parent container
+bindsym $mod+a focus parent
+# Floating window
+bindsym $mod+Shift+space floating toggle
+# Fullscreen mode
+bindsym $mod+F11 fullscreen toggle
 
-# Window switcher
+# Load program
+bindsym $mod+F2 exec qutebrowser
+
+
+
+# Program/Exit/Window switch/Clipboard
+bindsym $mod+r exec "i3-dmenu-desktop --dmenu='dmenu -h 24 -p Run'"
+bindsym $mod+space exec "rofi -show drun -show cobi -show-icons"
+bindsym $mod+Shift+Return exec "dmenu_run -h 24 -p Run"
+
+bindsym $mod+Escape exec "~/.script/dmenu/dmenu-power.sh"
+bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
+bindsym $mod+Control+i exec passmenu -h 24 -p Passwords
+
 bindsym $mod+Tab exec "rofi -show window -show-icons"
 bindsym $alt+Tab exec "rofi -show window -show-icons"
 
-# Kill focus window
-bindsym $mod+q kill
-
-# Program/Exit louncher
-bindsym $mod+space exec "rofi -show drun -show cobi -show-icons"
-bindsym $mod+Escape exec "rofi -show power-menu -width 30 -lines 6 -modi power-menu:~/.config/rofi/rofi-power-menu"
-
-bindsym $mod+$alt+u exec ~/.script/dmenu/dmenu-config-edit.sh
-bindsym $mod+$alt+i exec "rofi-keepassxc -d ~/Документы/text.kdbx"
-
-# Restart i3wm
-bindsym $mod+Shift+r restart
+bindsym $mod+c exec "CM_LAUNCHER=rofi clipmenu"
 
 # Sceenshot
 bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
 bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
-
-# Clipboard menu
-bindsym $mod+c exec "CM_LAUNCHER=rofi clipmenu"
 
 # Volume
 bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
 bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -5%"
 bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
 
-# Load program
-bindsym $mod+F1 exec kitty -T=Ranger_FM ranger
-bindsym $mod+F2 exec qutebrowser
-bindsym $mod+F3 exec subl
-bindsym $mod+F4 exec notable
-
-# Floating window
-bindsym $mod+Shift+space floating toggle
-
-# Fullscreen mode
-bindsym $mod+f fullscreen toggle
-bindsym $mod+F11 fullscreen toggle
-
 # Splits
-bindsym $mod+h split h
+bindsym $mod+b split h
 bindsym $mod+v split v
-
-# Focus the parent container
-bindsym $mod+a focus parent
 
 # Change container layout(stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -91,7 +82,7 @@ bindsym $mod+Shift+grave move scratchpad
 bindsym $mod+grave scratchpad show, floating disable
 
 ######### Window preferens ########
-#assign [class="(?i)kitty"] $ws1
+assign [class="Kitty"] $ws1
 #assign [class="(?i)chromium|firefox|qutebrowser"] $ws2
 #assign [class="(?i)subl|code|emacs"] $ws3
 #assign [class="(?i)thunar"] $ws4
@@ -99,7 +90,7 @@ bindsym $mod+grave scratchpad show, floating disable
 assign [class="(?i)telegram|discord|viber"] $ws6
 assign [title="KeePassXC"] $ws7
 #for_window [title="Ranger_FM"] move to workspace $ws4
-#for_window [class="Spotify"] move to workspace $ws10
+#for_window [class="Spotify"] move to workspace $ws9
 for_window [class="(?i)mousepad"] floating enable
 for_window [title="Terminal-floating"] floating enable
 for_window [class="(?i)lxappearance|qt5ct"] floating enable
@@ -109,27 +100,27 @@ for_window [urgent="lastet"] focus
 #focus_on_window_activation focus
 
 ############## Gaps ###############
-gaps inner 4
+#gaps inner 4
 #smart_gaps on
 
 ##### Change containet focus ######
-bindsym $mod+j focus left
+bindsym $mod+h focus left
 bindsym $mod+Left focus left
-bindsym $mod+k focus down
+bindsym $mod+j focus down
 bindsym $mod+Down focus down
-bindsym $mod+l focus up
+bindsym $mod+k focus up
 bindsym $mod+Up focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+l focus right
 bindsym $mod+Right focus right
 
 ##### Move focused container ######
-bindsym $mod+Shift+j move left
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+k move down
+bindsym $mod+Shift+j move down
 bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+l move up
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+colon move right
+bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Right move right
 
 ############ Workspaces ###########
@@ -142,7 +133,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -153,7 +143,6 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -164,11 +153,10 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
 
 ########### Resize mode ###########
-bindsym $mod+$alt+r mode "resize"
-bindsym $mod+$alt+g mode "gaps"
+bindsym $mod+Control+r mode "resize"
+bindsym $mod+Control+g mode "gaps"
 
 mode "resize" {
     bindsym j resize shrink width 10 px or 10 ppt
