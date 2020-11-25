@@ -1,4 +1,4 @@
-rofi.theme: flat-solarized # solarized
-rofi.font: hack 12
+rofi.theme: solarized
+rofi.font: Jetbarains Mono 12
 rofi.auto-select: false
 rofi.hide-scrollbar: true

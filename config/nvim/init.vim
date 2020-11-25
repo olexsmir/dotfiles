@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
     " Language support
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
     Plug 'PotatoesMaster/i3-vim-syntax'
+    Plug 'kovetskiy/sxhkd-vim'
     Plug 'vim-python/python-syntax', { 'for': 'python' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
@@ -84,6 +85,7 @@ let g:lightline = {
 \              [ 'percent' ],
 \              [ 'filename', 'fileencoding', 'filetype' ] ]
 \ }, }
+set noshowmode
 """""""""""""""""""""""""""
 
 """"""""" Nerdtree """"""""
@@ -115,6 +117,8 @@ let g:mkdp_path_to_chrome = "/usr/bin/qutebrowser"
 " ============
 " == Maping ==
 " ============
+imap ii <Esc>
+
 let mapleader=","
 
 " Change window

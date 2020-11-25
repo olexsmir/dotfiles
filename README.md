@@ -1,12 +1,10 @@
 # Dotfiles
-![Screen](https://i.imgur.com/OFEhWem.png)
 __walpappers: [Dropbox](https://www.dropbox.com/s/yx7tsplowtyih7f/walpapper.zip?dl=0) [Google Drive](https://drive.google.com/file/d/1PX76sgLygXfo9qhsdN3cCsFuFuNKpM1y/view?usp=sharing)__
 
 **Preparing for installation**
 ~~~bash
-curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-git clone https://github.com/Smirnov-O/zsh-simple-colors ~/.oh-my-zsh/custom/themes
-curl -L https://get.oh-my.fish | fish
+git clone https://github.com/Smirnov-O/dotfiles
+make install
 
 sudo pacman -S i3-wm bspwm polybar dunst rofi picom feh nitrogen redshift task \
 kitty ranger htop bash zsh git vim neofetch scrot clipboard yay bash zsh python-tldextract \
@@ -17,7 +15,7 @@ yay -S ttf-weather-icons
 ### Packages
 | Name                                                                     | Description       |
 | ------------------------------------------------------------------------ | ----------------- |
-| `i3-wm`, `qtile`                                                | Window Manager    |
+| `i3-wm`, `qtile`                                                         | Window Manager    |
 | `polybar`                                                                | Panel             |
 | `dunst`                                                                  | Notify manager    |
 | `rofi`                                                                   | Program loncher   |

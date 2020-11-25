@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+
 set -e
 set -u
 
 all=(shutdown reboot suspend hibernate logout lockscreen)
-show=("${all[@]}")
 
+show=("${all[@]}")
 
 declare -A texts
 texts[lockscreen]="lock screen"
@@ -34,7 +35,6 @@ actions[reboot]="systemctl reboot"
 actions[shutdown]="systemctl poweroff"
 
 confirmations=(reboot shutdown logout)
-
 dryrun=false
 showsymbols=true
 

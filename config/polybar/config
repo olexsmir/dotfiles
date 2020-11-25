@@ -21,21 +21,12 @@ height = 24
 
 fixed-center = true
 wm-restack = i3
-;override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3 
 line-color = #000000
-
-#padding-left = 2
-#padding-right = 2
-
-#radius = 6.0
-#border-left-size = 0.2%
-#border-top-size = 0.2%
-#border-right-size = 0.2%
 
 module-margin-left = 1
 module-margin-right = 1
@@ -44,14 +35,11 @@ font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
 
-modules-left =  i3 weather
-modules-right = keyboard pulseaudio backlight wifi-signal time
+modules-left =  i3 title 
+modules-right = keyboard pulseaudio backlight wifi-signal date time
 tray-position = right
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[settings]
-screenchange-reload = true
-
 [module/i3]
 type = internal/i3
 format = <label-state><label-mode>
@@ -120,16 +108,6 @@ exec = ~/.config/polybar/scripts/wifi-signal.sh
 interval = 3.0
 
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-mount-0 = /
-mount-1 = /home
-label-mounted =  %mountpoint%: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground}
-
-
 [module/pulseaudio]
 type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume> 
@@ -144,34 +122,12 @@ ramp-volume-3 = 
 ramp-volume-4 = 
 
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-label =  CPU %percentage%% 
-
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-label =  MEM %percentage_used%%
-
-
 [module/weather]
 type = custom/script
 exec = python3 ~/.config/polybar/scripts/weather.py
 interval = 60
 label-font = 1
 
-
-[module/spotify]
-type = custom/script
-interval = 1
-format = <label>
-exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
-format-underline = ${colors.alert}
 
 [module/updates-pacman]
 type = custom/script
@@ -188,14 +144,6 @@ label-layout =  %layout%
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 blacklist-2= caps lock
-
-
-[module/microphone]
-type = custom/script
-label = %output:0:40:...%
-exec = ~/.config/polybar/scripts/microphone.sh  
-click-left = ~/.config/polybar/scripts/microphone.sh --click
-interval = 0
 
 
 [module/sp2]
@@ -219,13 +167,7 @@ label =  %time%
 
 [module/title]
 type = internal/xwindow
-label = %title:0:50:...%
+label = %title%
+format-padding = 4
 label-empty =
 label-maxlen = 50
-
-
-[module/clipmenu]
-type = custom/text
-content = ""
-click-left = "CM_LAUNCHER=rofi clipmenu"
-interval = 0

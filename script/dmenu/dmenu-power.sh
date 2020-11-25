@@ -4,8 +4,7 @@ declare options=("Shut Down
 Reboot
 Logout
 Suspend
-Lock Screen
-quit")
+Lock Screen")
 
 choice=$(echo -e "${options[@]}" | dmenu -h 24 -p 'Power')
 
@@ -42,6 +41,5 @@ case "$choice" in
             "No") exec exit 0 ;;
         esac
     ;;
-	quit) echo "Program terminated." && exit 1 ;;
     *) exit 1 ;;
 esac

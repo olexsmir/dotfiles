@@ -4,7 +4,7 @@ set fish_greeting
 
 ### VARIABLES ###
 export EDITOR="nvim"
-export VISUAL="emacsclient -c -a emacs"
+export VISUAL="nvim"
 export TERM="kitty"
 
 ### ALIASES ###

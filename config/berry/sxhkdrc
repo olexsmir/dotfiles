@@ -1,0 +1,55 @@
+# ------ Apps ------- #
+super + F2
+	firefox
+super + Return
+	kitty
+super + shift + Escape
+	xkill
+super + alt + t
+	kitty nvim .todo
+
+# ------ Volum ------ #
+super + equal 
+	pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
+super + minus
+	pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
+super + shift + minus
+	pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+
+# ------ Menus ------ #
+super + shift + Return
+	rofi -show drun
+super + Escape
+	~/.script/dmenu/dmenu-power.sh
+super + control + i
+	passmenu -h 24 -p Passwoeds
+super + control + u
+	~/.script/dmenu/dmenu-config-edit.sh
+super + control + o
+	~/.script/dmenu/dmenu-sysmon.sh
+
+# ------ Berry ------ #
+super + {h, j, k, l}
+    berryc window_move {-50 0, 0 50, 0 -50, 50 0}
+super + shift +  {h, j, k, l}
+    berryc window_resize {-50 0, 0 50, 0 -50, 50 0}
+super + {1-9}
+    berryc switch_workspace {0-9}
+super + shift + {1-9}
+    berryc send_to_workspace {0-9}
+super + m
+    berryc window_monocle
+super +  p
+    berryc snap_right
+super + o 
+    berryc snap_left
+super + n
+    berryc toggle_decorations
+super + Tab
+    berryc cycle_focus
+super + q
+    berryc window_close
+super + c
+    berryc window_center
+~button1
+    berryc pointer_focus

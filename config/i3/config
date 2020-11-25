@@ -15,74 +15,75 @@ new_float pixel
 # Borders
 hide_edge_borders smart
 
+############ Variables ###########
+set $terminal kitty
+set $browser qutebrowser
+
 ############ Autostart ############
 exec --no-startup-id exec picom -b
-exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect Pechenka password 24032006 name net
+exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect <wifi_name> password <wifi_password> name net
 exec --no-startup-id exec redshift-gtk 
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
+exec --no-startup-id exec conky
 #exec --no-startup-id exec discord
-exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id $HOME/.config/i3/bar.sh
 
 ############ Key bindings #########
+
+### I3
 # Kill focus window
 bindsym $mod+q kill
 # Restart i3wm
-bindsym $mod+Shift+r restart
-# Terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Control+r restart
 # Focus the parent container
 bindsym $mod+a focus parent
 # Floating window
 bindsym $mod+Shift+space floating toggle
 # Fullscreen mode
 bindsym $mod+F11 fullscreen toggle
-
-# Load program
-bindsym $mod+F2 exec qutebrowser
-
-
-
-# Program/Exit/Window switch/Clipboard
-bindsym $mod+r exec "i3-dmenu-desktop --dmenu='dmenu -h 24 -p Run'"
-bindsym $mod+space exec "rofi -show drun -show cobi -show-icons"
-bindsym $mod+Shift+Return exec "dmenu_run -h 24 -p Run"
-
-bindsym $mod+Escape exec "~/.script/dmenu/dmenu-power.sh"
-bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
-bindsym $mod+Control+i exec passmenu -h 24 -p Passwords
-
-bindsym $mod+Tab exec "rofi -show window -show-icons"
-bindsym $alt+Tab exec "rofi -show window -show-icons"
-
-bindsym $mod+c exec "CM_LAUNCHER=rofi clipmenu"
-
-# Sceenshot
-bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
-bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
-
-# Volume
-bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
-bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -5%"
-bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
-
 # Splits
 bindsym $mod+b split h
 bindsym $mod+v split v
-
 # Change container layout(stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 # Scratchpad
 bindsym $mod+Shift+grave move scratchpad
 bindsym $mod+grave scratchpad show, floating disable
 
+
+### Launchers
+bindsym $mod+p exec "dmenu_run -h 24 -p Run"
+bindsym $mod+Shift+Return exec "rofi -show drun -drun-display-format '{name}'"
+bindsym $mod+Escape exec "~/.script/dmenu/dmenu-power.sh"
+bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
+bindsym $mod+Control+i exec passmenu -h 24 -p Passwords
+bindsym $alt+Tab exec "rofi -show window -show-icons"
+
+
+### Applications
+bindsym $mod+Return exec $terminal
+bindsym $mod+F2 exec $browser 
+bindsym --release $mod+Shift+Escape exec xkill
+bindsym $mod+$alt+t exec $terminal -e "nvim ~/.todo"
+
+
+### Sceenshot
+bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
+
+
+### Volume
+bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
+bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -5%"
+bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
+
 ######### Window preferens ########
-assign [class="Kitty"] $ws1
+#assign [class="Kitty"] $ws1
 #assign [class="(?i)chromium|firefox|qutebrowser"] $ws2
 #assign [class="(?i)subl|code|emacs"] $ws3
 #assign [class="(?i)thunar"] $ws4
@@ -92,11 +93,9 @@ assign [title="KeePassXC"] $ws7
 #for_window [title="Ranger_FM"] move to workspace $ws4
 #for_window [class="Spotify"] move to workspace $ws9
 for_window [class="(?i)mousepad"] floating enable
-for_window [title="Terminal-floating"] floating enable
 for_window [class="(?i)lxappearance|qt5ct"] floating enable
 for_window [class="(?i)nitrogen"] floating enable
-#for_window [class=""]
-for_window [urgent="lastet"] focus
+for_window [class="(?i)virtualbox"] floating enable
 #focus_on_window_activation focus
 
 ############## Gaps ###############
@@ -154,15 +153,14 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
-########### Resize mode ###########
-bindsym $mod+Control+r mode "resize"
-bindsym $mod+Control+g mode "gaps"
-
+############## Modes ##############
+bindsym $mod+r mode "resize"
+bindsym $mod+g mode "gaps"
 mode "resize" {
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
@@ -171,6 +169,7 @@ mode "resize" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 mode "gaps" {
         bindsym plus  gaps inner current plus 2
@@ -183,13 +182,14 @@ mode "gaps" {
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym $mod+g mode "default"
 }
 
 ############## Colors #############
-# Class                 Border   Backgr   Text     Indicator Child_border
-client.focused          #268bd2  #268bd2  #ffffff  #268bd2   #268bd2
-client.focused_inactive #000000  #000000  #ffffff  #000000   #000000
-client.unfocused        #000000  #000000  #888888  #000000   #000000
-client.urgent           #000000  #000000  #ffffff  #000000   #000000
+#        Class          Border   Backgr   Text     Indicator Child_border
+client.focused          #268bd2  #268bd2  #dfdfdf  #268bd2   #268bd2
+client.focused_inactive #002b36  #002b36  #dfdfdf  #002b36   #002b36
+client.unfocused        #002b36  #002b36  #586e75  #002b36   #002b36
+client.urgent           #002b36  #002b36  #ffffff  #002b36   #002b36
 client.placeholder      #000000  #000000  #ffffff  #000000   #000000
 client.background       #ffffff
