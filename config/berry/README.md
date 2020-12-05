@@ -1,16 +1,40 @@
 # [Berry](https://berrywm.org)
 
 ![Seceenshot](screen.png)
+-------------------------
 
----
+Install `sxhkd` 
+~~~bash
+sudo pacman -S sxhkd
+~~~
+
+Install `berry` from source
+~~~bash
+sudo pacman -S libx11 libxft libxinerama
+git clone https://github.com/JLErvin/berry
+cd berry
+make && sudo make install
+~~~
+
+Add berry in lightdm
+~~~bash
+sudo cat <<EOF > /usr/share/xsessions/berry.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Name=berry
+Comment=berry - a small window manager
+Exec=berry
+Type=XSession
+EOF
+~~~
 
 ### Autostart
 ~~~bash
+setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 sxhkd -c ~/.config/berry/sxhkdrc &
-picom -b &
 ~/.config/berry/polybar/bar.sh &
 nitrogen --restore &
-setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
+picom -b &
 ~~~
 
 ### Keybindings

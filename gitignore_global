@@ -1,42 +1,28 @@
-## IDE ##
-.vscode/*
-.idea/*
+# IDE
+.idea
+*~
+~*
 
-## OS: Linux, Windows, Mac OS X ##
-.directory
-.Trash-*
-Thumbs.db
-ehthumbs.db
-*.stackdump
-[Dd]esktop.ini
-.DS_Store
+# Logs and databases
+*.log
+*.sqlite
+*.db
+*.todo
 
-## Python files ##
+# Temp files
+*.pyc
+*.swp
+.*.swp
+*.swo
 __pycache__
-venv
-env
-*.py[cod]
-dist/
 
-## Golang ##
-/Godeps/
+# Packages
+*.7z
+*.rar
+*.tar
+*.bz2
+
+# Compiled siurce
+*.so
 *.out
-
-## JS/TS ##
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-node_modules/
-jspm_packages/
-typings/
-.npm
-dist/
-
-## db ##
-db.sqlite3
-db.db
-
-## DotEnv ##
-.env
-.dotenv
-.env.sh
+*.bin

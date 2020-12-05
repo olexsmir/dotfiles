@@ -1,147 +1,276 @@
-from typing import List
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
+from typing import List
 import os
 
 
-auto_fullscreen = True
-focus_on_window_activation = "smart"
+mod = "mod4"
+alt = "mod1"
+terminal = "kitty"
+browser = "firefox"
+user = "sasha"
+color = [
+    "#FFFFFF",  # 0. Text color
+    "#CED4DA",  # 1. Unfocus color
+    "#008DCD",  # 2. Focus color
+    "#262A2B",  # 3. Panel color
+    "#51AFEF",  # 4. Text color
+    "#C678DD",  # 5. Text color
+    "#FF6C6B",  # 6. Text color
+    "#ECBE7B",  # 7. Text color
+    "#98BE65",  # 8. Text color
+]
 
-mod = "mod4"            # Set mod key(Super/Win)
-terminal = "kitty"      # Set terminal
-
-colors = [["#292d3e", "#292d3e"], # panel background
-          ["#434758", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#ff1151", "#ff1151"], # border line color for current tab
-          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
-          ["#668bd7", "#668bd7"], # color for the even widgets
-          ["#e1acff", "#e1acff"]] # window name
 
 @hook.subscribe.startup_once
 def autostart(): os.system("~/.config/qtile/autostart.sh")
 
 
 keys = [
-    ## Window control
-    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "k", lazy.layout.down(), desc="Move focus down in stack pane"),
-    Key([mod], "j", lazy.layout.up(), desc="Move focus up in stack pane"),
-    Key([mod, "control"], "k", lazy.layout.shuffle_down(), desc="Move window down in current stack"),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up(), desc="Move window up in current stack"),
+    # Applications
+    Key([mod], "Return",
+        lazy.spawn(terminal), 
+        desc="Launch terminal"
+    ),
+    Key([mod], "F2",
+        lazy.spawn(browser),
+        desc="Launch browser"
+    ),
+    Key([mod, alt], "t",
+        lazy.spawn(f"{terminal} -e \"nvim /home/{user}/.todo\""),
+        desc="Open ~/.todo file in nvim"
+    ),
 
-    ## Layout changer
-    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod, "shift"], "space", lazy.prev_layout(), desc="Toggle between layouts"),
-   
-    ## Launch program
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "F1", lazy.spawn(terminal + " -e ranger"), desc="Launch ranger"),
-    Key([mod], "F2", lazy.spawn("qutebrowser"), desc="Launch qutebrowser"),
+    # Window control 
+    Key([mod], "q", 
+        lazy.window.kill(),
+        desc="Kill focused window"
+    ),
+    Key([mod], "h", 
+        lazy.layout.left(), 
+        desc="Change focus window(left)"
+    ),
+    Key([mod], "j",
+        lazy.layout.down(), 
+        desc="Change focus window(down)"
+    ),
+    Key([mod], "k", 
+        lazy.layout.up(),
+        desc="Change focus window(up)"
+    ),
+    Key([mod], "l",
+        lazy.layout.right(),
+        desc="Change focus window(right)"
+    ),
+    Key([mod, "shift"], "h",
+        lazy.layout.shuffle_left(),
+        desc="Move focus window(left)"
+    ),
+    Key([mod, "shift"], "j",
+        lazy.layout.shuffle_down(),
+        desc="Move focus window(down)"
+    ),
+    Key([mod, "shift"], "k",
+        lazy.layout.shuffle_up(),
+        desc="Move focus window(up)"
+    ),
+    Key([mod, "shift"], "l",
+        lazy.layout.shuffle_right(),
+        desc="Move focus window(right)"
+    ),
+    Key([mod, "control"], "h",
+        lazy.layout.grow_left(),
+        #lazy.layout.grow()),
+        desc="Resize focus window(left)"
+    ),
+    Key([mod, "control"], "j",
+        lazy.layout.grow_down(),
+        desc="Resize focus window(down)"
+    ),
+    Key([mod, "control"], "k",
+        lazy.layout.grow_up(),
+        desc="Resize focus window(up)"
+    ),
+    Key([mod, "control"], "l",
+        lazy.layout.grow_right(),
+        #lazy.layout.shrink()
+        desc="Resize focus window(right)"
+    ),
 
-    ## Program launcher(Dmenu or default)
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget" ),
-    Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -h 24 -p Run:"), desc="Demnu program launcher" ),
-    Key([mod, "control"], "u", lazy.spawn("sh ~/.script/dmenu/dmenu-config-edit.sh"), desc="Dmenu config menu"),
-    Key([mod, "control"], "i", lazy.spawn("passmenu -h 24"), desc="Dmenu password menu"),
+    # Layout
+    Key([mod], "Tab",
+        lazy.next_layout(),
+        desc="Toggle between layouts"
+    ),
+    Key([mod], "space",
+        lazy.layout.next(),
+        desc="Switch window focus to other pane(s) of stack"
+    ),
+    Key([mod, "shift"], "space",
+        lazy.layout.rotate(),
+        desc="Swap panes of split stack"
+    ),
 
-    ## Qtile
-    Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
-    
-    ## Keyboard
-    Key(["mod1"], "Shift_L", lazy.widget['keyboardlayout'].next_keyboard(), desc="Switch keyboard layout"),
+    # Volume
+    Key([mod], "equal",
+        lazy.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +2%"),
+        desc="Plus 2% volume"
+    ),
+    Key([mod], "minus",
+        lazy.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -2%"),
+        desc="Minus 2% volume"
+    ),
+    Key([mod, "shift"], "minus",
+        lazy.spawn("pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"),
+        desc="Mute volume"
+    ),
+
+    # Menus(dmenu & rofi) 
+    Key([mod, "shift"], "Return",
+        lazy.spawn("rofi -show drun -drun-display-format \"{name}\""),
+        desc="(Rofi) Program launcher"
+    ),
+    Key([mod],"Escape",
+        lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-power.sh"),
+        desc="Power menu"
+    ),
+    Key([mod, "control"], "i",
+        lazy.spawn("passmenu -h 24 -p Password"),
+        desc="Dmenu password menu"
+    ),
+    Key([mod, "control"], "u",
+        lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-config-edit.sh"),
+        desc="Config editor"
+    ),
+    Key([mod, "control"], "o",
+        lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-sysmon.sh"),
+        desc="Choice system monitor"
+    ),
+
+    # Screenhot
+    Key([], "Print",
+        lazy.spawn(f"scrot -s /home/{user}/$(date +%Y-%m-%d-%H-%M-%S).png"),
+        desc="Create screenhot(scrot -s)"
+    ),
+    Key(["shift"], "Print",
+        lazy.spawn(f"scrot /home/{user}/$(date +%Y-%m-%d-%H-%M-%S).png"),
+        desc="Create screenhot full screen(scrot)"
+    ),
+
+    # Qtile
+    Key([mod, "control"], "r",
+        lazy.restart(),
+        desc="Restart qtile"
+    ),
+    Key([mod], "r",
+        lazy.spawncmd(),
+        desc="Spawn a command using a prompt widget"
+    ),
 ]
 
+# Workspaces name, keys
 group_names = [("term", {'layout': 'monadtall'}),
-               ("www", {'layout': 'monadtall'}),
-               ("dev", {'layout': 'monadtall'}),
-               ("sys", {'layout': 'monadtall'}),
-               ("note", {'layout': 'monadtall'}),
+               ("www",  {'layout': 'max'}),
+               ("dev",  {'layout': 'monadtall'}),
+               ("sys",  {'layout': 'monadtall'}),
+               ("doc",  {'layout': 'monadtall'}),
                ("chat", {'layout': 'monadtall'}),
                ("pass", {'layout': 'monadtall'}),
-               ("gft", {'layout': 'max'}),
-               ("flo", {'layout': 'floating'})
+               ("mus",  {'layout': 'max'}),
+               ("flo",  {'layout': 'monadtall'})
 ]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
+# Window layout(s)
 layout_theme = {
-    "border_width": 2,
-    "margin": 0,
-    "border_focus": "e1acff",
-    "border_normal": "1D2330"
+    "border_width": 1,
+    "margin": 3,
+    "border_focus": color[2],
+    "border_normal": color[1],
+    "font": "Jatbrains Mono"
 }
 layouts = [
-    layout.Max(**layout_theme),
-    #layout.Stack(num_stacks=2, **layout_theme),
-    #layout.Bsp(**layout_theme),
-    layout.MonadTall(**layout_theme),
-    layout.Floating(**layout_theme)
+    layout.Max(),
+    # layout.Stack(num_stacks=2, **layout_theme),
+    # layout.Bsp(**layout_theme),
+    layout.Columns(**layout_theme),
+    # layout.Matrix(),
+    # layout.MonadTall(**layout_theme),
+    # layout.Floating(**layout_theme),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(**layout_theme),
+    # layout.TreeTab(), 
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
 ]
 
+# Panel
 widget_defaults = dict(
-    font='sans',
+    font='Jatbrains Mono',
     fontsize=12,
     padding=5,
+    foreground=color[0],
+    background=color[3],
 )
 extension_defaults = widget_defaults.copy()
-
-screens = [
-    Screen(
-        top=bar.Bar([
-                widget.GroupBox(
-                       borderwidth = 0,
-                       active = colors[2],
-                       inactive = colors[2],
-                       rounded = False,
-                       highlight_color = colors[1],
-                       highlight_method = "line",
-                       this_current_screen_border = colors[3],
-                       this_screen_border = colors [4],
-                       other_current_screen_border = colors[0],
-                       other_screen_border = colors[0],
-                       foreground = colors[2],
-                       background = colors[0]
-                ),
-                widget.Prompt( padding = 10, foreground = colors[3], background = colors[0] ),
-                widget.WindowName( foreground = colors[6], background = colors[0], padding = 7 ),
-                widget.Systray( background = colors[0], padding = 3 ),
-                widget.CurrentLayout(foreground = colors[2], background = colors[0]),
-                widget.Net( interface = "wlp3s0", format = '{down}↓↑{up}', foreground = colors[2], background = colors[0], padding = 0 ),
-                widget.TextBox(padding=3, background=colors[0]),
-                widget.TextBox( text="", foreground = colors[2], background = colors[0], padding=3 ),
-                widget.Volume( update_interval = 0.2, foreground = colors[2], background = colors[0], padding=0 ),
-                widget.TextBox(padding=3, background=colors[0]),
-                widget.TextBox( text="", foreground=colors[2], background=colors[0], padding=0 ),
-                widget.KeyboardLayout( configured_keyboards=['us','ru', 'ua'], display_map={ 'us': ' us', 'ru': ' ru', 'ua': ' ua' }, update_interval=0.2, foreground=colors[2], background=colors[0], padding=2 ),
-                widget.TextBox(padding=3, background=colors[0]),
-                widget.TextBox( text = "", background = colors[0], foreground = colors[2], padding = 0 ),
-                widget.Clock( format='%H:%M:%S', foreground=colors[2], background=colors[0], padding=2 )
-            ],
-            22,
-        ),
+screens = [Screen(top=bar.Bar([
+    widget.GroupBox(
+        active=color[0],
+        inactive=color[1],
+        rounded=False,
+        disable_drag=True,
+        highlight_color=color[2],
+        highlight_method="block",
+        this_current_screen_border=color[2],
+        this_screen_border=color[3],
+        foreground=color[0],
     ),
-]
+    widget.Prompt(foreground=color[0]),
+    widget.WindowName(foreground=color[0]),
+    widget.KeyboardKbdd(
+        foreground=color[5],
+        configured_keyboards=['us', 'ru', 'ua'],
+        update_interval=0,
+        fmt=" {}",
+    ),
+    widget.CurrentLayout(
+        foreground=color[8]
+    ),
+    widget.Volume(
+        foreground=color[6],
+        fmt=" {}",
+    ),
+    widget.Net(
+        interface="wlp3s0",
+        format='{down}↓↑{up}',
+        foreground=color[7],
+    ),
+    widget.Systray(),
+    widget.Clock(
+        format=' %H:%M',
+        foreground=color[4]
+    ),
+    widget.Clock(
+        format=" %d.%m.%Y",
+        foreground=color[4]
+    )], 24 # Panel size 
+))]
 
-# Drag floating layouts.
+# Drag floating layouts
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
+    Drag([mod],  "Button1", lazy.window.set_position(), start=lazy.window.get_position()),
+    Drag([mod],  "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
-
-
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
+dgroups_app_rules = []
+main = None
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -154,14 +283,13 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'notification'},
     {'wmclass': 'splash'},
     {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+    {'wmclass': 'confirmreset'},
+    {'wmclass': 'makebranch'},
+    {'wmclass': 'maketag'},
+    {'wname':   'branchdialog'},
+    {'wname':   'pinentry'},
+    {'wmclass': 'ssh-askpass'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-
 wmname = "LG3D"

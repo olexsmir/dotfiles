@@ -1,24 +1,32 @@
 #!/bin/bash
-sxhkd -c ~/.config/berry/sxhkdrc &
-picom -b &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# ------ Autostart ------ #
 setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+sxhkd -c ~/.config/berry/sxhkdrc &
 ~/.config/berry/polybar/bar.sh &
 nitrogen --restore &
+picom -b &
+conky &
 
-berryc border_width       1
-berryc inner_border_width 1 
+
+# ------ Berry ------ #
+# Set decoration geometry
+berryc border_width       0
+berryc inner_border_width 1
 berryc title_height       0
-berryc top_gap            0 
+berryc top_gap            0
 
+# Set decoration colors
 berryc focus_color         073642
 berryc unfocus_color       002b36
 berryc inner_focus_color   268bd2
 berryc inner_unfocus_color 002b36
 berryc text_focus_color    ffffff
-berryc text_unfocus_color  efefef
+berryc text_unfocus_color  eeeeee
 
+# Other options
 berryc smart_place "true"
 berryc draw_text   "true"
-berryc edge_lock   "true"
-berryc set_font    "Jetbrains Mono"
+berryc edge_lock   "false"
+berryc set_font    "Dina-9"

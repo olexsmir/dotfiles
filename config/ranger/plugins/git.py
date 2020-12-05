@@ -3,19 +3,25 @@ from ranger.api.commands import Command
 
 
 class git(Command):
+
     commands = 'init status clone add rm restore commit remote push'.split()
 
+
     def execute(self):
+        # empty
         if not self.arg(1):
             return self.fm.notify("For commands check \"git help\"")
 
+        # help
         if self.arg(1) == "help":
             return self.fm.notify("Not done yet!", bad=True)
 
+        # init
         if self.arg(1) == self.commands[0]:
             subprocess.run(["git", "init", "--quiet"])
             return self.fm.notify("Repository initialized successefully")
 
+        # status
         if self.arg(1) == self.commands[1]:
             output = subprocess.check_output(["git", "status"]).decode()
 
@@ -24,6 +30,7 @@ class git(Command):
 
             return self.fm.edit_file('/tmp/gitplug-status')
 
+        # clone
         if self.arg(1) == self.commands[2]:
             if not self.arg(2):
                 return self.fm.notify("Missing url!", bad=True)
@@ -32,6 +39,7 @@ class git(Command):
                 subprocess.run(["git", "clone", self.arg(2), "--quiet"])
                 return self.fm.notify("Repository successfully cloned!")
 
+        # add
         if self.arg(1) == self.commands[3]:
             if not self.arg(2):
                 return self.fm.notify("Missing arguments! Usage :git add <file>", bad=True)
@@ -40,6 +48,7 @@ class git(Command):
                 subprocess.run(["git", "add", self.arg(2)])
                 return self.fm.notify("Successfully added files to branch!")
 
+        #rm
         if self.arg(1) == self.commands[4]:
             if not self.arg(2):
                 return self.fm.notify("Missing arguments! Usage :git rm <file>", bad=True)
@@ -48,6 +57,7 @@ class git(Command):
                 subprocess.run(["git", "rm", self.arg(2)])
                 return self.fm.notify("Successfully removed files from branch!")
 
+        # restore
         if self.arg(1) == self.commands[5]:
             if not self.arg(2):
                 return self.fm.notify("Missing arguments! Usage :git restore <file>", bad=True)
@@ -56,6 +66,7 @@ class git(Command):
                 subprocess.run(["git", "restore", "--staged", self.arg(2), "--quiet"])
                 return self.fm.notify("Successfully restored files!")
 
+        # commit
         if self.arg(1) == self.commands[6]:
             if not self.rest(2):
                 return self.fm.notify("Missing commit text", bad=True)
@@ -64,6 +75,7 @@ class git(Command):
                 subprocess.run(["git", "commit", "-m", self.rest(2), "--quiet"])
                 return self.fm.notify("Successfully commited!")
         
+        # remote
         if self.arg(1) == self.commands[7]:
             if not self.arg(2):
                 return self.fm.notify("Missing arguments! Use: git remote add/rm <name> <url>", bad=True)
@@ -88,6 +100,7 @@ class git(Command):
                     subprocess.run(["git", "remote", "rm", self.arg(3)])
                     return self.fm.notify("Remote successfully removed")
 
+        # push
         if self.arg(1) == self.commands[8]:
             if self.arg(2) == "-u" and self.arg(3) and self.arg(4):
                 subprocess.run(["git", "push", "--quiet", "-u", self.arg(3), self.arg(4)])

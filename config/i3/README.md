@@ -1,8 +1,13 @@
 # [i3](https://i3wm.org)
 
 ![Seceenshot](screen.png)
-
 ----
+
+### Install
+-----------
+~~~bash
+sudo pacman -S i3-gaps polybar
+~~~
 
 **Mod key:** `super(win)`
 **Font:** `monospace 10`, `JetBrains Mono 10`
@@ -10,12 +15,12 @@
 ### Auttostart
 --------------
 ~~~bash
-picom -b
 nmcli radio wifi on; nmcli device wifi connect <wifi_name> password <wifi_pass> name net
-redshift-gtk
-nitrogen --restore
 setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 org.telegram.desktop
+nitrogen --restore
+redshift-gtk
+picom -b
 ~~~
 
 ### Variables
@@ -23,8 +28,8 @@ org.telegram.desktop
 ~~~i3
 set $terminal kitty
 set $browser qutebwoser
+set $filemanager pcmanfm
 ~~~
-
 
 ### Keybindings
 ---------------

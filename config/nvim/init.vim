@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
     Plug 'overcache/NeoSolarized'
+    Plug 'ericbn/vim-solarized'
     Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
     Plug 'iamcco/markdown-preview.nvim'
@@ -16,12 +17,15 @@ call plug#begin('~/.vim/plugged')
 
     " Language support
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-    Plug 'PotatoesMaster/i3-vim-syntax'
-    Plug 'kovetskiy/sxhkd-vim'
+    Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
+    Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
+    Plug 'kovetskiy/sxhkd-vim', { 'for': 'sxhkd' }
     Plug 'vim-python/python-syntax', { 'for': 'python' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
     Plug 'dag/vim-fish', { 'for': 'fish' }
+    Plug 'ocaml/vim-ocaml', { 'for': 'ocaml' }
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     Plug 'ap/vim-css-color'
 call plug#end()
 
@@ -101,7 +105,12 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 """""""""""""""""""""""""""
 
-"""""""" Easymotion """""""
+""""""""" Markdown """"""""
+let g:vim_markdown_folding_disabled = 1
+"""""""""""""""""""""""""
+
+
+"""""" Easymotion """""""""
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 nmap f <Plug>(easymotion-s)
@@ -110,9 +119,7 @@ nmap F <Plug>(easymotion-overwin-line)
 nmap s <Plug>(easymotion-overwin-f2)
 """""""""""""""""""""""""""
 
-"""" MarkDown Previw """"""
-let g:mkdp_path_to_chrome = "/usr/bin/qutebrowser"
-"""""""""""""""""""""""""""
+
 
 " ============
 " == Maping ==
@@ -144,3 +151,6 @@ noremap <leader>8 :tabn 8<CR>
 noremap <leader>9 :tabn 9<CR>
 noremap <leader>n :bnext<CR>
 noremap <leader>p :bprev<CR>
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

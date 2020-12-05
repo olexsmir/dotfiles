@@ -96,3 +96,5 @@ class extract_to_dirs(Command):
             obj = CommandLoader(args=['aunpack'] + make_flags(f.path) + [f.path], descr=descr, read=True)
             obj.signal_bind('after', refresh)
             self.fm.loader.add(obj)
+
+

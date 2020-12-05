@@ -1,7 +1,7 @@
 # general
-c.url.start_pages = ["https://start.duckduckgo.com"]
+c.url.start_pages = ["about:blank"]
 config.set("colors.webpage.darkmode.enabled", True)
-c.downloads.location.directory = '/home/sasha/Загрузки'
+c.downloads.location.directory = '/home/sasha/Downloads'
 c.completion.shrink = True
 config.load_autoconfig()
 
@@ -12,7 +12,7 @@ c.downloads.position = "bottom"
 
 # alias, binds, search
 c.aliases = {'q':'quit', 'w':'session-save', 'wq':'quit --save', 'e':'open'} 
-config.bind('<l><p', 'spawn --userscript qute-pass')
+config.bind('<Ctrl-T>', 'open -t about:blank')
 c.url.searchengines = {
     'DEFAULT': 'https://www.google.com/search?q={}',
     'ddg': 'https://duckduckgo.com/?q={}',
@@ -60,9 +60,9 @@ c.colors.downloads.bar.bg = color01
 c.colors.downloads.error.bg = color06
 c.colors.downloads.start.bg = color03
 c.colors.downloads.stop.bg = color04
-#c.colors.messages.info.bg = color01
-#c.colors.messages.info.border = color01
-#c.colors.messages.warning.border = color01
+c.colors.messages.info.bg = color01
+c.colors.messages.info.border = color01
+c.colors.messages.warning.border = color01
 c.colors.statusbar.caret.bg = color01
 c.colors.statusbar.command.bg = color01
 c.colors.statusbar.insert.bg = color01

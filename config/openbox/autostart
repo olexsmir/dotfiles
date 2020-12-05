@@ -1,0 +1,7 @@
+tint2 &
+setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+nmcli radio wifi on; nmcli device wifi connect Pechenka password 24032006 name net &
+picom -b &
+nitrogen --restore &
+volumeicon &

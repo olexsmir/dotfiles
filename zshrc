@@ -1,5 +1,6 @@
 export ZSH="/home/sasha/.oh-my-zsh"
 source ~/.env
+source ~/.profile
 
 
 ### Oh my zsh ###
@@ -7,21 +8,27 @@ ZSH_THEME="cyan-simple"          # Set theme
 #CASE_SENSITIVE="true"           # Use case-sensitive completion.
 #HYPHEN_INSENSITIVE="true"       # Case-sensitive completion must be off.
 #DISABLE_AUTO_UPDATE="true"      # Disable bi-weekly auto-update checks.
-DISABLE_UPDATE_PROMPT="true"     # Automatically update without prompting.
-export UPDATE_ZSH_DAYS=13        # Change how often to auto-update.
+#DISABLE_UPDATE_PROMPT="true"    # Automatically update without prompting.
 #DISABLE_MAGIC_FUNCTIONS="true"  # If pasting URLs and other text is messed up.
 #DISABLE_LS_COLORS="true"        # Disable colors in ls.
-#DISABLE_AUTO_TITLE="true"       # Disable auto-setting terminal title.
+#DISABLE_AUTO_TITLE="true"        # Disable auto-setting terminal title.
 #ENABLE_CORRECTION="true"        # Enable command auto-correction.
 #COMPLETION_WAITING_DOTS="true"  # Display red dots whilst waiting for completion.
+export UPDATE_ZSH_DAYS=13        # Change how often to auto-update.
 export LANG=en_US.UTF-8          # Set locale
 
-plugins=(pip python sudo git taskwarrior)
+plugins=(pip python sudo heroku git taskwarrior)
 source $ZSH/oh-my-zsh.sh
+
+
+### Variables ###
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 ### Aliases ###
 alias cls="clear"
-alias :q
+alias :q="exit"
+alias tmux="tmux -2"
 
 alias ..="cd .."
 alias ...="cd ../.."

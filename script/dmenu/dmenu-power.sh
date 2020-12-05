@@ -6,12 +6,12 @@ Logout
 Suspend
 Lock Screen")
 
-choice=$(echo -e "${options[@]}" | dmenu -h 24 -p 'Power')
+choice=$(echo -e "${options[@]}" | dmenu -p 'Power' $@)
 
 case "$choice" in
     "Shut Down")
         declare opt=("Yes\nNo")
-        yesno=$(echo -e "${opt[@]}" | dmenu -h 24 -p 'Power')
+        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
             "Yes") exec systemctl poweroff ;;
             "No") exec exit 0 ;;
@@ -19,7 +19,7 @@ case "$choice" in
     ;;
     "Reboot")
         declare opt=("Yes\nNo")
-        yesno=$(echo -e "${opt[@]}" | dmenu -h 24 -p 'Power')
+        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
             "Yes") exec systemctl reboot ;;
             "No") exec exit 0 ;;
@@ -27,7 +27,7 @@ case "$choice" in
     ;;
     "Logout")
         declare opt=("Yes\nNo")
-        yesno=$(echo -e "${opt[@]}" | dmenu -h 24 -p 'Power')
+        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
             "Yes") exec loginctl terminate-session $XDG_SESSION_ID ;;
             "No") exec exit 0 ;;
@@ -35,7 +35,7 @@ case "$choice" in
     ;;
     "Lock Screen") 
         declare opt=("Yes\nNo")
-        yesno=$(echo -e "${opt[@]}" | dmenu -h 24 -p 'Power')
+        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
             "Yes") exec loginctl lock-session $XDG_SESSION_ID ;;
             "No") exec exit 0 ;;

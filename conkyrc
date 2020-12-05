@@ -13,7 +13,7 @@ conky.config = {
 	alignment = 'top_right',
 	gap_x = 40,
 	gap_y = 60,
-	minimum_height = 200,
+	minimum_height = 50,
 	minimum_width = 200,
 	maximum_width = 700,
 	border_inner_margin = 10,
@@ -37,7 +37,7 @@ conky.config = {
 	font = 'Jatbrains Mono',
 	max_text_width = 0,
 	max_user_text = 16384,
-	override_utf8_locale = false,
+	override_utf8_locale = true,
 	short_units = true,
 	top_name_width = 21,
 	top_name_verbose = false,
@@ -62,7 +62,7 @@ conky.config = {
 
 conky.text = [[
 ${voffset 10}${font Jatbrains Mono:weight=Bold:size=14}${color1}Todo:              ${font Jatbrains Mono:weight=Medium:size=10}${color2}<mod+alt+t>${font}
-${exec cat -n "$HOME/.todo" | fmt -s -w 50}\
+${font Jatbrains Mono:weight=Medium:size=10}${exec cat -n "$HOME/.todo" | fmt -s -w 66}\
 ${color1}
 ${font}
 ]]

@@ -32,7 +32,7 @@ font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 background = ${colors.background}
 foreground = ${colors.foreground}
-modules-center = t
+modules-left = t
 tray-position = center
 
 [module/backlight]

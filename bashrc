@@ -3,7 +3,6 @@ PS1='\e[36m\w\e[39m '
 
 export EDITOR='nvim'
 export VISUAL='emacsclient -c -a emacs'
-export TERM='kitty'
 
 alias cls='clear'
 alias ls='ls --color=auto'
