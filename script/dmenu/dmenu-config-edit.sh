@@ -1,5 +1,4 @@
 #!/bin/sh
-
 declare options=("i3
 berry
 qtile
@@ -8,22 +7,21 @@ polybar
 picom
 dunst
 qutebrowser
+taskwarrior
 tmux
 vim
-neovim
-kitty
-taskwarrior
-fish
-zsh")
+ranger
+term
+sh")
 
-choice=$(echo -e "${options[@]}" | dmenu -p 'Edit config file: ' $@)
+choice=$(echo -e "${options[@]}" | dmenu -p 'Edit config file' $@)
 case "$choice" in
 	i3) choice="$HOME/.config/i3/config" ;;
     qtile) 
         opt=$(echo -e "config.py\nautostart"|dmenu -p 'Qtile' $@)
         case "$opt" in
             "config.py") choice="$HOME/.config/qtile/config.py" ;;
-            "autostart") choice="$HOME/.config/qtile/autostart.sh" ;;
+            "autostart.sh") choice="$HOME/.config/qtile/autostart.sh" ;;
         esac
     ;;
     berry)
@@ -44,22 +42,46 @@ case "$choice" in
         esac
     ;;
 	picom) choice="$HOME/.config/picom.conf" ;;
-    tmux) choice="$HOME/.tmux.conf" ;;
 	polybar) choice="$HOME/.config/polybar/config" ;;
     qutebrowser)
-        why=$(echo -e "config.py\nquickmarks" | dmenu -h 24 -p 'Qutebrowser')
+        why=$(echo -e "config.py\nquickmarks" | dmenu -p 'Qutebrowser')
         case "$why" in
             "config.py") choice="$HOME/.config/qutebrowser/config.py" ;;
             "quickmarks") choice="$HOME/.config/qutebrowser/quickmarks" ;;
         esac
     ;;
-	vim) choice="$HOME/.vimrc" ;;
-    nvim) choice="$HOME/.config/nvim/init.vim" ;;
+    ranger)
+        why=$(echo -e "rc.conf\nrifle.conf")
+        case "$why" in
+            "rc.conf") choice="$HOME/.config/ranger/rc.conf" ;;
+            "rifle.conf") choice="$HOME/.config/ranger/rifle.conf" ;;
+        esac
+    ;;
+	vim) 
+        why=$(echo -e "nvim\nvim"|dmenu -p 'Vim' $@)
+        case "$why" in
+            vim) choice="$HOME/.vimrc" ;;
+            nvim) choice="$HOME/.config/nvim/init.vim" ;;
+        esac
+    ;;
+    tmux) choice="$HOME/.tmux.conf" ;;
+    term)
+        why=$(echo -e "kitty\nalacritty"|demnu -p "Term" $@)
+        case "$why" in
+            kitty) choice="$HOME/.config/kitty/kitty.conf" ;;
+            alacritty) choice="$hoME/.config/alacritty/alacritty.yml" ;;
+        esac
+    ;;
 	dunst) choice="$HOME/.config/dunst/dunstrc" ;;
-	zsh) choice="$HOME/.zshrc" ;;
+    sh)
+        why=$(echo -e "zsh\nfish\nbash"|dmenu -p "Shell" $@)
+        case "$why" in
+            zsh) choice="$HOME/.zshrc" ;;
+            fish) choice="$HOME/.config/fish/config.fish" ;;
+            bash) choice="$hoME/.bashrc"
+        esac
+    ;;
     taskwarior) choice="$HOME/.taskrc" ;;
-    fish) choice="$HOME/.config/fish/config.fish" ;;
-    kitty) choice="$HOME/.config/kitty/kitty.conf" ;;
 	*) exit 1 ;;
 esac
 kitty -e nvim "$choice"

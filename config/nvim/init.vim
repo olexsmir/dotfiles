@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'iamcco/markdown-preview.nvim'
     Plug 'dhruvasagar/vim-table-mode'
+    Plug 'easymotion/vim-easymotion'
 
     " File manger & seacher
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -13,7 +14,6 @@ call plug#begin('~/.vim/plugged')
     " Completion
     Plug 'jiangmiao/auto-pairs'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'easymotion/vim-easymotion'
 
     " Language support
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -75,57 +75,48 @@ set background=dark
 colorscheme NeoSolarized
 
 
-" =======================
-" == Plugins configure ==
-" =======================
-
-"""""""" Lightline """""""" 
+" == Plugins configure
+" Lightline
+set noshowmode
 let g:lightline = {
 \ 'colorscheme': 'selenized_dark',
 \ 'active': {
 \   'left':  [ [ 'mode', 'paste' ],
-\              [ 'readonly', 'modified', 'gitbranch' ] ],
+\              [ 'readonly', 'modified' ] ],
 \   'right': [ [ 'lineinfo' ],
 \              [ 'percent' ],
 \              [ 'filename', 'fileencoding', 'filetype' ] ]
 \ }, }
-set noshowmode
-"""""""""""""""""""""""""""
 
-""""""""" Nerdtree """"""""
+" Nerdtree
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="right"
 let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
 let NERDTreeMinimalUI = 1
 let NERDTreeShowLineNumbers=0
-"""""""""""""""""""""""""""
 
-"""""""""""" Coc """"""""""
+" Coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"""""""""""""""""""""""""""
 
-""""""""" Markdown """"""""
+" Markdown
 let g:vim_markdown_folding_disabled = 1
-"""""""""""""""""""""""""
 
-
-"""""" Easymotion """""""""
+" Easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 nmap f <Plug>(easymotion-s)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap F <Plug>(easymotion-overwin-line)
 nmap s <Plug>(easymotion-overwin-f2)
-"""""""""""""""""""""""""""
 
+" CtrlP
+map <C-p> :CtrlP<CR>
+imap <C-p> :CtrlP<CR>
+nmap <C-p> :CtrlP<CR>
 
-
-" ============
-" == Maping ==
-" ============
-imap ii <Esc>
-
+" == Maping
+imap fd <Esc>
 let mapleader=","
 
 " Change window
@@ -139,7 +130,7 @@ noremap <C-Tab> :tabnext<CR>
 noremap <C-S-Tab> :tabprev<CR>
 noremap <C-n> :tabnew<CR>
 noremap <C-t> :tabnew<CR>
-noremap <C-w> :tabclose<CR>
+noremap <C-S-w> :tabclose<CR>
 noremap <leader>1 :tabn 1<CR>
 noremap <leader>2 :tabn 2<CR>
 noremap <leader>3 :tabn 3<CR>
@@ -151,6 +142,3 @@ noremap <leader>8 :tabn 8<CR>
 noremap <leader>9 :tabn 9<CR>
 noremap <leader>n :bnext<CR>
 noremap <leader>p :bprev<CR>
-
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
