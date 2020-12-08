@@ -3,6 +3,7 @@ declare options=("i3
 berry
 qtile
 openbox
+spectrwm
 polybar
 picom
 dunst
@@ -41,17 +42,24 @@ case "$choice" in
             "reload") openbox --reconfigure && pkill kitty ;;
         esac
     ;;
+    spectrwm)
+        why=$(echo -e "spectrwm.conf\nsectrwm-bar.sh"|dmenu -p Spectrwm $@)
+        case "$why" in
+            "spectrwm.conf") choice="$HOME/.spectrwm.conf" ;;
+            "spectrwm-bar.sh") choice="$HOME/.script/spectrwm-bar.sh" ;;
+        esac
+    ;;
 	picom) choice="$HOME/.config/picom.conf" ;;
 	polybar) choice="$HOME/.config/polybar/config" ;;
     qutebrowser)
-        why=$(echo -e "config.py\nquickmarks" | dmenu -p 'Qutebrowser')
+        why=$(echo -e "config.py\nquickmarks"|dmenu -p 'Qutebrowser' $@)
         case "$why" in
             "config.py") choice="$HOME/.config/qutebrowser/config.py" ;;
             "quickmarks") choice="$HOME/.config/qutebrowser/quickmarks" ;;
         esac
     ;;
     ranger)
-        why=$(echo -e "rc.conf\nrifle.conf")
+        why=$(echo -e "rc.conf\nrifle.conf"|dmenu -p 'Ranger' $@)
         case "$why" in
             "rc.conf") choice="$HOME/.config/ranger/rc.conf" ;;
             "rifle.conf") choice="$HOME/.config/ranger/rifle.conf" ;;
@@ -66,7 +74,7 @@ case "$choice" in
     ;;
     tmux) choice="$HOME/.tmux.conf" ;;
     term)
-        why=$(echo -e "kitty\nalacritty"|demnu -p "Term" $@)
+        why=$(echo -e "kitty\nalacritty"|dmenu -p Term $@)
         case "$why" in
             kitty) choice="$HOME/.config/kitty/kitty.conf" ;;
             alacritty) choice="$hoME/.config/alacritty/alacritty.yml" ;;

@@ -29,6 +29,7 @@ export VISUAL="nvim"
 alias cls="clear"
 alias :q="exit"
 alias tmux="tmux -2"
+alias icat="kitty +kitten icat"
 
 alias ..="cd .."
 alias ...="cd ../.."

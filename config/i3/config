@@ -95,7 +95,6 @@ assign [title="KeePassXC"] $ws7
 for_window [class="(?i)mousepad"] floating enable
 for_window [class="(?i)lxappearance|qt5ct"] floating enable
 for_window [class="(?i)nitrogen"] floating enable
-for_window [class="(?i)virtualbox"] floating enable
 #focus_on_window_activation focus
 
 ############## Gaps ###############

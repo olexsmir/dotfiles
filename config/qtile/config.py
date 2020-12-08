@@ -7,9 +7,12 @@ import os
 
 mod = "mod4"
 alt = "mod1"
+
 terminal = "kitty"
 browser = "firefox"
+filemanager="pcmanfm"
 user = "sasha"
+
 color = [
     "#FFFFFF",  # 0. Text color
     "#CED4DA",  # 1. Unfocus color
@@ -36,6 +39,10 @@ keys = [
     Key([mod], "F2",
         lazy.spawn(browser),
         desc="Launch browser"
+    ),
+    Key([mod], "F4",
+        lazy.spawn(filemanager),
+        desc="Launch filemanager"
     ),
     Key([mod, alt], "t",
         lazy.spawn(f"{terminal} -e \"nvim /home/{user}/.todo\""),
@@ -126,10 +133,14 @@ keys = [
         desc="Mute volume"
     ),
 
-    # Menus(dmenu & rofi) 
+    # Menus(dmenu or/and rofi) 
     Key([mod, "shift"], "Return",
-        lazy.spawn("rofi -show drun -drun-display-format \"{name}\""),
-        desc="(Rofi) Program launcher"
+        lazy.spawn("j4-dmenu-desktop --dmenu=\"dmenu -h 24 -p Run\""),
+        desc="(j4-dmenu) Program launcher"
+    ),
+    Key([mod, "shift"], "apostrophe",
+        lazy.spawn("dmenu_run -h 24 -p Run"),
+        desc="(Dmenu) Program launcher"
     ),
     Key([mod],"Escape",
         lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-power.sh"),
@@ -170,15 +181,15 @@ keys = [
 ]
 
 # Workspaces name, keys
-group_names = [("term", {'layout': 'monadtall'}),
-               ("www",  {'layout': 'max'}),
-               ("dev",  {'layout': 'monadtall'}),
-               ("sys",  {'layout': 'monadtall'}),
-               ("doc",  {'layout': 'monadtall'}),
-               ("chat", {'layout': 'monadtall'}),
-               ("pass", {'layout': 'monadtall'}),
-               ("mus",  {'layout': 'max'}),
-               ("flo",  {'layout': 'monadtall'})
+group_names = [("term", {"layout": "monadtall"}),
+               ("www",  {"layout": "max"}),
+               ("dev",  {"layout": "monadtall"}),
+               ("sys",  {"layout": "monadtall"}),
+               ("doc",  {"layout": "monadtall"}),
+               ("chat", {"layout": "monadtall"}),
+               ("pass", {"layout": "monadtall"}),
+               ("mus",  {"layout": "max"}),
+               ("flo",  {"layout": "monadtall"})
 ]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 for i, (name, kwargs) in enumerate(group_names, 1):
@@ -187,7 +198,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 # Window layout(s)
 layout_theme = {
-    "border_width": 1,
+    "border_width": 2,
     "margin": 3,
     "border_focus": color[2],
     "border_normal": color[1],
@@ -211,7 +222,7 @@ layouts = [
 
 # Panel
 widget_defaults = dict(
-    font='Jatbrains Mono',
+    font="Jatbrains Mono",
     fontsize=12,
     padding=5,
     foreground=color[0],
@@ -234,7 +245,7 @@ screens = [Screen(top=bar.Bar([
     widget.WindowName(foreground=color[0]),
     widget.KeyboardKbdd(
         foreground=color[5],
-        configured_keyboards=['us', 'ru', 'ua'],
+        configured_keyboards=["us", "ru", "ua"],
         update_interval=0,
         fmt=" {}",
     ),
@@ -247,12 +258,12 @@ screens = [Screen(top=bar.Bar([
     ),
     widget.Net(
         interface="wlp3s0",
-        format='{down}↓↑{up}',
+        format="{down}↓↑{up}",
         foreground=color[7],
     ),
     widget.Systray(),
     widget.Clock(
-        format=' %H:%M',
+        format=" %H:%M",
         foreground=color[4]
     ),
     widget.Clock(
@@ -275,20 +286,20 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},
-    {'wmclass': 'makebranch'},
-    {'wmclass': 'maketag'},
-    {'wname':   'branchdialog'},
-    {'wname':   'pinentry'},
-    {'wmclass': 'ssh-askpass'},
+    {"wmclass": "confirm"},
+    {"wmclass": "dialog"},
+    {"wmclass": "download"},
+    {"wmclass": "error"},
+    {"wmclass": "file_progress"},
+    {"wmclass": "notification"},
+    {"wmclass": "splash"},
+    {"wmclass": "toolbar"},
+    {"wmclass": "confirmreset"},
+    {"wmclass": "makebranch"},
+    {"wmclass": "maketag"},
+    {"wname":   "branchdialog"},
+    {"wname":   "pinentry"},
+    {"wmclass": "ssh-askpass"},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

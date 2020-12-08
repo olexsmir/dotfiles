@@ -20,11 +20,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
     Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
     Plug 'kovetskiy/sxhkd-vim', { 'for': 'sxhkd' }
-    Plug 'vim-python/python-syntax', { 'for': 'python' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
     Plug 'dag/vim-fish', { 'for': 'fish' }
-    Plug 'ocaml/vim-ocaml', { 'for': 'ocaml' }
     Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     Plug 'ap/vim-css-color'
 call plug#end()

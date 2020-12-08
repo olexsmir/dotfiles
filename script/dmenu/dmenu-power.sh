@@ -1,5 +1,4 @@
 #!/bin/sh
-
 declare options=("Shut Down
 Reboot
 Logout
@@ -7,7 +6,6 @@ Suspend
 Lock Screen")
 
 choice=$(echo -e "${options[@]}" | dmenu -p 'Power' $@)
-
 case "$choice" in
     "Shut Down")
         declare opt=("Yes\nNo")
@@ -27,9 +25,15 @@ case "$choice" in
     ;;
     "Logout")
         declare opt=("Yes\nNo")
-        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
+        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Logout' $@)
         case "$yesno" in
-            "Yes") exec loginctl terminate-session $XDG_SESSION_ID ;;
+            "Yes") 
+                if [[ "$(pgrep spectrwm)" ]]; then
+                    exec pkill spectrwm
+                else
+                    exec loginctl terminate-session $XDG_SESSION_ID
+                fi
+            ;;
             "No") exec exit 0 ;;
         esac
     ;;
