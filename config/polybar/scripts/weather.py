@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
-import requests, os
+import requests
+import os
 
 
 API_KEY = os.getenv("OWM_POLYBAR")

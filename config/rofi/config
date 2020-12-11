@@ -1,4 +1,7 @@
-rofi.theme: solarized
+rofi.theme: nten-dmenu
 rofi.font: Jetbarains Mono 12
 rofi.auto-select: false
 rofi.hide-scrollbar: true
+rofi.drun-display-format: {name}
+rofi.display-drun: Run
+rofi.display-run: Run

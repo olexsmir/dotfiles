@@ -1,4 +1,5 @@
-export ZSH="/home/sasha/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/bin:$PATH"
 source ~/.env
 source ~/.profile
 
@@ -41,3 +42,6 @@ alias .6="cd ../../../../../.."
 alias tozsh="chsh -s /bin/zsh && echo 'Now log out.'"
 alias tofish="chsh -s /bin/fish && echo 'Now log out.'"
 alias tobash="chsh -s /bin/bash && echo 'Now log out.'"
+
+### Pfetch ###
+pfetch

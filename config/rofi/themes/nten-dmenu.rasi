@@ -1,0 +1,40 @@
+* {
+    background-color:           #262A2B;
+    text-color:                 #93A1A1;
+    font:                       "Hack 9";
+    prompt-padding:             4px;
+    selected-background:        #008DCD;
+    selected-foreground:        #ffffff;
+}
+#window {
+    location: north;
+    width: 100%;
+    height: 24px;
+    padding: 0px;
+    children: [ horibox ];
+}
+#horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+}
+#prompt {
+    padding:          @prompt-padding;
+    background-color: @selected-background;
+    text-color:       @selected-foreground;
+    font:             @font;
+}
+#listview {
+    layout: horizontal;
+    spacing: 0px;
+    lines: 100;
+}
+#entry {
+    padding: 4px 4px;
+    expand: false;
+    width: 170px;
+}
+#element { padding: 4px 8px; }
+#element selected {
+    background-color: @selected-background;
+    text-color:       @selected-foreground;
+}

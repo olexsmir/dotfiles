@@ -2,6 +2,7 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 from typing import List
+import kblayout
 import os
 
 
@@ -28,7 +29,6 @@ color = [
 
 @hook.subscribe.startup_once
 def autostart(): os.system("~/.config/qtile/autostart.sh")
-
 
 keys = [
     # Applications
@@ -88,7 +88,6 @@ keys = [
     ),
     Key([mod, "control"], "h",
         lazy.layout.grow_left(),
-        #lazy.layout.grow()),
         desc="Resize focus window(left)"
     ),
     Key([mod, "control"], "j",
@@ -101,7 +100,6 @@ keys = [
     ),
     Key([mod, "control"], "l",
         lazy.layout.grow_right(),
-        #lazy.layout.shrink()
         desc="Resize focus window(right)"
     ),
 
@@ -135,12 +133,12 @@ keys = [
 
     # Menus(dmenu or/and rofi) 
     Key([mod, "shift"], "Return",
-        lazy.spawn("j4-dmenu-desktop --dmenu=\"dmenu -h 24 -p Run\""),
-        desc="(j4-dmenu) Program launcher"
+        lazy.spawn("rofi -show drun"),
+        desc="(Rofi) Program launcher"
     ),
     Key([mod, "shift"], "apostrophe",
-        lazy.spawn("dmenu_run -h 24 -p Run"),
-        desc="(Dmenu) Program launcher"
+        lazy.spawn("rofi -show run"),
+        desc="(Rofi) Program launcher"
     ),
     Key([mod],"Escape",
         lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-power.sh"),
@@ -243,11 +241,10 @@ screens = [Screen(top=bar.Bar([
     ),
     widget.Prompt(foreground=color[0]),
     widget.WindowName(foreground=color[0]),
-    widget.KeyboardKbdd(
+    kblayout.KBLayout(
         foreground=color[5],
-        configured_keyboards=["us", "ru", "ua"],
         update_interval=0,
-        fmt=" {}",
+        fmt=" {}"
     ),
     widget.CurrentLayout(
         foreground=color[8]
@@ -285,21 +282,23 @@ main = None
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    {"wmclass": "confirm"},
-    {"wmclass": "dialog"},
-    {"wmclass": "download"},
-    {"wmclass": "error"},
-    {"wmclass": "file_progress"},
-    {"wmclass": "notification"},
-    {"wmclass": "splash"},
-    {"wmclass": "toolbar"},
-    {"wmclass": "confirmreset"},
-    {"wmclass": "makebranch"},
-    {"wmclass": "maketag"},
-    {"wname":   "branchdialog"},
-    {"wname":   "pinentry"},
-    {"wmclass": "ssh-askpass"},
+floating_layout = layout.Floating(
+    **layout_theme,
+    float_rules=[
+        {"wmclass": "confirm"},
+        {"wmclass": "dialog"},
+        {"wmclass": "download"},
+        {"wmclass": "error"},
+        {"wmclass": "file_progress"},
+        {"wmclass": "notification"},
+        {"wmclass": "splash"},
+        {"wmclass": "toolbar"},
+        {"wmclass": "confirmreset"},
+        {"wmclass": "makebranch"},
+        {"wmclass": "maketag"},
+        {"wname":   "branchdialog"},
+        {"wname":   "pinentry"},
+        {"wmclass": "ssh-askpass"},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

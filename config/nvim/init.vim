@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'overcache/NeoSolarized'
-    Plug 'ericbn/vim-solarized'
     Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'Smirnov-O/nten16.vim'
     Plug 'iamcco/markdown-preview.nvim'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'easymotion/vim-easymotion'
@@ -17,10 +17,10 @@ call plug#begin('~/.vim/plugged')
 
     " Language support
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-    Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
     Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
     Plug 'kovetskiy/sxhkd-vim', { 'for': 'sxhkd' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
+    Plug 'Olical/vim-scheme', { 'for': 'scheme' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
     Plug 'dag/vim-fish', { 'for': 'fish' }
     Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -70,14 +70,14 @@ set visualbell t_vb=
 
 set termguicolors
 set background=dark
-colorscheme NeoSolarized
+colorscheme nten16
 
 
 " == Plugins configure
 " Lightline
 set noshowmode
 let g:lightline = {
-\ 'colorscheme': 'selenized_dark',
+\ 'colorscheme': 'nten16',
 \ 'active': {
 \   'left':  [ [ 'mode', 'paste' ],
 \              [ 'readonly', 'modified' ] ],
@@ -113,8 +113,11 @@ map <C-p> :CtrlP<CR>
 imap <C-p> :CtrlP<CR>
 nmap <C-p> :CtrlP<CR>
 
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+
 " == Maping
-imap fd <Esc>
+"imap fd <Esc>
 let mapleader=","
 
 " Change window

@@ -1,13 +1,13 @@
 # Qtile config
 
-![Screenhot](screen.png)
-------------------------
+![](screen.png)
+---------------
 
 ### Install
 -----------
 ~~~shell
 sudo pacman -S qtile
-yay -S kbdd-git
+yay -S xkblayout
 ~~~
 
 ### Autostart
@@ -17,12 +17,11 @@ setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 nitrogen --restore
 picom -b
-kbdd
 ~~~~
 
 ### Keybindings
 | Hotkey                  | Action                                                                                                              |
-| --------------          | ---------------                                                                                                     |
+| ---                     | ---                                                                                                                 |
 | MOD + RETURN            | Open termianl                                                                                                       |
 | MOD + SHIFT + RETURN    | Open program launcher(rofi)                                                                                         |
 | MOD + r                 | Open qtile spawn menu                                                                                               |

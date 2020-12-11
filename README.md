@@ -1,18 +1,21 @@
 <h1 align="center">dotfiles</h1>
 
+![](./config/qtile/screen.png)
+------------------------------
+
 #### System configuration
-- `OS` Manjaro
-- `WM` Openbox, berry, i3-gaps, qtile, spectrwm
-- `Shell` zsh, fish
+- `OS` Arch
+- `WM` Qtile
+- `Terminal` Kitty
+- `Shell` zsh
 - `Editor` nvim
-- `Browser` firefox, qutebowser, chromium
+- `Browser` firefox
 - `Font` Jatbrains Mono
 - `Icon font` FontAwesome5
 - `Launcher` dmenu, rofi
 
-
 #### Install configs
-Since i use **rcm** set it
+Since i use **[rcm](https://github.com/thoughtbot/rcm)** set it
 ~~~bash
 yay -S rcm
 ~~~
