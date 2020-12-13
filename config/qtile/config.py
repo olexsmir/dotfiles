@@ -237,10 +237,9 @@ screens = [Screen(top=bar.Bar([
         highlight_method="block",
         this_current_screen_border=color[2],
         this_screen_border=color[3],
-        foreground=color[0],
     ),
-    widget.Prompt(foreground=color[0]),
-    widget.WindowName(foreground=color[0]),
+    widget.Prompt(),
+    widget.WindowName(),
     kblayout.KBLayout(
         foreground=color[5],
         update_interval=0,
@@ -300,6 +299,6 @@ floating_layout = layout.Floating(
         {"wname":   "pinentry"},
         {"wmclass": "ssh-askpass"},
 ])
-auto_fullscreen = True
+auto_fullscreen = False
 focus_on_window_activation = "smart"
 wmname = "LG3D"

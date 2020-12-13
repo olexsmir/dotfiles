@@ -1,0 +1,6 @@
+#!/bin/sh
+case "$1" in
+    "on"|"-on"|"--on"|1) xset led on     ;;
+    "off"|"-off"|"--off"|0) xset led off ;;
+esac
+

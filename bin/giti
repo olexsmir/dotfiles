@@ -1,0 +1,35 @@
+#!/bin/sh
+add() {
+    local file="$1"
+    echo $file >> .gitignore
+}
+del() {
+    local file="$1"
+    sed -i "/$file/d" .gitignore
+}
+edit() {
+    local oldname="$1"
+    local newanme="$2"
+    sed -in "s|$oldname|$newanme|g" .gitignore
+}
+show() {
+    if [ -f '/usr/bin/bat' ]
+    then
+        bat .gitignore
+    else
+        cat .gitignore
+    fi
+}
+
+case "$1" in
+    add|a)  shift; add "$@"  ;;
+    del|d)  shift; del "$@"  ;;
+    mv)     shift; edit "$@" ;;
+    show|s) shift; show      ;;
+    help) echo "add/a - filename add to ignore"
+          echo "del/d - filename del from ignore"
+          echo "mv    - oldname newname chage file name"
+          echo "show  - show ignore file"
+    ;;
+    *) echo "Command is not valid"
+esac

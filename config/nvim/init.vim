@@ -28,6 +28,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
 call plug#end()
 
+set termguicolors
+set background=dark
+colorscheme nten16
+
 set number
 set relativenumber
 
@@ -68,11 +72,6 @@ set hidden
 set smartindent
 
 set visualbell t_vb=
-
-set termguicolors
-set background=dark
-colorscheme nten16
-
 
 " == Plugins configure
 " Lightline

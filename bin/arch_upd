@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo pacman -Syyuu --noconfirm
+yay -Sua --noconfirm
+sudo pacman -Rs $(pacman -Qdtq) --noconfirm

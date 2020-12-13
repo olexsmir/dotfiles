@@ -20,14 +20,21 @@ set trashdir=$HOME/.local/share/Trash/files
 set vifminfo=dhistory,chistory,state,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " === commands
-
 command! zip zip -r %f.zip %f
 command! targz tar -czvf %f.tar.gz %f
-command! vgrep nvim "+grep %a"
 set rulerformat=
 
-" === files
+" === Key maps
+nmap q ZQ
+nnoremap gg ggj
+nnoremap ! :shell<cr>
+nnoremap w :view<cr>
+nnoremap S :sort<cr>
+nnoremap se :!$HOME/bin/extract %f &<cr>
+nnoremap sa :!zip -r %f.zip %f
+nnoremap ss :!tar -czvf %f.tar.gz @f
 
+" === files
 filetype *.csv,*.xlsx libreoffice %c %i
 fileviewer *.csv sed "s/,,,,/,,-,,/g;s/,,/ /g" %c | column -t | sed "s/ - /  /g" | cut -c -%pw
 
@@ -38,22 +45,8 @@ filetype <text/*> nvim
 fileviewer <text/*> env -uCOLORTERM bat --color always --wrap never --pager never %c -p
 
 filextype *.pdf zathura %c %i &
-fileviewer *.pdf
-    \ vifmimg pdf %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
 filetype <audio/*> mocp %c %i &
-fileviewer <audio/*>
-    \ vifmimg audio %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
 filetype <video/*> mpv %c %i &
-fileviewer <video/*>
-    \ vifmimg video %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
 
 filextype <image/*> sxiv %c %i &
 fileviewer <image/*>
@@ -75,14 +68,6 @@ fileviewer .*/ ls --color --group-directories-first
 filetype * xdg-open %c
 fileviewer * file -b %c
 
-" === Key maps
-nmap q ZQ
-nnoremap gg ggj
-nnoremap ! :shell<cr>
-nnoremap w :view<cr>
-nnoremap S :sort<cr>
-nnoremap a cw
-
 " go keys 
 nnoremap gh :cd ~<cr>
 nnoremap gc :cd ~/Code<cr>
@@ -91,9 +76,6 @@ nnoremap gb :cd ~/Documents/Books<cr>
 nnoremap gm :cd ~/.dotfiles<cr>
 nnoremap gn :cd ~/bin<cr>
 nnoremap gz :cd ~/.script<cr>
-
-" extract
-nnoremap se :!$HOME/bin/extract %f &<cr>
 
 " === file icons 
 set classify='  :dir:/,  :exe:,  :reg:,  :link:'

@@ -1,7 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/bin:$PATH"
-source ~/.env
-source ~/.profile
+#source ~/.env
+#source ~/.profile
 
 
 ### Oh my zsh ###
@@ -25,6 +25,12 @@ source $ZSH/oh-my-zsh.sh
 ### Variables ###
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+### Function ###
+function bgcolor {
+    convert -size 1x1 xc:$1 /tmp/bgc.png
+    feh --bg-tile /tmp/bgc.png
+}
 
 ### Aliases ###
 alias cls="clear"
