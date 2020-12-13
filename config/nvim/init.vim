@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'iamcco/markdown-preview.nvim'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'easymotion/vim-easymotion'
+    Plug 'vifm/vifm.vim'
 
     " File manger & seacher
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

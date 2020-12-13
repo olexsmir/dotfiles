@@ -179,15 +179,15 @@ keys = [
 ]
 
 # Workspaces name, keys
-group_names = [("term", {"layout": "monadtall"}),
+group_names = [("term", {"layout": "columns"}),
                ("www",  {"layout": "max"}),
-               ("dev",  {"layout": "monadtall"}),
-               ("sys",  {"layout": "monadtall"}),
-               ("doc",  {"layout": "monadtall"}),
-               ("chat", {"layout": "monadtall"}),
-               ("pass", {"layout": "monadtall"}),
+               ("dev",  {"layout": "columns"}),
+               ("sys",  {"layout": "columns"}),
+               ("doc",  {"layout": "columns"}),
+               ("chat", {"layout": "columns"}),
+               ("pass", {"layout": "columns"}),
                ("mus",  {"layout": "max"}),
-               ("flo",  {"layout": "monadtall"})
+               ("flo",  {"layout": "floating"})
 ]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 for i, (name, kwargs) in enumerate(group_names, 1):
