@@ -2,50 +2,21 @@
 pseudo-transparency = true
 
 [colors]
-; Solarized ========
-;background = #002B36
-;foreground = #dfdfdf
-;secondary = #073642
-;alert = #268bd2
-
-; Smirnov-O Sheme ==
 background = #262A2B
 foreground = #ffffff
-secondary = #111B1A
-alert = #008dcd
+secondary = #008DCD
+alert = #008DCD
 
-; Nord =============
-;background = #2E3440
-;foreground = #ECEFF4
-;secondary = #434C5E
-;alert = #88C0D0
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [bar/i3bar]
 width = 100%
 height = 24
 
 fixed-center = true
 wm-restack = i3
-;override-redirect = true
-
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-line-size = 3 
-line-color = #000000
-
-#padding-left = 2
-#padding-right = 2
-
-#radius = 6.0
-#border-left-size = 0.2%
-#border-top-size = 0.2%
-#border-right-size = 0.2%
-
 module-margin-left = 1
 module-margin-right = 1
-
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
@@ -64,7 +35,6 @@ format = <label-state><label-mode>
 index-sort = false
 wrapping-scroll = false
 label-mode-padding = 1
-label-mode-foreground = #000
 label-mode-background = ${colors.alert}
 
 label-focused = %icon%

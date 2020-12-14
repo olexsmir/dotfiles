@@ -49,5 +49,5 @@ alias tozsh="chsh -s /bin/zsh && echo 'Now log out.'"
 alias tofish="chsh -s /bin/fish && echo 'Now log out.'"
 alias tobash="chsh -s /bin/bash && echo 'Now log out.'"
 
-### Pfetch ###
-pfetch
+### NeoFetch ###
+neofetch

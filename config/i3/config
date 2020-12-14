@@ -22,12 +22,12 @@ set $filemanager pcmanfm
 
 ############ Autostart ############
 exec --no-startup-id exec picom -b
-exec --no-startup-id exec nmcli radio wifi on; nmcli device wifi connect Pechenka password 24032006 name net
-exec --no-startup-id exec redshift-gtk 
+exec --no-startup-id exec nmcli radio wifi on && nmcli device wifi connect $(echo $WIFINAME) password $(echo $WIFIPASS) name net
+#exec --no-startup-id exec redshift-gtk
 exec --no-startup-id exec nitrogen --restore
-exec --no-startup-id exec setxkbmap "us,ru,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
+exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
-exec --no-startup-id exec conky
+#exec --no-startup-id exec conky
 #exec --no-startup-id exec discord
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id $HOME/.config/i3/bar.sh
@@ -55,21 +55,18 @@ bindsym $mod+Shift+grave move scratchpad
 bindsym $mod+grave scratchpad show, floating disable
 
 ### Launchers
-bindsym $mod+p exec "dmenu_run -h 24 -p Run"
-bindsym $mod+Shift+Return exec "rofi -show drun -drun-display-format '{name}'"
-bindsym $mod+Escape exec "~/.script/dmenu/dmenu-power.sh"
-bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
+bindsym $mod+Shift+apostrophe exec "rofi -show run"
+bindsym $mod+Shift+Return exec "rofi -show drun"
+bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh -h 24
+bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh -h 24
 bindsym $mod+Control+i exec passmenu -h 24 -p Passwords
-bindsym $alt+Tab exec "rofi -show window -show-icons"
-bindsym $mod+$alt+t exec $terminal nvim .todo
-
 
 ### Applications
 bindsym $mod+Return exec $terminal
 bindsym $mod+F2 exec $browser 
-bindsym $mod+F3 exec gnvim
 bindsym $mod+F4 exec $filemanager
 bindsym --release $mod+Shift+Escape exec xkill
+bindsym $mod+$alt+t exec $terminal nvim .todo
 
 
 ### Sceenshot
@@ -121,6 +118,16 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Right move right
 
+##### Restart focused window ######
+bindsym $mod+Control+h resize shrink width 20 px or 20 ppt
+bindsym $mod+Control+Left resize shrink width 20 px or 20 ppt
+bindsym $mod+Control+j resize grow height 20 px or 20 ppt
+bindsym $mod+Control+Down resize grow height 20 px or 20 ppt
+bindsym $mod+Control+k resize shrink height 20 px or 20 ppt
+bindsym $mod+Control+Up resize shrink height 20 px or 20 ppt
+bindsym $mod+Control+l resize grow width 20 px or 20 ppt
+bindsym $mod+Control+Right resize grow width 20 px or 20 ppt
+
 ############ Workspaces ###########
 set $ws1 "1"
 set $ws2 "2"
@@ -153,23 +160,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
 ############## Modes ##############
-bindsym $mod+r mode "resize"
 bindsym $mod+g mode "gaps"
-mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
-
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
-}
 mode "gaps" {
         bindsym plus  gaps inner current plus 2
         bindsym minus gaps inner current minus 2
@@ -186,9 +177,9 @@ mode "gaps" {
 
 ############## Colors #############
 #        Class          Border   Backgr   Text     Indicator Child_border
-client.focused          #268bd2  #268bd2  #dfdfdf  #268bd2   #268bd2
-client.focused_inactive #002b36  #002b36  #dfdfdf  #002b36   #002b36
-client.unfocused        #002b36  #002b36  #586e75  #002b36   #002b36
-client.urgent           #002b36  #002b36  #ffffff  #002b36   #002b36
-client.placeholder      #000000  #000000  #ffffff  #000000   #000000
-client.background       #ffffff
+client.focused          #008DCD  #008DCD  #FFFFFF  #008DCD   #008DCD
+client.focused_inactive #008DCD  #002b36  #DFDFDF  #002b36   #002b36
+client.unfocused        #262A2B  #262A2B  #DFDFDF  #262A2B   #262A2B
+client.urgent           #002b36  #262A2B  #FFFFFF  #262A2B   #262A2B
+client.placeholder      #000000  #000000  #FFFFFF  #000000   #000000
+client.background       #FFFFFF
