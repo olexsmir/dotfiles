@@ -176,6 +176,10 @@ keys = [
         lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"
     ),
+    Key([mod, "shift"], "Escape",
+        lazy.spawn("xkill"),
+        desc="Xkill"
+    )
 ]
 
 # Workspaces name, keys
@@ -299,6 +303,6 @@ floating_layout = layout.Floating(
         {"wname":   "pinentry"},
         {"wmclass": "ssh-askpass"},
 ])
-auto_fullscreen = False
+auto_fullscreen = True
 focus_on_window_activation = "smart"
 wmname = "LG3D"

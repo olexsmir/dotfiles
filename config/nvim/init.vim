@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'iamcco/markdown-preview.nvim'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'easymotion/vim-easymotion'
-    Plug 'vifm/vifm.vim'
+    Plug 'voldikss/vim-floaterm'
 
     " File manger & seacher
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -104,7 +104,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 nmap f <Plug>(easymotion-s)
-map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-bd-w)
 nmap F <Plug>(easymotion-overwin-line)
 nmap s <Plug>(easymotion-overwin-f2)
 
@@ -116,15 +116,25 @@ nmap <C-p> :CtrlP<CR>
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
 
+" Floaterm
+nmap <A-t> :FloatermNew --name=vimterminal --position=top --autoclose=2<CR>
+imap <A-t> :FloatermNew --name=vimterminal --position=top --autoclose=2<CR>
+
 " == Maping
 "imap fd <Esc>
 let mapleader=","
 
-" Change window
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" Window
+nmap <C-h> :wincmd h<CR>
+nmap <C-j> :wincmd j<CR>
+nmap <C-k> :wincmd k<CR>
+nmap <C-l> :wincmd l<CR>
+nmap <A-q> :wincmd q<CR>
+nmap <A-c> :wincmd n<CR>
+nmap <A-z> :wincmd K<CR>
+nmap <A-x> :wincmd L<CR>
+nmap <A-h> :wincmd <<CR>
+nmap <A-l> :wincmd ><CR>
 
 " Tab's
 noremap <C-Tab> :tabnext<CR>
