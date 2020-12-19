@@ -1,16 +1,12 @@
 #!/bin/sh
 add() {
-    local file="$1"
-    echo $file >> .gitignore
+    echo $1 >> .gitignore
 }
 del() {
-    local file="$1"
-    sed -i "/$file/d" .gitignore
+    sed -i "/$1/d" .gitignore
 }
 edit() {
-    local oldname="$1"
-    local newanme="$2"
-    sed -in "s|$oldname|$newanme|g" .gitignore
+    sed -in "s|$1|$2|g" .gitignore
 }
 show() {
     if [ -f '/usr/bin/bat' ]
@@ -22,8 +18,8 @@ show() {
 }
 
 case "$1" in
-    add|a)  shift; add "$@"  ;;
-    del|d)  shift; del "$@"  ;;
+    add|a)  shift; add  "$@" ;;
+    del|d)  shift; del  "$@" ;;
     mv)     shift; edit "$@" ;;
     show|s) shift; show      ;;
     help) echo "add/a - filename add to ignore"

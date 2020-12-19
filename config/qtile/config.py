@@ -9,7 +9,7 @@ import os
 mod = "mod4"
 alt = "mod1"
 
-terminal = "kitty"
+terminal = "alacritty"
 browser = "firefox"
 filemanager="pcmanfm"
 user = "sasha"
@@ -45,7 +45,7 @@ keys = [
         desc="Launch filemanager"
     ),
     Key([mod, alt], "t",
-        lazy.spawn(f"{terminal} -e \"nvim /home/{user}/.todo\""),
+        lazy.spawn(f"{terminal} -e nvim /home/{user}/.todo"),
         desc="Open ~/.todo file in nvim"
     ),
 
@@ -200,8 +200,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 # Window layout(s)
 layout_theme = {
-    "border_width": 2,
-    "margin": 3,
+    "border_width": 1,
+    "margin": 2,
     "border_focus": color[2],
     "border_normal": color[1],
     "font": "Jatbrains Mono"

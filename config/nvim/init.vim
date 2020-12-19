@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
     Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
     Plug 'kovetskiy/sxhkd-vim', { 'for': 'sxhkd' }
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
     Plug 'Olical/vim-scheme', { 'for': 'scheme' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
@@ -117,8 +118,7 @@ nmap <C-p> :CtrlP<CR>
 let g:indent_guides_enable_on_vim_startup = 1
 
 " Floaterm
-nmap <A-t> :FloatermNew --name=vimterminal --position=top --autoclose=2<CR>
-imap <A-t> :FloatermNew --name=vimterminal --position=top --autoclose=2<CR>
+nmap <A-t> :FloatermNew --title=vimterminal --position=top --autoclose=2<CR>
 
 " == Maping
 "imap fd <Esc>
@@ -142,14 +142,14 @@ noremap <C-S-Tab> :tabprev<CR>
 noremap <C-n> :tabnew<CR>
 noremap <C-t> :tabnew<CR>
 noremap <C-S-w> :tabclose<CR>
-noremap <leader>1 :tabn 1<CR>
-noremap <leader>2 :tabn 2<CR>
-noremap <leader>3 :tabn 3<CR>
-noremap <leader>4 :tabn 4<CR>
-noremap <leader>5 :tabn 5<CR>
-noremap <leader>6 :tabn 6<CR>
-noremap <leader>7 :tabn 7<CR>
-noremap <leader>8 :tabn 8<CR>
-noremap <leader>9 :tabn 9<CR>
+noremap <A-1> :tabn 1<CR>
+noremap <A-2> :tabn 2<CR>
+noremap <A-3> :tabn 3<CR>
+noremap <A-4> :tabn 4<CR>
+noremap <A-5> :tabn 5<CR>
+noremap <A-6> :tabn 6<CR>
+noremap <A-7> :tabn 7<CR>
+noremap <A-8> :tabn 8<CR>
+noremap <A-9> :tabn 9<CR>
 noremap <leader>n :bnext<CR>
 noremap <leader>p :bprev<CR>

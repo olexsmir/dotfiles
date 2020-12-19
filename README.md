@@ -1,14 +1,18 @@
 <h1 align="center">dotfiles</h1>
 
+[install arch linux](install_arch.md)
+-------------------------------------
+
 ![](./config/qtile/screen.png)
 ------------------------------
 
 #### System configuration
 - `OS` Arch
 - `WM` Qtile
-- `Terminal` Kitty
+- `Terminal` Alacritty
 - `Shell` zsh
 - `Editor` nvim
+- `File manager` ranger, mc
 - `Browser` firefox
 - `Font` Jatbrains Mono
 - `Icon font` FontAwesome5

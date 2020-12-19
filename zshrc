@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 #source ~/.env
 #source ~/.profile
 
@@ -36,6 +36,7 @@ function bgcolor {
 alias cls="clear"
 alias :q="exit"
 alias tmux="tmux -2"
+alias vim="nvim"
 alias icat="kitty +kitten icat"
 
 alias ..="cd .."
@@ -50,4 +51,4 @@ alias tofish="chsh -s /bin/fish && echo 'Now log out.'"
 alias tobash="chsh -s /bin/bash && echo 'Now log out.'"
 
 ### NeoFetch ###
-neofetch
+#neofetch

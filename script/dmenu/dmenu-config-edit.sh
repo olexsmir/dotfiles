@@ -19,7 +19,7 @@ choice=$(echo -e "${options[@]}" | dmenu -p 'Edit config file' $@)
 case "$choice" in
 	i3) choice="$HOME/.config/i3/config" ;;
     qtile) 
-        opt=$(echo -e "config.py\nautostart"|dmenu -p 'Qtile' $@)
+        opt=$(echo -e "config.py\nautostart.sh"|dmenu -p 'Qtile' $@)
         case "$opt" in
             "config.py") choice="$HOME/.config/qtile/config.py" ;;
             "autostart.sh") choice="$HOME/.config/qtile/autostart.sh" ;;
