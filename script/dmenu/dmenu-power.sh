@@ -1,13 +1,12 @@
 #!/bin/sh
-declare options=("Shut Down
-Reboot
+declare options=("Poweroff
+Lock
 Logout
-Suspend
-Lock Screen")
+Reboot")
 
 choice=$(echo -e "${options[@]}" | dmenu -p 'Power' $@)
 case "$choice" in
-    "Shut Down")
+    "Poweroff")
         declare opt=("Yes\nNo")
         yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
@@ -15,11 +14,11 @@ case "$choice" in
             "No") exec exit 0 ;;
         esac
     ;;
-    "Reboot")
+    "Lock") 
         declare opt=("Yes\nNo")
         yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
-            "Yes") exec systemctl reboot ;;
+            "Yes") exec  betterlockscreen --off 300 -t "Computer is lockerd" -l;;
             "No") exec exit 0 ;;
         esac
     ;;
@@ -37,11 +36,11 @@ case "$choice" in
             "No") exec exit 0 ;;
         esac
     ;;
-    "Lock Screen") 
+    "Reboot")
         declare opt=("Yes\nNo")
         yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
         case "$yesno" in
-            "Yes") exec loginctl lock-session $XDG_SESSION_ID ;;
+            "Yes") exec systemctl reboot ;;
             "No") exec exit 0 ;;
         esac
     ;;

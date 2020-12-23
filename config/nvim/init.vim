@@ -1,15 +1,19 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'Smirnov-O/nten16.vim'
-    Plug 'iamcco/markdown-preview.nvim'
-    Plug 'dhruvasagar/vim-table-mode'
+    Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown' }
+    Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
     Plug 'easymotion/vim-easymotion'
-    Plug 'voldikss/vim-floaterm'
+    Plug 'voldikss/vim-floaterm', { 'on': 'FloatermNew' }
+    Plug 'mhinz/vim-startify'
+    Plug 'vim-python/python-syntax'
+    Plug 'severin-lemaignan/vim-minimap'
+    Plug 'frazrepo/vim-rainbow'
 
     " File manger & seacher
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
     Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 
     " Completion
@@ -20,7 +24,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
     Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
     Plug 'kovetskiy/sxhkd-vim', { 'for': 'sxhkd' }
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
     Plug 'Olical/vim-scheme', { 'for': 'scheme' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
@@ -91,8 +94,10 @@ let g:lightline = {
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="right"
 let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
-let NERDTreeMinimalUI = 1
-let NERDTreeShowLineNumbers=0
+let NERDTreeMinimalUI=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=0
+let g:NERDTreeWinSize=28
 
 " Coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -117,7 +122,28 @@ nmap <C-p> :CtrlP<CR>
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
 
-" Floaterm
+" Python
+let g:python_highlight_all = 1
+
+" Startify
+let g:startify_custom_header = [
+    \" _____         _____ _         ",
+    \" |   | |___ ___|  |  |_|_____  ",
+    \" | | | | -_| . |  |  | |     | ",
+    \" |_|___|___|___|\___/|_|_|_|_| ",
+    \ ]
+let g:startify_lists = [
+    \ { 'type': 'bookmarks', 'header': ["  Bookmarks"] },
+    \ { 'type': 'files',     'header': ["  Files"] },
+    \ ]
+
+" Rainbow
+let g:rainbow_active = 1 
+
+" Minimap
+let g:minimap_highlight='Visual'
+
+" Floaterm\
 nmap <A-t> :FloatermNew --title=vimterminal --position=top --autoclose=2<CR>
 
 " == Maping
@@ -151,5 +177,5 @@ noremap <A-6> :tabn 6<CR>
 noremap <A-7> :tabn 7<CR>
 noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
-noremap <leader>n :bnext<CR>
-noremap <leader>p :bprev<CR>
+noremap <C-a> :bnext<CR>
+noremap <C-s> :bprev<CR>

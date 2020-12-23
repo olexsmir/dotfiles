@@ -1,24 +1,23 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 #source ~/.env
-#source ~/.profile
-
+source ~/.profile
 
 ### Oh my zsh ###
-ZSH_THEME="cyan-simple"          # Set theme
-#CASE_SENSITIVE="true"           # Use case-sensitive completion.
-#HYPHEN_INSENSITIVE="true"       # Case-sensitive completion must be off.
-#DISABLE_AUTO_UPDATE="true"      # Disable bi-weekly auto-update checks.
-#DISABLE_UPDATE_PROMPT="true"    # Automatically update without prompting.
-#DISABLE_MAGIC_FUNCTIONS="true"  # If pasting URLs and other text is messed up.
-#DISABLE_LS_COLORS="true"        # Disable colors in ls.
-#DISABLE_AUTO_TITLE="true"        # Disable auto-setting terminal title.
-#ENABLE_CORRECTION="true"        # Enable command auto-correction.
-#COMPLETION_WAITING_DOTS="true"  # Display red dots whilst waiting for completion.
-export UPDATE_ZSH_DAYS=13        # Change how often to auto-update.
-export LANG=en_US.UTF-8          # Set locale
+ZSH_THEME="cyan-simple"         # Set theme
+#CASE_SENSITIVE="true"          # Use case-sensitive completion.
+#HYPHEN_INSENSITIVE="true"      # Case-sensitive completion must be off.
+#DISABLE_AUTO_UPDATE="true"     # Disable bi-weekly auto-update checks.
+#DISABLE_UPDATE_PROMPT="true"   # Automatically update without prompting.
+#DISABLE_MAGIC_FUNCTIONS="true" # If pasting URLs and other text is messed up.
+#DISABLE_LS_COLORS="true"       # Disable colors in ls.
+#DISABLE_AUTO_TITLE="true"      # Disable auto-setting terminal title.
+#ENABLE_CORRECTION="true"       # Enable command auto-correction.
+#COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
+export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
+export LANG=en_US.UTF-8         # Set locale
 
-plugins=(pip python sudo heroku git taskwarrior)
+plugins=(pip python pass golang sudo heroku git taskwarrior encode64)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -35,8 +34,15 @@ function bgcolor {
 ### Aliases ###
 alias cls="clear"
 alias :q="exit"
+alias q="exit"
+alias :qw="exit"
 alias tmux="tmux -2"
 alias vim="nvim"
+alias mkdir="mkdir -p"
+alias sl="ls"
+alias cp="cp -r"
+alias du="du -sh"
+alias df="df -h"
 alias icat="kitty +kitten icat"
 
 alias ..="cd .."
@@ -49,6 +55,3 @@ alias .6="cd ../../../../../.."
 alias tozsh="chsh -s /bin/zsh && echo 'Now log out.'"
 alias tofish="chsh -s /bin/fish && echo 'Now log out.'"
 alias tobash="chsh -s /bin/bash && echo 'Now log out.'"
-
-### NeoFetch ###
-#neofetch

@@ -11,7 +11,7 @@ alt = "mod1"
 
 terminal = "alacritty"
 browser = "firefox"
-filemanager="pcmanfm"
+filemanager="thunar"
 user = "sasha"
 
 color = [
@@ -40,9 +40,13 @@ keys = [
         lazy.spawn(browser),
         desc="Launch browser"
     ),
-    Key([mod], "F4",
+    Key([mod], "f",
         lazy.spawn(filemanager),
         desc="Launch filemanager"
+    ),
+    Key([mod, "shift"], "f",
+        lazy.spawn("dmenufm"),
+        desc="Launch dmenu filemanager"
     ),
     Key([mod, alt], "t",
         lazy.spawn(f"{terminal} -e nvim /home/{user}/.todo"),
@@ -179,6 +183,10 @@ keys = [
     Key([mod, "shift"], "Escape",
         lazy.spawn("xkill"),
         desc="Xkill"
+    ),
+    Key([mod, "shift"], "z",
+        lazy.spawn("betterlockscreen --off 300 -t \"Computer is locked\" -l"),
+        desc="Lock screen"
     )
 ]
 
@@ -191,7 +199,7 @@ group_names = [("term", {"layout": "columns"}),
                ("chat", {"layout": "columns"}),
                ("pass", {"layout": "columns"}),
                ("mus",  {"layout": "max"}),
-               ("flo",  {"layout": "floating"})
+               ("flo",  {"layout": "columns"})
 ]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 for i, (name, kwargs) in enumerate(group_names, 1):

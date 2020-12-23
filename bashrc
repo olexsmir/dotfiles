@@ -1,11 +1,22 @@
-[[ $- != *i* ]] && return
-PS1='\e[36m\w\e[39m '
+source ~/.profile
+#source ~/.env
 
+# Prompt generator - ezprompt.net
+export PS1="\[\e[36m\]\u\[\e[m\]@\[\e[32m\]\w\[\e[m\] \\$ "
+
+### Variables ###
 export EDITOR='nvim'
-export VISUAL='emacsclient -c -a emacs'
+export VISUAL='nvim'
 
+### Aliases ###
 alias cls='clear'
 alias ls='ls --color=auto'
+alias sl="ls"
+alias tmux="tmux -2"
+alias mkdir="mkdir -p"
+alias du="du -sh"
+alias df="df -h"
+alias cp="cp -r" 
 alias :q="exit"
 
 alias ..='cd ..'

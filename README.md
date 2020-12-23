@@ -1,8 +1,5 @@
 <h1 align="center">dotfiles</h1>
 
-[install arch linux](install_arch.md)
--------------------------------------
-
 ![](./config/qtile/screen.png)
 ------------------------------
 
