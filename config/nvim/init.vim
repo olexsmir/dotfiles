@@ -2,14 +2,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'Smirnov-O/nten16.vim'
-    Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown' }
-    Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+    Plug 'vim-scripts/bclear'
     Plug 'easymotion/vim-easymotion'
     Plug 'voldikss/vim-floaterm', { 'on': 'FloatermNew' }
     Plug 'mhinz/vim-startify'
-    Plug 'vim-python/python-syntax'
     Plug 'severin-lemaignan/vim-minimap'
     Plug 'frazrepo/vim-rainbow'
+    Plug 'preservim/tagbar', { 'on': 'TagbarToggle' } 
+    Plug 'airblade/vim-gitgutter'
 
     " File manger & seacher
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -21,12 +21,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Language support
+    Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown' }
+    Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
     Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
     Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
     Plug 'kovetskiy/sxhkd-vim', { 'for': 'sxhkd' }
     Plug 'mattn/emmet-vim', { 'on': 'Emmet' }
     Plug 'Olical/vim-scheme', { 'for': 'scheme' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+    Plug 'vim-python/python-syntax', { 'for': 'python' }
+    Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
     Plug 'dag/vim-fish', { 'for': 'fish' }
     Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     Plug 'ap/vim-css-color'
@@ -35,51 +39,62 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme nten16
+set t_Co=256
 
+" Syntax & line numbars
+syntax on
 set number
 set relativenumber
 
-syntax on
+" Vim status line
+set noshowmode
 set ruler
-set t_Co=256
-
-set mouse=a
-set mousehide
-
-set encoding=utf-8
-set fileencodings=utf8,cp1251
-
-set cursorline
-
-set nowrap
-set nolinebreak
-
-set nobackup
-set noswapfile
-set history=100
-set autoread
-
 set showmode
 set showcmd
 
+" Mouse
+set mouse=a
+set mousehide
+set cursorline
+
+" File encoding
+set encoding=utf-8
+set fileencodings=utf8,cp1251
+
+" Line wrap
+set nowrap
+set nolinebreak
+
+" Backup files & history
+set nobackup
+set noswapfile
+set history=100
+
+" Auto reload file
+set autoread
+
+" Tabs
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
 
+" Search
 set incsearch
 set ignorecase
 set smartcase
 
+" Buffer
 set hidden
 set smartindent
 
+" Disable sound
 set visualbell t_vb=
 
 " == Plugins configure
+
 " Lightline
-set noshowmode
 let g:lightline = {
 \ 'colorscheme': 'nten16',
 \ 'active': {
@@ -93,11 +108,11 @@ let g:lightline = {
 " Nerdtree
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="right"
+let g:NERDTreeWinSize=28
 let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
 let NERDTreeMinimalUI=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=0
-let g:NERDTreeWinSize=28
 
 " Coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -140,14 +155,18 @@ let g:startify_lists = [
 " Rainbow
 let g:rainbow_active = 1 
 
-" Minimap
-let g:minimap_highlight='Visual'
+" TagBar
+imap <F9> :TagbarToggle<CR>
+nmap <F9> :TagbarToggle<CR>
+map <F9> :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
+let g:tagbar_width = 18
+let g:tagbar_left = 1
 
-" Floaterm\
+" Floaterm
 nmap <A-t> :FloatermNew --title=vimterminal --position=top --autoclose=2<CR>
 
 " == Maping
-"imap fd <Esc>
 let mapleader=","
 
 " Window

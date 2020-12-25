@@ -1,3 +1,4 @@
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 source ~/.profile
 #source ~/.env
 
@@ -18,14 +19,9 @@ alias du="du -sh"
 alias df="df -h"
 alias cp="cp -r" 
 alias :q="exit"
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias .6='cd ../../../../../..'
-
-alias tofish="chsh -s /bin/fish && echo 'Now log out.'"
-alias tozsh="chsh -s /bin/zsh && echo 'Now log out.'"
-alias tobash="chsh -s /bin/bash && echo 'Now log out.'"
