@@ -1,31 +1,38 @@
 #!/bin/sh
-add() {
+function add() {
     echo $1 >> .gitignore
 }
-del() {
-    sed -i "/$1/d" .gitignore
+function del() {
+    if [ -f '.gitignore' ]; then
+        if [ "$(cat .gitignore|wc -l)" = "1" ]
+        then rm .gitignore
+        else sed -i "/$1/d" .gitignore
+        fi
+    else echo "[.gitignore] File not found."
+    fi
 }
-edit() {
+function edit() {
     sed -in "s|$1|$2|g" .gitignore
 }
-show() {
-    if [ -f '/usr/bin/bat' ]
-    then
-        bat .gitignore
-    else
-        cat .gitignore
+function show() {
+    if [ -f '.gitignore' ]; then
+        if [ -f '/usr/bin/bat' ]
+        then bat .gitignore
+        else cat .gitignore
+        fi
+    else echo "[.gitignore] File not found."
     fi
 }
 
 case "$1" in
-    add|a)  shift; add  "$@" ;;
-    del|d)  shift; del  "$@" ;;
-    mv)     shift; edit "$@" ;;
-    show|s) shift; show      ;;
-    help) echo "add/a - filename add to ignore"
-          echo "del/d - filename del from ignore"
-          echo "mv    - oldname newname chage file name"
-          echo "show  - show ignore file"
+    add|a)  shift; add  "$@"       ;;
+    del|d)  shift; del  "$@"       ;;
+    mv)     shift; edit "$@"       ;;
+    show|s) shift; show            ;;
+    help) echo "add/a   - filename add to ignore"
+          echo "del/d   - filename del from ignore"
+          echo "mv      - oldname newname chage file name"
+          echo "show/s  - show ignore file"
     ;;
-    *) echo "Command is not valid"
+    *) echo "Command is not valid" ;;
 esac

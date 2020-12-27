@@ -7,6 +7,3 @@
 sudo pacman -S openbox obconf volumeicon network-manager-applet xfce4-clipman-plugin
 yay -S fbxkb
 ~~~
-
-### Hotkeys
-| Key | Aсt |

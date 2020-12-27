@@ -7,10 +7,10 @@
     name = Smirnov-O
 
 [web]
-    browser = chromium # firefox, google-chrome,
+    browser = firefox # chromium, google-chrome,
 
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitignore_global
 
 [alias]

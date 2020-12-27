@@ -6,7 +6,7 @@ c.completion.shrink = True
 config.load_autoconfig()
 
 # tabs, download
-c.tabs.show = 'multiple' #always, never, multiple ,switching
+c.tabs.show = 'multiple'
 c.tabs.position = "top"
 c.downloads.position = "bottom"
 
@@ -35,15 +35,25 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko
 
 # theme
 ## Solarised #########
-color01 = "#002B36"
-color02 = "#073642"
-color03 = "#619100"
-color04 = "#268BD2"
-color05 = "#6C71C4"
-color06 = "#dc322f"
+#color01 = "#002B36"
+#color02 = "#073642"
+#color03 = "#619100"
+#color04 = "#268BD2"
+#color05 = "#6C71C4"
+#color06 = "#dc322f"
+#color07 = "#FFFFFF"
+#color08 = "#93A1A1"
+#color09 = "#2AA198"
+## Ntene16 ###########
+color01 = "#262A2b"
+color02 = "#1F2324"
+color03 = "#98BE65"
+color04 = "#008DCD"
+color05 = "#C678DD"
+color06 = "#FF6C6B"
 color07 = "#FFFFFF"
-color08 = "#93A1A1"
-color09 = "#2AA198"
+color08 = "#CED4DA"
+color09 = "#ECBE7B"
 ######################
 
 c.colors.completion.category.bg = color01 
