@@ -25,9 +25,9 @@ exec --no-startup-id exec picom --experimental-backends -b
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xautolock -time 3 -locker "betterlockscreen --off 180 -t \"Computer is lockerd\" -l"
-exec_always --no-startup-id $HOME/.config/i3/bar.sh
+exec --no-startup-id exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id exec xautolock -time 3 -locker "betterlockscreen --off 180 -t \"Computer is lockerd\" -l"
+exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 #exec --no-startup-id exec conky
 #exec --no-startup-id exec redshift-gtk
 #exec --no-startup-id exec discord

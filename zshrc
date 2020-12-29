@@ -17,7 +17,7 @@ ZSH_THEME="cyan-simple"         # Set theme
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
 export LANG=en_US.UTF-8         # Set locale
 
-plugins=(pip python golang pass sudo heroku git taskwarrior encode64)
+plugins=(pip python golang pass emacs sudo heroku git taskwarrior encode64)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -34,12 +34,6 @@ function bgcolor {
 
 ### Aliases ###
 alias cls="clear"
-alias :q="exit"
-alias :q!="exit"
-alias q="exit"
-alias :qw="exit"
-alias tmux="tmux -2"
-alias vim="nvim"
 alias mkdir="mkdir -p"
 alias mkd="mkdir"
 alias sl="ls"
@@ -48,12 +42,30 @@ alias du="du -sh"
 alias df="df -h"
 alias lns="ln -s"
 alias uln="unlink"
+
+# Program
+alias vim="nvim"
+alias tmux="tmux -2"
 alias ipython="ipython --no-banner"
 alias icat="kitty +kitten icat"
+eval $(thefuck --alias)
+
+# Exit
+alias :q="exit"
+alias :q!="exit"
+alias q="exit"
+alias :qw="exit"
+
+# Navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 alias .6="cd ../../../../../.."
-eval $(thefuck --alias)
+
+# Doom emacs
+alias doomsync="$HOME/.emacs.d/bin/doom sync"
+alias doomupgrade="$HOME/.emacs.d/bin/doom upgrade"
+alias doomdoctor="$HOME/.emacs.d/bin/doom doctor"
+alias doom="$HOME/.emacs.d/bin/doom"

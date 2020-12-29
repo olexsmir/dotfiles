@@ -15,13 +15,7 @@ case "$choice" in
         esac
     ;;
     "Lock") 
-        declare opt=("Yes\nNo")
-        yesno=$(echo -e "${opt[@]}" | dmenu -p 'Power' $@)
-        case "$yesno" in
-            "Yes") exec  betterlockscreen --off 300 -t "Computer is lockerd" -l;;
-            "No") exec exit 0 ;;
-        esac
-    ;;
+        exec betterlockscreen --off 300 -t "Computer is lockerd" -l ;;
     "Logout")
         declare opt=("Yes\nNo")
         yesno=$(echo -e "${opt[@]}" | dmenu -p 'Logout' $@)
