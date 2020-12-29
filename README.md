@@ -5,7 +5,7 @@
 
 #### System configuration
 - `OS` Arch
-- `WM` Qtile
+- `WM` Qtile, i3
 - `Terminal` Alacritty
 - `Shell` zsh
 - `Editor` nvim
