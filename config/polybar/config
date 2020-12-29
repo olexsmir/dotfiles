@@ -1,16 +1,16 @@
 [settings]
+screenchange-reload = true
 pseudo-transparency = true
 
 [colors]
 background = #262A2B
-foreground = #ffffff
+foreground = #DFDFDF
 secondary = #008DCD
-alert = #008DCD
+alert = #FF6C6B
 
 [bar/i3bar]
 width = 100%
 height = 24
-
 fixed-center = true
 wm-restack = i3
 background = ${colors.background}
@@ -20,14 +20,9 @@ module-margin-right = 1
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
-
-modules-left =  i3
-modules-right = keyboard pulseaudio backlight wifi-signal time
+modules-left =  i3 pacman-up
+modules-right = keyboard pulseaudio backlight wifi-signal time date
 tray-position = right
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[settings]
-screenchange-reload = true
 
 [module/i3]
 type = internal/i3
@@ -69,139 +64,61 @@ ws-icon-6 = "7;7 "
 ws-icon-7 = "8;8 "
 ws-icon-8 = "9;9 "
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; INCLUDE MODULES
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/backlight]
 type = internal/xbacklight
 format = <ramp> <label>
 label = %percentage%%
 ramp-0 = 
 
-
 [module/wifi-name]
 type = internal/network
 interface = wlp3s0
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
-format-disconnected =   No sig
+format-disconnected =
 ramp-signal-0 = 
-interval = 3.0
-
+interval = 3
 
 [module/wifi-signal]
 type = custom/script
 label =  %output:%%
 exec = ~/.config/polybar/scripts/wifi-signal.sh
-interval = 3.0
-
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-mount-0 = /
-mount-1 = /home
-label-mounted =  %mountpoint%: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground}
-
+interval = 3
 
 [module/pulseaudio]
 type = internal/pulseaudio
+interval = 2
 format-volume = <ramp-volume> <label-volume> 
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 label-muted = 
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-ramp-volume-4 = 
-
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-label =  CPU %percentage%% 
-
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-label =  MEM %percentage_used%%
-
+ramp-volume-0 = 
 
 [module/weather]
 type = custom/script
 exec = python3 ~/.config/polybar/scripts/weather.py
 interval = 60
-label-font = 1
 
-
-[module/spotify]
-type = custom/script
-interval = 1
-format = <label>
-exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
-format-underline = ${colors.alert}
-
-[module/updates-pacman]
+[module/pacman-up]
 type = custom/script
 exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
 interval = 60
 
-
 [module/keyboard]
 type = internal/xkeyboard
-label-NAME-maxlen = 10
 format-prefix = ""
 label-layout =  %layout%
-
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 blacklist-2= caps lock
 
-
-[module/microphone]
-type = custom/script
-label = %output:0:40:...%
-exec = ~/.config/polybar/scripts/microphone.sh  
-click-left = ~/.config/polybar/scripts/microphone.sh --click
-interval = 0
-
-
-[module/sp2]
-type = custom/text
-content = "┇"
-
-
 [module/date]
 type = internal/date
 interval = 600
-date = %b %e
+date = %d.%m.%Y
 label =  %date%
-
 
 [module/time]
 type = internal/date
-interval = 0
 time = %H:%M
 label =  %time%
-
-
-[module/title]
-type = internal/xwindow
-label = %title:0:50:...%
-label-empty =
-label-maxlen = 50
-
-
-[module/clipmenu]
-type = custom/text
-content = ""
-click-left = "CM_LAUNCHER=rofi clipmenu"
-interval = 0

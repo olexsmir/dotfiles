@@ -45,14 +45,20 @@ filetype <text/*> nvim
 fileviewer <text/*> env -uCOLORTERM bat --color always --wrap never --pager never %c -p
 
 filextype *.pdf zathura %c %i &
+fileviewer *.pdf
+        \ vifmimg pdfpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+        " \ pdftotext -nopgbrk %c -
+
 filetype <audio/*> mocp %c %i &
 filetype <video/*> mpv %c %i &
 
 filextype <image/*> sxiv %c %i &
-fileviewer <image/*>
-	\ kitty icat --place=%pwx%ph@%pxx%py %c 
-	\ %pc
-	\ kitty icat --clear
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+        \ ~/.config/vifm/vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ ~/.config/vifm/vifmimg clear
 
 filextype *.py nvim %c %i &
 

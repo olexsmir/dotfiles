@@ -17,13 +17,14 @@ ZSH_THEME="cyan-simple"         # Set theme
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
 export LANG=en_US.UTF-8         # Set locale
 
-plugins=(pip python pass golang sudo heroku git taskwarrior encode64)
+plugins=(pip python golang pass sudo heroku git taskwarrior encode64)
 source $ZSH/oh-my-zsh.sh
 
 
 ### Variables ###
 export EDITOR="nvim"
 export VISUAL="nvim"
+export GOPATH="$HOME/.go"
 
 ### Function ###
 function bgcolor {
@@ -34,15 +35,20 @@ function bgcolor {
 ### Aliases ###
 alias cls="clear"
 alias :q="exit"
+alias :q!="exit"
 alias q="exit"
 alias :qw="exit"
 alias tmux="tmux -2"
 alias vim="nvim"
 alias mkdir="mkdir -p"
+alias mkd="mkdir"
 alias sl="ls"
 alias cp="cp -r"
 alias du="du -sh"
 alias df="df -h"
+alias lns="ln -s"
+alias uln="unlink"
+alias ipython="ipython --no-banner"
 alias icat="kitty +kitten icat"
 alias ..="cd .."
 alias ...="cd ../.."
@@ -50,5 +56,4 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 alias .6="cd ../../../../../.."
-
 eval $(thefuck --alias)

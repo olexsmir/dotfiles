@@ -16,89 +16,79 @@ new_float pixel
 hide_edge_borders smart
 
 ############ Variables ###########
-set $terminal kitty
+set $terminal alacritty
 set $browser firefox 
-set $filemanager pcmanfm
+set $filemanager thunar
 
 ############ Autostart ############
-exec --no-startup-id exec picom -b
-exec --no-startup-id exec nmcli radio wifi on && nmcli device wifi connect $(echo $WIFINAME) password $(echo $WIFIPASS) name net
-#exec --no-startup-id exec redshift-gtk
+exec --no-startup-id exec picom --experimental-backends -b
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
-#exec --no-startup-id exec conky
-#exec --no-startup-id exec discord
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xautolock -time 3 -locker "betterlockscreen --off 180 -t \"Computer is lockerd\" -l"
 exec_always --no-startup-id $HOME/.config/i3/bar.sh
+#exec --no-startup-id exec conky
+#exec --no-startup-id exec redshift-gtk
+#exec --no-startup-id exec discord
 
-############ Key bindings #########
+############## WM keys ############
 
-### I3
-# Kill focus window
+# Kill window
 bindsym $mod+q kill
+
 # Restart i3wm
 bindsym $mod+Control+r restart
-# Focus the parent container
-bindsym $mod+a focus parent
-# Floating window
-bindsym $mod+Shift+space floating toggle
+
+# Floating layout
+bindsym $mod+Tab floating toggle
+
+# Tab layout
+bindsym $mod+w layout tabbed
+
+# Split layout
+bindsym $mod+e layout toggle split
+
 # Splits
 bindsym $mod+b split h
 bindsym $mod+v split v
-# Change container layout(stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+
 # Scratchpad
 bindsym $mod+Shift+grave move scratchpad
 bindsym $mod+grave scratchpad show, floating disable
 
-### Launchers
+############## User key ###########
+
+# Menus
 bindsym $mod+Shift+apostrophe exec "rofi -show run"
 bindsym $mod+Shift+Return exec "rofi -show drun"
 bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh -h 24
 bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh -h 24
 bindsym $mod+Control+i exec passmenu -h 24 -p Passwords
 
-### Applications
+# Apps
 bindsym $mod+Return exec $terminal
 bindsym $mod+F2 exec $browser 
-bindsym $mod+F4 exec $filemanager
-bindsym --release $mod+Shift+Escape exec xkill
-bindsym $mod+$alt+t exec $terminal nvim .todo
+bindsym $mod+f exec $filemanager
 
-
-### Sceenshot
+# Sceenshot
 bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
 bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
 
+# Lockscreen
+bindsym $mod+Shift+z exec betterlockscreen --off 180 -t \"Computer is lockerd\" -l
 
-### Volume
-bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
-bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -5%"
+# Volume
+bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +2%"
+bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -2%"
 bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
 
 ######### Window preferens ########
-#assign [class="Kitty"] $ws1
-#assign [class="(?i)chromium|firefox|qutebrowser"] $ws2
-#assign [class="(?i)subl|code|emacs"] $ws3
-#assign [class="(?i)thunar"] $ws4
-#assign [title="Notable|Simplenote"] $ws5
+assign [class="(?i)firefox|qutebrowser"] $ws2
 assign [class="(?i)telegram|discord|viber"] $ws6
-assign [title="KeePassXC"] $ws7
-#for_window [title="Ranger_FM"] move to workspace $ws4
-#for_window [class="Spotify"] move to workspace $ws9
-for_window [class="(?i)mousepad"] floating enable
-for_window [class="(?i)lxappearance|qt5ct"] floating enable
-for_window [class="(?i)nitrogen"] floating enable
 #focus_on_window_activation focus
 
-############## Gaps ###############
-#gaps inner 4
-#smart_gaps on
-
-##### Change containet focus ######
+########## Change  focus ##########
 bindsym $mod+h focus left
 bindsym $mod+Left focus left
 bindsym $mod+j focus down
@@ -108,7 +98,7 @@ bindsym $mod+Up focus up
 bindsym $mod+l focus right
 bindsym $mod+Right focus right
 
-##### Move focused container ######
+########## Move window ############
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+j move down
@@ -118,7 +108,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Right move right
 
-##### Restart focused window ######
+########## Resize window ##########
 bindsym $mod+Control+h resize shrink width 20 px or 20 ppt
 bindsym $mod+Control+Left resize shrink width 20 px or 20 ppt
 bindsym $mod+Control+j resize grow height 20 px or 20 ppt
@@ -158,22 +148,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-
-############## Modes ##############
-bindsym $mod+g mode "gaps"
-mode "gaps" {
-        bindsym plus  gaps inner current plus 2
-        bindsym minus gaps inner current minus 2
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 4
-        bindsym Shift+minus gaps inner all minus 4
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+g mode "default"
-}
 
 ############## Colors #############
 #        Class          Border   Backgr   Text     Indicator Child_border

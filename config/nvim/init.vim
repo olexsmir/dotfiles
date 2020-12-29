@@ -1,12 +1,13 @@
+filetype plugin on
 call plug#begin('~/.vim/plugged')
-    Plug 'nathanaelkane/vim-indent-guides' " Displaying indent levels
-    Plug 'voldikss/vim-floaterm'           " Terminal window
-    Plug 'frazrepo/vim-rainbow'            " Rainbow brackets
-    Plug 'airblade/vim-gitgutter'          " Git indicator
-    Plug 'ap/vim-css-color'                " CSS color preview  
-    Plug 'mhinz/vim-startify'              " Start page
-    Plug 'tpope/vim-surround'              " HTML/XML tag cloaser
-    Plug 'itchyny/lightline.vim'           " Status line
+    Plug 'nathanaelkane/vim-indent-guides'         " Displaying indent levels
+    Plug 'voldikss/vim-floaterm'                   " Terminal window
+    Plug 'frazrepo/vim-rainbow'                    " Rainbow brackets
+    Plug 'airblade/vim-gitgutter'                  " Git indicator
+    Plug 'ap/vim-css-color'                        " CSS color preview  
+    Plug 'mhinz/vim-startify'                      " Start page
+    Plug 'itchyny/lightline.vim'                   " Status line
+    Plug 'vimwiki/vimwiki', {'on': 'VimwikiIndex'} " Notes manager in (n)vim
     
     " Color sheme
     Plug 'Smirnov-O/nten16.vim'
@@ -23,20 +24,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Language support
-    Plug 'pangloss/vim-javascript',      {'for': 'javascript'}
     Plug 'iamcco/markdown-preview.nvim', {'for': 'markdown'}
     Plug 'dhruvasagar/vim-table-mode',   {'for': 'markdown'}
     Plug 'plasticboy/vim-markdown',      {'for': 'markdown'}
     Plug 'vim-python/python-syntax',     {'for': 'python'}
-    Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
-    Plug 'Olical/vim-scheme',            {'for': 'scheme'}
     Plug 'kovetskiy/sxhkd-vim',          {'for': 'sxhkd'}
     Plug 'mattn/emmet-vim',              {'on':  'Emmet'}
     Plug 'cakebaker/scss-syntax.vim',    {'for': 'scss'}
-    Plug 'dag/vim-fish',                 {'for': 'fish'}
     Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
-    Plug 'fatih/vim-go',                 {'for': 'go'}
-    "Plug 'mitsuhiko/vim-jinja'
 call plug#end()
 
 " Colors
@@ -63,7 +58,7 @@ set cursorline
 
 " File encoding
 set encoding=utf-8
-set fileencodings=utf8,cp1251
+set fileencodings=utf8
 
 " Line wrap
 set nowrap
@@ -110,13 +105,21 @@ let g:lightline = {
 \ }, }
 
 " Nerdtree
-let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
+let NERDTreeIgnore = ['__pycache__', '.DS_Store', '.git']
 let g:NERDTreeWinPos        = "right"
 let g:NERDTreeWinSize       = 28
 let NERDTreeMinimalUI       = 1
 let NERDTreeShowLineNumbers = 1
 let NERDTreeShowHidden      = 0
 map <C-b> :NERDTreeToggle<CR>
+
+" VimWiki
+let g:vimwiki_markdown_link_ext = 0
+let g:vimwiki_list = [{
+\ 'path': '~/Documents/Notes',
+\ 'syntax': 'markdown',
+\ 'ext': '.md',
+\ }]
 
 " Coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -134,6 +137,7 @@ nmap FD <Plug>(easymotion-overwin-f2)
 nmap FS <Plug>(easymotion-bd-w)
 
 " CtrlP
+let g:ctrlp_custom_ignore = '\v[\/]\.git$'
 imap <C-p> :CtrlP<CR>
 nmap <C-p> :CtrlP<CR>
 
@@ -173,7 +177,6 @@ let g:floaterm_height    = 0.7
 let g:floaterm_width     = 0.6
 let g:floaterm_autoclose = 2
 nmap <A-t> :FloatermNew<CR>
-imap <A-t> :FloatermNew<CR>
 
 " == Maping
 let mapleader=","
@@ -207,5 +210,8 @@ noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
 
 " Buffer(s)
-noremap <C-a> :bnext<CR>
-noremap <C-s> :bprev<CR>
+noremap <leader>p :bnext<CR>
+noremap <leader>o :bprev<CR>
+
+" Autostart
+"autocmd VimEnter * execute "source ~/.config/nvim/init.vim"

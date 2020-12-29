@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Kernel version
+kernel=$(cat /proc/sys/kernel/osrelease|cut -d '-' -f1)
+
+# Window manager name
+[ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
+    wmname="$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t | grep "WM_NAME" | cut -f2 -d \")"
+}
+
+# Shell
+shell=$(basename $SHELL)
+
+# Pakages
+manager=$(which dnf apt pacman apk yay xbps-query 2>/dev/null)
+manager=${manager##*/}
+case "$manager" in
+	apt)        packages="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";;
+	pacman)     packages="$(pacman -Q | wc -l)";;
+	apk)        packages="$(apk list --installed | wc -l)";;
+	yay)        packages="$(yay -Q | wc -l)";;
+	xbps-query) packages="$(xbps-query -l | wc -l)";;
+esac 
+
+
+
+# Colors ####
+bold="\e[1m"
+reset="\e[0m"
+
+blue="\e[36m"
+grey="\e[90m"
+black='\e[30m'
+red='\e[31m'
+green='\e[32m'
+yellow='\e[33m'
+blue='\e[34m'
+magenta='\e[35m'
+cyan='\e[36m'
+white='\e[37m'
+
+echo -e "              ${blue}${bold}    WM ${reset}${wmname}"
+echo -e "   /\_/\      ${blue}${bold} SHELL ${reset}${shell}"
+echo -e "  (=^.^=)     ${blue}${bold}KERNEL ${reset}${kernel}"
+echo -e "  (\") (\")_/   ${blue}${bold}   PKG ${reset}${packages}"
+echo -e "  ${black}卑${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset} "
+exit 0
