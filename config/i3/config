@@ -25,12 +25,12 @@ exec --no-startup-id exec picom --experimental-backends -b
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
-exec --no-startup-id exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id exec xautolock -time 3 -locker "betterlockscreen --off 180 -t \"Computer is lockerd\" -l"
+exec --no-startup-id exec lxsession
+exec --no-startup-id exec xautolock -time 3 -locker "betterlockscreen --off 180 -t \"Computer is lockerd\" -l"
 exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
+exec --no-startup-id exec discord
 #exec --no-startup-id exec conky
 #exec --no-startup-id exec redshift-gtk
-#exec --no-startup-id exec discord
 
 ############## WM keys ############
 
@@ -60,11 +60,11 @@ bindsym $mod+grave scratchpad show, floating disable
 ############## User key ###########
 
 # Menus
-bindsym $mod+Shift+apostrophe exec "rofi -show run"
-bindsym $mod+Shift+Return exec "rofi -show drun"
-bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh -h 24
-bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh -h 24
-bindsym $mod+Control+i exec passmenu -h 24 -p Passwords
+bindsym $mod+Shift+apostrophe exec "rofi -location 6 -show run"
+bindsym $mod+Shift+Return exec "rofi -location 6 -show drun"
+bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh -b -h 24
+bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh -b -h 24
+bindsym $mod+Control+i exec passmenu -b -h 24 -p Passwords
 
 # Apps
 bindsym $mod+Return exec $terminal
@@ -84,11 +84,11 @@ bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.anal
 bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
 
 ######### Window preferens ########
-assign [class="(?i)firefox|qutebrowser"] $ws2
-assign [class="(?i)telegram|discord|viber"] $ws6
+assign [class="(?i)telegram|discord"] $ws6
+for_window [class="(?i)telegram|discord"] layout tabbed
 #focus_on_window_activation focus
 
-########## Change  focus ##########
+########## Change focus ###########
 bindsym $mod+h focus left
 bindsym $mod+Left focus left
 bindsym $mod+j focus down
@@ -109,14 +109,14 @@ bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Right move right
 
 ########## Resize window ##########
-bindsym $mod+Control+h resize shrink width 20 px or 20 ppt
-bindsym $mod+Control+Left resize shrink width 20 px or 20 ppt
-bindsym $mod+Control+j resize grow height 20 px or 20 ppt
-bindsym $mod+Control+Down resize grow height 20 px or 20 ppt
-bindsym $mod+Control+k resize shrink height 20 px or 20 ppt
-bindsym $mod+Control+Up resize shrink height 20 px or 20 ppt
-bindsym $mod+Control+l resize grow width 20 px or 20 ppt
-bindsym $mod+Control+Right resize grow width 20 px or 20 ppt
+bindsym $mod+Control+h resize shrink width 5 px or 5 ppt
+bindsym $mod+Control+Left resize shrink width 5 px or 5 ppt
+bindsym $mod+Control+j resize grow height 5 px or 5 ppt
+bindsym $mod+Control+Down resize grow height 5 px or 5 ppt
+bindsym $mod+Control+k resize shrink height 5 px or 5 ppt
+bindsym $mod+Control+Up resize shrink height 5 px or 5 ppt
+bindsym $mod+Control+l resize grow width 5 px or 5 ppt
+bindsym $mod+Control+Right resize grow width 5 px or 5 ppt
 
 ############ Workspaces ###########
 set $ws1 "1"

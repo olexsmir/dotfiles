@@ -1,3 +1,5 @@
 (package! rainbow-mode)
 (package! async)
 (package! go-autocomplete)
+(package! markdown-mode)
+(package! hy-mode)

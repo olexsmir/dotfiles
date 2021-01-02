@@ -42,6 +42,7 @@ alias du="du -sh"
 alias df="df -h"
 alias lns="ln -s"
 alias uln="unlink"
+alias rf="rm -rf"
 
 # Program
 alias vim="nvim"
@@ -69,3 +70,5 @@ alias doomsync="$HOME/.emacs.d/bin/doom sync"
 alias doomupgrade="$HOME/.emacs.d/bin/doom upgrade"
 alias doomdoctor="$HOME/.emacs.d/bin/doom doctor"
 alias doom="$HOME/.emacs.d/bin/doom"
+
+eval $(thefuck --alias)

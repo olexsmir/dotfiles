@@ -37,7 +37,7 @@ call plug#end()
 " Colors
 set termguicolors
 set background=dark
-colorscheme nten16
+colo nten16
 set t_Co=256
 
 " Syntax & line numbars

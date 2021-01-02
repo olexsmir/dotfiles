@@ -11,7 +11,7 @@ kernel=$(cat /proc/sys/kernel/osrelease|cut -d '-' -f1)
 # Shell
 shell=$(basename $SHELL)
 
-# Pakages
+# Packages
 manager=$(which apt pacman yay apk xbps-query 2>/dev/null)
 manager=${manager##*/}
 case "$manager" in
@@ -42,5 +42,5 @@ echo -e "            ${blue}${bold}    WM ${reset}${wmname}"
 echo -e "   /\_/\    ${blue}${bold} SHELL ${reset}${shell}"
 echo -e "  (=^.^=)   ${blue}${bold}KERNEL ${reset}${kernel}"
 echo -e "  (\") (\")_/ ${blue}${bold}   PKG ${reset}${packages}"
-echo -e "  ${black}卑${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset} "
+echo -e "  ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${reset} "
 exit 0

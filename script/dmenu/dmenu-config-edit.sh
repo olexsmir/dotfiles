@@ -3,75 +3,78 @@ declare options=("i3
 qtile
 berry
 openbox
-polybar
-picom
-dunst
-qutebrowser
-taskwarrior
-tmux
 alacritty
 kitty
-neovim
+picom
 ranger
-sh")
+qutebrowser
+emacs
+nvim
+tmux
+dunst
+castero
+redshift
+rofi")
 
-choice=$(echo -e "${options[@]}" | dmenu -p 'Edit config file' $@)
+choice=$(echo -e "${options[@]}"|dmenu -p "Config edit" $@)
 case "$choice" in
-	dunst) choice="$HOME/.config/dunst/dunstrc" ;;
-    neovim) choice="$HOME/.config/nvim/init.vim" ;;
-    taskwarior) choice="$HOME/.taskrc" ;;
-	picom) choice="$HOME/.config/picom.conf" ;;
-    kitty) choice="$HOME/.config/kitty/kitty.conf" ;;
-    alacritty) choice="$hoME/.config/alacritty.yml" ;;
-	polybar) choice="$HOME/.config/polybar/config" ;;
-    tmux) choice="$HOME/.tmux.conf" ;;
-	i3) choice="$HOME/.config/i3/config" ;;
-    qtile) 
-        opt=$(echo -e "config.py\nautostart.sh"|dmenu -p 'Qtile' $@)
-        case "$opt" in
-            "config.py") choice="$HOME/.config/qtile/config.py" ;;
-            "autostart.sh") choice="$HOME/.config/qtile/autostart.sh" ;;
+    i3)
+        case "$(echo -e "config\npolybar"|dmenu -p "I3wm" $@)" in
+	        config)  choice="$HOME/.config/i3/config"      ;;
+            polybar) choice="$HOME/.config/polybar/config" ;;
+        esac
+    ;;
+    qtile)
+        case "$(echo -e "config\nautostart"|dmenu -p "Qtile" $@)" in
+            config)    choice="$HOME/.config/qtile/config.py"    ;;
+            autostart) choice="$HOME/.config/qtile/autostart.sh" ;;
         esac
     ;;
     berry)
-        declare opt=$(echo -e "berry\npolybar\nsxhkd"|dmenu -p 'Berry' $@)
-        case "$opt" in
-            "berry") choice="$HOME/.config/berry/autostart" ;;
-            "polybar") choice="$HOME/.config/berry/polybar/polybar" ;;
-            "sxhkd") choice="$HOME/.config/berry/sxhkdrc" ;;
+        case "$(echo -e "config\npolybar\nsxhkd"|dmenu -p "Berry" $@)" in
+            config)  choice="$HOME/.config/berry/autostart"       ;;
+            polybar) choice="$HOME/.config/berry/polybar/polybar" ;;
+            sxhkd)   choice="$HOME/.config/berry/sxhkdrc"         ;;
         esac
     ;;
     openbox)
-        opt=$(echo -e "openbox\nautostart\nmenu\nreload"|dmenu -p 'OpenBox' $@)
-        case "$opt" in
-            "openbox") choice="$HOME/.config/openbox/rc.xml" ;;
-            "autostart") choice="$HOME/.config/openbox/autostart" ;;
-            "menu") choice="$HOME/.config/openbox/menu.xml" ;;
-            "reload") openbox --reconfigure && pkill kitty ;;
+        case "$(echo -p "config\nautostart\nmenu\ntint2|dmenu -p "OpenBox" $@")" in
+            config)    choice="$HOME/.config/openbox/rc.xml"    ;;
+            autostart) choice="$HOME/.config/openbox/autostart" ;;
+            menu)      choice="$HOME/.config/openbox/menu.xml"  ;;
+            tint2)     choice="$HOME/.config/tint2/tint2rc"     ;;
         esac
     ;;
+    alacritty) choice="$hoME/.config/alacritty.yml"    ;;
+    kitty)     choice="$HOME/.config/kitty/kitty.conf" ;;
+	picom)     choice="$HOME/.config/picom.conf"       ;;
+    ranger)    choice="$HOME/.config/ranger/rc.conf"   ;;
     qutebrowser)
-        why=$(echo -e "config.py\nquickmarks"|dmenu -p 'Qutebrowser' $@)
-        case "$why" in
-            "config.py") choice="$HOME/.config/qutebrowser/config.py" ;;
-            "quickmarks") choice="$HOME/.config/qutebrowser/quickmarks" ;;
+        case "$(echo -e "config\nquickmarks"|dmenu -p "Qutebrowser" $@)" in
+            config)     choice="$HOME/.config/qutebrowser/config.py"  ;;
+            quickmarks) choice="$HOME/.config/qutebrowser/quickmarks" ;;
         esac
     ;;
-    ranger)
-        why=$(echo -e "rc.conf\nrifle.conf"|dmenu -p 'Ranger' $@)
-        case "$why" in
-            "rc.conf") choice="$HOME/.config/ranger/rc.conf" ;;
-            "rifle.conf") choice="$HOME/.config/ranger/rifle.conf" ;;
+    emacs)
+        case "$(echo -e "config.el\ncustom.el\ninit.el\npackages.el"|dmenu -p "Doom emacs" $@)" in
+            config.el)   choice="$HOME/.doom.d/config.el"   ;;
+            init.el)     choice="$HOME/.doom.d/init.el"     ;;
+            custom.el)   choice="$HOME/.doom.d/custom.el"   ;;
+            packages.el) choice="$HOME/.doom.d/packages.el" ;;
         esac
     ;;
-    sh)
-        why=$(echo -e "zsh\nfish\nbash"|dmenu -p "Shell" $@)
-        case "$why" in
-            zsh) choice="$HOME/.zshrc" ;;
-            fish) choice="$HOME/.config/fish/config.fish" ;;
-            bash) choice="$hoME/.bashrc"
+    nvim)     choice="$HOME/.config/nvim/init.vim"         ;;
+    tmux)     choice="$HOME/.tmux.conf"                    ;;
+    dunst)    choice="$HOME/.config/dunst/dunstrc"         ;;
+    zsh)      choice="$HOME/.zshrc"                        ;;
+    castero)  choice="$HOME/.config/castero/castero.conf"  ;;
+    redshift) choice="$HOME/.config/redshift.conf"         ;;
+    rofi)
+        case "$(echo -e "config\nnten-dmenu"|dmenu -p "Rofi" $@)" in
+            config)     choice="$HOME/.config/rofi/config"                 ;;
+            nten-dmenu) choice="$HOME/.config/rofi/themes/nten-dmenu.rasi" ;;
         esac
     ;;
-	*) exit 1 ;;
 esac
 alacritty -e nvim "$choice"
+# emacsclient -c -a emacs "$choice"

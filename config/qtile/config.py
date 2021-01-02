@@ -44,14 +44,6 @@ keys = [
         lazy.spawn(filemanager),
         desc="Launch filemanager"
     ),
-    Key([mod, "shift"], "f",
-        lazy.spawn("dmenufm"),
-        desc="Launch dmenu filemanager"
-    ),
-    Key([mod, alt], "t",
-        lazy.spawn(f"{terminal} -e nvim /home/{user}/.todo"),
-        desc="Open ~/.todo file in nvim"
-    ),
 
     # Window control 
     Key([mod], "q", 
@@ -137,11 +129,11 @@ keys = [
 
     # Menus(dmenu or/and rofi) 
     Key([mod, "shift"], "Return",
-        lazy.spawn("rofi -show drun"),
+        lazy.spawn("rofi -location 2 -show drun"),
         desc="(Rofi) Program launcher"
     ),
     Key([mod, "shift"], "apostrophe",
-        lazy.spawn("rofi -show run"),
+        lazy.spawn("rofi -location 2 -show run"),
         desc="(Rofi) Program launcher"
     ),
     Key([mod],"Escape",
