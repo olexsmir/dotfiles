@@ -9,10 +9,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'                   " Status line
     Plug 'vimwiki/vimwiki', {'on': 'VimwikiIndex'} " Notes manager in (n)vim
     
-    " Color sheme
+    " Color scheme
     Plug 'Smirnov-O/nten16.vim'
 
-    " Project/file nafigation
+    " Project/file navigation
     Plug 'scrooloose/nerdtree',    {'on': 'NERDTreeToggle'}
     Plug 'ryanoasis/vim-devicons', {'on': 'NERDTreeToggle'}
     Plug 'preservim/tagbar',       {'on': 'TagbarToggle'} 
@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mattn/emmet-vim',              {'on':  'Emmet'}
     Plug 'cakebaker/scss-syntax.vim',    {'for': 'scss'}
     Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
+    Plug 'fatih/vim-go',                 {'for': 'go'}
 call plug#end()
 
 " Colors
@@ -40,7 +41,7 @@ set background=dark
 colo nten16
 set t_Co=256
 
-" Syntax & line numbars
+" Syntax & line numbers
 syntax on
 set number
 set relativenumber
@@ -87,6 +88,10 @@ set smartcase
 " Buffer
 set hidden
 set smartindent
+
+" Spell
+set spell
+set spelllang=en_us
 
 " Disable sound
 set visualbell t_vb=
@@ -178,6 +183,9 @@ let g:floaterm_width     = 0.6
 let g:floaterm_autoclose = 2
 nmap <A-t> :FloatermNew<CR>
 
+" Go
+let g:go_template_autocreate = 0
+
 " == Maping
 let mapleader=","
 
@@ -212,6 +220,3 @@ noremap <A-9> :tabn 9<CR>
 " Buffer(s)
 noremap <leader>p :bnext<CR>
 noremap <leader>o :bprev<CR>
-
-" Autostart
-"autocmd VimEnter * execute "source ~/.config/nvim/init.vim"

@@ -1,5 +1,5 @@
 window:
-  title: Alacritty
+  title: Terminal
   class:
     instance: Alacritty
     general: Alacritty
@@ -7,7 +7,6 @@ window:
     x: 0
     y: 0
 
-  
 font:
   antialias: lcd
   hinting: true

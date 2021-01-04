@@ -4,7 +4,7 @@ set $mod Mod4
 set $alt Mod1
 floating_modifier $mod
 
-# Font
+# Set font
 font monospace 10
 font pango:JetBrains Mono 10
 
@@ -26,7 +26,7 @@ exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec --no-startup-id exec org.telegram.desktop
 exec --no-startup-id exec lxsession
-exec --no-startup-id exec xautolock -time 3 -locker "betterlockscreen --off 180 -t \"Computer is lockerd\" -l"
+exec_always --no-startup-id exec $HOME/.script/autolock
 exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 exec --no-startup-id exec discord
 #exec --no-startup-id exec conky
@@ -36,6 +36,7 @@ exec --no-startup-id exec discord
 
 # Kill window
 bindsym $mod+q kill
+bindsym --release $mod+Shift+q exec xkill
 
 # Restart i3wm
 bindsym $mod+Control+r restart

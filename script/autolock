@@ -1,0 +1,2 @@
+#!/bin/sh
+xautolock -time 3 -locker "betterlockscreen --off 180 -t 'Computer is lokerd' -l"

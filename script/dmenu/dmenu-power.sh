@@ -4,7 +4,7 @@ Lock
 Logout
 Reboot")
 
-choice=$(echo -e "${options[@]}" | dmenu -p "Power" $@)
+choice=$(echo -e "${options[@]}"|dmenu -p "Power" $@)
 case "$choice" in
     "ShutDown")
         case "$(echo -e "Yes\nNo"|dmenu -p "ShutDown" $@)" in

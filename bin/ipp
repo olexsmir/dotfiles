@@ -1,5 +1,2 @@
 #!/bin/sh
-if [ -f '/usr/bin/curl' ]
-then curl ipinfo.io/ip
-else wget -qO- ipinfo.io/ip
-fi
+curl ipinfo.io/ip
