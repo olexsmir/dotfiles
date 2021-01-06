@@ -19,6 +19,7 @@ hide_edge_borders smart
 set $terminal alacritty
 set $browser firefox 
 set $filemanager thunar
+set $guieditor emacs
 
 ############ Autostart ############
 exec --no-startup-id exec picom --experimental-backends -b
@@ -41,14 +42,17 @@ bindsym --release $mod+Shift+q exec xkill
 # Restart i3wm
 bindsym $mod+Control+r restart
 
+# Reload i3wm
+bindsym $mod+Shift+r reload
+
 # Floating layout
 bindsym $mod+Tab floating toggle
 
 # Tab layout
-bindsym $mod+w layout tabbed
+bindsym $mod+Shift+w layout tabbed
 
 # Split layout
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+e layout toggle split
 
 # Splits
 bindsym $mod+b split h
@@ -71,6 +75,7 @@ bindsym $mod+Control+i exec passmenu -b -h 24 -p Passwords
 bindsym $mod+Return exec $terminal
 bindsym $mod+F2 exec $browser 
 bindsym $mod+f exec $filemanager
+bindsym $mod+d exec $guieditor
 
 # Sceenshot
 bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"

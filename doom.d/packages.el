@@ -3,3 +3,4 @@
 (package! go-autocomplete)
 (package! markdown-mode)
 (package! hy-mode)
+(package! nim-mode)

@@ -9,9 +9,9 @@ ZSH_THEME="cyan-simple"         # Set theme
 #HYPHEN_INSENSITIVE="true"      # Case-sensitive completion must be off.
 #DISABLE_AUTO_UPDATE="true"     # Disable bi-weekly auto-update checks.
 #DISABLE_UPDATE_PROMPT="true"   # Automatically update without prompting.
-#DISABLE_MAGIC_FUNCTIONS="true" # If pasting URLs and other text is messed up.
+#DISABLE_MAGIC_FUNCTIONS="true" # If pasting URL and other text is messed up.
 #DISABLE_LS_COLORS="true"       # Disable colors in ls.
-#DISABLE_AUTO_TITLE="true"      # Disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"       # Disable auto-setting terminal title.
 #ENABLE_CORRECTION="true"       # Enable command auto-correction.
 #COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
@@ -49,6 +49,8 @@ alias vim="nvim"
 alias tmux="tmux -2"
 alias ipython="ipython --no-banner"
 alias icat="kitty +kitten icat"
+alias ccat="sh -c cat"
+alias cat="bat"
 eval $(thefuck --alias)
 
 # Exit
@@ -71,4 +73,3 @@ alias doomupgrade="$HOME/.emacs.d/bin/doom upgrade"
 alias doomdoctor="$HOME/.emacs.d/bin/doom doctor"
 alias doom="$HOME/.emacs.d/bin/doom"
 
-eval $(thefuck --alias)

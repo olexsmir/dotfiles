@@ -1,12 +1,23 @@
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode zoutline)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages '(racket-mode markdown-mode zoutline)))
+(custom-set-faces)
+
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+
+  :mode
+  ("README.*\\.md\\'" . gfm-mode)
+  ("\\.md\\'" . markdown-mode)
+  ("\\.markdown\\'" . markdown-mode)
+
+  :hook
+  (markdown-mode . variable-pitch-mode)
+  (markdown-mode . yas-minor-mode)
+  (markdown-mode . smartparens-mode)
+
+  :custom
+  (markdown-command "pandoc")
+  (markdown-header-scaling t)
+
+  :config
+  (unbind-key "DEL" gfm-mode-map))

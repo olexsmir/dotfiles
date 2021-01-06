@@ -22,7 +22,7 @@ font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 font-2 = Weather Icons:size=7;2
 modules-left =  i3 menu pacman-up window-name
-modules-right = keyboard pulseaudio backlight wifi-signal time date
+modules-right = pulseaudio backlight wifi-signal keyboard time date
 tray-position = right
 
 [module/i3]
@@ -103,7 +103,7 @@ interval = 60
 [module/pacman-up]
 type = custom/script
 exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
-interval = 60
+interval = 15
 
 [module/window-name]
 type = internal/xwindow
