@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ $(pgrep polybar) ]
+then
+    polybar i3bar >/dev/null
+    #~/.config/polybar/launch.sh
+else
+    killall -q polybar
+    pkill polybar
+fi

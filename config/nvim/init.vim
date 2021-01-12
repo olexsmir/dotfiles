@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'                " CSS color preview  
     Plug 'airblade/vim-gitgutter'          " Git indicator
     Plug 'preservim/nerdcommenter'         " Code commenter
+    Plug 'junegunn/goyo.vim'
+    Plug 'voldikss/vim-floaterm'           " Terminal
 
     " Project/file navigation
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -25,7 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-python/python-syntax',     {'for': 'python'}
     Plug 'alaviss/nim.nvim',             {'for': 'nim'}
     Plug 'fatih/vim-go',                 {'for': 'go'}
-    "Plug 'nsf/gocode',                  {'for': 'go'}
+    Plug 'nsf/gocode',                   {'for': 'go'}
     Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
     Plug 'kovetskiy/sxhkd-vim',          {'for': 'sxhkd'}
 call plug#end()
@@ -101,6 +103,7 @@ let g:lightline = {
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter=1
 let g:markdown_fenced_languages = ['go', 'python', 'bash', 'sh=bash']
 let g:ficus_dir = "~/Documents/Notes"
 
@@ -110,15 +113,22 @@ let g:rainbow_active = 1
 " Python
 let g:python_higlight_all = 1
 
-" YouCompleteMe
-let g:ycm_key_list_previous_completion=['<Up>']
+" Floaterm
+let g:floaterm_title     = ""
+let g:floaterm_wintype   = "floating"
+let g:floaterm_position  = "bottomright"
+let g:floaterm_borderchars = ""
+let g:floaterm_height    = 0.4
+let g:floaterm_width     = 0.5
+let g:floaterm_autoclose = 2
+nmap <A-t> :FloatermNew<CR>
+
 
 " UltiSnipts
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsListSnippets="<c-s-tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
+let g:UltiSnipsExpandTrigger="<C-a>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger="<C-a>"
+let g:UltiSnipsJumpBackwardTrigger="<C-s>"
 
 " Go
 let g:go_template_autocreate = 0
@@ -187,5 +197,6 @@ noremap <leader>p :bnext<CR>
 noremap <leader>o :bprev<CR>
 
 " Plugins
+map <leader>gg :Goyo 80%x95% <CR>
 map <F9> :TagbarToggle<CR>
 map <C-b> :NERDTreeToggle<CR>

@@ -72,4 +72,3 @@ alias doomsync="$HOME/.emacs.d/bin/doom sync"
 alias doomupgrade="$HOME/.emacs.d/bin/doom upgrade"
 alias doomdoctor="$HOME/.emacs.d/bin/doom doctor"
 alias doom="$HOME/.emacs.d/bin/doom"
-

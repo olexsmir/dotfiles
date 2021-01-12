@@ -1,0 +1,45 @@
+snippet pkg "Package"
+package ${1:main}
+endsnippet
+
+snippet import "Import section"
+import (
+	${1}
+)
+endsnippet
+
+snippet for "For loop"
+for ${1:i\:\=1}; ${2:i\<\=10}; ${3:\i\+\+} {
+	${4}
+}
+endsnippet
+
+snippet var "Variable declaration"
+var ${1:name}${2/(.+)/ /}${2:type}${3: = ${0:value}}
+endsnippet
+
+snippet vars "Variables declaration"
+var (
+	${1:name}${2/(.+)/ /}${2:type}${3: = ${0:value} }
+)
+endsnippet
+
+snippet const "Constant declaration"
+const ${1:name}${2/(.+)/ /}${2:type} = ${0:value}
+endsnippet
+
+snippet consts "Constants declaration"
+const (
+	${1:constant}${2/(.+)/ /}${2:type} = ${0:value}
+)
+endsnippet
+
+snippet err "Rrror handling"
+if err != nil {
+	log.${1:Fatal}(err)
+}
+endsnippet
+
+snippet ;= ";= to :="
+:= $1
+endsnippet

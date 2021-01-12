@@ -1,4 +1,5 @@
 [settings]
+enable-ipc = true
 screenchange-reload = true
 pseudo-transparency = true
 
@@ -9,6 +10,7 @@ secondary = #008DCD
 alert = #FF6C6B
 
 [bar/i3bar]
+monitor = ${env:MONITOR_MIDDLE}
 width = 100%
 height = 24
 bottom = true

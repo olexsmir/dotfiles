@@ -1,0 +1,39 @@
+snippet !sh "SH Shebang"
+#!/bin/sh
+${1}
+endsnippet
+
+snippet !bash "BASH Shebang"
+#!/bin/bash
+${1}
+endsnippet
+
+snippet if "If declaration"
+if [ ${1} ]; then
+	${2}
+fi
+endsnippet
+
+snippet for "For loop"
+for (( i=0; i < ${1:10}; i++ )); do
+	${2}
+done
+endsnippet
+
+snippet while "While loop"
+while ${1:true}; do
+	${2}
+done
+endsnippet
+
+snippet case "Case"
+case "${1:$variable}" in
+	"${2}") ${3} ;;
+esac
+endsnippet
+
+snippet fn "Function declaration"
+function ${1:name}(${2}) {
+	${3}
+}
+endsnippet

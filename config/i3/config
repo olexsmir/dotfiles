@@ -19,17 +19,17 @@ hide_edge_borders smart
 set $terminal alacritty
 set $browser firefox 
 set $filemanager thunar
-set $guieditor emacs
+set $codeeditor alacritty -e nvim
 
 ############ Autostart ############
-exec --no-startup-id exec picom --experimental-backends -b
-exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
-exec --no-startup-id exec org.telegram.desktop
-exec --no-startup-id exec lxsession
-exec_always --no-startup-id exec $HOME/.script/autolock
+exec --no-startup-id exec picom --experimental-backends -b
 exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
-exec --no-startup-id exec discord
+exec --no-startup-id exec nitrogen --restore
+exec --no-startup-id exec lxsession
+exec --no-startup-id exec $HOME/.script/autolock
+#exec --no-startup-id exec org.telegram.desktop
+#exec --no-startup-id exec discord
 #exec --no-startup-id exec conky
 #exec --no-startup-id exec redshift-gtk
 
@@ -42,21 +42,18 @@ bindsym --release $mod+Shift+q exec xkill
 # Restart i3wm
 bindsym $mod+Control+r restart
 
-# Reload i3wm
-bindsym $mod+Shift+r reload
-
 # Floating layout
-bindsym $mod+Tab floating toggle
+bindsym $mod+Shift+Tab floating toggle
 
 # Tab layout
-bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Control+w layout tabbed
 
 # Split layout
-bindsym $mod+Shift+e layout toggle split
+bindsym $mod+Control+e layout toggle split
 
 # Splits
-bindsym $mod+b split h
-bindsym $mod+v split v
+#bindsym $mod+b split h
+#bindsym $mod+v split v
 
 # Scratchpad
 bindsym $mod+Shift+grave move scratchpad
@@ -73,26 +70,29 @@ bindsym $mod+Control+i exec passmenu -b -h 24 -p Passwords
 
 # Apps
 bindsym $mod+Return exec $terminal
-bindsym $mod+F2 exec $browser 
-bindsym $mod+f exec $filemanager
-bindsym $mod+d exec $guieditor
+bindsym $mod+Shift+w exec $browser 
+bindsym $mod+Shift+f exec $filemanager
+bindsym $mod+Shift+e exec $codeeditor
+
+# Toogle polybar
+bindsym $mod+b exec ~/.script/polybar-toggle
 
 # Sceenshot
-bindsym --release Print exec "scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
-bindsym --release Shift+Print exec "scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png"
+bindsym --release Print exec scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release Shift+Print exec scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png
 
 # Lockscreen
-bindsym $mod+Shift+z exec betterlockscreen --off 180 -t \"Computer is lockerd\" -l
+bindsym $mod+Shift+z exec betterlockscreen --off 180 -t "Computer is lockerd" -l
 
 # Volume
-bindsym $mod+plus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +2%"
-bindsym $mod+minus exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo  -2%"
-bindsym $mod+Shift+minus exec "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
+bindsym $mod+plus exec "amixer sset Master 2%+"
+bindsym $mod+minus exec "amixer sset Master 2%-"
+bindsym $mod+Shift+minus exec "amixer sset Master toggle"
 
 ######### Window preferens ########
 assign [class="(?i)telegram|discord"] $ws6
 for_window [class="(?i)telegram|discord"] layout tabbed
-#focus_on_window_activation focus
+focus_on_window_activation focus
 
 ########## Change focus ###########
 bindsym $mod+h focus left
