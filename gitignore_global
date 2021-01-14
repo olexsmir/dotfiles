@@ -1,7 +1,7 @@
 # IDE
 .idea
-*~
-~*
+.vscode
+**~
 
 # Logs and databases
 *.log
@@ -13,16 +13,18 @@
 *.pyc
 *.swp
 .*.swp
-*.swo
+*.swp
 __pycache__
 
 # Packages
 *.7z
 *.rar
-*.tar
+*.zip
+*.tar*
 *.bz2
 
 # Compiled siurce
 *.so
+*.o
 *.out
 *.bin

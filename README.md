@@ -16,13 +16,14 @@
 - `Launcher` dmenu, rofi
 
 #### Install configs
-Since i use **[rcm](https://github.com/thoughtbot/rcm)** set it
+Since i use **[rcm](https://github.com/thoughtbot/rcm)** set it:
 ~~~bash
 yay -S rcm
 ~~~
 
-And install configs
+And install configs:
 ~~~bash
 git clone https://github.com/Smirnov-O/dotfiles .dotfiles
 rcup
+mv ~/.bin ~/bin
 ~~~

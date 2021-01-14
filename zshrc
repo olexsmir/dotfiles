@@ -1,6 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-#source ~/.env
 source ~/.profile
 
 ### Oh my zsh ###
@@ -24,18 +23,22 @@ source $ZSH/oh-my-zsh.sh
 ### Variables ###
 export EDITOR="nvim"
 export VISUAL="nvim"
-export GOPATH="$HOME/.go"
+export GOPATH="$HOME/Go"
 
 ### Function ###
 function bgcolor {
     convert -size 1x1 xc:$1 /tmp/bgc.png
     feh --bg-tile /tmp/bgc.png
 }
+function codi() {
+  local syntax="${1:-python}"
+  nvim -c "let g:startify_disable_at_vimenter = 1 |\
+      Codi $syntax" "$@"
+}
 
 ### Aliases ###
 alias cls="clear"
 alias mkdir="mkdir -p"
-alias mkd="mkdir"
 alias sl="ls"
 alias cp="cp -r"
 alias du="du -sh"
@@ -46,12 +49,9 @@ alias rf="rm -rf"
 
 # Program
 alias vim="nvim"
+alias vi="nvim"
 alias tmux="tmux -2"
 alias ipython="ipython --no-banner"
-alias icat="kitty +kitten icat"
-alias ccat="sh -c cat"
-alias cat="bat"
-eval $(thefuck --alias)
 
 # Exit
 alias :q="exit"

@@ -32,7 +32,7 @@ cursor.style: Block
 debug.render_timer: false
 draw_bold_text_with_bright_colors: false
 background_opacity: 0.75
-#dynamic_title: true
+dynamic_title: true
 
 colors:
   primary:

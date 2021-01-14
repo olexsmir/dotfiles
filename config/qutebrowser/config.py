@@ -11,13 +11,13 @@ c.tabs.position = "top"
 c.downloads.position = "bottom"
 
 # alias, binds, search
-c.aliases = {'q':'quit', 'w':'session-save', 'wq':'quit --save', 'e':'open'} 
+c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'e': 'open'} 
 config.bind('<Ctrl-T>', 'open -t about:blank')
 c.url.searchengines = {
     'DEFAULT': 'https://www.google.com/search?q={}',
-    'ddg': 'https://duckduckgo.com/?q={}',
-    'arw': 'https://wiki.archlinux.org/?search={}',
-    'rdd': 'https://www.reddit.com/r/{}'
+    'ddgr': 'https://duckduckgo.com/?q={}',
+    'arw':  'https://wiki.archlinux.org/?search={}',
+    'rdd':  'https://www.reddit.com/r/{}'
 }
 # Enable cookie, image, js & user agents
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')

@@ -2,17 +2,16 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 from typing import List
-import kblayout
-import os
+import kblayout, os
 
 
 mod = "mod4"
 alt = "mod1"
 
-terminal = "alacritty"
-browser = "firefox"
-filemanager="thunar"
-user = "sasha"
+terminal    = "alacritty"
+browser     = "firefox"
+filemanager = "thunar"
+editor      = "alacritty -e nvim"
 
 color = [
     "#FFFFFF",  # 0. Text color
@@ -28,7 +27,9 @@ color = [
 
 
 @hook.subscribe.startup_once
-def autostart(): os.system("~/.config/qtile/autostart.sh")
+def autostart():
+    os.system("~/.config/qtile/autostart.sh")
+
 
 keys = [
     # Applications
@@ -36,15 +37,18 @@ keys = [
         lazy.spawn(terminal), 
         desc="Launch terminal"
     ),
-    Key([mod], "F2",
+    Key([mod, "shift"], "w",
         lazy.spawn(browser),
         desc="Launch browser"
     ),
-    Key([mod], "f",
+    Key([mod, "shift"], "f",
         lazy.spawn(filemanager),
         desc="Launch filemanager"
     ),
-
+    Key([mod, "shift"], "e",
+        lazy.spawn(editor),
+        desc="Launch code editor"
+    ),
     # Window control 
     Key([mod], "q", 
         lazy.window.kill(),
@@ -115,15 +119,15 @@ keys = [
 
     # Volume
     Key([mod], "equal",
-        lazy.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +2%"),
+        lazy.spawn("amixer sset Master 2%+"),
         desc="Plus 2% volume"
     ),
     Key([mod], "minus",
-        lazy.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -2%"),
+        lazy.spawn("amixer sset Master 2%-"),
         desc="Minus 2% volume"
     ),
     Key([mod, "shift"], "minus",
-        lazy.spawn("pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"),
+        lazy.spawn("amixer sset Master toggle"),
         desc="Mute volume"
     ),
 
@@ -137,7 +141,7 @@ keys = [
         desc="(Rofi) Program launcher"
     ),
     Key([mod],"Escape",
-        lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-power.sh"),
+        lazy.spawn("./.script/dmenu/dmenu-power.sh"),
         desc="Power menu"
     ),
     Key([mod, "control"], "i",
@@ -145,21 +149,21 @@ keys = [
         desc="Dmenu password menu"
     ),
     Key([mod, "control"], "u",
-        lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-config-edit.sh"),
+        lazy.spawn("./.script/dmenu/dmenu-config-edit.sh"),
         desc="Config editor"
     ),
     Key([mod, "control"], "o",
-        lazy.spawn(f"/home/{user}/.script/dmenu/dmenu-sysmon.sh"),
+        lazy.spawn("./.script/dmenu/dmenu-sysmon.sh"),
         desc="Choice system monitor"
     ),
 
     # Screenhot
     Key([], "Print",
-        lazy.spawn(f"scrot -s /home/{user}/$(date +%Y-%m-%d-%H-%M-%S).png"),
+        lazy.spawn("scrot -s ./$(date +%Y-%m-%d-%H-%M-%S).png"),
         desc="Create screenhot(scrot -s)"
     ),
     Key(["shift"], "Print",
-        lazy.spawn(f"scrot /home/{user}/$(date +%Y-%m-%d-%H-%M-%S).png"),
+        lazy.spawn(f"scrot ./$(date +%Y-%m-%d-%H-%M-%S).png"),
         desc="Create screenhot full screen(scrot)"
     ),
 
@@ -172,7 +176,7 @@ keys = [
         lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"
     ),
-    Key([mod, "shift"], "Escape",
+    Key([mod, "shift"], "q",
         lazy.spawn("xkill"),
         desc="Xkill"
     ),
@@ -286,8 +290,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    **layout_theme,
-    float_rules=[
+    **layout_theme, float_rules=[
         {"wmclass": "confirm"},
         {"wmclass": "dialog"},
         {"wmclass": "download"},
@@ -301,7 +304,7 @@ floating_layout = layout.Floating(
         {"wmclass": "maketag"},
         {"wname":   "branchdialog"},
         {"wname":   "pinentry"},
-        {"wmclass": "ssh-askpass"},
+        {"wmclass": "ssh-askpass"}
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

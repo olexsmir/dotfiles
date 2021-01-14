@@ -2,7 +2,7 @@
 if [ $(pgrep polybar) ]
 then
     polybar i3bar >/dev/null
-    #~/.config/polybar/launch.sh
+    # ~/.config/i3/bar.sh
 else
     killall -q polybar
     pkill polybar
