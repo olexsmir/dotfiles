@@ -20,6 +20,7 @@ set $terminal alacritty
 set $browser firefox 
 set $filemanager thunar
 set $codeeditor alacritty -e nvim
+set $guicode vscodium
 
 ############ Autostart ############
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
@@ -73,6 +74,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+w exec $browser 
 bindsym $mod+Shift+f exec $filemanager
 bindsym $mod+Shift+e exec $codeeditor
+bindsym $mod+Shift+c exec $guicode
 
 # Toogle polybar
 bindsym $mod+b exec ~/.script/polybar-toggle

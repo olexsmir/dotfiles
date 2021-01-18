@@ -25,14 +25,14 @@ function show() {
 }
 
 case "$1" in
-    add|a)  shift; add  "$@"       ;;
-    del|d)  shift; del  "$@"       ;;
-    mv)     shift; edit "$@"       ;;
-    show|s) shift; show            ;;
-    help) echo "add/a   - filename add to ignore"
-          echo "del/d   - filename del from ignore"
-          echo "mv      - oldname newname chage file name"
-          echo "show/s  - show ignore file"
+    add|a)  shift; add  "$@" ;;
+    del|d)  shift; del  "$@" ;;
+    mv)     shift; edit "$@" ;;
+    show|s) shift; show      ;;
+    help)   echo "add/a   - [file name] add to ignore"
+            echo "del/d   - [file name] delete from ignore"
+            echo "mv      - [old new]   change file name"
+            echo "show/s  - show ignore file"
     ;;
     *) echo "Command is not valid" ;;
 esac

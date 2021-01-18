@@ -10,7 +10,7 @@ alt = "mod1"
 
 terminal    = "alacritty"
 browser     = "firefox"
-filemanager = "thunar"
+filemanager = f"{terminal} -e ranger"
 editor      = "alacritty -e nvim"
 
 color = [
@@ -53,6 +53,10 @@ keys = [
     Key([mod], "q", 
         lazy.window.kill(),
         desc="Kill focused window"
+    ),
+    Key([mod, "shift"], "Tab",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating mode"
     ),
     Key([mod], "h", 
         lazy.layout.left(), 
@@ -204,10 +208,10 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 # Window layout(s)
 layout_theme = {
-    "border_width": 1,
+    "border_width": 2,
     "margin": 2,
     "border_focus": color[2],
-    "border_normal": color[1],
+    "border_normal": color[3],
     "font": "Jatbrains Mono"
 }
 layouts = [
@@ -230,7 +234,7 @@ layouts = [
 widget_defaults = dict(
     font="Jatbrains Mono",
     fontsize=12,
-    padding=5,
+    padding=4,
     foreground=color[0],
     background=color[3],
 )

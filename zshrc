@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
 source ~/.profile
 
 ### Oh my zsh ###
@@ -16,14 +16,19 @@ DISABLE_AUTO_TITLE="true"       # Disable auto-setting terminal title.
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
 export LANG=en_US.UTF-8         # Set locale
 
-plugins=(pip python golang pass emacs sudo heroku git taskwarrior encode64)
+plugins=(pip python golang pass sudo heroku vi-mode git encode64)
 source $ZSH/oh-my-zsh.sh
 
+
+### Vim mode ###
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+MODE_INDICATOR="%F{cyan}+%f"
 
 ### Variables ###
 export EDITOR="nvim"
 export VISUAL="nvim"
-export GOPATH="$HOME/Go"
+export GOPATH="$HOME/go"
 
 ### Function ###
 function bgcolor {
@@ -33,6 +38,7 @@ function bgcolor {
 function codi() {
   local syntax="${1:-python}"
   nvim -c "let g:startify_disable_at_vimenter = 1 |\
+      set bt=nofile ls=0 noru nonu nornu |\
       Codi $syntax" "$@"
 }
 
@@ -52,6 +58,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias tmux="tmux -2"
 alias ipython="ipython --no-banner"
+alias ran="ranger"
 
 # Exit
 alias :q="exit"

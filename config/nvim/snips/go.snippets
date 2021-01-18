@@ -1,5 +1,6 @@
-snippet pkg "Package"
+snippet pac "Package"
 package ${1:main}
+$0
 endsnippet
 
 snippet import "Import section"
@@ -24,6 +25,20 @@ var (
 )
 endsnippet
 
+snippet : "Variable"
+${1:v} := ${2:value}
+endsnippet
+
+snippet append "Append function"
+append(${1:slice}, ${0:value})
+endsnippet
+
+snippet switch "Switch"
+switch ${1:var} {
+case ${2:value}:
+}
+endsnippet
+
 snippet const "Constant declaration"
 const ${1:name}${2/(.+)/ /}${2:type} = ${0:value}
 endsnippet
@@ -40,6 +55,11 @@ if err != nil {
 }
 endsnippet
 
+snippet map "Map type"
+map[${1:keytype}]${2:valuetupe}
+$0
+endsnippet
+
 snippet ;= ";= to :="
-:= $1
+:= $0
 endsnippet

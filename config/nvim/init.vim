@@ -1,26 +1,23 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'Smirnov-O/nten16.vim'   " Color scheme 
+  Plug 'Smirnov-O/nten16.vim'   " Color scheme
   Plug 'itchyny/lightline.vim'  " Status line
   Plug 'airblade/vim-gitgutter' " Git indicator
-  Plug 'vimwiki/vimwiki'        " Wiki in vim
-  Plug 'ap/vim-css-color'       " CSS color preview  
+  Plug 'preservim/nerdtree'     " File viewer
+  Plug 'ap/vim-css-color'       " CSS color preview
   Plug 'mhinz/vim-startify'     " Start page
-  Plug 'voldikss/vim-floaterm'  " Terminal floating window
-  Plug 'kassio/neoterm'         " Terminal wrapper
-  Plug 'editorconfig/editorconfig-vim' " EditorConfig
+  Plug 'dense-analysis/ale'     " Linter
+  Plug 'editorconfig/editorconfig-vim' " EditorConfig support
 
   " Completion & snippets
-  Plug 'ycm-core/YouCompleteMe'
+  Plug 'ervandew/supertab'
   Plug 'jiangmiao/auto-pairs'
   Plug 'SirVer/ultisnips'
 
   " Programing
   Plug 'metakirby5/codi.vim'
-  Plug 'sheerun/vim-polyglot'
   Plug 'plasticboy/vim-markdown',  {'for': 'markdown'}
   Plug 'vim-python/python-syntax', {'for': 'python'}
   Plug 'fatih/vim-go', {'for': 'go'}
-  Plug 'nsf/gocode',   {'for': 'go'}
   Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
 call plug#end()
 
@@ -39,8 +36,7 @@ set ruler
 set showcmd
 
 " Mouse
-set mouse=a
-set mousehide
+set mouse=a mousehide
 set cursorline
 
 " Encoding
@@ -48,12 +44,10 @@ set encoding=utf-8
 set fileencodings=utf-8
 
 " Line wrap
-set nowrap
-set nolinebreak
+set nowrap nolinebreak
 
 " Backup file & history
-set nobackup
-set noswapfile
+set nobackup noswapfile
 set history=100
 
 " Reload file
@@ -82,6 +76,35 @@ set spelllang=en_us
 " Disable sound
 set visualbell t_vb=
 
+
+" == Language configuration
+
+" Python
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+let g:python_higlight_all = 1
+let g:python_highlight_string_formatting = 1
+let g:python_highlight_string_format = 1
+let g:python_highlight_doctests = 1
+let g:python_highlight_func_calls = 1
+let g:python_highlight_class_vars = 1
+
+" Markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:markdown_fenced_languages = ['go', 'python', 'bash', 'sh=bash']
+
+" Go
+let g:go_template_autocreate = 0
+let g:go_highlight_structs = 1 
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_snippet_engine = ""
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+
+
 " == Plugins configuration
 let g:lightline = {
 \ 'colorscheme': 'nten16',
@@ -93,42 +116,12 @@ let g:lightline = {
 \               [ 'filename', 'filetype' ] ]
 \ }, }
 
-" Markdown
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_frontmatter=1
-let g:markdown_fenced_languages = ['go', 'python', 'bash', 'sh=bash']
-
-" VimWiki
-let g:vimwiki_list = [{'path': '~/Documents/Notes', 'syntax': 'markdown', 'ext': '.md'}]
-"let g:vimwiki_ext2syntax = {".md": "markdown"}
-let g:VimWiki_markdown_link_ext = 1
-
-" Python
-let g:python_higlight_all = 1
-
-" Floaterm
-let g:floaterm_title     = ""
-let g:floaterm_wintype   = "floating"
-let g:floaterm_position  = "bottomright"
-let g:floaterm_height    = 0.4
-let g:floaterm_width     = 0.5
-let g:floaterm_autoclose = 2
-nmap <A-t> :FloatermNew<CR>
-
 " UltiSnipts
-let g:UltiSnipsExpandTrigger="<C-a>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsJumpForwardTrigger="<C-a>"
-let g:UltiSnipsJumpBackwardTrigger="<C-s>"
-
-" Go
-let g:go_template_autocreate = 0
-let g:go_highlight_structs = 1 
-let g:go_highlight_methods = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_snippet_engine = ""
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
+let g:UltiSnipsSnippetDirectories = ["snips"]
 
 " Startify
 let g:startify_custom_header = [
@@ -144,6 +137,9 @@ let g:startify_lists = [
 
 " == Mapping
 let mapleader=","
+
+" exit from insert mode
+im jj <esc>
 
 " window(s)
 nmap <C-h> :wincmd h<CR>

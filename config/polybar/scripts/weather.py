@@ -9,11 +9,11 @@ CITY = "Horodnytsya,UA"
 
 
 try: JSON = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&lang=EN&&units=metric&appid={API_KEY}").json()
-except Exception as e: print("No connection ")
+except Exception as a: print("No connection ")
 try:
-    if JSON['weather'][0]['main'] == "Clear": print("", int(JSON["main"]["temp"]),"°С")
+    if JSON['weather'][0]['main'] == "Clear":          print("", int(JSON["main"]["temp"]),"°С")
     elif JSON['weather'][0]['main'] == "Thunderstorm": print("", int(JSON["main"]["temp"]),"°С")
-    elif JSON['weather'][0]['main'] == "Drizzle": print("", int(JSON["main"]["temp"]),"°С")
+    elif JSON['weather'][0]['main'] == "Drizzle":      print("", int(JSON["main"]["temp"]),"°С")
     elif JSON['weather'][0]['main'] == "Rain": print("", int(JSON["main"]["temp"]),"°С")
     elif JSON['weather'][0]['main'] == "Snow": print("", int(JSON["main"]["temp"]),"°С")
     elif JSON['weather'][0]['main'] == "Mist": print("", int(JSON["main"]["temp"]),"°С")
