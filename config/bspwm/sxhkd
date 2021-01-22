@@ -1,0 +1,91 @@
+# Smirnov-O <ss2316544@gmail.com>
+# BSPWM/SXKBD config file
+
+## == USER keys
+super + Return
+	alacritty
+super + shift + w
+    firefox
+
+super + shift + f
+    alacritty --class="ranger" -e ranger
+
+super + shift + e
+    alacritty --class="nvim" -e nvim
+
+super + shift + c
+    vscodium
+
+super + shift + d
+    org.zealdocs.Zeal
+
+super + shift + q
+    xkill
+
+## == USER Menus
+super + shift + Return
+	rofi -location 2 -show drun
+
+super + Escape
+    ~/.script/dmenu/dmenu-power.sh
+
+super + ctrl + i
+    passmenu -h 24 -p Passwords
+
+super + ctrl + u
+    ~/.script/dmenu/dmenu-config-edit.sh
+
+
+## == BSPWM keys
+super + q
+	bspc node -{c,k}
+
+super + control + r
+	bspc wm -r && pkill -USR1 -x sxhkd
+
+## == BSPWM windows
+## Resize window
+super + ctrl + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Resize floating window
+#super + shift + {h,j,k,l}
+#	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Change focus & move focus window
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# Change focus window
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# Preselect the direction
+super + alt + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# Preselect the ratio
+super + alt + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancel the preselection
+super + ctrl + space
+	bspc node -p cancel
+
+## == BSPWM workspace
+## Next/Prev workspace
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# Change WP & send window to WP
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} focused:'^{1-9}'
+
+## == BSPWM windwo layouts
+# Set window layouts for specific window
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Change windows layout
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}

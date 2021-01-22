@@ -7,7 +7,6 @@
     selected-foreground:        #ffffff;
 }
 #window {
-    /* location: north; */
     width: 100%;
     height: 24px;
     padding: 0px;
@@ -26,6 +25,8 @@
 #listview {
     layout: horizontal;
     spacing: 0px;
+    fixed-height: false;
+    dynamic: true;
     lines: 100;
 }
 #entry {

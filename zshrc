@@ -16,19 +16,15 @@ DISABLE_AUTO_TITLE="true"       # Disable auto-setting terminal title.
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
 export LANG=en_US.UTF-8         # Set locale
 
-plugins=(pip python golang pass sudo heroku vi-mode git encode64)
+plugins=(pip python golang pass sudo git encode64)
 source $ZSH/oh-my-zsh.sh
 
-
-### Vim mode ###
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-MODE_INDICATOR="%F{cyan}+%f"
 
 ### Variables ###
 export EDITOR="nvim"
 export VISUAL="nvim"
 export GOPATH="$HOME/go"
+
 
 ### Function ###
 function bgcolor {
@@ -41,6 +37,7 @@ function codi() {
       set bt=nofile ls=0 noru nonu nornu |\
       Codi $syntax" "$@"
 }
+
 
 ### Aliases ###
 alias cls="clear"
@@ -73,9 +70,3 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 alias .6="cd ../../../../../.."
-
-# Doom emacs
-alias doomsync="$HOME/.emacs.d/bin/doom sync"
-alias doomupgrade="$HOME/.emacs.d/bin/doom upgrade"
-alias doomdoctor="$HOME/.emacs.d/bin/doom doctor"
-alias doom="$HOME/.emacs.d/bin/doom"

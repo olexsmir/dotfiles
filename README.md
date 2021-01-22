@@ -21,6 +21,14 @@ Since i use **[rcm](https://github.com/thoughtbot/rcm)** set it:
 yay -S rcm
 ~~~
 
+Install deps:
+~~~bash
+sudo pacman -S neovim tmux git i3wm bspwm sxhkd qtile alacritty picom dunst ranger firefox ttf-font-awesome ttf-jetbrains-mono rofi zsh zathura redshift
+yay -S polybar
+pip install -U castero
+~~~
+
+
 And install configs:
 ~~~bash
 git clone https://github.com/Smirnov-O/dotfiles .dotfiles

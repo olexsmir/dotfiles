@@ -18,13 +18,14 @@ hide_edge_borders smart
 ############ Variables ###########
 set $terminal alacritty
 set $browser firefox 
-set $filemanager thunar
+set $filemanager alacritty -e ranger
 set $codeeditor alacritty -e nvim
 set $guicode vscodium
+set $documentationreader org.zealdocs.Zeal 
 
 ############ Autostart ############
 exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
-exec --no-startup-id exec picom --experimental-backends -b
+exec_always --no-startup-id exec picom --experimental-backends -b
 exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec lxsession
@@ -75,6 +76,7 @@ bindsym $mod+Shift+w exec $browser
 bindsym $mod+Shift+f exec $filemanager
 bindsym $mod+Shift+e exec $codeeditor
 bindsym $mod+Shift+c exec $guicode
+bindsym $mod+Shift+d exec $documentationreader
 
 # Toogle polybar
 bindsym $mod+b exec ~/.script/polybar-toggle
@@ -93,6 +95,7 @@ bindsym $mod+Shift+minus exec "amixer sset Master toggle"
 
 ######### Window preferens ########
 assign [class="(?i)telegram|discord"] $ws6
+for_window [title="Google Tasks"] floating enable
 for_window [class="(?i)telegram|discord"] layout tabbed
 focus_on_window_activation focus
 
