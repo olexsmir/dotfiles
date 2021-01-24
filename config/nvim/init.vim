@@ -1,25 +1,35 @@
 call plug#begin('~/.vim/plugged')
   Plug 'Smirnov-O/nten16.vim'   " Color scheme
   Plug 'itchyny/lightline.vim'  " Status line
+  Plug 'maximbaz/lightline-ale' " ALE in status line
   Plug 'airblade/vim-gitgutter' " Git indicator
-  Plug 'ap/vim-css-color'       " CSS color preview
+  Plug 'ap/vim-css-color'       " HEX/CSS color preview
   Plug 'mhinz/vim-startify'     " Start page
+  Plug 'scrooloose/nerdtree'    " File manager
   Plug 'dense-analysis/ale'     " Linter
   Plug 'kassio/neoterm'         " Terminal wrapper
-  Plug 'aurieh/discord.nvim'    " Discord rich
-  Plug 'editorconfig/editorconfig-vim' " EditorConfig support
+  Plug 'metakirby5/codi.vim'    " Live REPL
+  Plug 'editorconfig/editorconfig-vim'  " EditorConfig support
+  Plug 'christoomey/vim-tmux-navigator' " Jump from vim to tmux and back
+  Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree git status
 
   " Completion & snippets
-  Plug 'ervandew/supertab'
+  "Plug 'ervandew/supertab'
   Plug 'jiangmiao/auto-pairs'
   Plug 'SirVer/ultisnips'
+  Plug 'mattn/emmet-vim', {'for': ['html', 'javascript']}
 
-  " Programing
-  Plug 'metakirby5/codi.vim'
-  Plug 'plasticboy/vim-markdown',  {'for': 'markdown'}
+  " Language support 
+  Plug 'othree/yajs.vim',          {'for': 'javascript'}
+  Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascript'}
+
   Plug 'vim-python/python-syntax', {'for': 'python'}
+
+  Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
+
+  Plug 'plasticboy/vim-markdown',      {'for': 'markdown'}
   Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
-  Plug 'kovetskiy/sxhkd-vim'
+  Plug 'kovetskiy/sxhkd-vim',          {'for': 'sxhkd'}
 call plug#end()
 
 
@@ -72,8 +82,7 @@ set hidden
 set smartindent
 
 " Spell
-set spell
-set spelllang=en_us
+"set spell spelllang=en_us
 
 " Disable sound
 set visualbell t_vb=
@@ -93,7 +102,7 @@ let g:python_highlight_class_vars = 1
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
-let g:markdown_fenced_languages = ['go', 'python', 'bash', 'sh=bash']
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'python', 'py=python', 'bash', 'sh=bash']
 
 
 " == Plugins configuration
@@ -101,11 +110,23 @@ let g:lightline = {
 \ 'colorscheme': 'nten16',
 \ 'active': {
 \    'left':  [ [ 'mode', 'paste' ],
-\               [ 'readonly', 'modified' ] ],
+\               [ 'readonly', 'modified' ],
+\               [ 'linter_errors', 'linter_warnings', 'linter_infos' ] ],
 \    'right': [ [ 'lineinfo' ],
 \               [ 'percent' ],
 \               [ 'filename', 'filetype' ] ]
-\ }, }
+\ },
+\ 'component_expand': {
+\   'linter_checking': 'lightline#ale#checking',
+\   'linter_infos': 'lightline#ale#infos',
+\   'linter_warnings': 'lightline#ale#warnings',
+\   'linter_errors': 'lightline#ale#errors',
+\   'linter_ok': 'lightline#ale#ok'
+\ },}
+
+" Emmet
+let g:user_emmet_expandabbr_key='<tab>'
+let g:user_emmet_mode='inv'
 
 " UltiSnipts
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -157,5 +178,5 @@ noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
 
 " Buffer(s)
-noremap <leader>p :bnext<CR>
-noremap <leader>o :bprev<CR>
+noremap <leader>b :bnext<CR>
+noremap <leader>p :bprev<CR>

@@ -54,8 +54,8 @@ bindsym $mod+Control+w layout tabbed
 bindsym $mod+Control+e layout toggle split
 
 # Splits
-#bindsym $mod+b split h
-#bindsym $mod+v split v
+bindsym $mod+b split h
+bindsym $mod+v split v
 
 # Scratchpad
 bindsym $mod+Shift+grave move scratchpad
@@ -64,11 +64,10 @@ bindsym $mod+grave scratchpad show, floating disable
 ############## User key ###########
 
 # Menus
-bindsym $mod+Shift+apostrophe exec "rofi -location 6 -show run"
-bindsym $mod+Shift+Return exec "rofi -location 6 -show drun"
-bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh -b -h 24
-bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh -b -h 24
-bindsym $mod+Control+i exec passmenu -b -h 24 -p Passwords
+bindsym $mod+Shift+Return exec rofi -show drun
+bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh
+bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
+bindsym $mod+Control+i exec ~/.script/dmenu/dmenu-pass.sh 
 
 # Apps
 bindsym $mod+Return exec $terminal
@@ -77,9 +76,6 @@ bindsym $mod+Shift+f exec $filemanager
 bindsym $mod+Shift+e exec $codeeditor
 bindsym $mod+Shift+c exec $guicode
 bindsym $mod+Shift+d exec $documentationreader
-
-# Toogle polybar
-bindsym $mod+b exec ~/.script/polybar-toggle
 
 # Sceenshot
 bindsym --release Print exec scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png

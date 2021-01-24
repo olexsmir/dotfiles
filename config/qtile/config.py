@@ -1,17 +1,17 @@
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
-from typing import List
-import kblayout, os
+import kblayout
+import os
 
 
 mod = "mod4"
 alt = "mod1"
 
-terminal    = "alacritty"
-browser     = "firefox"
+terminal = "alacritty"
+browser = "firefox"
 filemanager = f"{terminal} -e ranger"
-editor      = "alacritty -e nvim"
+editor = "alacritty -e nvim"
 
 color = [
     "#FFFFFF",  # 0. Text color
@@ -34,160 +34,119 @@ def autostart():
 keys = [
     # Applications
     Key([mod], "Return",
-        lazy.spawn(terminal), 
-        desc="Launch terminal"
-    ),
+        lazy.spawn(terminal),
+        desc="Launch terminal"),
     Key([mod, "shift"], "w",
         lazy.spawn(browser),
-        desc="Launch browser"
-    ),
+        desc="Launch browser"),
     Key([mod, "shift"], "f",
         lazy.spawn(filemanager),
-        desc="Launch filemanager"
-    ),
+        desc="Launch filemanager"),
     Key([mod, "shift"], "e",
         lazy.spawn(editor),
-        desc="Launch code editor"
-    ),
-    # Window control 
-    Key([mod], "q", 
+        desc="Launch code editor"),
+
+    # Window control
+    Key([mod], "q",
         lazy.window.kill(),
-        desc="Kill focused window"
-    ),
+        desc="Kill focused window"),
     Key([mod, "shift"], "Tab",
         lazy.window.toggle_floating(),
-        desc="Toggle floating mode"
-    ),
-    Key([mod], "h", 
-        lazy.layout.left(), 
-        desc="Change focus window(left)"
-    ),
+        desc="Toggle floating mode"),
+    Key([mod], "h",
+        lazy.layout.left(),
+        desc="Change focus window(left)"),
     Key([mod], "j",
-        lazy.layout.down(), 
-        desc="Change focus window(down)"
-    ),
-    Key([mod], "k", 
+        lazy.layout.down(),
+        desc="Change focus window(down)"),
+    Key([mod], "k",
         lazy.layout.up(),
-        desc="Change focus window(up)"
-    ),
+        desc="Change focus window(up)"),
     Key([mod], "l",
         lazy.layout.right(),
-        desc="Change focus window(right)"
-    ),
+        desc="Change focus window(right)"),
     Key([mod, "shift"], "h",
         lazy.layout.shuffle_left(),
-        desc="Move focus window(left)"
-    ),
+        desc="Move focus window(left)"),
     Key([mod, "shift"], "j",
         lazy.layout.shuffle_down(),
-        desc="Move focus window(down)"
-    ),
+        desc="Move focus window(down)"),
     Key([mod, "shift"], "k",
         lazy.layout.shuffle_up(),
-        desc="Move focus window(up)"
-    ),
+        desc="Move focus window(up)"),
     Key([mod, "shift"], "l",
         lazy.layout.shuffle_right(),
-        desc="Move focus window(right)"
-    ),
+        desc="Move focus window(right)"),
     Key([mod, "control"], "h",
         lazy.layout.grow_left(),
-        desc="Resize focus window(left)"
-    ),
+        desc="Resize focus window(left)"),
     Key([mod, "control"], "j",
         lazy.layout.grow_down(),
-        desc="Resize focus window(down)"
-    ),
+        desc="Resize focus window(down)"),
     Key([mod, "control"], "k",
         lazy.layout.grow_up(),
-        desc="Resize focus window(up)"
-    ),
+        desc="Resize focus window(up)"),
     Key([mod, "control"], "l",
         lazy.layout.grow_right(),
-        desc="Resize focus window(right)"
-    ),
+        desc="Resize focus window(right)"),
 
     # Layout
     Key([mod], "Tab",
         lazy.next_layout(),
-        desc="Toggle between layouts"
-    ),
+        desc="Toggle between layouts"),
     Key([mod], "space",
         lazy.layout.next(),
-        desc="Switch window focus to other pane(s) of stack"
-    ),
+        desc="Switch window focus to other pane(s) of stack"),
     Key([mod, "shift"], "space",
         lazy.layout.rotate(),
-        desc="Swap panes of split stack"
-    ),
+        desc="Swap panes of split stack"),
 
     # Volume
     Key([mod], "equal",
         lazy.spawn("amixer sset Master 2%+"),
-        desc="Plus 2% volume"
-    ),
+        desc="Plus 2% volume"),
     Key([mod], "minus",
         lazy.spawn("amixer sset Master 2%-"),
-        desc="Minus 2% volume"
-    ),
+        desc="Minus 2% volume"),
     Key([mod, "shift"], "minus",
         lazy.spawn("amixer sset Master toggle"),
-        desc="Mute volume"
-    ),
+        desc="Mute volume"),
 
-    # Menus(dmenu or/and rofi) 
+    # Menus(dmenu or/and rofi)
     Key([mod, "shift"], "Return",
-        lazy.spawn("rofi -location 2 -show drun"),
-        desc="(Rofi) Program launcher"
-    ),
-    Key([mod, "shift"], "apostrophe",
-        lazy.spawn("rofi -location 2 -show run"),
-        desc="(Rofi) Program launcher"
-    ),
-    Key([mod],"Escape",
+        lazy.spawn("rofi -show drun"),
+        desc="(Rofi) Program launcher"),
+    Key([mod], "Escape",
         lazy.spawn("./.script/dmenu/dmenu-power.sh"),
-        desc="Power menu"
-    ),
+        desc="Power menu"),
     Key([mod, "control"], "i",
-        lazy.spawn("passmenu -h 24 -p Password"),
-        desc="Dmenu password menu"
-    ),
+        lazy.spawn("./.script/dmenu/dmenu-pass.sh"),
+        desc="Dmenu(rofi) password menu"),
     Key([mod, "control"], "u",
         lazy.spawn("./.script/dmenu/dmenu-config-edit.sh"),
-        desc="Config editor"
-    ),
-    Key([mod, "control"], "o",
-        lazy.spawn("./.script/dmenu/dmenu-sysmon.sh"),
-        desc="Choice system monitor"
-    ),
+        desc="Config editor"),
 
     # Screenhot
     Key([], "Print",
         lazy.spawn("scrot -s ./$(date +%Y-%m-%d-%H-%M-%S).png"),
-        desc="Create screenhot(scrot -s)"
-    ),
+        desc="Create screenhot(scrot -s)"),
     Key(["shift"], "Print",
-        lazy.spawn(f"scrot ./$(date +%Y-%m-%d-%H-%M-%S).png"),
-        desc="Create screenhot full screen(scrot)"
-    ),
+        lazy.spawn("scrot ./$(date +%Y-%m-%d-%H-%M-%S).png"),
+        desc="Create screenhot full screen(scrot)"),
 
     # Qtile
     Key([mod, "control"], "r",
         lazy.restart(),
-        desc="Restart qtile"
-    ),
+        desc="Restart qtile"),
     Key([mod], "r",
         lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"
-    ),
+        desc="Spawn a command using a prompt widget"),
     Key([mod, "shift"], "q",
         lazy.spawn("xkill"),
-        desc="Xkill"
-    ),
+        desc="Xkill"),
     Key([mod, "shift"], "z",
         lazy.spawn("betterlockscreen --off 300 -t \"Computer is locked\" -l"),
-        desc="Lock screen"
-    )
+        desc="Lock screen")
 ]
 
 # Workspaces name, keys
@@ -199,8 +158,7 @@ group_names = [("term", {"layout": "columns"}),
                ("chat", {"layout": "columns"}),
                ("pass", {"layout": "columns"}),
                ("mus",  {"layout": "max"}),
-               ("flo",  {"layout": "columns"})
-]
+               ("flo",  {"layout": "columns"})]
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))
@@ -225,7 +183,7 @@ layouts = [
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(**layout_theme),
-    # layout.TreeTab(), 
+    # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -277,7 +235,7 @@ screens = [Screen(top=bar.Bar([
     widget.Clock(
         format=" %d.%m.%Y",
         foreground=color[4]
-    )], 24 # Panel size 
+    )], 24  # Panel size
 ))]
 
 # Drag floating layouts
@@ -308,8 +266,7 @@ floating_layout = layout.Floating(
         {"wmclass": "maketag"},
         {"wname":   "branchdialog"},
         {"wname":   "pinentry"},
-        {"wmclass": "ssh-askpass"}
-])
+        {"wmclass": "ssh-askpass"}])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 wmname = "LG3D"

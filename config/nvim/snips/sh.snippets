@@ -1,9 +1,9 @@
-snippet !sh "SH Shebang"
+snippet ! "SH Shebang"
 #!/bin/sh
 ${1}
 endsnippet
 
-snippet !bash "BASH Shebang"
+snippet #! "BASH Shebang"
 #!/bin/bash
 ${1}
 endsnippet
@@ -27,8 +27,8 @@ done
 endsnippet
 
 snippet case "Case"
-case "${1:$variable}" in
-	"${2}") ${3} ;;
+case "${1}" in
+	${2}
 esac
 endsnippet
 

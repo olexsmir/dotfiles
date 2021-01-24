@@ -13,7 +13,6 @@ alert = #FF6C6B
 monitor = ${env:MONITOR_MIDDLE}
 width = 100%
 height = 24
-bottom = true
 fixed-center = true
 wm-restack = i3
 background = ${colors.background}
@@ -22,19 +21,50 @@ module-margin-left = 1
 module-margin-right = 1
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
-font-2 = Weather Icons:size=7;2
 modules-left =  i3 pacman-up window-name
-modules-right = pulseaudio backlight wifi-signal keyboard time date
+modules-right = pulseaudio weather wifi-signal keyboard time date
 tray-position = right
 
-[module/bspwm]
-type = internal/bspwm
-pin-workspaces = true
-inline-mode = false
-enable-click = false
-enable-scroll = false
-reverse-scroll = false
-fuzzy-match = true
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+card = intel_backlight
+index-sort = false
+wrapping-scroll = false
+label-mode-padding = 1
+label-mode-background = ${colors.alert}
+
+label-focused = %icon%
+label-focused-background =  ${colors.secondary}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+label-focused-underline = ${colors.alert}
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-padding = 1
+
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 1
+label-urgent-underline = ${colors.alert}
+
+label-visible = %icon%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 1
+label-visible-underline = ${colors.background}
+
+ws-icon-0 = "1;1 "
+ws-icon-1 = "2;2 "
+ws-icon-2 = "3;3 "
+ws-icon-3 = "4;4 "
+ws-icon-4 = "5;5 "
+ws-icon-5 = "6;6 "
+ws-icon-6 = "7;7 "
+ws-icon-7 = "8;8 "
+ws-icon-8 = "9;9 "
 
 [module/wifi-signal]
 type = custom/script
@@ -72,22 +102,6 @@ label-layout =  %layout%
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 blacklist-2= caps lock
-
-[module/menu]
-type = custom/menu
-format = <label-toggle> <menu>
-format-padding = 1
-format-spacing = 2
-label-open = 
-label-close = 
-menu-0-0 =  
-menu-0-0-exec = thunar
-menu-0-1 = 
-menu-0-1-exec = firefox
-menu-0-2 = 
-menu-0-2-exec = alacritty
-menu-0-3 = 
-menu-0-3-exec = emacs
 
 [module/date]
 type = internal/date

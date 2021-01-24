@@ -1,5 +1,6 @@
 [settings]
 enable-ipc = true
+format-padding = 1
 screenchange-reload = true
 pseudo-transparency = true
 
@@ -16,14 +17,13 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 wm-restack = bspwm
-module-margin-left = 1
-module-margin-right = 1
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
-modules-left = windowname
+modules-left = powermenu windowname
 modules-center = bspwm
 modules-right = pulseaudio archupd wifi-signal weather memory cpu keyboard time date
 tray-position = right
+tray-padding = 0
 
 [module/bspwm]
 type = internal/bspwm

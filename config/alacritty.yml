@@ -36,9 +36,10 @@ cursor:
 
 scrolling.history: 1000
 debug.render_timer: false
-draw_bold_text_with_bright_colors: false
+#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 background_opacity: 0.75
-dynamic_title: true
+dynamic_title: false
 
 colors:
   primary:
