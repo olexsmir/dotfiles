@@ -12,9 +12,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'  " EditorConfig support
   Plug 'christoomey/vim-tmux-navigator' " Jump from vim to tmux and back
   Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree git status
+  Plug 'preservim/nerdcommenter'        " Code commenter
 
   " Completion & snippets
-  "Plug 'ervandew/supertab'
+  Plug 'ervandew/supertab'
   Plug 'jiangmiao/auto-pairs'
   Plug 'SirVer/ultisnips'
   Plug 'mattn/emmet-vim', {'for': ['html', 'javascript']}
@@ -124,8 +125,17 @@ let g:lightline = {
 \   'linter_ok': 'lightline#ale#ok'
 \ },}
 
+" NERDTree
+nnoremap <C-b> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos="right"
+let NERDTreeIgnore = ['__pycache__', '\**\*.sw[po]','.DS_Store']
+let NERDTreeMinimalUI=1
+let NERDTreeShowHidden=0
+let g:NERDTreeWinSize = 28
+
 " Emmet
-let g:user_emmet_expandabbr_key='<tab>'
+"let g:user_emmet_expandabbr_key='<tab>'
+let g:user_emmet_leader_key=','
 let g:user_emmet_mode='inv'
 
 " UltiSnipts

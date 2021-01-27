@@ -12,16 +12,16 @@ font:
   hinting: true
   size: 12.0
   normal:
-    family: Hack 
+    family: JetBrains Mono
     style: Regular
   bold:
-    family: Hack
+    family: JetBrains Mono
     style: Bold
   italic:
-    family: Hack
+    family: JetBrains Mono
     style: Italic
   bold_italic:
-    family: Hack
+    family: JetBrains Mono
     style: Bold Italic
   offset:
     x: 1

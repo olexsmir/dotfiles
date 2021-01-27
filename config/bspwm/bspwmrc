@@ -9,13 +9,13 @@ Run() {
 }
 
 ## == Autostart
-setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
-Run sxhkd -c .config/bspwm/sxhkd &
+Run setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
+Run sxhkd -c ./.config/bspwm/sxhkd &
 ~/.config/bspwm/bar.sh &
 Run nitrogen --restore &
 ~/.script/autolock &
 Run lxsession &
-Run picom &
+Run picom -b &
 
 ## == BSPWM
 
