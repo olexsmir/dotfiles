@@ -7,8 +7,8 @@ pseudo-transparency = true
 [colors]
 background = #262A2B
 foreground = #DFDFDF
-secondary = #008DCD
-alert = #FF6C6B
+secondary  = #008DCD
+alert      = #FF6C6B
 
 [bar/bar]
 width = 100%
@@ -19,7 +19,7 @@ foreground = ${colors.foreground}
 wm-restack = bspwm
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
-modules-left = powermenu windowname
+modules-left = windowname
 modules-center = bspwm
 modules-right = pulseaudio archupd wifi-signal weather memory cpu keyboard time date
 tray-position = right

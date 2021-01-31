@@ -4,7 +4,7 @@ Lock
 Logout
 Reboot")
 
-menucmd="rofi -location 2 -dmenu"
+menucmd="rofi -dmenu"
 choice=$(echo -e "${options[@]}"|${menucmd} -p "Power" $@)
 case "$choice" in
     "ShutDown")

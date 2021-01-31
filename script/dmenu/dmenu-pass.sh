@@ -1,7 +1,7 @@
 #!/bin/sh
 shopt -s nullglob globstar
 
-menucmd="rofi -location 2 -dmenu"
+menucmd="rofi -dmenu"
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )

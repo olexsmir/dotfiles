@@ -4,16 +4,16 @@
 
 ## == Function
 Run() {
- if ! pgrep $1
- then $@& fi
+  if ! pgrep $1
+     then $@& fi
 }
 
 ## == Autostart
 Run setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
+Run feh --randomize --bg-scale ~/Pictures/wallp &
 Run sxhkd -c ./.config/bspwm/sxhkd &
 ~/.config/bspwm/bar.sh &
-Run nitrogen --restore &
-~/.script/autolock &
+Run ~/.script/autolock &
 Run lxsession &
 Run picom -b &
 
@@ -30,7 +30,6 @@ bspc config borderless_monocle     true
 bspc config gapless_monocle        true
 bspc config single_monocle         true
 bspc config focus_follows_pointer  true
-bspc config borderless_monocle     true
 
 # Colors
 bspc config normal_border_color   "#262A2B"
@@ -42,13 +41,14 @@ bspc config urgent_border_color   "#FF6C6B"
 # Rules
 bspc rule -a Alacritty        desktop='^1' focus=on   follow=on
 bspc rule -a kitty            desktop='^1' focus=on   follow=on
-bspc rule -a firefox          desktop='^2' focus=off
-bspc rule -a VSCodium         desktop='^3' focus=on   follow=on
+bspc rule -a firefox          desktop='^2' focus=on   follow=off
+bspc rule -a VSCodium         desktop='^3' focus=on   follow=off
+bspc rule -a Sublime_text     desktop='^3' focus=on   follow=on
 bspc rule -a '*:nvim'         desktop='^3' focus=on   follow=on
-bspc rule -a '*:ranger'       desktop='^4' focus=on   follow=on
+bspc rule -a '*:ranger'       desktop='^4' focus=on   follow=off
 bspc rule -a Thunar           desktop='^4' focus=on   follow=on
-bspc rule -a Joplin           desktop='^5' focus=off
-bspc rule -a discord          descord='^6' focus=on
-bspc rule -a TelegramDesktop  descord='^6' focus=off
-bspc rule -a Spotify          descord='^9' focus=on
-bspc rule -a google-tasks-desktop state=floating
+bspc rule -a Joplin           desktop='^5' focus=on   follow=off
+bspc rule -a discord          descord='^6' focus=off  follow=off
+bspc rule -a telegram-desktop descord='^6' focus=off  follow=off
+bspc rule -a Spotify          descord='^9' focus=on   follow=on
+bspc rule -a google-tasks-desktop          state=floating

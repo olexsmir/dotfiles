@@ -3,6 +3,9 @@
     name = Smirnov Olexandr
     email = ss2316544@gmail.com
 
+[init]
+	defaultBranch = main
+
 [web]
     browser = firefox
 

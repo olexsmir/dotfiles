@@ -164,6 +164,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
+
 # Window layout(s)
 layout_theme = {
     "border_width": 2,
@@ -187,6 +188,7 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
+
 
 # Panel
 widget_defaults = dict(
@@ -238,12 +240,19 @@ screens = [Screen(top=bar.Bar([
     )], 24  # Panel size
 ))]
 
+
 # Drag floating layouts
 mouse = [
-    Drag([mod],  "Button1", lazy.window.set_position(), start=lazy.window.get_position()),
-    Drag([mod],  "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Drag([mod], "Button1",
+         lazy.window.set_position(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3",
+         lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2",
+          lazy.window.bring_to_front())
 ]
+
 
 dgroups_key_binder = None
 dgroups_app_rules = []

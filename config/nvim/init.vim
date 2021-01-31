@@ -3,32 +3,28 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'  " Status line
   Plug 'maximbaz/lightline-ale' " ALE in status line
   Plug 'airblade/vim-gitgutter' " Git indicator
-  Plug 'ap/vim-css-color'       " HEX/CSS color preview
+  Plug 'mbbill/undotree'        " Git like history
+  Plug 'ap/vim-css-color'       " CSS color preview
   Plug 'mhinz/vim-startify'     " Start page
-  Plug 'scrooloose/nerdtree'    " File manager
   Plug 'dense-analysis/ale'     " Linter
-  Plug 'kassio/neoterm'         " Terminal wrapper
-  Plug 'metakirby5/codi.vim'    " Live REPL
   Plug 'editorconfig/editorconfig-vim'  " EditorConfig support
   Plug 'christoomey/vim-tmux-navigator' " Jump from vim to tmux and back
-  Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree git status
-  Plug 'preservim/nerdcommenter'        " Code commenter
+
+  " NERDTree
+  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+  Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
   " Completion & snippets
-  Plug 'ervandew/supertab'
+  Plug 'neoclide/coc.nvim'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'SirVer/ultisnips'
-  Plug 'mattn/emmet-vim', {'for': ['html', 'javascript']}
 
   " Language support 
+  Plug 'metakirby5/codi.vim', {'on': 'Codi'} " Live REPL
   Plug 'othree/yajs.vim',          {'for': 'javascript'}
   Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascript'}
-
   Plug 'vim-python/python-syntax', {'for': 'python'}
-
   Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
-
-  Plug 'plasticboy/vim-markdown',      {'for': 'markdown'}
+  Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
   Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
   Plug 'kovetskiy/sxhkd-vim',          {'for': 'sxhkd'}
 call plug#end()
@@ -133,17 +129,22 @@ let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=0
 let g:NERDTreeWinSize = 28
 
-" Emmet
-"let g:user_emmet_expandabbr_key='<tab>'
-let g:user_emmet_leader_key=','
-let g:user_emmet_mode='inv'
-
-" UltiSnipts
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
-let g:UltiSnipsSnippetDirectories = ["snips"]
+" Coc
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+let g:coc_global_config="$HOME/.config/nvim/coc-settings.json"
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_global_extensions = [ 'coc-snippets',
+\ 'coc-emmet',
+\ 'coc-html',
+\ 'coc-css',
+\ 'coc-yaml',
+\ 'coc-json',
+\ 'coc-tsserver',
+\ 'coc-eslint',
+\ 'coc-prettier',
+\ ]
 
 " Startify
 let g:startify_custom_header = [
@@ -171,6 +172,10 @@ nmap <C-l> :wincmd l<CR>
 nmap <A-z> :wincmd K<CR>
 nmap <A-x> :wincmd L<CR>
 nmap <A-c> :wincmd n<CR>
+
+" C-j/k as up/dwon in menu
+inoremap <expr> <C-j> ("\<C-n>")
+inoremap <expr> <C-k> ("\<C-p>")
 
 " Tab(s)
 noremap <C-Tab> :tabnext<CR>

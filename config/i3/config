@@ -21,10 +21,9 @@ set $browser firefox
 set $filemanager alacritty -e ranger
 set $codeeditor alacritty -e nvim
 set $guicode vscodium
-set $documentationreader org.zealdocs.Zeal 
 
 ############ Autostart ############
-exec --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
+exec_always --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec_always --no-startup-id exec picom --experimental-backends -b
 exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 exec --no-startup-id exec nitrogen --restore

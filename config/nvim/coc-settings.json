@@ -1,0 +1,22 @@
+{
+    // Snippets
+    "snippets.ultisnips.directories": [
+        "snips"
+    ],
+    "snippets.userSnippetsDirectory": "~/.config/nvim",
+    // Emmet
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    // Autoload
+    "coc.preferences.hoverTarget": "float",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "html",
+        "markdown",
+        "yaml",
+        "json",
+        "javascript",
+        "pytnon"
+    ]
+}

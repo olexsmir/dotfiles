@@ -2,52 +2,27 @@
 # BSPWM/SXKBD config file
 
 ## == USER Applications
-super + Return
-	kitty
+super + {_,shift} Return
+    {alacritty,      \
+     rofi -show drun }
 
-super + shift + w
-    firefox
+super + shift + {w,f,e,c,q}
+    {firefox,                            \
+     alacritty --class=ranger -e ranger, \
+     alacritty --class=nvim   -e nvim,   \
+     subl,                               \
+	 xkill                               }
 
-super + shift + f
-    kitty --class=ranger -e ranger
+super + shift + z
+    betterlockscreen --off 180 -t "Computer is lokerd" -l
 
-super + shift + e
-    kitty --class=nvim -e nvim
+super + {equal, minus, shift + minus}
+    amixer sset Master {2%+,2%-,toggle}
 
-super + shift + c
-    vscodium
-
-super + shift + d
-    org.zealdocs.Zeal
-
-super + shift + q
-    xkill
-
-
-## == USER volume
-super + minus
-    amixer sset Master 2%-
-
-super + equal
-    amixer sset Master 2%+
-
-super + shift + minus
-    amixer sset Master toggle
-
-
-## == USER Menus
-super + shift + Return
-	rofi -location 2 -show drun
-
-super + Escape
-    ~/.script/dmenu/dmenu-power.sh
-
-super + ctrl + i
-    ~/.script/dmenu/dmenu-pass.sh
-
-super + ctrl + u
-    ~/.script/dmenu/dmenu-config-edit.sh
-
+super + {Escape, ctrl + u, ctrl  + i}
+	{./.script/dmenu/dmenu-power.sh,       \
+     ./.script/dmenu/dmenu-config-edit.sh, \
+     ./.script/dmenu/dmenu-pass.sh         }
 
 ## == BSPWM keys
 super + q
@@ -66,35 +41,21 @@ super + ctrl + {h,j,k,l}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# Change focus window
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
-
 # Preselect the direction
 super + alt + {h,j,k,l}
 	bspc node -p {west,south,north,east}
-
-# Preselect the ratio
 super + alt + {1-9}
 	bspc node -o 0.{1-9}
-
-# Cancel the preselection
-super + ctrl + space
+super + alt + {space,0}
 	bspc node -p cancel
 
 ## == BSPWM workspace
-## Next/Prev workspace
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
-# Change WP & send window to WP
 super + {_,shift + }{1-9}
 	bspc {desktop -f,node -d} focused:'^{1-9}'
 
 ## == BSPWM windwo layouts
-# Set window layouts for specific window
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + ctrl + {t, s, f}
+	bspc node -t {tiled,floating,fullscreen}
 
 # Change windows layout
 super + ctrl + {m,x,y,z}
