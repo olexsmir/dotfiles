@@ -1,56 +1,47 @@
 call plug#begin('~/.vim/plugged')
   Plug 'Smirnov-O/nten16.vim'   " Color scheme
-  Plug 'itchyny/lightline.vim'  " Status line
-  Plug 'maximbaz/lightline-ale' " ALE in status line
-  Plug 'airblade/vim-gitgutter' " Git indicator
-  Plug 'mbbill/undotree'        " Git like history
-  Plug 'ap/vim-css-color'       " CSS color preview
-  Plug 'mhinz/vim-startify'     " Start page
+  Plug 'itchyny/lightline.vim'  " Status bar
+  Plug 'maximbaz/lightline-ale' " Linter info in bar
   Plug 'dense-analysis/ale'     " Linter
-  Plug 'editorconfig/editorconfig-vim'  " EditorConfig support
-  Plug 'christoomey/vim-tmux-navigator' " Jump from vim to tmux and back
+  Plug 'airblade/vim-gitgutter' " Git indicator
+  Plug 'ap/vim-css-color'       " Preview CSS colors
+  Plug 'SirVer/ultisnips'       " Snippets
+  Plug 'jiangmiao/auto-pairs'   " Auto close brackets
+  Plug 'editorconfig/editorconfig-vim'  " Editor Config support
+  Plug 'christoomey/vim-tmux-navigator' " Jump from vim in tmux
+  Plug 'maxboisvert/vim-simple-complete' " Sublime like completion
 
-  " NERDTree
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-  Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
+  " History && file explorer
+  Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}     " Git like history
+  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " File explorer
+  Plug 'mattn/emmet-vim', {'for': ['javascript.jsx', 'html']}
 
-  " Completion & snippets
-  Plug 'neoclide/coc.nvim'
-  Plug 'jiangmiao/auto-pairs'
-
-  " Language support 
-  Plug 'metakirby5/codi.vim', {'on': 'Codi'} " Live REPL
-  Plug 'othree/yajs.vim',          {'for': 'javascript'}
-  Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascript'}
-  Plug 'vim-python/python-syntax', {'for': 'python'}
-  Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
+  " Language support
+  Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+  Plug 'mxw/vim-jsx', {'for': ['javascript.jsx', 'javascript']}
   Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
   Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
-  Plug 'kovetskiy/sxhkd-vim',          {'for': 'sxhkd'}
 call plug#end()
-
+syntax on
 
 " Theme
 set termguicolors
 colorscheme nten16
 set t_Co=256
 
-" Syntax & number line
-syntax on
+" number line
 set nu rnu
 
 " Status line
-set noshowmode
+set noshowmode showcmd
 set ruler
-set showcmd
 
 " Mouse
 set mouse=a mousehide
 set cursorline
 
 " Encoding
-set encoding=utf-8
-set fileencodings=utf-8
+set encoding=utf-8 fileencodings=utf-8
 
 " Line wrap
 set nowrap nolinebreak
@@ -59,50 +50,37 @@ set nowrap nolinebreak
 set nobackup noswapfile
 set history=100
 
-" Reload file
+" Auto reload file
 set autoread
 
 " Tabs
-set tabstop=4
+set ts=4 sts=4
+set expandtab autoindent
 set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
 
 " Search
-set incsearch
-set ignorecase
-set smartcase
+set incsearch ignorecase smartcase
 
 " Buffer(s)
-set hidden
-set smartindent
+set hidden smartindent
 
 " Spell
-"set spell spelllang=en_us
+set spell spelllang=en_us
+
+" Space/tab indicator
+set list listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 
 " Disable sound
 set visualbell t_vb=
 
-
-" == Language configuration
-
-" Python
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-let g:python_higlight_all = 1
-let g:python_highlight_string_formatting = 1
-let g:python_highlight_string_format = 1
-let g:python_highlight_doctests = 1
-let g:python_highlight_func_calls = 1
-let g:python_highlight_class_vars = 1
+"== Language configuration
+let g:jsx_ext_required = 0
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_frontmatter = 1
-let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'python', 'py=python', 'bash', 'sh=bash']
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'jsx=javascript.jsx', 'python', 'bash', 'sh=bash']
 
-
-" == Plugins configuration
+"== Plug in configuration
 let g:lightline = {
 \ 'colorscheme': 'nten16',
 \ 'active': {
@@ -111,60 +89,50 @@ let g:lightline = {
 \               [ 'linter_errors', 'linter_warnings', 'linter_infos' ] ],
 \    'right': [ [ 'lineinfo' ],
 \               [ 'percent' ],
-\               [ 'filename', 'filetype' ] ]
-\ },
+\               [ 'filename', 'filetype' ] ]},
 \ 'component_expand': {
-\   'linter_checking': 'lightline#ale#checking',
-\   'linter_infos': 'lightline#ale#infos',
-\   'linter_warnings': 'lightline#ale#warnings',
 \   'linter_errors': 'lightline#ale#errors',
-\   'linter_ok': 'lightline#ale#ok'
-\ },}
+\   'linter_infos': 'lightline#ale#infos',
+\   'linter_warnings': 'lightline#ale#warnings'
+\ }, }
 
 " NERDTree
 nnoremap <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="right"
-let NERDTreeIgnore = ['__pycache__', '\**\*.sw[po]','.DS_Store']
-let NERDTreeMinimalUI=1
+let NERDTreeIgnore = ['__pycache__', 'node_modules']
 let NERDTreeShowHidden=0
 let g:NERDTreeWinSize = 28
 
-" Coc
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:coc_global_config="$HOME/.config/nvim/coc-settings.json"
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_global_extensions = [ 'coc-snippets',
-\ 'coc-emmet',
-\ 'coc-html',
-\ 'coc-css',
-\ 'coc-yaml',
-\ 'coc-json',
-\ 'coc-tsserver',
-\ 'coc-eslint',
-\ 'coc-prettier',
-\ ]
+" UltiSnips
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
+let g:UltiSnipsSnippetDirectories = ["snips"]
+let g:UltiSnipsEditSplit = "vertical"
 
-" Startify
-let g:startify_custom_header = [
-\ " _____         _____ _         ",
-\ " |   | |___ ___|  |  |_|_____  ",
-\ " | | | | -_| . |  |  | |     | ",
-\ " |_|___|___|___|\___/|_|_|_|_| ",
-\ ]
-let g:startify_lists = [
-\ { 'type': 'bookmarks', 'header': ["  Bookmarks"] },
-\ { 'type': 'files',     'header': ["  Files"] },
-\ ]
+" Emmet
+let g:user_emmet_expandabbr_key='<C-a>'
+let g:user_emmet_mode='a'
+
+" Neoterm
+let g:neoterm_default_mod = 'vertical'
+let g:neoterm_size = 30
+let g:neoterm_autoinsert = 1
+
+" Ale
+let g:ale_disable_lsp = 1
+let g:ale_sign_error = '> '
+let g:ale_sign_warning = '- '
+let g:ale_echo_msg_format = '%severity%: %s'
+let g:ale_fixers = {
+\ 'javascript': ['prettier', 'eslint' ],
+\ 'python':     ['flake8',   'pylint8']}
 
 " == Mapping
 let mapleader=","
+imap jj <esc>
 
-" exit from insert mode
-im jj <esc>
-
-" window(s)
+" Window(s)
 nmap <C-h> :wincmd h<CR>
 nmap <C-j> :wincmd j<CR>
 nmap <C-k> :wincmd k<CR>
@@ -173,7 +141,7 @@ nmap <A-z> :wincmd K<CR>
 nmap <A-x> :wincmd L<CR>
 nmap <A-c> :wincmd n<CR>
 
-" C-j/k as up/dwon in menu
+" C-j/k as up/down in menu
 inoremap <expr> <C-j> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
 

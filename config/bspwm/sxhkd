@@ -1,7 +1,7 @@
 # Smirnov-O <ss2316544@gmail.com>
 # BSPWM/SXKBD config file
 
-## == USER Applications
+## == USER keys 
 super + {_,shift} Return
     {alacritty,      \
      rofi -show drun }
@@ -10,13 +10,13 @@ super + shift + {w,f,e,c,q}
     {firefox,                            \
      alacritty --class=ranger -e ranger, \
      alacritty --class=nvim   -e nvim,   \
-     subl,                               \
+     code,                               \
 	 xkill                               }
 
 super + shift + z
     betterlockscreen --off 180 -t "Computer is lokerd" -l
 
-super + {equal, minus, shift + minus}
+super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
 
 super + {Escape, ctrl + u, ctrl  + i}

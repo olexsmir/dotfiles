@@ -1,5 +1,5 @@
 window:
-  title: Terminal
+  title: Alacritty
   class:
     instance: Alacritty
     general: Alacritty
@@ -10,7 +10,7 @@ window:
 font:
   antialias: lcd
   hinting: true
-  size: 12.0
+  size: 10.0
   normal:
     family: JetBrains Mono
     style: Regular
@@ -32,8 +32,6 @@ cursor:
   Underline:
     height: 0.5 - 2
 
-
-
 scrolling.history: 1000
 debug.render_timer: false
 #draw_bold_text_with_bright_colors: false
@@ -43,33 +41,33 @@ dynamic_title: false
 
 colors:
   primary:
-    background: '0x262A2B'
-    foreground: '0xFFFFFF'
+    background: "0x262A2B"
+    foreground: "0xFFFFFF"
   cursor:
-    text: '0x7D7D7D'
-    cursor: '0xDFDFDF'
+    text: "0x7D7D7D"
+    cursor: "0xDFDFDF"
   selection:
-    text: '0xEDEBD7'
-    background: '0x262A3B'
+    text: "0xEDEBD7"
+    background: "0x262A3B"
   normal:
-    black:   '0x181818'
-    red:     '0xab4642'
-    green:   '0xa1b56c'
-    yellow:  '0xf7ca88'
-    blue:    '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan:    '0x86c1b9'
-    white:   '0xd8d8d8'
+    black: "0x181818"
+    red: "0xab4642"
+    green: "0xa1b56c"
+    yellow: "0xf7ca88"
+    blue: "0x7cafc2"
+    magenta: "0xba8baf"
+    cyan: "0x86c1b9"
+    white: "0xd8d8d8"
   bright:
-    black:   '0x585858'
-    red:     '0xab4642'
-    green:   '0xa1b56c'
-    yellow:  '0xf7ca88'
-    blue:    '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan:    '0x86c1b9'
-    white:   '0xf8f8f8'
+    black: "0x585858"
+    red: "0xab4642"
+    green: "0xa1b56c"
+    yellow: "0xf7ca88"
+    blue: "0x7cafc2"
+    magenta: "0xba8baf"
+    cyan: "0x86c1b9"
+    white: "0xf8f8f8"
 
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy  }
+  - { key: C, mods: Control|Shift, action: Copy }

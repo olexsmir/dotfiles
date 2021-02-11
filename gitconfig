@@ -15,14 +15,11 @@
 
 [alias]
     ada = add -A
-    cm = commit
+    com = commit -am
     cmm = commit -m
     ch = checkout
-    cl = clone
     st = status
     br = branch
-    l = log
-    i = init
 
 [color]
     ui = true

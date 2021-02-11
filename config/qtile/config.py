@@ -1,18 +1,22 @@
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
+from os import system as cmd
 import kblayout
-import os
 
 
+# Set mod key
 mod = "mod4"
 alt = "mod1"
 
+# Set program
 terminal = "alacritty"
 browser = "firefox"
-filemanager = f"{terminal} -e ranger"
-editor = "alacritty -e nvim"
+filemanager = f"{terminal} --title=ranger -e ranger"
+editor = f"{terminal} --title=NVim -e nvim"
+guicodeeitor = "code"
 
+# Set qtile colors
 color = [
     "#FFFFFF",  # 0. Text color
     "#CED4DA",  # 1. Unfocus color
@@ -26,9 +30,10 @@ color = [
 ]
 
 
+# Auto start
 @hook.subscribe.startup_once
 def autostart():
-    os.system("~/.config/qtile/autostart.sh")
+    cmd("~/.config/qtile/autostart.sh")
 
 
 keys = [
@@ -45,6 +50,9 @@ keys = [
     Key([mod, "shift"], "e",
         lazy.spawn(editor),
         desc="Launch code editor"),
+    Key([mod, "shift"], "c",
+        lazy.spawn(guicodeeitor),
+        desc="Run GUI code editor"),
 
     # Window control
     Key([mod], "q",
@@ -149,6 +157,30 @@ keys = [
         desc="Lock screen")
 ]
 
+
+# Auto send window on specific WP
+@hook.subscribe.client_new
+def client_new(client):
+    if client.name == "Alacritty" or client.name == "Kitty":
+        client.togroup("term")
+    elif client.name == "Mozilla Firefox" or \
+            client.name == "Firefox Developer Edition":
+        client.togroup("www")
+    elif client.name == "NVim" or client.name == \
+                        "Visual Studio Code":
+        client.togroup("dev")
+    elif client.name == "Thunar" or client.name == "ranger":
+        client.togroup("sys")
+    elif client.name == "Joplin":
+        client.togroup("doc")
+    elif client.name == "Telegram" or client.name == "Discord":
+        client.togroup("chat")
+    elif client.name == "KeePassXC":
+        client.togroup("pass")
+    elif client.name == "Spotify":
+        client.togroup("mus")
+
+
 # Workspaces name, keys
 group_names = [("term", {"layout": "columns"}),
                ("www",  {"layout": "max"}),
@@ -208,7 +240,7 @@ screens = [Screen(top=bar.Bar([
         highlight_color=color[2],
         highlight_method="block",
         this_current_screen_border=color[2],
-        this_screen_border=color[3],
+        this_screen_border=color[3]
     ),
     widget.Prompt(),
     widget.WindowName(),
@@ -222,12 +254,12 @@ screens = [Screen(top=bar.Bar([
     ),
     widget.Volume(
         foreground=color[6],
-        fmt=" {}",
+        fmt=" {}"
     ),
     widget.Net(
         interface="wlp3s0",
-        format="{down}↓↑{up}",
-        foreground=color[7],
+        format="{down} ↓↑{up}",
+        foreground=color[7]
     ),
     widget.Systray(),
     widget.Clock(

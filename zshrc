@@ -3,7 +3,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
 source ~/.profile
 
 ### Oh my zsh ###
-ZSH_THEME="cyan-simple"         # Set theme
+ZSH_THEME="nten"                # Set theme
 #CASE_SENSITIVE="true"          # Use case-sensitive completion.
 #HYPHEN_INSENSITIVE="true"      # Case-sensitive completion must be off.
 #DISABLE_AUTO_UPDATE="true"     # Disable bi-weekly auto-update checks.
@@ -16,26 +16,25 @@ DISABLE_AUTO_TITLE="true"       # Disable auto-setting terminal title.
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
 export LANG=en_US.UTF-8         # Set locale
 
-plugins=(pip python golang pass sudo git encode64)
+plugins=(python pip node npm yarn pass sudo git encode64)
 source $ZSH/oh-my-zsh.sh
 
 
 ### Variables ###
 export EDITOR="nvim"
 export VISUAL="nvim"
-export GOPATH="$HOME/go"
 
 
 ### Function ###
-function bgcolor {
-    convert -size 1x1 xc:$1 /tmp/bgc.png
-    feh --bg-tile /tmp/bgc.png
-}
+#function bgcolor {
+#    convert -size 1x1 xc:$1 /tmp/bgc.png
+#    feh --bg-tile /tmp/bgc.png
+#}
 function codi() {
-  local syntax="${1:-python}"
-  nvim -c "let g:startify_disable_at_vimenter = 1 |\
-      set bt=nofile ls=0 noru nonu nornu |\
-      Codi $syntax" "$@"
+    local syntax="${1:-javascript}"
+    nvim -c "let g:startify_disable_at_vimenter = 1 |\
+        set bt=nofile ls=0 noru nonu nornu |\
+        Codi $syntax" "$@"
 }
 
 
@@ -56,6 +55,8 @@ alias vi="nvim"
 alias tmux="tmux -2"
 alias ipython="ipython --no-banner"
 alias ran="ranger"
+alias f="fuck"
+alias firefox-dev="firefox-developer-edition"
 
 # Exit
 alias :q="exit"

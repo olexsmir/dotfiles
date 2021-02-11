@@ -3,7 +3,7 @@ For working widget install `xkblayout`
 $ yay -S xkblayout
 """
 from libqtile.widget import base
-import os
+from os import popen
 
 
 KBCMD = """
@@ -18,11 +18,11 @@ esac
 class KBLayout(base.InLoopPollText):
     """Widget for displaying the current keyboard layout"""
     orientations = base.ORIENTATION_HORIZONTAL
+
     def __init__(self, **config):
         base.InLoopPollText.__init__(self, **config)
 
     def poll(self):
-        kb = os.popen(KBCMD).read().rstrip('\n')\
-            .encode('utf-8').decode('utf-8')
-
+        kb = popen(KBCMD).read().rstrip('\n') \
+                         .encode('utf-8').decode('utf-8')
         return kb

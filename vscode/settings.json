@@ -1,0 +1,102 @@
+{
+    // Apperence
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "'Jetbrain Mono', 'FontAwesome5Free', 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
+    "editor.wordWrap": "off",
+    "editor.fontSize": 14,
+
+    // Editor
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": false,
+
+    // Vim
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {"before": ["j", "j"],
+         "after" : ["<Esc>"]}],
+    "vim.normalModeKeyBindings": [
+        {"before": ["f"],
+         "after" : ["leader","leader","s"]}
+    ],
+    "Vsnips.VarFiles": ["/home/sasha/.config/nvim/init.vim"],
+    "Vsnips.SnipsDir": ["/home/sasha/.config/nvim/snips"],
+    
+    // Terminal
+    "workbench.panel.defaultLocation": "right",
+    "terminal.integrated.shell.linux": "zsh",
+
+    // No show files
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/venv": true,
+        "**/env": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true
+    },
+
+    // Minimap
+    "editor.minimap.side": "left",
+    "editor.minimap.size": "fit",
+
+    // Sidebar 
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.visible": true,
+    // File menu
+    "window.menuBarVisibility": "hidden",
+
+    // Python
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "autopep8",
+
+    // Emmet
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    // Plugins
+    "todo-tree.tree.showScanModeButton": false,
+
+    // Explorer menu
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    // Config for specific languages
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false
+    },
+    "[html]": {
+        "editor.tabSize": 3,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[css]": {
+        "editor.tabSize": 2,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[scss]": {
+        "editor.tabSize": 2,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}

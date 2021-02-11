@@ -18,8 +18,8 @@ hide_edge_borders smart
 ############ Variables ###########
 set $terminal alacritty
 set $browser firefox 
-set $filemanager alacritty -e ranger
-set $codeeditor alacritty -e nvim
+set $filemanager alacritty --title=ranger -e ranger
+set $codeeditor alacritty --title=nvim -e nvim
 set $guicode vscodium
 
 ############ Autostart ############
@@ -89,7 +89,15 @@ bindsym $mod+minus exec "amixer sset Master 2%-"
 bindsym $mod+Shift+minus exec "amixer sset Master toggle"
 
 ######### Window preferens ########
+assign [class="Alacritty"] $ws1
+assign [class="(?i)firefox"] $ws2
+assign [class="(?i)code|vscodium|subl"] $ws3
+assign [title="nvim"] $ws3
+assign [class="(?!)thunar"] $ws4
+assign [title="ranger"] $ws4
+assign [title="Joplin"] $ws5
 assign [class="(?i)telegram|discord"] $ws6
+assign [class="Spotify"] $ws9
 for_window [title="Google Tasks"] floating enable
 for_window [class="(?i)telegram|discord"] layout tabbed
 focus_on_window_activation focus
