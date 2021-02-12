@@ -20,15 +20,15 @@ set $terminal alacritty
 set $browser firefox 
 set $filemanager alacritty --title=ranger -e ranger
 set $codeeditor alacritty --title=nvim -e nvim
-set $guicode vscodium
+set $guicode code
 
 ############ Autostart ############
 exec_always --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec_always --no-startup-id exec picom --experimental-backends -b
-exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
+#exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec lxsession
-exec --no-startup-id exec $HOME/.script/autolock
+#exec --no-startup-id exec $HOME/.script/autolock
 #exec --no-startup-id exec org.telegram.desktop
 #exec --no-startup-id exec discord
 #exec --no-startup-id exec conky
@@ -163,6 +163,22 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
+############### Bar ###############
+bar {
+    status_command i3status-rs ~/.config/i3/i3status-rs.toml
+    font pango:JetBrains Mono 10
+    position top
+    colors {
+      background #262A2B
+      statusline #FFFFFF
+      separator  #58676C
+      focused_workspace  #008DCD #008DCD #FFFFFF
+      active_workspace   #262A2B #262A2B #FFFFFF
+      inactive_workspace #262A2B #262A2B #DFDFDF
+      urgent_workspace   #FF6C6B #FF6C6B #FFFFFF
+      binding_mode       #2F343A #900000 #FFFFFF
+  }
+}
 ############## Colors #############
 #        Class          Border   Backgr   Text     Indicator Child_border
 client.focused          #008DCD  #008DCD  #FFFFFF  #008DCD   #008DCD

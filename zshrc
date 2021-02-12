@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
 source ~/.profile
 
 ### Oh my zsh ###

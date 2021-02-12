@@ -5,22 +5,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'     " Linter
   Plug 'airblade/vim-gitgutter' " Git indicator
   Plug 'ap/vim-css-color'       " Preview CSS colors
-  Plug 'SirVer/ultisnips'       " Snippets
   Plug 'jiangmiao/auto-pairs'   " Auto close brackets
   Plug 'editorconfig/editorconfig-vim'  " Editor Config support
   Plug 'christoomey/vim-tmux-navigator' " Jump from vim in tmux
   Plug 'maxboisvert/vim-simple-complete' " Sublime like completion
-
-  " History && file explorer
-  Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}     " Git like history
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " File explorer
-  Plug 'mattn/emmet-vim', {'for': ['javascript.jsx', 'html']}
 
   " Language support
   Plug 'pangloss/vim-javascript', {'for': 'javascript'}
   Plug 'mxw/vim-jsx', {'for': ['javascript.jsx', 'javascript']}
   Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
   Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
+  Plug 'cespare/vim-toml', {'for': 'toml'}
+  Plug 'zah/nim.vim', {'for': 'nim'}
 call plug#end()
 syntax on
 
@@ -96,29 +92,6 @@ let g:lightline = {
 \   'linter_warnings': 'lightline#ale#warnings'
 \ }, }
 
-" NERDTree
-nnoremap <C-b> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos="right"
-let NERDTreeIgnore = ['__pycache__', 'node_modules']
-let NERDTreeShowHidden=0
-let g:NERDTreeWinSize = 28
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
-let g:UltiSnipsSnippetDirectories = ["snips"]
-let g:UltiSnipsEditSplit = "vertical"
-
-" Emmet
-let g:user_emmet_expandabbr_key='<C-a>'
-let g:user_emmet_mode='a'
-
-" Neoterm
-let g:neoterm_default_mod = 'vertical'
-let g:neoterm_size = 30
-let g:neoterm_autoinsert = 1
-
 " Ale
 let g:ale_disable_lsp = 1
 let g:ale_sign_error = '> '
@@ -129,7 +102,7 @@ let g:ale_fixers = {
 \ 'python':     ['flake8',   'pylint8']}
 
 " == Mapping
-let mapleader=","
+let mapleader="\\"
 imap jj <esc>
 
 " Window(s)
@@ -163,3 +136,7 @@ noremap <A-9> :tabn 9<CR>
 " Buffer(s)
 noremap <leader>b :bnext<CR>
 noremap <leader>p :bprev<CR>
+
+" Paste & copy from/in system clipboard
+noremap <leader>c "*yy<CR>
+noremap <leader>v "+p<CR>

@@ -21,8 +21,6 @@
         {"before": ["f"],
          "after" : ["leader","leader","s"]}
     ],
-    "Vsnips.VarFiles": ["/home/sasha/.config/nvim/init.vim"],
-    "Vsnips.SnipsDir": ["/home/sasha/.config/nvim/snips"],
     
     // Terminal
     "workbench.panel.defaultLocation": "right",
@@ -99,4 +97,5 @@
     "[javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "workbench.startupEditor": "newUntitledFile",
 }
