@@ -17,7 +17,7 @@ hide_edge_borders smart
 
 ############ Variables ###########
 set $terminal alacritty
-set $browser firefox 
+set $browser firefox
 set $filemanager alacritty --title=ranger -e ranger
 set $codeeditor alacritty --title=nvim -e nvim
 set $guicode code
@@ -25,14 +25,13 @@ set $guicode code
 ############ Autostart ############
 exec_always --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
 exec_always --no-startup-id exec picom --experimental-backends -b
-#exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec lxsession
 #exec --no-startup-id exec $HOME/.script/autolock
 #exec --no-startup-id exec org.telegram.desktop
 #exec --no-startup-id exec discord
-#exec --no-startup-id exec conky
 #exec --no-startup-id exec redshift-gtk
+#exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 
 ############## WM keys ############
 
@@ -66,11 +65,11 @@ bindsym $mod+grave scratchpad show, floating disable
 bindsym $mod+Shift+Return exec rofi -show drun
 bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh
 bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
-bindsym $mod+Control+i exec ~/.script/dmenu/dmenu-pass.sh 
+bindsym $mod+Control+i exec ~/.script/dmenu/dmenu-pass.sh
 
 # Apps
 bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+w exec $browser 
+bindsym $mod+Shift+w exec $browser
 bindsym $mod+Shift+f exec $filemanager
 bindsym $mod+Shift+e exec $codeeditor
 bindsym $mod+Shift+c exec $guicode

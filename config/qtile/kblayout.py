@@ -9,7 +9,6 @@ from os import popen
 KBCMD = """
 case "$(xkblayout)" in
   "Eng") echo "us" ;;
-  "Rus") echo "ru" ;;
   "Ukr") echo "ua" ;;
 esac
 """
@@ -23,6 +22,8 @@ class KBLayout(base.InLoopPollText):
         base.InLoopPollText.__init__(self, **config)
 
     def poll(self):
-        kb = popen(KBCMD).read().rstrip('\n') \
-                         .encode('utf-8').decode('utf-8')
+        kb = popen(KBCMD).read()          \
+                         .rstrip('\n')    \
+                         .encode('utf-8') \
+                         .decode('utf-8')
         return kb

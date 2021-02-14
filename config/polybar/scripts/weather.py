@@ -1,6 +1,6 @@
 """For working this script set in ~/.profile 2 variable:
-"OWM_POLYBAR": API key
-"OWM_CITY": Your city
+OWM_POLYBAR: API key
+OWM_CITY: Your city
 """
 import requests, os
 

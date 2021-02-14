@@ -5,33 +5,30 @@
 
 #### System configuration
 - `OS` Arch
-- `WM` bspwm, i3
-- `Terminal` Alacritty
+- `WM` bspwm, qtile
+- `Terminal` alacritty
 - `Shell` zsh
-- `Editor` nvim
-- `File manager` ranger, mc
-- `Browser` firefox
+- `Editor` nvim, vscode
+- `File manager` ranger
+- `Browser` firefox,
 - `Font` Jatbrains Mono
-- `Icon font` FontAwesome5
-- `Launcher` dmenu, rofi
+- `Icon font` FontAwesome
+- `Launcher` rofi
 
-#### Install configs
+#### Install config
 Since i use **[rcm](https://github.com/thoughtbot/rcm)** set it:
 ~~~bash
 yay -S rcm
 ~~~
 
-Install deps:
-~~~bash
-sudo pacman -S neovim tmux git i3wm bspwm sxhkd qtile alacritty picom dunst ranger firefox ttf-font-awesome ttf-jetbrains-mono rofi zsh zathura redshift
-yay -S polybar
-pip install -U castero
-~~~
+Install dependency:
+```bash
+sudo pacman -S neovim tmux git bspwm sxhkd alacritty picom dunst zsh rofi ranger firefox ttf-font-awesome ttf-jetbrains
+yay -S polybar xkblayout
+```
 
-
-And install configs:
+And install config:
 ~~~bash
 git clone https://github.com/Smirnov-O/dotfiles .dotfiles
 rcup
-mv ~/.bin ~/bin
 ~~~

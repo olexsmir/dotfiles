@@ -11,7 +11,7 @@ super + shift + {w,f,e,c,q}
      alacritty --class=ranger -e ranger, \
      alacritty --class=nvim   -e nvim,   \
      code,                               \
-	 xkill                               }
+     xkill                               }
 
 super + shift + z
     betterlockscreen --off 180 -t "Computer is lokerd" -l
@@ -20,43 +20,42 @@ super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
 
 super + {Escape, ctrl + u, ctrl  + i}
-	{./.script/dmenu/dmenu-power.sh,       \
+    {./.script/dmenu/dmenu-power.sh,       \
      ./.script/dmenu/dmenu-config-edit.sh, \
      ./.script/dmenu/dmenu-pass.sh         }
 
-## == BSPWM keys
+### == BSPWM keys
 super + q
 	bspc node -{c,k}
 
 super + control + r
 	bspc wm -r && pkill -USR1 -x sxhkd
 
-## == BSPWM windows
-
+### == BSPWM windows
 ## Resize window
 super + ctrl + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # Change focus & move focus window
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
 
 # Preselect the direction
 super + alt + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+    bspc node -p {west,south,north,east}
 super + alt + {1-9}
-	bspc node -o 0.{1-9}
+    bspc node -o 0.{1-9}
 super + alt + {space,0}
-	bspc node -p cancel
+    bspc node -p cancel
 
 ## == BSPWM workspace
 super + {_,shift + }{1-9}
-	bspc {desktop -f,node -d} focused:'^{1-9}'
+    bspc {desktop -f,node -d} focused:'^{1-9}'
 
 ## == BSPWM windwo layouts
 super + ctrl + {t, s, f}
-	bspc node -t {tiled,floating,fullscreen}
+    bspc node -t {tiled,floating,fullscreen}
 
 # Change windows layout
 super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+    bspc node -g {marked,locked,sticky,private}

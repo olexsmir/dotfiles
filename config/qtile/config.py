@@ -14,7 +14,7 @@ terminal = "alacritty"
 browser = "firefox"
 filemanager = f"{terminal} --title=ranger -e ranger"
 editor = f"{terminal} --title=NVim -e nvim"
-guicodeeitor = "code"
+guicodeeitor = "code --disable-gpu"
 
 # Set qtile colors
 color = [

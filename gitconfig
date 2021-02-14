@@ -4,7 +4,7 @@
     email = ss2316544@gmail.com
 
 [init]
-	defaultBranch = main
+    defaultBranch = master
 
 [web]
     browser = firefox
