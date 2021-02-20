@@ -1,20 +1,21 @@
 # Smirnov-O <ss2316544@gmail.com>
 # BSPWM/SXKBD config file
 
-## == USER keys 
+## == USER keys
 super + {_,shift} Return
-    {alacritty,      \
-     rofi -show drun }
+    {kitty,  \
+     rofi -show drun -theme ntenV2}
 
-super + shift + {w,f,e,c,q}
-    {firefox,                            \
-     alacritty --class=ranger -e ranger, \
-     alacritty --class=nvim   -e nvim,   \
-     code,                               \
-     xkill                               }
+super + shift + {w,f,e,c,v,q}
+        {google-chrome-stable,               \
+         alacritty --class=ranger -e ranger, \
+         alacritty --class=nvim   -e nvim,   \
+         code,                               \
+         veracrypt,                          \
+         xkill                               }
 
 super + shift + z
-    betterlockscreen --off 180 -t "Computer is lokerd" -l
+    betterlockscreen --off 180 -t "Computer is locked" -l
 
 super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
@@ -26,10 +27,11 @@ super + {Escape, ctrl + u, ctrl  + i}
 
 ### == BSPWM keys
 super + q
-	bspc node -{c,k}
+    bspc node -c
 
 super + control + r
-	bspc wm -r && pkill -USR1 -x sxhkd
+    bspc wm -r \
+    pkill -USR1 -x sxhkd
 
 ### == BSPWM windows
 ## Resize window
@@ -43,8 +45,10 @@ super + {_,shift + }{h,j,k,l}
 # Preselect the direction
 super + alt + {h,j,k,l}
     bspc node -p {west,south,north,east}
+
 super + alt + {1-9}
     bspc node -o 0.{1-9}
+
 super + alt + {space,0}
     bspc node -p cancel
 
@@ -52,10 +56,11 @@ super + alt + {space,0}
 super + {_,shift + }{1-9}
     bspc {desktop -f,node -d} focused:'^{1-9}'
 
-## == BSPWM windwo layouts
-super + ctrl + {t, s, f}
-    bspc node -t {tiled,floating,fullscreen}
+## == BSPWM window layouts
+super + shift + {Tab, F11}
+    bspc node -t {floating,fullscreen}
 
-# Change windows layout
-super + ctrl + {m,x,y,z}
-    bspc node -g {marked,locked,sticky,private}
+super + Tab
+    bspc node -t tiled
+
+# vim: ft=sxhkdrc

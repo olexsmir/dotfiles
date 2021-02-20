@@ -5,12 +5,12 @@
 
 #### System configuration
 - `OS` Arch
-- `WM` bspwm, qtile
+- `WM` bspwm
 - `Terminal` alacritty
 - `Shell` zsh
 - `Editor` nvim, vscode
 - `File manager` ranger
-- `Browser` firefox,
+- `Browser` firefox
 - `Font` Jatbrains Mono
 - `Icon font` FontAwesome
 - `Launcher` rofi

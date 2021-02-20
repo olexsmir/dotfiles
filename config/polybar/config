@@ -1,3 +1,5 @@
+# vim: ft=dosini
+
 [settings]
 enable-ipc = true
 screenchange-reload = true

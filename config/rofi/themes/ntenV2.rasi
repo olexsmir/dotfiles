@@ -1,0 +1,22 @@
+configuration {
+    width: 25;
+    lines: 13;
+    columns: 2;
+    font: "RobotoCondensed 12";
+    bw: 2;
+    location: 1;
+    padding: 3;
+    yoffset: 27;
+    xoffset: 3;
+    show-icons: true;
+    icon-theme: "Paper";
+    drun-display-format: "{name}";
+    case-sensitive: false;
+    cycle: false;
+    auto-select: false;
+    line-padding: 6;
+    separator-style: "solid";
+    hide-scrollbar: true;
+    color-normal: "#262A2B,#abb2bf,#262A2B,#008DCD,#262A2B";
+    color-window: "#262A2B,#1F2324,#58676C";
+}

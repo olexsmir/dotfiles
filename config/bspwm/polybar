@@ -1,3 +1,5 @@
+# vim: ft=dosini
+
 [settings]
 enable-ipc = true
 format-padding = 1
@@ -19,9 +21,9 @@ foreground = ${colors.foreground}
 wm-restack = bspwm
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
-modules-left = windowname
-modules-center = bspwm
-modules-right = pulseaudio archupd wifi-signal weather memory cpu keyboard time date
+modules-left = bspwm
+modules-center = windowname
+modules-right = keyboard pulseaudio weather wifi-signal archupd time
 tray-position = right
 tray-padding = 0
 
@@ -47,7 +49,7 @@ label-empty-padding = 2
 [module/pulseaudio]
 type = internal/pulseaudio
 interval = 2
-format-volume = <ramp-volume> <label-volume> 
+format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 label-muted = 
@@ -62,6 +64,12 @@ interval = 60
 type = custom/script
 exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
 interval = 60
+
+[module/wifi-signal]
+type = custom/script
+label =  %output:%%
+exec = ~/.config/polybar/scripts/wifi-signal.sh
+interval = 3
 
 [module/keyboard]
 type = internal/xkeyboard

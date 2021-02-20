@@ -3,10 +3,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'maxboisvert/vim-simple-complete'
-  Plug 'pangloss/vim-javascript'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'dense-analysis/ale'
-  "Plug 'editorconfig/editorconfig-vim'
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 "== General
@@ -29,7 +26,6 @@ set expandtab
 set autoindent
 
 " Status line
-"set laststatus=0
 set noshowmode showcmd
 set ruler
 
@@ -51,6 +47,12 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Enable mode line
+set modeline
+
+" Auto reload file
+set autoread
+
 " Buffer
 set hidden
 
@@ -66,8 +68,8 @@ set visualbell t_vb=
 
 " == Settings for specific files
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-autocmd FileType python,go           setlocal expandtab shiftwidth=4 tabstop=4
-autocmd FileType html,css,javascript setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType python,go,json setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType html,css,javascript,yaml setlocal expandtab shiftwidth=2 tabstop=2
 
 
 "== Aliases
@@ -75,8 +77,12 @@ command! W :w
 command! Q :q
 command! Wq :wq
 command! WQ :wq
-command! Prettier :!prettier %
+command! Wiki :e ~/doc/index.md
+command! Prettier :!prettier --write %
 command! ESlint :!eslint %
+command! Flake8 :!flake8 %
+command! Black :!black %
+command! AutoPep8 :!autopep8 --in-place %
 
 
 "== Plug in configuration
@@ -90,36 +96,28 @@ let g:lightline = {
 \             [ 'filename', 'filetype' ] ]
 \ }, }
 
-let g:ale_disable_lsp = 1
-let g:ale_sign_error = '> '
-let g:ale_sign_warning = '- '
-let g:ale_echo_msg_format = '%severity%: %s'
-let g:ale_linter = {
-\ 'javascript': 'eslint',
-\ 'python': 'flake8'
-\ }
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\ 'javascript': 'prettier',
-\ 'python': 'black'
-\ }
-
 
 "== Mapping
 let mapleader="'"
+
+noremap <C-s> :w<CR>
 
 " Window
 noremap <C-h> :wincmd h<CR>
 noremap <C-j> :wincmd j<CR>
 noremap <C-k> :wincmd k<CR>
 noremap <C-l> :wincmd l<CR>
-noremap <A-z> :wincmd K<CR>
-noremap <A-x> :wincmd L<CR>
-noremap <A-c> :wincmd n<CR>
+
+" Split
+noremap spv :vsp<CR>
+noremap sph :sp<CR>
+noremap spk :wincmd K<CR>
+noremap spl :wincmd L<CR>
+noremap spn :wincmd n<CR>
 
 " Tab
-noremap <C-t> :tabnew<CR>
-noremap <C-w> :tabclose<CR>
+noremap tn :tabnew<CR>
+noremap tc :tabclose<CR>
 noremap <A-1> :tabn 1<CR>
 noremap <A-2> :tabn 2<CR>
 noremap <A-3> :tabn 3<CR>
@@ -131,9 +129,9 @@ noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
 
 " Buffer
-noremap <C-b> :bnext<CR>
-noremap <C-p> :bprev<CR>
+noremap Bn :bnext<CR>
+noremap Bp :bprev<CR>
 
 " Work with system clipboard
-noremap <leader>c "*y<CR>
-noremap <leader>v "+p<CR>
+noremap <leader>y "*yy<CR>
+noremap <leader>p "+p<CR>
