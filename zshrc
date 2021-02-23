@@ -1,4 +1,4 @@
-export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.application:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.application:$HOME/.local/bin:$PATH"
 
 ### Oh my zsh ###
 export ZSH="$HOME/.oh-my-zsh"
@@ -14,7 +14,7 @@ DISABLE_AUTO_TITLE="true"       # Disable auto-setting terminal title.
 #COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
 export UPDATE_ZSH_DAYS=7        # Change how often to auto-update.
 
-plugins=(yarn)
+plugins=(yarn nvm)
 source $ZSH/oh-my-zsh.sh
 
 ### Variables
@@ -23,7 +23,7 @@ export VISUAL="nvim"
 
 ### Functions
 bgcolor() {
-    convert -size 1x1 xc:"$1" /tmp/bgc.png
+    convert -size 1x1 xc:"#$1" /tmp/bgc.png
     feh --bg-tile /tmp/bgc.png}
 backup() {
     cp $1 $1.bak}
@@ -36,6 +36,7 @@ alias du="du -sh"
 alias df="df -h"
 alias vim="nvim"
 alias vi="vim"
+alias wiki="vi +Wiki"
 alias tmux="tmux -2"
 alias :q="exit"
 alias ..="cd .."

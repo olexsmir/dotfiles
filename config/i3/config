@@ -17,7 +17,7 @@ hide_edge_borders smart
 
 ############ Variables ###########
 set $terminal alacritty
-set $browser firefox
+set $browser google-chrome-stable
 set $filemanager alacritty --title=ranger -e ranger
 set $codeeditor alacritty --title=nvim -e nvim
 set $guicode code
@@ -73,7 +73,6 @@ bindsym $mod+Shift+w exec $browser
 bindsym $mod+Shift+f exec $filemanager
 bindsym $mod+Shift+e exec $codeeditor
 bindsym $mod+Shift+c exec $guicode
-bindsym $mod+Shift+d exec $documentationreader
 
 # Sceenshot
 bindsym --release Print exec scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png
@@ -88,8 +87,8 @@ bindsym $mod+minus exec "amixer sset Master 2%-"
 bindsym $mod+Shift+minus exec "amixer sset Master toggle"
 
 ######### Window preferens ########
-assign [class="Alacritty"] $ws1
-assign [class="(?i)firefox"] $ws2
+assign [class="(?i)alacritty|kitty"] $ws1
+assign [class="(?i)firefox|google-chorome-stable"] $ws2
 assign [class="(?i)code|vscodium|subl"] $ws3
 assign [title="nvim"] $ws3
 assign [class="(?!)thunar"] $ws4
@@ -164,7 +163,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 
 ############### Bar ###############
 bar {
-    status_command i3status-rs ~/.config/i3/i3status-rs.toml
+    #status_command i3status -c ~/.config/i3/i3status
+    status_command i3blocks -c ~/.config/i3/i3blocks
     font pango:JetBrains Mono 10
     position top
     colors {
@@ -186,3 +186,5 @@ client.unfocused        #262A2B  #262A2B  #DFDFDF  #262A2B   #262A2B
 client.urgent           #002b36  #262A2B  #FFFFFF  #262A2B   #262A2B
 client.placeholder      #000000  #000000  #FFFFFF  #000000   #000000
 client.background       #FFFFFF
+
+# vim: ft=i3config

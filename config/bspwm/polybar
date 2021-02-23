@@ -21,9 +21,9 @@ foreground = ${colors.foreground}
 wm-restack = bspwm
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
-modules-left = bspwm
-modules-center = windowname
-modules-right = keyboard pulseaudio weather wifi-signal archupd time
+modules-left = bspwm windowname
+modules-center = time date weather
+modules-right = keyboard pulseaudio  archupd wifi-signal
 tray-position = right
 tray-padding = 0
 
@@ -74,7 +74,7 @@ interval = 3
 [module/keyboard]
 type = internal/xkeyboard
 format-prefix = ""
-label-layout =  %layout%
+label-layout = %layout%
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 blacklist-2= caps lock
@@ -93,12 +93,12 @@ format-prefix = " "
 [module/windowname]
 type = internal/xwindow
 label = %title%
-label-maxlen = 90
+label-maxlen = 50
 
 [module/date]
 type = internal/date
 interval = 600
-date = %d.%m.%Y
+date = %d.%m
 label =  %date%
 
 [module/time]

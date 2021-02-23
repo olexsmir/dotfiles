@@ -1,0 +1,6 @@
+#!/bin/sh
+case "$(xkblayout)" in
+    Eng) echo "en" ;;
+    Ukr) echo "ua" ;;
+    *)   echo "  " ;;
+esac

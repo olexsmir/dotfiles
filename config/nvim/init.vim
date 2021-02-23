@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'maxboisvert/vim-simple-complete'
+  Plug 'preservim/nerdcommenter'
   Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -50,6 +51,11 @@ set smartcase
 " Enable mode line
 set modeline
 
+" File explorer
+let g:netrw_banner = 0
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 15
+
 " Auto reload file
 set autoread
 
@@ -57,7 +63,7 @@ set autoread
 set hidden
 
 " Spell checker
-set spell spelllang=en_us
+set nospell spelllang=en_us
 
 " Space/tab indicator
 set list listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
@@ -66,10 +72,10 @@ set list listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 set visualbell t_vb=
 
 
-" == Settings for specific files
+"== Settings for specific files
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 autocmd FileType python,go,json setlocal expandtab shiftwidth=4 tabstop=4
-autocmd FileType html,css,javascript,yaml setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType html,css,javascript,javascriptreact,yaml setlocal expandtab shiftwidth=2 tabstop=2
 
 
 "== Aliases
@@ -93,14 +99,21 @@ let g:lightline = {
 \             [ 'readonly', 'modified' ] ],
 \  'right': [ [ 'lineinfo' ],
 \             [ 'percent'  ],
-\             [ 'filename', 'filetype' ] ]
-\ }, }
+\             [ 'filename', 'filetype' ] ] }
+\ }
 
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
 
 "== Mapping
 let mapleader="'"
 
+" Alternative keys
 noremap <C-s> :w<CR>
+noremap <C-n> :tabnew<CR>
+noremap <leader>ww :Wiki<CR>
+noremap <leader>e :Ve<CR>
 
 " Window
 noremap <C-h> :wincmd h<CR>
