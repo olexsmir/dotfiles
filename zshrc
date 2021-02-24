@@ -24,18 +24,20 @@ export VISUAL="nvim"
 ### Functions
 bgcolor() {
     convert -size 1x1 xc:"#$1" /tmp/bgc.png
-    feh --bg-tile /tmp/bgc.png}
+    feh --bg-tile /tmp/bgc.png
+}
 backup() {
-    cp $1 $1.bak}
+    cp $1 $1.bak
+}
 
 ### Aliases
 alias cls="clear"
 alias mkdir="mkdir -p"
 alias cp="cp -r"
 alias du="du -sh"
-alias df="df -h"
 alias vim="nvim"
 alias vi="vim"
+alias d="docker"
 alias wiki="vi +Wiki"
 alias tmux="tmux -2"
 alias :q="exit"

@@ -116,5 +116,7 @@
     "git.autofetch": true,
     "editor.formatOnPaste": true,
     "editor.minimap.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "git.confirmSync": false,
     
 }

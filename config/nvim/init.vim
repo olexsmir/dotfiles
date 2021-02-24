@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'maxboisvert/vim-simple-complete'
-  Plug 'preservim/nerdcommenter'
   Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -102,16 +101,13 @@ let g:lightline = {
 \             [ 'filename', 'filetype' ] ] }
 \ }
 
-let g:NERDCreateDefaultMappings = 1
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-
 "== Mapping
 let mapleader="'"
 
 " Alternative keys
 noremap <C-s> :w<CR>
 noremap <C-n> :tabnew<CR>
+noremap <C-t> :tabnew<CR>
 noremap <leader>ww :Wiki<CR>
 noremap <leader>e :Ve<CR>
 

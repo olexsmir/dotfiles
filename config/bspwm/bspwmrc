@@ -49,7 +49,7 @@ bspc rule -a Thunar                desktop='^4' focus=on   follow=off
 bspc rule -a Joplin                desktop='^5' focus=on   follow=on
 bspc rule -a Simplenote            desktop='^5' focus=on   follow=on
 bspc rule -a discord               desktop='^6' focus=off  follow=off
-bspc rule -a telegram-desktop      desktop='^6' focus=off  follow=off
+bspc rule -a telegram-desktop      desktop='^6' focus=off  follow=on
 bspc rule -a KeePassXC             desktop='^7' focus=on   follow=off
 bspc rule -a Spotify               desktop='^9' focus=on   follow=on
 bspc rule -a google-tasks-desktop  state=floating

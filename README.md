@@ -1,7 +1,7 @@
 <h1 align="center">dotfiles</h1>
 
-![](./config/qtile/screen.png)
-------------------------------
+![](config/bspwm/screen.png)
+----------------------------
 
 #### System configuration
 - `OS` Arch

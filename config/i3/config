@@ -16,22 +16,17 @@ new_float pixel
 hide_edge_borders smart
 
 ############ Variables ###########
-set $terminal alacritty
+set $terminal kitty
 set $browser google-chrome-stable
-set $filemanager alacritty --title=ranger -e ranger
-set $codeeditor alacritty --title=nvim -e nvim
+set $filemanager kitty --class ranger -e ranger
+set $codeeditor kitty --class nvim -e nvim
 set $guicode code
 
 ############ Autostart ############
 exec_always --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
-exec_always --no-startup-id exec picom --experimental-backends -b
+exec --no-startup-id exec picom -b
 exec --no-startup-id exec nitrogen --restore
 exec --no-startup-id exec lxsession
-#exec --no-startup-id exec $HOME/.script/autolock
-#exec --no-startup-id exec org.telegram.desktop
-#exec --no-startup-id exec discord
-#exec --no-startup-id exec redshift-gtk
-#exec_always --no-startup-id exec $HOME/.config/i3/bar.sh
 
 ############## WM keys ############
 
@@ -62,7 +57,7 @@ bindsym $mod+grave scratchpad show, floating disable
 ############## User key ###########
 
 # Menus
-bindsym $mod+Shift+Return exec rofi -show drun
+bindsym $mod+Shift+Return exec rofi -show drun -theme ntenV2
 bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh
 bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
 bindsym $mod+Control+i exec ~/.script/dmenu/dmenu-pass.sh
@@ -73,31 +68,32 @@ bindsym $mod+Shift+w exec $browser
 bindsym $mod+Shift+f exec $filemanager
 bindsym $mod+Shift+e exec $codeeditor
 bindsym $mod+Shift+c exec $guicode
+bindsym $mod+Shift+v exec veracrypt
+bindsym $mod+Shift+s exec ~/.applications/simplenote.appimage
 
 # Sceenshot
 bindsym --release Print exec scrot -s /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png
-bindsym --release Shift+Print exec scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym Shift+Print exec scrot /home/${USER}/$(date +%Y-%m-%d-%H-%M-%S).png
 
 # Lockscreen
 bindsym $mod+Shift+z exec betterlockscreen --off 180 -t "Computer is lockerd" -l
 
 # Volume
-bindsym $mod+plus exec "amixer sset Master 2%+"
-bindsym $mod+minus exec "amixer sset Master 2%-"
-bindsym $mod+Shift+minus exec "amixer sset Master toggle"
+bindsym $mod+plus exec amixer sset Master 2%+
+bindsym $mod+minus exec amixer sset Master 2%-
+bindsym $mod+Shift+minus exec amixer sset Master toggle
 
 ######### Window preferens ########
 assign [class="(?i)alacritty|kitty"] $ws1
-assign [class="(?i)firefox|google-chorome-stable"] $ws2
-assign [class="(?i)code|vscodium|subl"] $ws3
-assign [title="nvim"] $ws3
-assign [class="(?!)thunar"] $ws4
-assign [title="ranger"] $ws4
-assign [title="Joplin"] $ws5
-assign [class="(?i)telegram|discord"] $ws6
+assign [class="(?i)google-chrome-stable|firefox"] $ws2
+assign [class="Code|nvim"] $ws3
+assign [class="Thunar|ranger"] $ws4
+assign [class="Joplin|Simplenote"] $ws5
+assign [class="TelegramDesktop|discord"] $ws6
+for_window [class="TelegramDesktop|discord"] layout tabbed
+assign [class="KeePassXC"] $ws7
 assign [class="Spotify"] $ws9
 for_window [title="Google Tasks"] floating enable
-for_window [class="(?i)telegram|discord"] layout tabbed
 focus_on_window_activation focus
 
 ########## Change focus ###########
@@ -163,8 +159,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 
 ############### Bar ###############
 bar {
-    #status_command i3status -c ~/.config/i3/i3status
-    status_command i3blocks -c ~/.config/i3/i3blocks
+    # status_command i3status -c ~/.config/i3/i3status
+    status_command i3status-rs ~/.config/i3/i3status-rs.toml
     font pango:JetBrains Mono 10
     position top
     colors {

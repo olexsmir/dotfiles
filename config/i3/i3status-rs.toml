@@ -1,39 +1,21 @@
 theme = "native"
-icons = "awesome5"
+#icons = "awesome5"
 
-### CPU load
-[[block]]
-block = "cpu"
-interval = 5
-
-### Blacklight
-[[block]]
-block = "backlight"
-device = "intel_backlight"
-
-### Volume
-[[block]]
-block = "sound"
-step_width = 2
-
-### WiFi signal
-#[[block]]
-#block = "custom"
-#command = "cat /proc/net/wireless | grep \"wlp3s0\" | awk '{print $4}' | grep -o '[0-9]*'"
-#interval = 10
-
-### Keyboard layout
 [[block]]
 block = "custom"
+command = "~/.script/kblayout"
 interval = 0
-command = """
-case "$(xkblayout)" in
-  Eng) echo "us" ;;
-  Ukr) echo "ua" ;;
-esac"""
 
-### Date && time
+[[block]]
+block = "sound"
+
+[[block]]
+block = "net"
+device = "wlp3s0"
+format = "{signal_strength}"
+interval = 4
+
 [[block]]
 block = "time"
 interval = 60
-format = "%H:%M"
+format = "%R"
