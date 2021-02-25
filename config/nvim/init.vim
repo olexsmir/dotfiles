@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'maxboisvert/vim-simple-complete'
   Plug 'sheerun/vim-polyglot'
+  Plug 'ap/vim-css-color'
 call plug#end()
 
 "== General
@@ -82,6 +83,7 @@ command! W :w
 command! Q :q
 command! Wq :wq
 command! WQ :wq
+command! Term :vsplit | vertical resize 45 | terminal
 command! Wiki :e ~/doc/index.md
 command! Prettier :!prettier --write %
 command! ESlint :!eslint %

@@ -6,7 +6,7 @@ super + {_,shift} Return
     {kitty,  \
      rofi -show drun -theme ntenV2}
 
-super + shift + {w,f,e,c,v,s,z,q}
+super + shift + {w, f, e, c, v, s, z, q}
         {google-chrome-stable,                                  \
          kitty --class ranger -e ranger,                        \
          kitty --class nvim   -e nvim,                          \
@@ -19,9 +19,8 @@ super + shift + {w,f,e,c,v,s,z,q}
 super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
 
-super + {Escape, ctrl + u, ctrl  + i}
+super + {Escape, ctrl+i}
     {./.script/dmenu/dmenu-power.sh,       \
-     ./.script/dmenu/dmenu-config-edit.sh, \
      ./.script/dmenu/dmenu-pass.sh         }
 
 ### == BSPWM keys

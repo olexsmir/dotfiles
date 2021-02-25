@@ -1,13 +1,14 @@
 [user]
     username = Smirnov-O
-    name = Smirnov Olexandr
+    name = Smirnov Alexandr
     email = ss2316544@gmail.com
 
 [init]
     defaultBranch = master
 
 [web]
-    browser = firefox
+    #browser = firefox
+    browser = google-chrome-stable
 
 [core]
     editor = nvim

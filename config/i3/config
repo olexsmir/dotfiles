@@ -15,18 +15,18 @@ new_float pixel
 # Borders
 hide_edge_borders smart
 
+############ Autostart ############
+exec_always --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
+exec_always --no-startup-id exec feh --randomize --bg-scale ~/Pictures/wallp
+exec --no-startup-id exec picom -b
+exec --no-startup-id exec lxsession
+
 ############ Variables ###########
 set $terminal kitty
 set $browser google-chrome-stable
 set $filemanager kitty --class ranger -e ranger
 set $codeeditor kitty --class nvim -e nvim
 set $guicode code
-
-############ Autostart ############
-exec_always --no-startup-id exec setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps"
-exec --no-startup-id exec picom -b
-exec --no-startup-id exec nitrogen --restore
-exec --no-startup-id exec lxsession
 
 ############## WM keys ############
 
@@ -59,7 +59,6 @@ bindsym $mod+grave scratchpad show, floating disable
 # Menus
 bindsym $mod+Shift+Return exec rofi -show drun -theme ntenV2
 bindsym $mod+Escape exec ~/.script/dmenu/dmenu-power.sh
-bindsym $mod+Control+u exec ~/.script/dmenu/dmenu-config-edit.sh
 bindsym $mod+Control+i exec ~/.script/dmenu/dmenu-pass.sh
 
 # Apps
@@ -159,7 +158,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 
 ############### Bar ###############
 bar {
-    # status_command i3status -c ~/.config/i3/i3status
     status_command i3status-rs ~/.config/i3/i3status-rs.toml
     font pango:JetBrains Mono 10
     position top
