@@ -9,23 +9,6 @@
   <item label="Neovim">
     <action name="Execute">
       <command>kitty -e nvim</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-        <wmclass>nvim</wmclass>
-      </startupnotify>
-    </action>
-  </item>
-</menu>
-
-<menu id="apps-term-menu" label="Terminals">
-  <item label="Alacritty">
-    <action name="Execute">
-      <command>alacritty</command>
-    </action>
-  </item>
-  <item label="Kitty">
-    <action name="Execute">
-      <command>kitty</command>
     </action>
   </item>
 </menu>
@@ -118,10 +101,13 @@
 
 <menu id="power-menu" label="Power">
   <item label="Power Off">
-      <action name="poweroff"><prompt>yes</prompt></action>
+      <action name="PowerOff"></action>
   </item>
   <item label="Reboot">
-    <action name="reboot"><prompt>yes</prompt></action>
+    <action name="reboot"></action>
+  </item>
+  <item label="Suspend">
+    <action name="systemctl suspend" />
   </item>
   <item label="Log Out">
     <action name="Exit"><prompt>yes</prompt></action>
@@ -129,28 +115,24 @@
 </menu>
 
 <menu id="root-menu" label="Openbox">
-  <item label="Terminal">
-    <action name="Execute">
-      <command>kitty</command>
-    </action>
-  </item>
-  <item label="Browser">
-    <action name="Execute">
-      <command>google-chrome-stable</command>
-    </action>
-  </item>
-  <item label="Rofi">
-    <action name="Execute">
-      <command>rofi -show drun -theme ntenV2</command>
-    </action>
-  </item>
-  <separator label="Categories" />
+  <item label="Kitty"><action name="Execute">
+    <command>kitty</command>
+  </action></item>
+  <item label="Chrome"><action name="Execute">
+    <command>google-chrome-stable</command>
+  </action></item>
+  <item label="VScode"><action name="Execute">
+    <command>code</command>
+  </action></item>
+  <item label="Rofi"> <action name="Execute">
+    <command>rofi -show drun -theme ntenV2</command>
+  </action></item>
+  <separator />
   <menu id="apps-net-menu"/>
   <menu id="apps-editors-menu"/>
-  <menu id="apps-term-menu"/>
   <menu id="apps-office-menu"/>
   <menu id="apps-fileman-menu"/>
-  <separator label="System" />
+  <separator />
   <menu id="system-menu" />
   <menu id="power-menu" />
 </menu>

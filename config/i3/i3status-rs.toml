@@ -1,5 +1,5 @@
 theme = "native"
-icons = "none"
+icons = "awesome5"
 
 [[block]]
 block = "custom"

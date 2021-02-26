@@ -5,8 +5,8 @@
 
 #### System configuration
 - `OS` Arch
-- `WM` bspwm
-- `Terminal` alacritty
+- `WM` bspwm, openbox
+- `Terminal` alacritty, kitty
 - `Shell` zsh
 - `Editor` nvim, vscode
 - `File manager` ranger
@@ -23,7 +23,7 @@ yay -S rcm
 
 Install dependency:
 ```bash
-sudo pacman -S neovim tmux git bspwm sxhkd alacritty picom dunst zsh rofi ranger firefox ttf-font-awesome ttf-jetbrains
+sudo pacman -S neovim tmux git openbox tint2 bspwm sxhkd kitty picom dunst zsh rofi ranger firefox ttf-font-awesome ttf-jetbrains
 yay -S polybar xkblayout
 ```
 
