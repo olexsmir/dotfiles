@@ -1,0 +1,17 @@
+#!/bin/sh
+CHK_MUTE() { amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off; }
+VOLUME="$(amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}';)"
+
+case $1 in
+    percent)
+        if CHK_MUTE &> /dev/null
+        then
+            echo ""
+        else
+            echo " $VOLUME%"
+        fi
+    ;;
+    up)   amixer sset Master 2%+    ;;
+    down) amixer sset Master 2%-    ;;
+    mute) amixer sset Master toggle ;;
+esac

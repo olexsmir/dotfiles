@@ -66,17 +66,15 @@ set hidden
 set nospell spelllang=en_us
 
 " Space/tab indicator
-set list listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
+set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
 
 " Disable sound
 set visualbell t_vb=
-
 
 "== Settings for specific files
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 autocmd FileType python,go,json setlocal expandtab shiftwidth=4 tabstop=4
 autocmd FileType html,css,javascript,javascriptreact,yaml setlocal expandtab shiftwidth=2 tabstop=2
-
 
 "== Aliases
 command! W :w

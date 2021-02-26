@@ -1,7 +1,6 @@
 #!/bin/sh
 setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
 feh --randomize --bg-scale ~/Pictures/wallp &
-volumeicon &
 lxsession &
 picom -b &
 tint2 &

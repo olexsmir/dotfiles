@@ -16,6 +16,10 @@ super + shift + {w, f, e, c, v, s, z, q}
          betterlockscreen --off 180 -t "Computer is locked" -l, \
          xkill                                                  }
 
+super + {_,shift} Print
+    {scrot -s, \
+     scrot     }
+
 super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
 

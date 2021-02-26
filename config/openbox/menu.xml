@@ -66,7 +66,7 @@
   </item>
   <item label="Joplin">
     <action name="Execute">
-      <command>~/.applications/todoist.appimage</command>
+      <command>~/.applications/joplin.appimage</command>
     </action>
   </item>
   <item label="Todoist">
@@ -85,10 +85,6 @@
   <item label="Ranger">
     <action name="Execute">
       <command>kitty -e ranger</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-        <wmclass>Ranger</wmclass>
-      </startupnotify>
     </action>
   </item>
   <item label="Thunar">
@@ -133,14 +129,27 @@
 </menu>
 
 <menu id="root-menu" label="Openbox">
+  <item label="Terminal">
+    <action name="Execute">
+      <command>kitty</command>
+    </action>
+  </item>
+  <item label="Browser">
+    <action name="Execute">
+      <command>google-chrome-stable</command>
+    </action>
+  </item>
+  <item label="Rofi">
+    <action name="Execute">
+      <command>rofi -show drun -theme ntenV2</command>
+    </action>
+  </item>
+  <separator label="Categories" />
   <menu id="apps-net-menu"/>
   <menu id="apps-editors-menu"/>
   <menu id="apps-term-menu"/>
   <menu id="apps-office-menu"/>
   <menu id="apps-fileman-menu"/>
-  <item label="Rofi">
-    <action name="Execute"><command>rofi -show drun -theme ntenV2</command></action>
-  </item>
   <separator label="System" />
   <menu id="system-menu" />
   <menu id="power-menu" />
