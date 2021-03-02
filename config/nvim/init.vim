@@ -1,10 +1,9 @@
 call plug#begin('~/.vim/plugged')
   Plug 'Smirnov-O/nten16.vim'
-  Plug 'itchyny/lightline.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'maxboisvert/vim-simple-complete'
   Plug 'sheerun/vim-polyglot'
-  Plug 'ap/vim-css-color'
+  Plug 'tpope/vim-surround'
 call plug#end()
 
 "== General
@@ -27,8 +26,12 @@ set expandtab
 set autoindent
 
 " Status line
-set noshowmode showcmd
+set laststatus=0
+set showmode showcmd
 set ruler
+
+" Scroll
+set scrolloff=3
 
 " Mouse
 set mouse=a
@@ -41,7 +44,7 @@ set fileencodings=utf-8
 
 " Backup file & history
 set nobackup noswapfile
-set history=100
+set history=500
 
 " Search
 set incsearch
@@ -51,19 +54,11 @@ set smartcase
 " Enable mode line
 set modeline
 
-" File explorer
-let g:netrw_banner = 0
-let g:netrw_browse_split = 2
-let g:netrw_winsize = 15
-
 " Auto reload file
 set autoread
 
 " Buffer
 set hidden
-
-" Spell checker
-set nospell spelllang=en_us
 
 " Space/tab indicator
 set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
@@ -72,16 +67,15 @@ set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
 set visualbell t_vb=
 
 "== Settings for specific files
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e `
 autocmd FileType python,go,json setlocal expandtab shiftwidth=4 tabstop=4
 autocmd FileType html,css,javascript,javascriptreact,yaml setlocal expandtab shiftwidth=2 tabstop=2
 
+
 "== Aliases
 command! W :w
-command! Q :q
-command! Wq :wq
 command! WQ :wq
-command! Term :vsplit | vertical resize 45 | terminal
+command! Wq :wq
 command! Wiki :e ~/doc/index.md
 command! Prettier :!prettier --write %
 command! ESlint :!eslint %
@@ -90,26 +84,12 @@ command! Black :!black %
 command! AutoPep8 :!autopep8 --in-place %
 
 
-"== Plug in configuration
-let g:lightline = {
-\ 'colorscheme': 'nten16',
-\ 'active': {
-\  'left':  [ [ 'mode', 'paste' ],
-\             [ 'readonly', 'modified' ] ],
-\  'right': [ [ 'lineinfo' ],
-\             [ 'percent'  ],
-\             [ 'filename', 'filetype' ] ] }
-\ }
-
 "== Mapping
 let mapleader="'"
 
 " Alternative keys
 noremap <C-s> :w<CR>
 noremap <C-n> :tabnew<CR>
-noremap <C-t> :tabnew<CR>
-noremap <leader>ww :Wiki<CR>
-noremap <leader>e :Ve<CR>
 
 " Window
 noremap <C-h> :wincmd h<CR>
@@ -122,7 +102,6 @@ noremap spv :vsp<CR>
 noremap sph :sp<CR>
 noremap spk :wincmd K<CR>
 noremap spl :wincmd L<CR>
-noremap spn :wincmd n<CR>
 
 " Tab
 noremap tn :tabnew<CR>
@@ -138,8 +117,8 @@ noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
 
 " Buffer
-noremap Bn :bnext<CR>
-noremap Bp :bprev<CR>
+noremap <leader>j :bnext<CR>
+noremap <leader>k :bprev<CR>
 
 " Work with system clipboard
 noremap <leader>y "*yy<CR>

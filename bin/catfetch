@@ -15,11 +15,9 @@ shell=$(basename $SHELL)
 manager=$(which apt pacman yay apk xbps-query 2>/dev/null)
 manager=${manager##*/}
 case "$manager" in
-    apt)        packages="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";;
-    pacman)     packages="$(pacman -Q | wc -l)";;
-    yay)        packages="$(yay -Q | wc -l)";;
-    apk)        packages="$(apk list --installed | wc -l)";;
-    xbps-query) packages="$(xbps-query -l | wc -l)";;
+    apt) packages="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";;
+    yay) packages="$(yay -Q | wc -l)";;
+    pacman) packages="$(pacman -Q | wc -l)";;
 esac 
 
 

@@ -10,7 +10,6 @@
     "editor.tabCompletion": "on",
     "editor.tabSize": 4,
     "editor.formatOnSave": false,
-    "files.autoSave": "afterDelay",
     "workbench.startupEditor": "newUntitledFile",
 
     // Vim
@@ -19,13 +18,13 @@
     "vim.useSystemClipboard": true,
     "vim.insertModeKeyBindings": [
         {"before": ["j", "j"],
-         "after" : ["<Esc>"]},
+        "after" : ["<Esc>"]},
         {"before": ["Ctrl", "Shift", "e"],
-         "commands": ["workbench.view.explorer"]},
+        "commands": ["workbench.view.explorer"]},
     ],
     "vim.normalModeKeyBindings": [
         {"before": ["f"],
-         "after" : ["leader","leader","s"]}
+        "after" : ["leader","leader","s"]}
     ],
     
     // Terminal

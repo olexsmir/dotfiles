@@ -70,9 +70,9 @@
       <command>kitty -e ranger</command>
     </action>
   </item>
-  <item label="Thunar">
+  <item label="PCManFM">
     <action name="Execute">
-      <command>Thunar</command>
+      <command>pcmanfm</command>
     </action>
   </item>
 </menu>

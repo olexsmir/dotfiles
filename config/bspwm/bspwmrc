@@ -6,11 +6,9 @@ Run() {
 }
 
 ###== Autostart
-Run setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
 Run feh --randomize --bg-scale ~/Pictures/wallp &
 Run sxhkd -c ~/.config/bspwm/sxhkd &
 ~/.config/bspwm/bar.sh &
-Run ~/.script/autolock &
 Run lxsession &
 Run picom -b &
 
