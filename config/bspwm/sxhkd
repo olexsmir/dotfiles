@@ -6,15 +6,13 @@ super + {_,shift} Return
     {kitty,  \
      rofi -show drun -theme ntenV2}
 
-super + shift + {w, f, e, c, v, s, z, q}
-        {google-chrome-stable,                                  \
-         kitty --class ranger -e ranger,                        \
-         kitty --class nvim   -e nvim,                          \
-         code,                                                  \
-         veracrypt,                                             \
-         .applications/simplenote.appimage,                     \
-         betterlockscreen --off 180 -t "Computer is locked" -l, \
-         xkill                                                  }
+super + shift + {w, f, e, c, s, q}
+        {google-chrome-stable,              \
+         kitty --class ranger -e ranger,    \
+         kitty --class nvim   -e nvim,      \
+         code,                              \
+         .applications/simplenote.appimage, \
+         xkill                              }
 
 super + {_,shift} Print
     {scrot -s, \
@@ -24,8 +22,8 @@ super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
 
 super + {Escape, ctrl+i}
-    {./.script/dmenu/dmenu-power.sh,       \
-     ./.script/dmenu/dmenu-pass.sh         }
+    {.config/rofi/script/powermenu.sh, \
+     .config/rofi/script/passmenu.sh   }
 
 ### == BSPWM keys
 super + q

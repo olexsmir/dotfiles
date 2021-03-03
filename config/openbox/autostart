@@ -1,6 +1,4 @@
 #!/bin/sh
-setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle" -option "ctrl:nocaps" &
 feh --randomize --bg-scale ~/Pictures/wallp &
-lxsession &
-picom -b &
 tint2 -c ~/.config/openbox/tint2rc &
+picom -b &

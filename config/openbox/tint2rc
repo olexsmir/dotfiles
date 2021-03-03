@@ -224,11 +224,11 @@ execp_has_icon = 0
 execp_cache_icon = 1
 execp_continuous = 0
 execp_markup = 1
-execp_lclick_command = $HOME/.script/volume mute
+execp_lclick_command = $HOME/.config/openbox/script/volume mute
 execp_rclick_command = 
 execp_mclick_command = 
-execp_uwheel_command = $HOME/.script/volume up
-execp_dwheel_command = $HOME/.script/volume down
+execp_uwheel_command = $HOME/.config/openbox/.script/volume up
+execp_dwheel_command = $HOME/.config/openbox/.script/volume down
 execp_font = Droid Sans Bold 8
 execp_font_color = #d1d1d1 100
 execp_padding = 8 0
@@ -240,7 +240,7 @@ execp_icon_h = 0
 #-------------------------------------
 # Executor 2
 execp = new
-execp_command = $HOME/.script/wifi-signal
+execp_command = $HOME/.config/openbox/script/wifi-signal
 execp_interval = 5
 execp_has_icon = 0
 execp_cache_icon = 1

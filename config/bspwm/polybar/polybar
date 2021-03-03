@@ -57,18 +57,18 @@ ramp-volume-0 = 
 
 [module/weather]
 type = custom/script
-exec = python3 ~/.config/polybar/scripts/weather.py
+exec = python3 ~/.config/bspwm/polybar/scripts/weather.py
 interval = 60
 
 [module/archupd]
 type = custom/script
-exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
+exec = ~/.config/bspwm/polybar/scripts/updates-pacman-aur.sh
 interval = 60
 
 [module/wifi-signal]
 type = custom/script
 label =  %output:%%
-exec = ~/.config/polybar/scripts/wifi-signal.sh
+exec = ~/.config/bspwm/polybar/scripts/wifi-signal.sh
 interval = 3
 
 [module/keyboard]

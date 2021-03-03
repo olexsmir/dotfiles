@@ -3,30 +3,16 @@
     name = Smirnov Alexandr
     email = ss2316544@gmail.com
 
-[init]
-    defaultBranch = master
-
 [web]
-    #browser = firefox
     browser = google-chrome-stable
 
 [core]
     editor = nvim
-    excludesfile = ~/.gitignore_global
 
 [alias]
     ada = add -A
-    com = commit -am
     cmm = commit -m
-    ch = checkout
     st = status
-    br = branch
-
-[color]
-    ui = true
-    interactive = true
-    branch = true
-    status = true
 
 [credential]
     helper = cache --timeout=1800
