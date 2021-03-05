@@ -2,17 +2,13 @@
 
 Install
 ```bash
-mv ~/.vscode/settings.json ~/.config/Code/User
+mv ~/vscode/settings.json ~/.config/Code/User
 ```
 
 Extensions
-- `Auto Import - ES6, TS` - Auto import for JS/TS, JSx/Tsx
-- `Auto rename tag` - Rename tag in HTML/JSX
-- `ESlint` - JavaScript linter
-- `One dark pro` - Color scheme
-- `Prettier` - JavaScript code formater
-- `Todo Tree` - Show all TODO in code
+- `ESlint` - eslint integration
+- `Prettier` - JS code formater
+- `GitLens` - Git integration
+- `Code spell` - Spell checker
+- `Ayu` - Color scheme
 - `Vim` - Vim mode
-- `vscode-icons` - Icons
-- `VScode rich presence` - Discord status
-- `Python` - Better python syntax

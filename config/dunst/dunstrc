@@ -26,20 +26,9 @@
     hide_duplicate_count = false
     show_indicators = yes
     icon_position = off
-    max_icon_size = 32
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    sticky_history = yes
-    history_length = 20
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
     always_run_script = true
-    title = Dunst
-    class = Dunst
     startup_notification = false
     force_xinerama = false
-
-[experimental]
-    per_monitor_dpi = false
 
 [shortcuts]
     close =
@@ -62,6 +51,3 @@
     foreground = "#FFFFFF"
     frame_color = "#e3788f"
     timeout = 0
-
-[Spotify]
-    appname = Spotify

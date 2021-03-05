@@ -1,18 +1,10 @@
 [user]
-    username = Smirnov-O
-    name = Smirnov Alexandr
-    email = ss2316544@gmail.com
-
-[web]
-    browser = google-chrome-stable
+  name = Smirnov Alexandr
+  email = ss2316544@gmail.com
 
 [core]
-    editor = nvim
+  editor = nvim
 
 [alias]
-    ada = add -A
-    cmm = commit -m
-    st = status
-
-[credential]
-    helper = cache --timeout=1800
+  ada = add -A
+  cmm = commit -m
