@@ -13,8 +13,7 @@ set number
 set relativenumber
 
 " Line wrap
-set nolinebreak
-set nowrap
+set linebreak wrap
 
 " Tabs
 set tabstop=4
@@ -35,7 +34,7 @@ set foldmethod=manual
 set pumheight=9
 
 " Scroll
-set scrolloff=4
+set scrolloff=3
 
 " Mouse
 set mouse=a
@@ -65,70 +64,71 @@ set autoread
 set hidden
 
 " Space/tab indicator
-set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
+set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·,eol:\
 
 " Disable sound
 set visualbell t_vb=
 
-
 "== Settings for specific files
 autocmd FileType python,go,json setlocal et sw=4 ts=4
-autocmd FileType html,css,javascript,javascriptreact,yaml setlocal et sw=2 ts=2
-
+autocmd FileType css,javascript,javascriptreact,yaml setlocal noet sw=2 ts=2
 
 "== Aliases
-command! W :w
+command! W  :w
 command! WQ :wq
 command! Wq :wq
 command! Wiki :e ~/doc/index.md
-command! Prettier :!prettier % --write
-command! ESlint :!eslint %
-command! Flake8 :!flake8 %
-command! Black :!black %
-command! AutoPep8 :!autopep8 % --in-place
+command! Prettier :silent !prettier % --write
+command! ESlint   :!eslint %
+command! Flake8   :!flake8 %
+command! Black    :silent !black %
+command! AutoPep8 :silent !autopep8 % --in-place
 
 
 "== Mapping
 let mapleader=";"
 
+inoremap ii <esc>
+
 " Alternative keys
-noremap <C-s>     :w<CR>
-noremap <C-n>     :tabnew<CR>
-noremap <space>   :nohl<CR>
-noremap <C-space> zc
+nnoremap <C-s>      :w<CR>
+nnoremap <C-n>      :tabnew<CR>
+nnoremap <space>    :nohl<CR>
+nnoremap <leader>rr :so ~/.config/nvim/init.vim<CR>
 
 " Window
-noremap <C-h> :wincmd h<CR>
-noremap <C-j> :wincmd j<CR>
-noremap <C-k> :wincmd k<CR>
-noremap <C-l> :wincmd l<CR>
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
 
 " Split
-noremap spv :vsp<CR>
-noremap sph :sp<CR>
-noremap spk :wincmd K<CR>
-noremap spl :wincmd L<CR>
+nnoremap spv :vsp<CR>
+nnoremap sph :sp<CR>
+nnoremap spk :wincmd K<CR>
+nnoremap spl :wincmd L<CR>
 
 " Tab
-noremap tn :tabnew<CR>
-noremap tc :tabclose<CR>
-noremap <A-1> :tabn 1<CR>
-noremap <A-2> :tabn 2<CR>
-noremap <A-3> :tabn 3<CR>
-noremap <A-4> :tabn 4<CR>
-noremap <A-5> :tabn 5<CR>
-noremap <A-6> :tabn 6<CR>
-noremap <A-7> :tabn 7<CR>
-noremap <A-8> :tabn 8<CR>
-noremap <A-9> :tabn 9<CR>
+nnoremap tn :tabnew<CR>
+nnoremap tc :tabclose<CR>
+nnoremap <A-1> :tabn 1<CR>
+nnoremap <A-2> :tabn 2<CR>
+nnoremap <A-3> :tabn 3<CR>
+nnoremap <A-4> :tabn 4<CR>
+nnoremap <A-5> :tabn 5<CR>
+nnoremap <A-6> :tabn 6<CR>
+nnoremap <A-7> :tabn 7<CR>
+nnoremap <A-8> :tabn 8<CR>
+nnoremap <A-9> :tabn 9<CR>
 
 " Buffer
-noremap <leader>j :bnext<CR>
-noremap <leader>k :bprev<CR>
+nnoremap <leader>j :bnext<CR>
+nnoremap <leader>k :bprev<CR>
 
 " Work with system clipboard
 noremap <leader>c "*yy<CR>
 noremap <leader>v "+p<CR>
 
-" Kill terminal
-tnoremap <Esc> <C-\><C-n> :q<CR>
+" Terminal
+nnoremap <leader>t :vsp<CR>:term<CR>:startinsert<CR>
+tnoremap <Esc> <C-\><C-n>

@@ -1,4 +1,4 @@
-export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.applications:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.applications:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 
 ### Oh my zsh
@@ -19,3 +19,4 @@ alias rgf="rg --files|rg"
 alias tmux="tmux -2"
 alias :q="exit"
 alias ...="cd ../.."
+alias icat="kitty +kitten icat"

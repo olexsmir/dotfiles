@@ -24,21 +24,10 @@ esac
 # Colors ####
 bold="\e[1m"
 reset="\e[0m"
-
 blue="\e[36m"
-grey="\e[90m"
-black='\e[30m'
-red='\e[31m'
-green='\e[32m'
-yellow='\e[33m'
-blue='\e[34m'
-magenta='\e[35m'
-cyan='\e[36m'
-white='\e[37m'
 
+# Fetch ####
 echo -e "            ${blue}${bold}    WM ${reset}${wmname}"
 echo -e "   /\_/\    ${blue}${bold} SHELL ${reset}${shell}"
 echo -e "  (=^.^=)   ${blue}${bold}KERNEL ${reset}${kernel}"
 echo -e "  (\") (\")_/ ${blue}${bold}   PKG ${reset}${packages}"
-echo -e "  ${black} ${red} ${green} ${yellow} ${blue} ${magenta} ${cyan} ${reset} "
-exit 0
