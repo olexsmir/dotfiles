@@ -27,6 +27,19 @@ modules-right = keyboard pulseaudio  archupd wifi-signal
 tray-position = right
 tray-padding = 0
 
+[bar/min]
+width = 100%
+height = 24
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+wm-restack = bspwm
+font-0 = Iosevka Nerd Font:style=Medium:size=8;3
+font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
+modules-left = bspwm
+modules-right = keyboard pulseaudio wifi-signal time
+tray-position = right
+
 [module/bspwm]
 type = internal/bspwm
 pin-workspaces = true

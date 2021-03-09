@@ -1,38 +1,41 @@
 {
-    "workbench.colorTheme": "Ayu Mirage Bordered",
-    "workbench.iconTheme": "ayu",
-    "editor.wordWrap": "off",
-    "editor.fontSize": 14,
-    "workbench.panel.defaultLocation": "right",
-    "editor.minimap.side": "left",
-    "editor.minimap.size": "fit",
-    "workbench.sideBar.location": "right",
-    "workbench.activityBar.visible": true,
-    "window.menuBarVisibility": "hidden",
-    "editor.formatOnPaste": true,
-    "editor.minimap.enabled": false,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Ayu Dark Bordered",
+  "workbench.iconTheme": "ayu",
+  "editor.wordWrap": "off",
+  "editor.fontSize": 14,
+  "workbench.panel.defaultLocation": "right",
+  "editor.minimap.side": "left",
+  "editor.minimap.size": "fit",
+  "workbench.sideBar.location": "right",
+  "workbench.activityBar.visible": true,
+  "workbench.startupEditor": "newUntitledFile"
+  "window.menuBarVisibility": "hidden",
+  "editor.formatOnPaste": true,
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
 
-    "editor.tabCompletion": "on",
-    "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
 
-    "vim.easymotion": true,
-    "vim.surround": true,
-    "vim.useSystemClipboard": true,
-    "vim.normalModeKeyBindings": [{"before": ["f"], "after" : ["leader","leader","s"]}],
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "gitlens.codeLens.enabled": false,
 
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.tabSize": 2
-    },
-    "[markdown]": {
-        "editor.wordWrap": "on"
-    }
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindings": [{"before": ["f"], "after" : ["leader","leader","s"]}],
+
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  }
 }

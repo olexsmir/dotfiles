@@ -1,6 +1,7 @@
 #!/bin/sh
 function add() {
     echo $1 >> .gitignore
+    echo "[.gitignore] Successful add '$1'."
 }
 function del() {
     if [ -f '.gitignore' ]; then
@@ -10,6 +11,7 @@ function del() {
         fi
     else echo "[.gitignore] File not found."
     fi
+    echo "[.gitignore] Successful del '$1'."
 }
 function edit() {
     sed -in "s|$1|$2|g" .gitignore
@@ -28,11 +30,11 @@ case "$1" in
     add|a)  shift; add  "$@" ;;
     del|d)  shift; del  "$@" ;;
     mv)     shift; edit "$@" ;;
-    show|s) shift; show      ;;
-    help)   echo "add/a   - [file name] add to ignore"
-            echo "del/d   - [file name] delete from ignore"
-            echo "mv      - [old new]   change file name"
-            echo "show/s  - show ignore file"
+    show)   shift; show      ;;
+    help)   echo "add|a   - [file name] add to ignore."
+            echo "del|d   - [file name] delete from ignore."
+            echo "mv      - [old] [new] file name for rename."
+            echo "show    - show ignore file."
     ;;
-    *) echo "Command is not valid" ;;
+    *) echo "Command is not valid. Type 'giti help' for help." ;;
 esac
