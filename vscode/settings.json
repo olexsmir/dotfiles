@@ -1,14 +1,13 @@
 {
-  "workbench.colorTheme": "Ayu Dark Bordered",
+  "workbench.colorTheme": "Ayu Dark",
   "workbench.iconTheme": "ayu",
   "editor.wordWrap": "off",
   "editor.fontSize": 14,
-  "workbench.panel.defaultLocation": "right",
-  "editor.minimap.side": "left",
-  "editor.minimap.size": "fit",
+  "editor.fontFamily": "'Jetbrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "workbench.panel.defaultLocation": "left",
   "workbench.sideBar.location": "right",
   "workbench.activityBar.visible": true,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
   "window.menuBarVisibility": "hidden",
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
@@ -21,6 +20,7 @@
 
   "git.autofetch": true,
   "git.confirmSync": false,
+  "git.enableSmartCommit": true,
   "gitlens.codeLens.enabled": false,
 
   "vim.easymotion": true,
@@ -32,6 +32,10 @@
     "javascript": "javascriptreact"
   },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },

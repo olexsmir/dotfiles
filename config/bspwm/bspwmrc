@@ -38,6 +38,7 @@ bspc rule -a Alacritty            desktop='^1' focus=on  follow=on
 bspc rule -a kitty                desktop='^1' focus=on  follow=on
 bspc rule -a firefox              desktop='^2' focus=on  follow=on
 bspc rule -a Google-chrome        desktop='^2' focus=on  follow=on
+bspc rule -a LibreWolf            desktop='^2' focus=on  follow=on
 bspc rule -a Code                 desktop='^3' focus=on  follow=on
 bspc rule -a Emacs                desktop='^3' focus=on  follow=on state='tiled'
 bspc rule -a '*:nvim'             desktop='^3' focus=on  follow=on

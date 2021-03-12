@@ -6,12 +6,13 @@ super + {_,shift} Return
     {kitty,  \
      rofi -show drun -theme ntenV2}
 
-super + shift + {w, f, e, c, s, q}
+super + shift + {w, f, e, c, s, t, q}
         {google-chrome-stable,              \
          kitty --class ranger -e ranger,    \
          kitty --class nvim   -e nvim,      \
          code,                              \
          .applications/simplenote.appimage, \
+         .applications/todoist.appimage,    \
          xkill                              }
 
 super + {_,shift} Print

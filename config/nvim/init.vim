@@ -27,9 +27,6 @@ set autoindent
 set laststatus=0
 set ruler
 
-" Folding
-set foldmethod=manual
-
 " Maximux item in popup
 set pumheight=9
 
@@ -64,7 +61,7 @@ set autoread
 set hidden
 
 " Space/tab indicator
-set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·,eol:\
+set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
 
 " Disable sound
 set visualbell t_vb=
@@ -83,18 +80,17 @@ command! ESlint   :!eslint %
 command! Flake8   :!flake8 %
 command! Black    :silent !black %
 command! AutoPep8 :silent !autopep8 % --in-place
+command! GoFmt    :silent !gofmt -w %
 
 
 "== Mapping
 let mapleader=";"
-
 inoremap ii <esc>
 
 " Alternative keys
-nnoremap <C-s>      :w<CR>
-nnoremap <C-n>      :tabnew<CR>
-nnoremap <space>    :nohl<CR>
-nnoremap <leader>rr :so ~/.config/nvim/init.vim<CR>
+nnoremap <C-s>   :w<CR>
+nnoremap <C-n>   :tabnew<CR>
+nnoremap <space> :nohl<CR>
 
 " Window
 nnoremap <C-h> :wincmd h<CR>
@@ -105,8 +101,8 @@ nnoremap <C-l> :wincmd l<CR>
 " Split
 nnoremap spv :vsp<CR>
 nnoremap sph :sp<CR>
-nnoremap spk :wincmd K<CR>
-nnoremap spl :wincmd L<CR>
+nnoremap spj :wincmd K<CR>
+nnoremap spk :wincmd L<CR>
 
 " Tab
 nnoremap tn :tabnew<CR>
@@ -124,11 +120,11 @@ nnoremap <A-9> :tabn 9<CR>
 " Buffer
 nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
+nnoremap <leader>h :bdele<CR>
 
 " Work with system clipboard
 noremap <leader>c "*yy<CR>
 noremap <leader>v "+p<CR>
 
 " Terminal
-nnoremap <leader>t :vsp<CR>:term<CR>:startinsert<CR>
 tnoremap <Esc> <C-\><C-n>
