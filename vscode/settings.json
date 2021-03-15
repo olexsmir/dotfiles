@@ -28,6 +28,8 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [{"before": ["f"], "after" : ["leader","leader","s"]}],
 
+  "cSpell.userWords": ["getenv"],
+
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },

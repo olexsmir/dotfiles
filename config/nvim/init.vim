@@ -1,7 +1,8 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin("~/.vim/plugged")
   Plug 'Smirnov-O/nten16.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'scrooloose/nerdtree'
 call plug#end()
 
 "== General
@@ -24,8 +25,7 @@ set expandtab
 set autoindent
 
 " Status line
-set laststatus=0
-set ruler
+set ruler laststatus=0
 
 " Maximux item in popup
 set pumheight=9
@@ -82,15 +82,21 @@ command! Black    :silent !black %
 command! AutoPep8 :silent !autopep8 % --in-place
 command! GoFmt    :silent !gofmt -w %
 
+"== NERDTree
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeMinimalUI = 1
 
 "== Mapping
 let mapleader=";"
 inoremap ii <esc>
 
+" NerdTree
+nnoremap <leader>e :NERDTreeToggle<CR>
+
 " Alternative keys
 nnoremap <C-s>   :w<CR>
 nnoremap <C-n>   :tabnew<CR>
-nnoremap <space> :nohl<CR>
+nnoremap <space> :noh<CR>
 
 " Window
 nnoremap <C-h> :wincmd h<CR>
@@ -107,20 +113,20 @@ nnoremap spk :wincmd L<CR>
 " Tab
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
-nnoremap <A-1> :tabn 1<CR>
-nnoremap <A-2> :tabn 2<CR>
-nnoremap <A-3> :tabn 3<CR>
-nnoremap <A-4> :tabn 4<CR>
-nnoremap <A-5> :tabn 5<CR>
-nnoremap <A-6> :tabn 6<CR>
-nnoremap <A-7> :tabn 7<CR>
-nnoremap <A-8> :tabn 8<CR>
-nnoremap <A-9> :tabn 9<CR>
+noremap <A-1> :tabn 1<CR>
+noremap <A-2> :tabn 2<CR>
+noremap <A-3> :tabn 3<CR>
+noremap <A-4> :tabn 4<CR>
+noremap <A-5> :tabn 5<CR>
+noremap <A-6> :tabn 6<CR>
+noremap <A-7> :tabn 7<CR>
+noremap <A-8> :tabn 8<CR>
+noremap <A-9> :tabn 9<CR>
 
 " Buffer
 nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
-nnoremap <leader>h :bdele<CR>
+nnoremap <leader>c :bdele<CR>
 
 " Work with system clipboard
 noremap <leader>c "*yy<CR>
