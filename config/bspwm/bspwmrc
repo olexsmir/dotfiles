@@ -34,20 +34,15 @@ bspc config presel_feedback_color "#51AFEF"
 bspc config urgent_border_color   "#FF6C6B"
 
 ###== BSPWM Rules
-bspc rule -a Alacritty            desktop='^1' focus=on  follow=on
 bspc rule -a kitty                desktop='^1' focus=on  follow=on
-bspc rule -a firefox              desktop='^2' focus=on  follow=on
 bspc rule -a Google-chrome        desktop='^2' focus=on  follow=on
 bspc rule -a LibreWolf            desktop='^2' focus=on  follow=on
 bspc rule -a Code                 desktop='^3' focus=on  follow=on
-bspc rule -a Emacs                desktop='^3' focus=on  follow=on state='tiled'
-bspc rule -a '*:nvim'             desktop='^3' focus=on  follow=on
+bspc rule -a '*:nvim'             desktop='^4' focus=on  follow=off
 bspc rule -a '*:ranger'           desktop='^4' focus=on  follow=off
-bspc rule -a Thunar               desktop='^4' focus=on  follow=off
 bspc rule -a Todoist              desktop='^5' focus=on  follow=off
 bspc rule -a Joplin               desktop='^5' focus=on  follow=on
 bspc rule -a Simplenote           desktop='^5' focus=on  follow=on
 bspc rule -a discord              desktop='^6' focus=off follow=off
 bspc rule -a telegram-desktop     desktop='^6' focus=off follow=on
 bspc rule -a KeePassXC            desktop='^7' focus=on  follow=off
-bspc rule -a Spotify              desktop='^9' focus=on  follow=on

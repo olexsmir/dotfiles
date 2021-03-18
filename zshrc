@@ -5,7 +5,7 @@ export EDITOR="nvim"
 export OMH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 DISABLE_AUTO_TITLE="true"
-plugins=(yarn)
+plugins=(yarn nvm)
 source $OMH/oh-my-zsh.sh
 
 ### Aliases
@@ -18,4 +18,3 @@ alias vi="vim"
 alias tmux="tmux -2"
 alias :q="exit"
 alias ...="cd ../.."
-alias icat="kitty +kitten icat"

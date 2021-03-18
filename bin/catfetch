@@ -5,7 +5,10 @@ kernel=$(cat /proc/sys/kernel/osrelease|cut -d '-' -f1)
 
 # Window manager name
 [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
-    wmname="$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t | grep "WM_NAME" | cut -f2 -d \")"
+    wmname="$(xprop -id $(xprop -root -notype\
+        | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t\
+        | grep "WM_NAME"\
+        | cut -f2 -d \")"
 }
 
 # Shell
@@ -22,7 +25,7 @@ esac
 
 
 # Colors ####
-bold="\e[1m"
+bold=$(tput bold)
 reset="\e[0m"
 blue="\e[36m"
 

@@ -10,8 +10,7 @@ set termguicolors
 colorscheme nten16
 
 " Line numbers
-set number
-set relativenumber
+set nu rnu
 
 " Line wrap
 set linebreak wrap
@@ -28,7 +27,7 @@ set autoindent
 set ruler laststatus=0
 
 " Maximux item in popup
-set pumheight=9
+set pumheight=8
 
 " Scroll
 set scrolloff=3
@@ -72,6 +71,7 @@ autocmd FileType css,javascript,javascriptreact,yaml setlocal noet sw=2 ts=2
 
 "== Aliases
 command! W  :w
+command! Q  :q
 command! WQ :wq
 command! Wq :wq
 command! Wiki :e ~/doc/index.md
@@ -88,7 +88,6 @@ let g:NERDTreeMinimalUI = 1
 
 "== Mapping
 let mapleader=";"
-inoremap ii <esc>
 
 " NerdTree
 nnoremap <leader>e :NERDTreeToggle<CR>
@@ -126,10 +125,10 @@ noremap <A-9> :tabn 9<CR>
 " Buffer
 nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
-nnoremap <leader>c :bdele<CR>
+nnoremap <leader>h :bdele<CR>
 
-" Work with system clipboard
-noremap <leader>c "*yy<CR>
+" Working with system clipboard
+noremap <leader>c "+y<CR>
 noremap <leader>v "+p<CR>
 
 " Terminal

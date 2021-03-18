@@ -3,8 +3,8 @@
 [settings]
 enable-ipc = true
 format-padding = 1
-screenchange-reload = true
-pseudo-transparency = true
+;screenchange-reload = true
+;pseudo-transparency = true
 
 [colors]
 background = #262A2B
@@ -34,6 +34,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 wm-restack = bspwm
+override-redirect = true
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 modules-left = bspwm
