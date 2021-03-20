@@ -28,8 +28,7 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [{"before": ["f"], "after" : ["leader","leader","s"]}],
 
-  "cSpell.userWords": ["getenv"],
-
+  "cSpell.userWords": ["getenv", "popen"],
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },

@@ -70,8 +70,6 @@ autocmd FileType python,go,json setlocal et sw=4 ts=4
 autocmd FileType css,javascript,javascriptreact,yaml setlocal noet sw=2 ts=2
 
 "== Aliases
-command! W  :w
-command! Q  :q
 command! WQ :wq
 command! Wq :wq
 command! Wiki :e ~/doc/index.md

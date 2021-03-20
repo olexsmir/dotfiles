@@ -6,7 +6,7 @@ super + {_,shift} Return
     {kitty,                       \
      rofi -show drun -theme ntenV2}
 
-super + shift + {w, e, f, c, a, q}
+super + shift + {w, e, f, c, t, q}
     {google-chrome-stable,           \
      kitty --class nvim   -e nvim,   \
      kitty --class ranger -e ranger, \

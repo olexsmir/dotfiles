@@ -5,7 +5,7 @@ export EDITOR="nvim"
 export OMH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 DISABLE_AUTO_TITLE="true"
-plugins=(yarn nvm)
+plugins=(yarn nvm golang)
 source $OMH/oh-my-zsh.sh
 
 ### Aliases
