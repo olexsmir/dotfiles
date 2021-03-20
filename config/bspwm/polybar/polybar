@@ -3,8 +3,8 @@
 [settings]
 enable-ipc = true
 format-padding = 1
-;screenchange-reload = true
-;pseudo-transparency = true
+screenchange-reload = true
+pseudo-transparency = true
 
 [colors]
 background = #262A2B
@@ -38,7 +38,7 @@ override-redirect = true
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 modules-left = bspwm
-modules-right = keyboard pulseaudio wifi-signal time
+modules-right = keyboard pulseaudio time wifi-signal
 tray-position = right
 
 [module/bspwm]
@@ -77,6 +77,7 @@ interval = 60
 [module/archupd]
 type = custom/script
 exec = ~/.config/bspwm/polybar/scripts/updates-pacman-aur.sh
+click-left = kitty -e ~/bin/arch-upd
 interval = 60
 
 [module/wifi-signal]
@@ -87,8 +88,7 @@ interval = 3
 
 [module/keyboard]
 type = internal/xkeyboard
-format-prefix = ""
-label-layout = %layout%
+label-layout =  %layout%
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 blacklist-2= caps lock

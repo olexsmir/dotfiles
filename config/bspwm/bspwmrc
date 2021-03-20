@@ -38,7 +38,7 @@ bspc rule -a kitty                desktop='^1' focus=on  follow=on
 bspc rule -a Google-chrome        desktop='^2' focus=on  follow=on
 bspc rule -a LibreWolf            desktop='^2' focus=on  follow=on
 bspc rule -a Code                 desktop='^3' focus=on  follow=on
-bspc rule -a '*:nvim'             desktop='^4' focus=on  follow=off
+bspc rule -a '*:nvim'             desktop='^3' focus=on  follow=off
 bspc rule -a Todoist              desktop='^4' focus=on  follow=off
 bspc rule -a Joplin               desktop='^4' focus=on  follow=on
 bspc rule -a Simplenote           desktop='^4' focus=on  follow=on

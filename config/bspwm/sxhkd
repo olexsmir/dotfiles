@@ -3,8 +3,7 @@
 
 ## == USER keys
 super + {_,shift} Return
-    {kitty,                       \
-     rofi -show drun -theme ntenV2}
+    {kitty, rofi -show drun -theme ntenV2}
 
 super + shift + {w, e, f, c, t, q}
     {google-chrome-stable,           \
@@ -29,8 +28,7 @@ super + q
     bspc node -c
 
 super + control + r
-    bspc wm -r && \
-    sxhkd -c ~/.config/bspwm/sxhkd
+    bspc wm -r; sxhkd -c ~/.config/bspwm/sxhkd
 
 ### == BSPWM windows
 ## Resize window
