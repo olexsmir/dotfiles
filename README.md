@@ -5,7 +5,7 @@
 
 #### System configuration
 - `OS` Arch
-- `WM` bspwm, openbox
+- `WM` bspwm
 - `Terminal` kitty
 - `Shell` zsh
 - `Editor` nvim, vscode
@@ -23,12 +23,12 @@ yay -S rcm
 
 Install dependency:
 ```bash
-sudo pacman -S neovim tmux git openbox tint2 bspwm sxhkd kitty picom dunst zsh rofi ranger firefox ttf-font-awesome ttf-jetbrains
+sudo pacman -S neovim tmux git dunst picom bspwm sxhkd kitty rofi zsh ranger ttf-jetbrains-mono ttf-font-awesome
 yay -S polybar
 ```
 
-And install config:
+And install configs:
 ```bash
-git clone https://github.com/Smirnov-O/dotfiles .dotfiles
+git clone --recursive https://github.com/Smirnov-O/dotfiles .dotfiles
 rcup
 ```

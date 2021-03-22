@@ -3,6 +3,7 @@ function add() {
     echo $1 >> .gitignore
     echo "[.gitignore] Successful add '$1'."
 }
+
 function del() {
     if [ -f '.gitignore' ]; then
         if [ "$(cat .gitignore|wc -l)" = "1" ]
@@ -13,9 +14,11 @@ function del() {
     fi
     echo "[.gitignore] Successful del '$1'."
 }
+
 function edit() {
     sed -in "s|$1|$2|g" .gitignore
 }
+
 function show() {
     if [ -f '.gitignore' ]; then
         if [ -f '/usr/bin/bat' ]
@@ -27,14 +30,13 @@ function show() {
 }
 
 case "$1" in
-    add|a)  shift; add  "$@" ;;
-    del|d)  shift; del  "$@" ;;
-    mv)     shift; edit "$@" ;;
-    show)   shift; show      ;;
-    help)   echo "add|a   - [file name] add to ignore."
-            echo "del|d   - [file name] delete from ignore."
-            echo "mv      - [old] [new] file name for rename."
-            echo "show    - show ignore file."
-    ;;
-    *) echo "Command is not valid. Type 'giti help' for help." ;;
+  add|a)  shift; add  "$@" ;;
+  del|d)  shift; del  "$@" ;;
+  mv)     shift; edit "$@" ;;
+  show)   shift; show      ;;
+  help) echo "add|a - [file name] add to ignore."
+        echo "del|d - [file name] delete from ignore."
+        echo "mv    - [old] [new] file name for rename."
+        echo "show  - show ignore file." ;;
+  *) echo "Command is not valid. Type 'giti help' for help." ;;
 esac

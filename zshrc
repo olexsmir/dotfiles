@@ -1,4 +1,4 @@
-export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
 
 ### Oh my zsh

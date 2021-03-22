@@ -66,8 +66,10 @@ set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
 set visualbell t_vb=
 
 "== Settings for specific files
-autocmd FileType python,go,json setlocal et sw=4 ts=4
-autocmd FileType css,javascript,javascriptreact,yaml setlocal noet sw=2 ts=2
+autocmd FileType python,json setlocal ex sw=4 ts=4
+autocmd FileType go setlocal noex sw=4 ts=4
+autocmd FileType javascript,javascriptreact setlocal noet sw=2 ts=2
+autocmd FileType css,yaml setlocal ex sw=4 ts=4
 
 "== Aliases
 command! WQ :wq
@@ -109,7 +111,6 @@ nnoremap spk :wincmd L<CR>
 
 " Tab
 nnoremap tn :tabnew<CR>
-nnoremap tc :tabclose<CR>
 noremap <A-1> :tabn 1<CR>
 noremap <A-2> :tabn 2<CR>
 noremap <A-3> :tabn 3<CR>

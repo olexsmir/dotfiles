@@ -28,7 +28,7 @@ super + q
     bspc node -c
 
 super + control + r
-    bspc wm -r; sxhkd -c ~/.config/bspwm/sxhkd
+    bspc wm -r && pkill sxhkd && sxhkd -c ~/.config/bspwm/sxhkd
 
 ### == BSPWM windows
 ## Resize window

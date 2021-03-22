@@ -1,15 +1,20 @@
 #!/bin/sh
-###== Function
-R() {
+###== Functions
+A() {
   if ! pgrep $1
      then $@& fi
 }
+C() {
+    bspc config $@
+}
+R() {
+    bspc rule -a $@
+}
 
 ###== Autostart
-R feh --randomize --bg-scale ~/Pictures/wallp &
-R sxhkd -c ~/.config/bspwm/sxhkd &
-R lxsession &
-R picom -b &
+A feh --randomize --bg-scale ~/Pictures/wallp &
+A sxhkd -c ~/.config/bspwm/sxhkd &
+A picom -b &
 ~/.config/bspwm/polybar/bar.sh &
 
 ###== BSPWM
@@ -18,31 +23,32 @@ R picom -b &
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # General
-bspc config border_width           2
-bspc config window_gap             4
-bspc config split_ratio            0.50
-bspc config borderless_monocle     true
-bspc config gapless_monocle        true
-bspc config single_monocle         true
-bspc config focus_follows_pointer  true
+C border_width           2
+C window_gap             4
+C split_ratio            0.50
+C borderless_monocle     true
+C gapless_monocle        true
+C single_monocle         true
+C focus_follows_pointer  true
 
 # Colors
-bspc config normal_border_color   "#262A2B"
-bspc config active_border_color   "#1F2324"
-bspc config focused_border_color  "#008DCD"
-bspc config presel_feedback_color "#51AFEF"
-bspc config urgent_border_color   "#FF6C6B"
+C normal_border_color   "#262A2B"
+C active_border_color   "#1F2324"
+C focused_border_color  "#008DCD"
+C presel_feedback_color "#51AFEF"
+C urgent_border_color   "#FF6C6B"
 
 ###== BSPWM Rules
-bspc rule -a kitty                desktop='^1' focus=on  follow=on
-bspc rule -a Google-chrome        desktop='^2' focus=on  follow=on
-bspc rule -a LibreWolf            desktop='^2' focus=on  follow=on
-bspc rule -a Code                 desktop='^3' focus=on  follow=on
-bspc rule -a '*:nvim'             desktop='^3' focus=on  follow=off
-bspc rule -a Todoist              desktop='^4' focus=on  follow=off
-bspc rule -a Joplin               desktop='^4' focus=on  follow=on
-bspc rule -a Simplenote           desktop='^4' focus=on  follow=on
-bspc rule -a '*:ranger'           desktop='^5' focus=on  follow=off
-bspc rule -a discord              desktop='^6' focus=off follow=off
-bspc rule -a telegram-desktop     desktop='^6' focus=off follow=on
-bspc rule -a KeePassXC            desktop='^7' focus=on  follow=off
+R kitty            desktop='^1' focus=on  follow=on
+R Google-chrome    desktop='^2' focus=on  follow=on
+R LibreWolf        desktop='^2' focus=on  follow=on
+R Code             desktop='^3' focus=on  follow=on
+R '*:nvim'         desktop='^3' focus=on  follow=off
+R Todoist          desktop='^4' focus=on  follow=off
+R Joplin           desktop='^4' focus=on  follow=on
+R Simplenote       desktop='^4' focus=on  follow=on
+R '*:ranger'       desktop='^5' focus=on  follow=off
+R discord          desktop='^6' focus=off follow=off
+R TelegramDesktop  desktop='^6' focus=off follow=on
+R KeePassXC        desktop='^7' focus=on  follow=off
+R Zathura          desktop='^9' focus=on  follow=on  state=tiled
