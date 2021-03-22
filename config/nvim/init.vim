@@ -85,6 +85,7 @@ command! GoFmt    :silent !gofmt -w %
 "== NERDTree
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize = 24
 
 "== Mapping
 let mapleader=";"

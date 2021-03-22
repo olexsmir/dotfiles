@@ -4,8 +4,8 @@ set default-bg               "#262A2B"
 
 set statusbar-fg             "#CED4DA"
 set statusbar-bg             "#1F2324"
-set statusbar-h-padding      10
-set statusbar-v-padding      10
+set statusbar-h-padding      7
+set statusbar-v-padding      7
 
 set inputbar-fg              "#FFFFFF"
 set inputbar-bg              "#1F2324"
