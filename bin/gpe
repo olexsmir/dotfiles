@@ -6,19 +6,15 @@ function encrypt() {
 }
 function decrypt() {
     local fn="$1"
-
     if [ ${fn: -4} == ".asc" ]
-    then
-        gpg -d -o ${fn%%.asc} $@
+    then gpg -d -o ${fn%%.asc} $@
     elif [ ${fn: -4} == ".gpg" ]
-    then
-        gpg -d -o ${fn%%.gpg} $@
+    then gpg -d -o ${fn%%.gpg} $@
     fi
 }
 
-## Logic
 case "$1" in
     enc|e) shift; encrypt $@ ;;
     dec|d) shift; decrypt $@ ;;
-    *) echo "Error."         ;;
+        *) echo "Error."     ;;
 esac

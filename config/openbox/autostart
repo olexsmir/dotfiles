@@ -1,4 +1,0 @@
-#!/bin/sh
-feh --randomize --bg-scale ~/Pictures/wallp &
-tint2 -c ~/.config/openbox/tint2rc &
-picom -b &
