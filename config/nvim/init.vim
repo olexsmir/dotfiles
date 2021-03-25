@@ -68,7 +68,7 @@ set visualbell t_vb=
 "== Settings for specific files
 autocmd FileType python,json setlocal ex sw=4 ts=4
 autocmd FileType go setlocal noex sw=4 ts=4
-autocmd FileType javascript,javascriptreact setlocal noet sw=2 ts=2
+autocmd FileType javascript,javascriptreact setlocal et sw=2 ts=2
 autocmd FileType css,yaml setlocal ex sw=4 ts=4
 
 "== Aliases

@@ -5,6 +5,6 @@
 
 ### Install
 ```bash
-sudo pacman -S bspwm sxhkd
+sudo pacman -S bspwm sxhkd kitty
 yay -S polybar
 ```

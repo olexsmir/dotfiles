@@ -1,13 +1,13 @@
 #!/bin/sh
 ###== Functions
-A() {
+A() { # AutoStart
   if ! pgrep $1
      then $@& fi
 }
-C() {
+C() { # BSPWM config
     bspc config $@
 }
-R() {
+R() { # BSPWM rule
     bspc rule -a $@
 }
 
@@ -41,7 +41,6 @@ C urgent_border_color   "#FF6C6B"
 ###== BSPWM Rules
 R kitty            desktop='^1' focus=on  follow=on
 R Google-chrome    desktop='^2' focus=on  follow=on
-R LibreWolf        desktop='^2' focus=on  follow=on
 R Code             desktop='^3' focus=on  follow=on
 R '*:nvim'         desktop='^3' focus=on  follow=off
 R Todoist          desktop='^4' focus=on  follow=off
