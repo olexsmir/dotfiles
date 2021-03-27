@@ -65,27 +65,30 @@ set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
 " Disable sound
 set visualbell t_vb=
 
-"== Settings for specific files
-autocmd FileType python,json setlocal ex sw=4 ts=4
-autocmd FileType go setlocal noex sw=4 ts=4
-autocmd FileType javascript,javascriptreact setlocal et sw=2 ts=2
-autocmd FileType css,yaml setlocal ex sw=4 ts=4
 
 "== Aliases
-command! WQ :wq
-command! Wq :wq
-command! Wiki :e ~/doc/index.md
+command! VTerm    :vs | res 40 | set nonu nornu | startinsert | wincmd L | term
+command! Term     :sp | res 40 | set nonu nornu | startinsert | wincmd J | term
 command! Prettier :silent !prettier % --write
 command! ESlint   :!eslint %
-command! Flake8   :!flake8 %
 command! Black    :silent !black %
 command! AutoPep8 :silent !autopep8 % --in-place
+command! Flake8   :!flake8 %
 command! GoFmt    :silent !gofmt -w %
+command! GoLint   :!golint %
+
+
+"== Settings for specific files
+autocmd FileType python setlocal ex sw=4 ts=4
+autocmd FileType go setlocal noex sw=4 ts=4
+autocmd FileType javascript,javascriptreact,yaml setlocal et sw=2 ts=2
+
 
 "== NERDTree
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 24
+
 
 "== Mapping
 let mapleader=";"
@@ -130,6 +133,7 @@ nnoremap <leader>h :bdele<CR>
 " Working with system clipboard
 noremap <leader>c "+y<CR>
 noremap <leader>v "+p<CR>
+
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>

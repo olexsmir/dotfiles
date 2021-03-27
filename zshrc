@@ -1,11 +1,12 @@
-export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export EDITOR="nvim"
+export GOPATH="$HOME/go"
 
 ### Oh my zsh
 export OMH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 DISABLE_AUTO_TITLE="true"
-plugins=(yarn nvm golang)
+plugins=(yarn nvm)
 source $OMH/oh-my-zsh.sh
 
 ### Aliases

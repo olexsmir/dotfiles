@@ -1,18 +1,16 @@
 {
-  "workbench.colorTheme": "Ayu Dark",
-  "workbench.iconTheme": "ayu",
+  "workbench.colorTheme": "One Dark Pro",
   "editor.wordWrap": "off",
   "editor.fontSize": 14,
   "editor.fontFamily": "'Jetbrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "workbench.panel.defaultLocation": "left",
-  "workbench.sideBar.location": "right",
   "workbench.activityBar.visible": true,
   "workbench.startupEditor": "newUntitledFile",
-  "window.menuBarVisibility": "hidden",
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "workbench.sideBar.location": "right",
+  "window.menuBarVisibility": "hidden",
 
   "editor.tabCompletion": "on",
   "editor.tabSize": 4,
@@ -28,7 +26,8 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [{"before": ["f"], "after" : ["leader","leader","s"]}],
 
-  "cSpell.userWords": ["getenv", "popen"],
+  "cSpell.userWords": ["getenv"],
+
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
