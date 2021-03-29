@@ -1,26 +1,24 @@
-#!/bin/sh
-declare options=("ShutDown
-Lock
-Logout
-Reboot")
+#!/usr/bin/env bash
+declare options=("ShutDown\nLogOut\nReboot")
 
-menucmd="rofi -dmenu"
-choice=$(echo -e "${options[@]}"|${menucmd} -p "Power" $@)
-case "$choice" in
+choice=$(echo -e ${options[@]} | rofi -dmenu -p "Power" -theme nten-dmenu)
+case $choice in
     "ShutDown")
-        case "$(echo -e "Yes\nNo"|${menucmd} -p "ShutDown" $@)" in
+        case "$(echo -e "Yes\nNo" | rofi -dmenu -p "ShutDown" -theme nten-dmenu)" in
             "Yes") exec systemctl poweroff ;;
-            "No")  exec exit 0             ;;
-        esac ;;
-    "Lock") exec betterlockscreen --off 300 -t "Computer is lockerd" -l ;;
-    "Logout")
-        case "$(echo -e "Yes\nNo"|${menucmd} -p "Logout" $@)" in
+            "no")  exec exit 0             ;;
+        esac
+    ;;
+    "LogOut")
+        case "$(echo -e "Yes\nNo" | rofi -dmenu -p "LogOut" -theme nten-dmenu)" in
             "Yes") exec loginctl terminate-session $XDG_SESSION_ID ;;
             "No")  exec exit 0                                     ;;
-        esac ;;
+        esac
+    ;;
     "Reboot")
-        case "$(echo -e "Yes\nNo"|${menucmd} -p "Reboot" $@)" in
+        case "$(echo -e "Yes\nNo" | rofi -dmenu -p "Reboot" -theme nten-dmenu)" in
             "Yes") exec systemctl reboot ;;
             "No")  exec exit 0           ;;
-        esac ;;
+        esac
+    ;;
 esac

@@ -3,7 +3,7 @@
 
 ## == USER keys
 super + {_,shift} Return
-    {kitty, rofi -show drun -theme ntenV2}
+    {kitty, rofi -show drun}
 
 super + shift + {w, e, f, c, s, t, q}
     {google-chrome-stable,              \
@@ -20,9 +20,8 @@ super + shift + {w, e, f, c, s, t, q}
 super + {equal, minus, shift+minus}
     amixer sset Master {2%+,2%-,toggle}
 
-super + {Escape, ctrl+i}
-    {.config/rofi/script/powermenu.sh, \
-     .config/rofi/script/passmenu.sh   }
+super + Escape
+    .config/rofi/script/powermenu.sh
 
 ### == BSPWM keys
 super + q

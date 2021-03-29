@@ -3,6 +3,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdtree'
+  Plug 'w0rp/ale'
 call plug#end()
 
 "== General
@@ -67,8 +68,7 @@ set visualbell t_vb=
 
 
 "== Aliases
-command! VTerm    :vs | res 40 | set nonu nornu | startinsert | wincmd L | term
-command! Term     :sp | res 40 | set nonu nornu | startinsert | wincmd J | term
+command! Term     :vs|wincmd L|vert res 50|set nonu nornu|startinsert|term
 command! Prettier :silent !prettier % --write
 command! ESlint   :!eslint %
 command! Black    :silent !black %
@@ -84,6 +84,16 @@ autocmd FileType go setlocal noex sw=4 ts=4
 autocmd FileType javascript,javascriptreact,yaml setlocal et sw=2 ts=2
 
 
+"== ALE
+let g:ale_disable_lsp = 1
+let g:ale_echo_msg_format = '%severity%: %s'
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'python': ['flake8'],
+\ 'go': ['golint']
+\ }
+
+
 "== NERDTree
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMinimalUI = 1
@@ -95,6 +105,10 @@ let mapleader=";"
 
 " NerdTree
 nnoremap <leader>e :NERDTreeToggle<CR>
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+nnoremap <leader>t :Term<CR>
 
 " Alternative keys
 nnoremap <C-s>   :w<CR>
@@ -133,7 +147,3 @@ nnoremap <leader>h :bdele<CR>
 " Working with system clipboard
 noremap <leader>c "+y<CR>
 noremap <leader>v "+p<CR>
-
-
-" Terminal
-tnoremap <Esc> <C-\><C-n>
