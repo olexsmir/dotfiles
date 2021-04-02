@@ -1,0 +1,68 @@
+[a-general]
+home   = "gemini://gus.guru/search"
+search = "gemini://gus.guru/search"
+http           = "default"
+color          = true
+ansi           = true
+bullets        = true
+auto_redirect  = false
+emoji_favicons = false
+left_margin    = 0.15
+max_width      = 100
+downloads      = "Downloads"
+page_max_size  = 2097152
+page_max_time  = 10
+scrollbar      = "auto"
+
+
+[keybindings]
+bind_quit   = "q"
+bind_reload = "Ctrl-R"
+bind_save   = "Ctrl-S"
+bind_edit   = "I"
+bind_bottom = "i"
+
+# Navigation
+bind_back    = "H"
+bind_forward = "L"
+
+# Bookmaeks
+bind_bookmarks    = "b"
+bind_add_bookmark = "B"
+
+# Tab
+bind_new_tab   = "t"
+bind_close_tab = "T"
+bind_next_tab  = "J"
+bind_prev_tab  = "K"
+
+[[mediatype-handlers]]
+cmd       = ["feh"]
+types     = ["image"]
+no_prompt = true
+
+[cache]
+max_size  = 0
+max_pages = 30
+timeout   = 1800
+
+[subscriptions]
+popup            = true
+workers          = 3
+update_interval  = 1800
+entries_per_page = 20
+
+[theme]
+bg = "#262A2B"
+fg = "#dfdfdf"
+tab_num = "#797979"
+bottombar_text = "#dfdfdf"
+bottombar_bg = "#1F2324"
+scrollbar = "#1F2324"
+btn_bg = "#1F2324"
+btn_text = "#dfdfdf"
+
+[auth]
+[auth.certs]
+[auth.keys]
+[proxies]

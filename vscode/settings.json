@@ -7,10 +7,10 @@
   "workbench.startupEditor": "newUntitledFile",
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false, "explorer.confirmDragAndDrop": false, "window.menuBarVisibility": "hidden",
   "workbench.sideBar.location": "right",
-  "window.menuBarVisibility": "hidden",
+  "workbench.panel.defaultLocation": "right",
+  "terminal.external.linuxExec": "kitty",
 
   "editor.tabCompletion": "on",
   "editor.tabSize": 4,

@@ -68,17 +68,17 @@ set visualbell t_vb=
 
 
 "== Aliases
-command! Term     :vs|wincmd L|vert res 50|set nonu nornu|startinsert|term
-command! Prettier :silent !prettier % --write
-command! ESlint   :!eslint %
-command! Black    :silent !black %
+command! W        :w
+command! Wq       :wq
+command! Term     :vs|wincmd L|set nonu nornu|startinsert|term
+command! Prettier :silent !prettier -w %
 command! AutoPep8 :silent !autopep8 % --in-place
-command! Flake8   :!flake8 %
+command! Black    :silent !black %
+command! Isort    :silent !isort %
 command! GoFmt    :silent !gofmt -w %
-command! GoLint   :!golint %
 
 
-"== Settings for specific files
+"== Settings for specific languages
 autocmd FileType python setlocal ex sw=4 ts=4
 autocmd FileType go setlocal noex sw=4 ts=4
 autocmd FileType javascript,javascriptreact,yaml setlocal et sw=2 ts=2
@@ -86,6 +86,11 @@ autocmd FileType javascript,javascriptreact,yaml setlocal et sw=2 ts=2
 
 "== ALE
 let g:ale_disable_lsp = 1
+let g:ale_sign_info = "•"
+let g:ale_sign_error = "•"
+let g:ale_sign_warning = "•"
+let g:ale_sign_style_error = "•"
+let g:ale_sign_style_warning = "•"
 let g:ale_echo_msg_format = '%severity%: %s'
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
@@ -95,6 +100,7 @@ let g:ale_linters = {
 
 
 "== NERDTree
+let NERDTreeIgnore = ["__pycache__", "*.pyc"]
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 24
@@ -124,8 +130,8 @@ nnoremap <C-l> :wincmd l<CR>
 " Split
 nnoremap spv :vsp<CR>
 nnoremap sph :sp<CR>
-nnoremap spj :wincmd K<CR>
-nnoremap spk :wincmd L<CR>
+nnoremap spk :wincmd K<CR>
+nnoremap spl :wincmd L<CR>
 
 " Tab
 nnoremap tn :tabnew<CR>
@@ -142,7 +148,8 @@ noremap <A-9> :tabn 9<CR>
 " Buffer
 nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
-nnoremap <leader>h :bdele<CR>
+nnoremap <leader>c :bdele<CR>
+nnoremap <leader>b :buffers<CR>
 
 " Working with system clipboard
 noremap <leader>c "+y<CR>
