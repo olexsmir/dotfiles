@@ -1,13 +1,13 @@
 #!/bin/sh
 ###== Functions
-A() { # AutoStart
+A() {  # AutoStart
   if ! pgrep $1
      then $@& fi
 }
-C() { # BSPWM config
+C() {  # BSPWM config
     bspc config $@
 }
-R() { # BSPWM rule
+R() {  # BSPWM rule
     bspc rule -a $@
 }
 
@@ -24,7 +24,7 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # General
 C border_width           2
-C window_gap             8
+C window_gap             2
 C split_ratio            0.50
 C borderless_monocle     true
 C gapless_monocle        true
@@ -41,13 +41,14 @@ C urgent_border_color   "#FF6C6B"
 ###== BSPWM Rules
 R kitty            desktop='^1' focus=on  follow=on
 R Google-chrome    desktop='^2' focus=on  follow=on
+R LibreWolf        desktop='^2' focus=on  follow=on
 R Code             desktop='^3' focus=on  follow=on
-R '*:nvim'         desktop='^3' focus=on  follow=off
-R Todoist          desktop='^4' focus=on  follow=off
+R '*:nvim'         desktop='^3' focus=on  follow=on
+R Todoist          desktop='^4' focus=on  follow=on
 R Joplin           desktop='^4' focus=on  follow=on
 R Simplenote       desktop='^4' focus=on  follow=on
-R '*:ranger'       desktop='^5' focus=on  follow=off
-R discord          desktop='^6' focus=off follow=off
+R '*:ranger'       desktop='^5' focus=off follow=off
+R discord          desktop='^6' focus=on  follow=off
 R TelegramDesktop  desktop='^6' focus=off follow=on
-R KeePassXC        desktop='^7' focus=on  follow=off
+R KeePassXC        desktop='^7' focus=on  follow=on
 R Zathura          desktop='^9' focus=on  follow=on  state=tiled

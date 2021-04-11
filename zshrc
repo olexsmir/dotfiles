@@ -1,19 +1,20 @@
-export PATH="$HOME/.yarn/bin:$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.golang/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
-export GOPATH="$HOME/go"
+
+### StartShip
+eval "$(starship init zsh)"
 
 ### Oh my zsh
 export OMH="$HOME/.oh-my-zsh"
-ZSH_THEME="simple"
+#ZSH_THEME="simple"
 DISABLE_AUTO_TITLE="true"
-plugins=(yarn)
+plugins=(npm)
 source $OMH/oh-my-zsh.sh
 
 ### Aliases
 alias cls="clear"
 alias mkdir="mkdir -p"
 alias cp="cp -r"
-alias du="du -h"
 alias vim="nvim"
 alias vi="vim"
 alias tmux="tmux -2"

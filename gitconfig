@@ -8,3 +8,4 @@
 [alias]
   ada = add -A
   cmm = commit -m
+  br  = branch

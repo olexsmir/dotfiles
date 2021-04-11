@@ -1,2 +1,2 @@
-EXCLUDES="README.md nten.tar.gz screen.png"
+EXCLUDES="README.md screen.png"
 UNDOTTED="bin vscode"

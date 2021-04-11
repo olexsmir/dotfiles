@@ -1,4 +1,4 @@
-call plug#begin("~/.vim/plugged")
+call plug#begin('~/.vim/plugged')
   Plug 'Smirnov-O/nten16.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
@@ -17,9 +17,9 @@ set nu rnu
 set linebreak wrap
 
 " Tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smarttab
 set expandtab
 set autoindent
@@ -61,7 +61,7 @@ set autoread
 set hidden
 
 " Space/tab indicator
-set list listchars=tab:\|·,trail:~,extends:>,precedes:<,space:·
+set list listchars=tab:\|·,trail:~,space:·
 
 " Disable sound
 set visualbell t_vb=
@@ -70,37 +70,28 @@ set visualbell t_vb=
 "== Aliases
 command! W        :w
 command! Wq       :wq
-command! Term     :vs|wincmd L|set nonu nornu|startinsert|term
+command! Term     :vs|wincmd L|set nonu nornu|startinsert|cd %:p:h|term
 command! Prettier :silent !prettier -w %
-command! AutoPep8 :silent !autopep8 % --in-place
 command! Black    :silent !black %
 command! Isort    :silent !isort %
-command! GoFmt    :silent !gofmt -w %
 
 
 "== Settings for specific languages
 autocmd FileType python setlocal ex sw=4 ts=4
-autocmd FileType go setlocal noex sw=4 ts=4
-autocmd FileType javascript,javascriptreact,yaml setlocal et sw=2 ts=2
+autocmd FileType javascript,javascriptreact setlocal et sw=2 ts=2
+autocmd FileType html,css,json,yaml setlocal ex sw=2 ts=2
 
 
 "== ALE
 let g:ale_disable_lsp = 1
-let g:ale_sign_info = "•"
-let g:ale_sign_error = "•"
-let g:ale_sign_warning = "•"
-let g:ale_sign_style_error = "•"
-let g:ale_sign_style_warning = "•"
 let g:ale_echo_msg_format = '%severity%: %s'
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
-\ 'python': ['flake8'],
-\ 'go': ['golint']
+\     'python': ['flake8'],
 \ }
 
 
 "== NERDTree
-let NERDTreeIgnore = ["__pycache__", "*.pyc"]
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 24
@@ -128,7 +119,7 @@ nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-l> :wincmd l<CR>
 
 " Split
-nnoremap spv :vsp<CR>
+nnoremap spv :vs<CR>
 nnoremap sph :sp<CR>
 nnoremap spk :wincmd K<CR>
 nnoremap spl :wincmd L<CR>
@@ -145,12 +136,8 @@ noremap <A-7> :tabn 7<CR>
 noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
 
-" Buffer
+" Buffers
 nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
-nnoremap <leader>c :bdele<CR>
+nnoremap <leader>w :bdele<CR>
 nnoremap <leader>b :buffers<CR>
-
-" Working with system clipboard
-noremap <leader>c "+y<CR>
-noremap <leader>v "+p<CR>

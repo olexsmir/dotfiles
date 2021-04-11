@@ -1,32 +1,26 @@
 {
-  "workbench.colorTheme": "Cobalt2",
-  "editor.wordWrap": "off",
-  "editor.fontSize": 14,
-  "editor.fontFamily": "'Jetbrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "workbench.activityBar.visible": true,
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.formatOnPaste": true,
-  "editor.minimap.enabled": false,
-  "explorer.confirmDelete": false, "explorer.confirmDragAndDrop": false, "window.menuBarVisibility": "hidden",
+  "editor.fontFamily": "'Jetbrains Mono', 'Droid Sans Mono', 'monospace'",
+  "workbench.colorTheme": "Brackets Light Pro",
+  "workbench.iconTheme": "vs-minimal",
   "workbench.sideBar.location": "right",
-  "workbench.panel.defaultLocation": "right",
-  "terminal.external.linuxExec": "kitty",
-
+  "editor.wordWrap": "on",
+  "editor.fontSize": 14,
+  "editor.mouseWheelZoom": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.minimap.enabled": false,
   "editor.tabCompletion": "on",
-  "editor.tabSize": 4,
-  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
 
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  "window.menuBarVisibility": "hidden",
+
+  "gitlens.codeLens.enabled": false,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  "gitlens.codeLens.enabled": false,
-
-  "vim.easymotion": true,
-  "vim.surround": true,
-  "vim.useSystemClipboard": true,
-  "vim.normalModeKeyBindings": [{"before": ["f"], "after" : ["leader","leader","s"]}],
-
-  "cSpell.userWords": ["getenv"],
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
@@ -38,8 +32,5 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
-  },
-  "[markdown]": {
-    "editor.wordWrap": "on"
   }
 }
