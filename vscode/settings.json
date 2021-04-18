@@ -11,16 +11,17 @@
   "editor.minimap.enabled": false,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
-
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-
   "window.menuBarVisibility": "hidden",
 
   "gitlens.codeLens.enabled": false,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
+
+  "liveSassCompile.settings.formats": [{"format": "expanded", "extensionName": ".css", "savePath": null}],
+  "liveSassCompile.settings.generateMap": false,
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"

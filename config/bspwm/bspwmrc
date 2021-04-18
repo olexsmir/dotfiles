@@ -1,4 +1,7 @@
 #!/bin/sh
+# Smirnov-O <ss2316544@gmail.com>
+# BSPWM config file
+
 ###== Functions
 A() {  # AutoStart
   if ! pgrep $1
@@ -16,6 +19,7 @@ A feh --randomize --bg-scale ~/Pictures/wallp &
 A sxhkd -c ~/.config/bspwm/sxhkd &
 A picom -b &
 ~/.config/bspwm/polybar/bar.sh &
+xautolock -time 5 -locker "slock" &
 
 ###== BSPWM
 

@@ -1,0 +1,18 @@
+add_newline = false
+
+[line_break]
+disabled = false
+
+[nodejs]
+symbol = "N.JS "
+
+[python]
+symbol = "PY "
+
+[elm]
+symbol = "Elm "
+
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false

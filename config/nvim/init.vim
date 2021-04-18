@@ -73,11 +73,11 @@ command! Wq       :wq
 command! Term     :vs|wincmd L|set nonu nornu|startinsert|cd %:p:h|term
 command! Prettier :silent !prettier -w %
 command! Black    :silent !black %
-command! Isort    :silent !isort %
+command! ElmFmt   :silent !elm-format % --yes
 
 
 "== Settings for specific languages
-autocmd FileType python setlocal ex sw=4 ts=4
+autocmd FileType python,elm setlocal ex sw=4 ts=4
 autocmd FileType javascript,javascriptreact setlocal et sw=2 ts=2
 autocmd FileType html,css,json,yaml setlocal ex sw=2 ts=2
 
@@ -85,10 +85,6 @@ autocmd FileType html,css,json,yaml setlocal ex sw=2 ts=2
 "== ALE
 let g:ale_disable_lsp = 1
 let g:ale_echo_msg_format = '%severity%: %s'
-let g:ale_linters = {
-\ 'javascript': ['eslint'],
-\     'python': ['flake8'],
-\ }
 
 
 "== NERDTree
