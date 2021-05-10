@@ -8,6 +8,14 @@ background = #262A2B
 foreground = #cfd1dd
 secondary  = #008DCD
 alert      = #FF6C6B
+empty      = #383a42
+
+;[colors]    ; Light
+;background  = #f9f9f9
+;foreground  = #5b5b5f
+;secondary   = #0098dd
+;alert       = #df631c
+;empty       = #a0a1a7
 
 [bar/bar]
 width = 100%
@@ -19,7 +27,8 @@ wm-restack = bspwm
 font-0 = Iosevka Nerd Font:style=Medium:size=8;3
 font-1 = FontAwesome5Free:style=Solid:size=7.5;2.5
 modules-left = bspwm archupd
-modules-right = pulseaudio keyboard time wifi-signal
+modules-center = time wifi-signal
+modules-right = pulseaudio keyboard
 tray-position = right
 tray-padding = 0
 
@@ -39,7 +48,7 @@ label-urgent = 
 label-urgent-foreground = ${colors.alert}
 label-urgent-padding = 2
 label-empty = 
-label-empty-foreground = #58676C74
+label-empty-foreground = ${colors.empty}
 label-empty-padding = 2
 
 [module/pulseaudio]

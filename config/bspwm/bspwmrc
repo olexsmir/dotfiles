@@ -16,10 +16,10 @@ R() {  # BSPWM rule
 
 ###== Autostart
 A feh --randomize --bg-scale ~/Pictures/wallp &
-A sxhkd -c ~/.config/bspwm/sxhkd &
-A picom -b &
-~/.config/bspwm/polybar/bar.sh &
 xautolock -time 5 -locker "slock" &
+A sxhkd -c ~/.config/bspwm/sxhkd &
+~/.config/bspwm/polybar/bar.sh &
+A picom -b &
 
 ###== BSPWM
 
@@ -36,10 +36,9 @@ C single_monocle         true
 C focus_follows_pointer  true
 
 # Colors
-C normal_border_color   "#262A2B"
+C normal_border_color   "#f5f5f5"
 C active_border_color   "#1F2324"
 C focused_border_color  "#008DCD"
-C presel_feedback_color "#51AFEF"
 C urgent_border_color   "#FF6C6B"
 
 ###== BSPWM Rules
@@ -47,12 +46,11 @@ R kitty            desktop='^1' focus=on  follow=on
 R Google-chrome    desktop='^2' focus=on  follow=on
 R LibreWolf        desktop='^2' focus=on  follow=on
 R Code             desktop='^3' focus=on  follow=on
-R '*:nvim'         desktop='^3' focus=on  follow=on
-R Todoist          desktop='^4' focus=on  follow=on
 R Joplin           desktop='^4' focus=on  follow=on
+R Todoist          desktop='^4' focus=on  follow=on
 R Simplenote       desktop='^4' focus=on  follow=on
-R '*:ranger'       desktop='^5' focus=off follow=off
+R Nemo             desktop='^5' focus=on  follow=on
+R Zathura          desktop='^5' focus=on  follow=on  state=tiled
 R discord          desktop='^6' focus=on  follow=off
 R TelegramDesktop  desktop='^6' focus=off follow=on
 R KeePassXC        desktop='^7' focus=on  follow=on
-R Zathura          desktop='^9' focus=on  follow=on  state=tiled

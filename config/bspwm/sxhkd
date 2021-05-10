@@ -5,12 +5,13 @@
 super + {_,shift} Return
     {kitty, rofi -show drun}
 
-super + shift + {w, e, f, s, t, q}
+super + shift + {w, e, f, s, t, z, q}
     {google-chrome-stable,              \
      code,                              \
      nemo,                              \
      .applications/simplenote.appimage, \
      .applications/todoist.appimage,    \
+     slock,                             \
      xkill                              }
 
 {_,shift,ctrl} Print

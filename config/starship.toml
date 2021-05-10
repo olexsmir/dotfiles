@@ -1,8 +1,5 @@
 add_newline = false
 
-[line_break]
-disabled = false
-
 [nodejs]
 symbol = "N.JS "
 
@@ -12,7 +9,15 @@ symbol = "PY "
 [elm]
 symbol = "Elm "
 
+[java]
+disabled = true
+
+[package]
+symbol = "PKG "
+
+[cmd_duration]
+disabled = true
 
 [directory]
-truncation_length = 3
+truncation_length = 5
 truncate_to_repo = false

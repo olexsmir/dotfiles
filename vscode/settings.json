@@ -1,13 +1,13 @@
 {
   "editor.fontFamily": "'Jetbrains Mono', 'Droid Sans Mono', 'monospace'",
   "workbench.colorTheme": "Brackets Light Pro",
-  "workbench.iconTheme": "vs-minimal",
+  "workbench.panel.defaultLocation": "right",
   "workbench.sideBar.location": "right",
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "editor.fontSize": 14,
   "editor.mouseWheelZoom": true,
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
@@ -20,18 +20,21 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
 
-  "liveSassCompile.settings.formats": [{"format": "expanded", "extensionName": ".css", "savePath": null}],
-  "liveSassCompile.settings.generateMap": false,
+  "prettier.semi": false,
+
+  "tabnine.experimentalAutoImports": true,
+
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
   },
-  "[javascriptreact]": {
+  "[javascriptreact]":{
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  }
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }
