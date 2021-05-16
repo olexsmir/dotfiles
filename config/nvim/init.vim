@@ -2,13 +2,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'Smirnov-O/nten.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sheerun/vim-polyglot'
+  Plug 'axvr/zepl.vim'
 call plug#end()
 
 "== General
 colo nten-light        " Color scheme
-set nu rnu             " Line numbers
-set cursorline         " Highlight line by cursor
-set linebreak wrap     " Line wrap
+set nu rnu cul         " Line numbers & cursor highlight
+set lbr wrap           " Line wrap
 set mouse=a mousehide  " Mouse
 set ruler laststatus=0 " Status line
 set history=500        " Set history size
@@ -31,7 +31,7 @@ set smarttab
 set expandtab
 set autoindent
 
-"== Netrw file manager
+"== Netrw file tree
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_dirhistmax=0
@@ -49,16 +49,21 @@ com! GoFmt    :silent !gofmt -w %
 
 "== Mapping
 let mapleader=";"
-nn <C-S> :w<cr>
-nn <leader>t :Term<cr>
+nn <C-s> :w<cr>
 nn <space> :noh<cr>
+
+tno <esc> <c-\><c-n>
+nn <leader>t :Term<cr>
 nn <leader>j :bn<cr>
 nn <leader>k :bp<cr>
 nn <leader>w :bd<cr>
+
 nn <C-h> :wincmd h<cr>
 nn <C-j> :wincmd j<cr>
 nn <C-k> :wincmd k<cr>
 nn <C-l> :wincmd l<cr>
-tno <esc> <c-\><c-n>
+
+nn cpp :ReplSend<cr>
+vn cpp :ReplSend<cr>
 nn spv :vs<cr>
 nn sph :sp<cr>

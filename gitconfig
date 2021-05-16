@@ -14,4 +14,5 @@
   br = branch
   df = diff
   dh = diff HEAD
-  l = log --oneline --decorate
+  l  = log --oneline --decorate
+  st = status --porcelain

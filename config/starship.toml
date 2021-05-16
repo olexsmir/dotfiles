@@ -1,16 +1,13 @@
 add_newline = false
 
 [nodejs]
-symbol = "N.JS "
+symbol = "Node "
 
 [python]
-symbol = "PY "
+symbol = "Py "
 
 [elm]
 symbol = "Elm "
-
-[java]
-disabled = true
 
 [package]
 symbol = "PKG "

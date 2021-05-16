@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-# For working this script set in $GPG_KEY you gpg key
+# For working this script set $GPG_KEY with gpg key
+
 ## Functions
-function encrypt() {
+encrypt() {
     gpg -ea -r $GPG_KEY $@
 }
-function decrypt() {
-    local fn="$1"
-    if [ ${fn: -4} == ".asc" ]
-    then gpg -d -o ${fn%%.asc} $@
-    elif [ ${fn: -4} == ".gpg" ]
-    then gpg -d -o ${fn%%.gpg} $@
-    fi
+decrypt() {
+  local f="$1"
+  if [ ${f: -4} == ".asc" ]
+    then gpg -d -o ${f%%.asc} $@
+  elif [ ${f: -4} == ".gpg" ]
+    then gpg -d -o ${f%%.gpg} $@
+  fi
 }
 
+## Case's
 case "$1" in
     enc|e) shift; encrypt $@ ;;
     dec|d) shift; decrypt $@ ;;
