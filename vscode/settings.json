@@ -21,9 +21,7 @@
   "git.enableSmartCommit": true,
 
   "prettier.semi": false,
-
   "tabnine.experimentalAutoImports": true,
-
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
@@ -34,7 +32,5 @@
   "[javascriptreact]":{
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "html.format.enable": false,
 }
