@@ -1,33 +1,28 @@
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$HOME/go/bin:$PATH"
-export GOPATH="$HOME/go"
-export EDITOR="nvim"
-
-### StartShip
+## StartShip
 eval "$(starship init zsh)"
 
-### FzF
-export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs"
+## Variables
+export GOPATH="$HOME/go"
+export EDITOR="nvim"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$PATH"
 
-### Oh my zsh
+## Oh my zsh
 export OMH="$HOME/.oh-my-zsh"
 # ZSH_THEME="simple"
-DISABLE_AUTO_TITLE="true"
-plugins=(docker nvm npm)
+plugins=(dotenv)
 source $OMH/oh-my-zsh.sh
 
-### Aliases
-alias cls="clear"
-alias mkdir="mkdir -p"
-alias cp="cp -r"
-alias vim="nvim"
-alias vi="vim"
-alias tmux="tmux -2"
-alias e="$EDITOR"
-alias :q="exit"
-alias ...="cd ../.."
-alias .3="cd ../../.."
-alias gog="go get"
-alias gor="go run"
-alias gob="go build"
-alias pacs="sudo pacman -S"
-alias pacr="sudo pacman -R"
+## HotKets
+bindkey -s "^o" "ranger\n"
+bindkey -s "^v" 'nvim $(fzf)\n'
+bindkey -s "^f" 'cd $(fd -t directory | fzf)\n'
+
+## FNM
+eval $(fnm env)
+
+## Aliases
+alias cls="clear" cp="cp -r" mkdir="mkdir -p"
+alias vim="nvim" vi="vim" e="$EDITOR"
+alias ...="cd ../.." .3="cd ../../.." .4="cd ../../../.."
+alias gor="go run" gob="go build" gog="go get" goi="go install"
+alias pac="sudo pacman" pacs="pac -S" pacr="pac -R" pacss="pac -Ss"

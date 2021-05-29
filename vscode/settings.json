@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "'Jetbrains Mono', 'Droid Sans Mono', 'monospace'",
   "workbench.colorTheme": "Brackets Light Pro",
-  "workbench.panel.defaultLocation": "right",
+  "workbench.panel.defaultLocation": "bottom",
   "workbench.sideBar.location": "right",
   "editor.wordWrap": "off",
   "editor.fontSize": 14,
@@ -22,6 +22,8 @@
 
   "prettier.semi": false,
   "tabnine.experimentalAutoImports": true,
+  "html.format.enable": false,
+
 
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
@@ -32,5 +34,5 @@
   "[javascriptreact]":{
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "html.format.enable": false,
+  "workbench.startupEditor": "none"
 }

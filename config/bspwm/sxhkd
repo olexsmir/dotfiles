@@ -1,38 +1,29 @@
-# Smirnov-O <ss2316544@gmail.com>
-# BSPWM/SXKBD config file
-
-## == USER keys
-super + {_,shift} Return
+#== Users hotkeys
+super + {_, shift} Return
     {kitty, rofi -show drun}
 
-super + shift + {w, e, f, s, t, z, q}
-    {google-chrome-stable,              \
-     code,                              \
-     nemo,                              \
-     .applications/simplenote.appimage, \
-     .applications/todoist.appimage,    \
-     slock,                             \
-     xkill                              }
+super + shift + {w, e, f, z, q}
+    {google-chrome-stable, \
+    code,  \
+    nemo,  \
+    slock, \
+    xkill  }
 
-{_,shift,ctrl} Print
-    {scrot -s, \
-     scrot,    \
-     scrot -u  }
-
-super + {equal, minus, shift+minus}
+super + {equal, minus, shift + minus}
     amixer sset Master {2%+, 2%-, toggle}
+
+Print
+    flameshot gui
 
 super + Escape
     .config/rofi/script/powermenu.sh
 
-### == BSPWM keys
+#== BSPWM
 super + q
     bspc node -c
 
 super + control + r
-    bspc wm -r \
-    && pkill sxhkd \
-    && sxhkd -c ~/.config/bspwm/sxhkd
+    bspc wm -r && pkill sxhkd && sxhkd -c ~/.config/bspwm/sxhkd
 
 super + {_,shift + } {h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
@@ -43,10 +34,7 @@ super + ctrl + {h,j,k,l}
 super + {_,shift + }{1-9}
     bspc {desktop -f,node -d} focused:'^{1-9}'
 
-super + shift + {Tab, F11}
-    bspc node -t {floating,fullscreen}
-
-super + Tab
-    bspc node -t tiled
+super + {t, f, e}
+    bspc node -t {tiled, floating, fullscreen}
 
 # vim: ft=sxhkdrc
