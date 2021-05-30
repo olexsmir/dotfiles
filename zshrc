@@ -7,15 +7,15 @@ export EDITOR="nvim"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$PATH"
 
 ## Oh my zsh
-export OMH="$HOME/.oh-my-zsh"
-# ZSH_THEME="simple"
 plugins=(dotenv)
-source $OMH/oh-my-zsh.sh
+ZSH_THEME="simple"
+source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 ## HotKets
 bindkey -s "^o" "ranger\n"
-bindkey -s "^v" 'nvim $(fzf)\n'
+bindkey -s "^e" 'nvim $(fzf)\n'
 bindkey -s "^f" 'cd $(fd -t directory | fzf)\n'
+bindkey -s "^g" "lazygit\n"
 
 ## FNM
 eval $(fnm env)

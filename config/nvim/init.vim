@@ -1,19 +1,21 @@
 call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
-  " Completion && LSP
+  " LSP && Completion
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'mattn/emmet-vim', {'on': ['EmmetInstall', 'Emmet']}
   Plug 'jiangmiao/auto-pairs'
-  " Status line
-  Plug 'hoob3rt/lualine.nvim'
   " Theme
   Plug 'Smirnov-O/nten.vim'
+  " Status line & Buffer line
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'romgrk/barbar.nvim'
 call plug#end()
 
 "== General
 colo codedark         " Color scheme
 set termguicolors     " GUI colors
-set nu rnu cul        " Line numbers & cursor highlight
+set nu rnu cul        " Line numbers & cursor line highlight
 set nolbr nowrap      " Line wrap
 set mouse=a mh        " Mouse
 set history=500       " Set history size
@@ -22,6 +24,7 @@ set hidden            " Change buffet without warning
 set visualbell t_vb=  " Disable sounds
 set pumheight=8       " Maximum items in pop up
 set modeline          " Enable modeline
+set nosmd             " Disable show mode
 set nobk noswf noudf  " Swap files
 set is ic scs         " Search
 let mapleader=";"     " Set leader key
@@ -34,10 +37,22 @@ set list listchars=tab:\|·,trail:~,space:·
 set ts=4 sw=4 sts=4
 set sta et ai
 
+"== Tab line
+let bufferline = get(g:, 'bufferline', {})
+let g:bufferline.icons = v:false
+let g:bufferline.icon_close_tab = '🗴'
+
 "== Status line
 lua require'lualine'.setup({options = {
-\ theme = "codedark"
+\     theme = "codedark"
 \ }})
+
+"== Emmet
+let g:user_emmet_mode = "inc"
+let g:user_emmet_leader_key=','
+let g:user_emmet_settings = {'javascript': {
+\   'extends': 'jsx'
+\ }}
 
 "== Completion(LSP)
 ino <expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
@@ -70,6 +85,7 @@ let g:netrw_dirhistmax = 0
 "== Custom setting for another files
 au FileType python,elm setl sw=4 ts=4
 au FileType javascript,javascriptreact,json,yaml setl sw=2 ts=2
+au FileType javascript,javascriptreact,css,scss,less EmmetInstall
 au FileType go setl noet sw=4 ts=4
 
 "== Custom commands

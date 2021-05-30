@@ -7,41 +7,41 @@ A() {  # AutoStart
   if ! pgrep $1
      then $@& fi
 }
-C() {  # BSPWM config
+C() {  # Config
     bspc config $@
 }
-R() {  # BSPWM rule
+R() {  # Set rule
     bspc rule -a $@
 }
 
-###== Autostart
+#== Autostart
 A feh --randomize --bg-scale ~/Pictures/wallp &
 xautolock -time 5 -locker "slock" &
 A sxhkd -c ~/.config/bspwm/sxhkd &
 ~/.config/bspwm/polybar/bar.sh &
 A picom -b &
 
-###== BSPWM
+#== BSPWM
 
 # Workspaces
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # General
-C border_width           2
-C window_gap             2
-C split_ratio            0.50
-C borderless_monocle     true
-C gapless_monocle        true
-C single_monocle         true
-C focus_follows_pointer  true
+C border_width          2
+C window_gap            2
+C split_ratio           0.50
+C borderless_monocle    true
+C gapless_monocle       true
+C single_monocle        true
+C focus_follows_pointer true
 
 # Colors
-C normal_border_color   "#f5f5f5"
-C active_border_color   "#1F2324"
-C focused_border_color  "#008DCD"
-C urgent_border_color   "#FF6C6B"
+C normal_border_color  "#090909"
+C active_border_color  "#1F2324"
+C focused_border_color "#008DCD"
+C urgent_border_color  "#FF6C6B"
 
-###== BSPWM Rules
+#== BSPWM Rules
 R kitty            desktop='^1' focus=on  follow=on
 R Google-chrome    desktop='^2' focus=on  follow=on
 R LibreWolf        desktop='^2' focus=on  follow=on
