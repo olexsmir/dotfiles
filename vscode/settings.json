@@ -5,6 +5,7 @@
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.iconTheme": "vs-minimal",
+  "workbench.startupEditor": "none",
 
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
@@ -35,10 +36,7 @@
 
   "extensions.ignoreRecommendations": true,
 
-  "tabnine.experimentalAutoImports": true,
-
   "prettier.semi": false,
-  "html.format.enable": false,
 
   "emmet.includeLanguages": {"javascript": "javascriptreact"},
   "[javascript]": {
@@ -48,5 +46,5 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2,
-  }
+  },
 }

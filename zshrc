@@ -7,7 +7,7 @@ export EDITOR="nvim"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$PATH"
 
 ## Oh my zsh
-plugins=(dotenv)
+plugins=(dotenv z)
 ZSH_THEME="simple"
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 

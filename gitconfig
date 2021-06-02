@@ -8,6 +8,9 @@
 [core]
   editor = nvim
 
+[init]
+  defaultBranch = main
+
 [alias]
   ad = add -A
   cm = commit -m
