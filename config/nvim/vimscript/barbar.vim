@@ -15,3 +15,5 @@ nno <A-8> :BufferGoto 8<cr>
 nno <A-9> :BufferGoto 9<cr>
 nno <C-w> :BufferClose<cr>
 nno <S-x> :BufferClose!<cr>
+nno <leader> :BufferMoveNext<cr>
+nno <leader> :BufferMovePrevious<cr>

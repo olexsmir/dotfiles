@@ -12,10 +12,4 @@
   defaultBranch = main
 
 [alias]
-  ad = add -A
-  cm = commit -m
-  br = branch
-  df = diff
-  dh = diff HEAD
   l  = log --oneline --decorate
-  st = status --porcelain

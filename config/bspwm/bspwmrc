@@ -42,15 +42,12 @@ C focused_border_color "#008DCD"
 C urgent_border_color  "#FF6C6B"
 
 #== BSPWM Rules
-R kitty            desktop='^1' focus=on  follow=on
-R Google-chrome    desktop='^2' focus=on  follow=on
-R LibreWolf        desktop='^2' focus=on  follow=on
-R Code             desktop='^3' focus=on  follow=on
-R Joplin           desktop='^4' focus=on  follow=on
-R Todoist          desktop='^4' focus=on  follow=on
-R Simplenote       desktop='^4' focus=on  follow=on
-R Nemo             desktop='^5' focus=on  follow=on
-R Zathura          desktop='^5' focus=on  follow=on  state=tiled
-R discord          desktop='^6' focus=on  follow=off
-R TelegramDesktop  desktop='^6' focus=off follow=on
+R kitty           desktop='^1' focus=on  follow=on
+R Google-chrome   desktop='^2' focus=on  follow=on
+R Code            desktop='^3' focus=on  follow=on
+R Simplenote      desktop='^4' focus=on  follow=on
+R Nemo            desktop='^5' focus=on  follow=on
+R Zathura         desktop='^5' focus=on  follow=on state=tiled
+R discord         desktop='^6' focus=on  follow=off
+R TelegramDesktop desktop='^6' focus=off follow=on
 R KeePassXC        desktop='^7' focus=on  follow=on

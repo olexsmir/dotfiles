@@ -1,24 +1,26 @@
 ## StartShip
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 ## Variables
 export GOPATH="$HOME/go"
-export EDITOR="nvim"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$PATH"
+export EDITOR="nvim"
+
+## FZF
+export FZF_DEFAULT_COMMAND="fd -t f -E node_modules"
 
 ## Oh my zsh
-plugins=(dotenv z)
+plugins=(dotenv)
 ZSH_THEME="simple"
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 ## HotKets
 bindkey -s "^o" "ranger\n"
-bindkey -s "^e" 'nvim $(fzf)\n'
-bindkey -s "^f" 'cd $(fd -t directory | fzf)\n'
 bindkey -s "^g" "lazygit\n"
 
 ## FNM
 eval $(fnm env)
+eval $(fnm completions)
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p"

@@ -34,7 +34,7 @@ super + ctrl + {h,j,k,l}
 super + {_,shift + }{1-9}
     bspc {desktop -f,node -d} focused:'^{1-9}'
 
-super + {t, f, e}
+super + {s, f, d}
     bspc node -t {tiled, floating, fullscreen}
 
 # vim: ft=sxhkdrc

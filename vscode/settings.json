@@ -4,17 +4,16 @@
 
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
-  "workbench.iconTheme": "vs-minimal",
   "workbench.startupEditor": "none",
 
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
 
-  "editor.cursorSmoothCaretAnimation": true,
+  // "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'Jetbrains Mono', monospace",
   "editor.hover.enabled": false,
-  "editor.lightbulb.enabled": false,
+  // "editor.lightbulb.enabled": false,
   "editor.minimap.enabled": false,
   "editor.smoothScrolling": true,
   "editor.mouseWheelZoom": true,
@@ -28,6 +27,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "search.quickOpen.includeHistory": false,
 
   "gitlens.codeLens.enabled": true,
   "git.autofetch": true,
@@ -35,7 +35,7 @@
   "git.enableSmartCommit": true,
 
   "extensions.ignoreRecommendations": true,
-
+  "docker.showStartPage": false,
   "prettier.semi": false,
 
   "emmet.includeLanguages": {"javascript": "javascriptreact"},
@@ -47,4 +47,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2,
   },
+  "files.exclude": {
+    "**/.cache": true,
+    "**/node_modules": true
+  },
+
 }

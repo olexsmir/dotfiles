@@ -1,6 +1,6 @@
 require'colorizer'.setup(
   {'*';}, {
-    mode     = 'foreground';
+    mode     = 'background';
     RGB      = true;    -- #RGB hex codes
     RRGGBB   = true;    -- #RRGGBB hex codes
     RRGGBBAA = false;   -- #RRGGBBAA hex codes
