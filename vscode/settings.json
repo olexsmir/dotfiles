@@ -1,6 +1,7 @@
 {
   "update.showReleaseNotes": false,
   "window.menuBarVisibility": "hidden",
+  "workbench.iconTheme": "vs-seti",
 
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
@@ -37,19 +38,17 @@
   "extensions.ignoreRecommendations": true,
   "docker.showStartPage": false,
   "prettier.semi": false,
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
 
-  "emmet.includeLanguages": {"javascript": "javascriptreact"},
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-  },
   "files.exclude": {
     "**/.cache": true,
     "**/node_modules": true
   },
 
+  "emmet.includeLanguages": {"javascript": "javascriptreact"},
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+  }
 }

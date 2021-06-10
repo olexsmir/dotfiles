@@ -1,6 +1,5 @@
 " Settings
 let bufferline = get(g:, 'bufferline', {})
-let bufferline.icons = v:false
 let bufferline.icon_close_tab = '🗴'
 
 " Mappings
@@ -15,5 +14,5 @@ nno <A-8> :BufferGoto 8<cr>
 nno <A-9> :BufferGoto 9<cr>
 nno <C-w> :BufferClose<cr>
 nno <S-x> :BufferClose!<cr>
-nno <leader> :BufferMoveNext<cr>
-nno <leader> :BufferMovePrevious<cr>
+nno <leader><right> :BufferMoveNext<cr>
+nno <leader><left> :BufferMovePrevious<cr>

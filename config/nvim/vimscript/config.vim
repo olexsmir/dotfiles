@@ -1,6 +1,6 @@
 "== Vim config
 set termguicolors         " GUI colors
-set nu rnu cul            " Line numbers & cursor line highlight
+set nu rnu nocul          " Line numbers & cursor line highlight
 set nolbr nowrap          " Line wrap
 set mouse=a mh            " Mouse
 set history=500           " Set history size

@@ -50,4 +50,4 @@ R Nemo            desktop='^5' focus=on  follow=on
 R Zathura         desktop='^5' focus=on  follow=on state=tiled
 R discord         desktop='^6' focus=on  follow=off
 R TelegramDesktop desktop='^6' focus=off follow=on
-R KeePassXC        desktop='^7' focus=on  follow=on
+R KeePassXC       desktop='^7' focus=on  follow=on

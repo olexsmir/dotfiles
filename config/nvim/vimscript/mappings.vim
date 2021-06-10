@@ -2,7 +2,9 @@ nno <C-s> :w<cr>
 nno <space> :noh<cr>
 nno <leader>t :Term<cr>
 nno <leader>e :NvimTreeToggle<cr>
-nno <leader>; :Files<cr>
+nno <leader>; :Telescope fd<cr>
+nno <leader>: :Telescope git_files<cr>
+nno <leader>g :Neogit<cr>
 
 " Buffer
 nno <leader>j :bn<cr>

@@ -5,5 +5,5 @@ let g:user_emmet_leader = ","
 let g:user_emmet_settings = {
 \ 'javascript': {'extends': 'jsx'}}
 
-"== Auto load
+"== Load
 au FileType html,jst,pug,vue,css,less,scss :EmmetInstall

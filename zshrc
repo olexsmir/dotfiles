@@ -6,9 +6,6 @@ export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$PATH"
 export EDITOR="nvim"
 
-## FZF
-export FZF_DEFAULT_COMMAND="fd -t f -E node_modules"
-
 ## Oh my zsh
 plugins=(dotenv)
 ZSH_THEME="simple"
@@ -20,7 +17,6 @@ bindkey -s "^g" "lazygit\n"
 
 ## FNM
 eval $(fnm env)
-eval $(fnm completions)
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p"
