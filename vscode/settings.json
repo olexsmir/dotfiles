@@ -46,9 +46,10 @@
     "**/node_modules": true
   },
 
-  "emmet.includeLanguages": {"javascript": "javascriptreact"},
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   }
 }

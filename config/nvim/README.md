@@ -5,20 +5,20 @@
 yay -S neovim-nightly-bin
 ```
 
-## Install plugin manager(`vim-plug`)
+## Install plugin manager(`packer`)
 ```bash
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
 ## Install LSP servers
 ```bash
-# tsserver(JS/TS)
-npm i -g typescript typescript-language-server
-
 # Go(gopls)
 go get golang.org/x/tools/gopls@latest
 
 # Python(pyls)
 pip install python-language-server
+
+# JS/TS
+nvim +"LspInstall typescript"
 ```

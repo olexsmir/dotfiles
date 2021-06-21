@@ -6,14 +6,13 @@ export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$PATH"
 export EDITOR="nvim"
 
+## FzF
+export FZF_DEFAULT_COMMAND="fd -t f -t l -E node_modules -E env -E __pycache__"
+
 ## Oh my zsh
 plugins=(dotenv)
 ZSH_THEME="simple"
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
-
-## HotKets
-bindkey -s "^o" "ranger\n"
-bindkey -s "^g" "lazygit\n"
 
 ## FNM
 eval $(fnm env)
