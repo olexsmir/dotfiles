@@ -23,3 +23,7 @@ alias vim="nvim" vi="vim" e="$EDITOR"
 alias ...="cd ../.." .3="cd ../../.." .4="cd ../../../.."
 alias gor="go run" gob="go build" gog="go get" goi="go install"
 alias pac="sudo pacman" pacs="pac -S" pacr="pac -R" pacss="pac -Ss"
+
+if [[ -f "/bin/exa" ]]; then
+    alias ls="exa -l" la="ls -a"
+fi

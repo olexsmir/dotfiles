@@ -1,7 +1,4 @@
 -- Python
-local black = {
-    formatCommand = "black ${filename}", formatStdin = true
-}
 local flake8 = {
   lintCommand = "flake8 --ignore=E501 --stdin-display-name ${INPUT} -",
   lintStdin = true,
@@ -9,9 +6,6 @@ local flake8 = {
 }
 
 -- Javascript
-local prettier = {
-    formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true
-}
 local eslint = {
     lintCommand = "./node_modules/.bin/eslint -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
@@ -31,15 +25,15 @@ local golint = {
 
 -- Setup
 require"lspconfig".efm.setup {
-  init_options = {documentFormatting = true, codeAction = false},
+  init_options = {documentFormatting = false, codeAction = false},
   filetypes = {"python", "javascript", "typescript", "go"},
   settings = {
     rootMarkers = {".git/"},
     languages = {
-      python = {flake8, black},
-      javascript = {eslint, prettier},
-      typescript = {eslint, prettier},
+      python = {flake8},
+      javascript = {eslint},
+      typescript = {eslint},
       go = {golint}
-    }
-  }
+    };
+  };
 }

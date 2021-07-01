@@ -24,13 +24,32 @@ require'lualine'.setup {options={
 }}
 
 -- GitSigns
-require'plug.gitsigns'
+require'gitsigns'.setup {
+  signs = {
+    add          = {hl = 'GitSignsAdd',    text = '│'};
+    change       = {hl = 'GitSignsChange', text = '│'};
+    delete       = {hl = 'GitSignsDelete', text = '_'};
+    topdelete    = {hl = 'GitSignsDelete', text = '‾'};
+    changedelete = {hl = 'GitSignsChange', text = '~'};
+  };
+  watch_index = {interval = 1000};
+  current_line_blame = true,
+  sign_priority = 6,
+  update_debounce = 100,
+  status_formatter = nil,
+  use_decoration_api = true,
+  use_internal_diff = true,
+}
 
 -- NeoGit
 require'neogit'.setup {}
 
 -- NvimTree
-require'plug.nvimtree'
+vim.g.nvim_tree_side = "right"
+vim.g.nvim_tree_ignore = {".git", ".cache", "node_modules", "__pycache__", "venv", "env"}
+vim.g.nvim_tree_auto_close = 0
+vim.g.nvim_tree_quit_on_open = 0
+vim.g.nvim_tree_width = 24
 
 -- TreeSitter
 require'nvim-treesitter.configs'.setup {
@@ -39,4 +58,14 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- Colorizer
--- require'plug.colorizer'
+require'colorizer'.setup({'*';}, {
+  mode     = 'background';
+  RGB      = true;
+  RRGGBB   = true;
+  RRGGBBAA = false;
+  rgb_fn   = true;
+  hsl_fn   = false;
+  css      = false;
+  css_fn   = true;
+  names    = false;
+})

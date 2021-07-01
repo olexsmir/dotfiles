@@ -1,7 +1,7 @@
 {
   "update.showReleaseNotes": false,
   "window.menuBarVisibility": "hidden",
-  "workbench.iconTheme": "vs-seti",
+  "workbench.iconTheme": "material-icon-theme",
 
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
@@ -14,7 +14,7 @@
   // "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'Jetbrains Mono', monospace",
   "editor.hover.enabled": false,
-  // "editor.lightbulb.enabled": false,
+  // "editor.lightbulb.enabled""cSpell.userWords": ["postgres"]: false,
   "editor.minimap.enabled": false,
   "editor.smoothScrolling": true,
   "editor.mouseWheelZoom": true,
@@ -35,6 +35,7 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
 
+  "cSpell.userWords": ["postgres"],
   "extensions.ignoreRecommendations": true,
   "docker.showStartPage": false,
   "prettier.semi": false,
@@ -51,5 +52,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
-  }
+  },
+  "editor.suggestSelection": "first",
+  "cSpell.enabled": false
 }
