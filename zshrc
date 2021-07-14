@@ -27,3 +27,7 @@ alias pac="sudo pacman" pacs="pac -S" pacr="pac -R" pacss="pac -Ss"
 if [[ -f "/bin/exa" ]]; then
     alias ls="exa -l" la="ls -a"
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/sasha/.sdkman"
+[[ -s "/home/sasha/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sasha/.sdkman/bin/sdkman-init.sh"

@@ -1,11 +1,9 @@
-ino jk <esc>
 nno <C-s> :w<cr>
 nno <C-p> :GFiles<cr>
-nno <space> :noh<cr>
-nno <leader>t :Term<cr>
-nno <leader>e :NvimTreeToggle<cr>
+nno <C-n> :enew<cr>
 nno <leader>; :Files<cr>
-nno <leader>g :Neogit<cr>
+" nno <leader>e :NvimTreeToggle<cr>
+nno <space> :noh<cr>
 
 " Buffer
 nno <leader>j :bn<cr>
@@ -37,10 +35,3 @@ nno spv :vs<cr>
 nno sph :sp<cr>
 nno spk :winc K<cr>
 nno spl :winc L<cr>
-
-" Terminal
-tno <esc> <c-\><c-n>
-tno <C-h> <c-\><cmd>winc h<cr>
-tno <C-j> <c-\><cmd>winc j<cr>
-tno <C-k> <c-\><cmd>winc k<cr>
-tno <C-l> <c-\><cmd>winc k<cr>

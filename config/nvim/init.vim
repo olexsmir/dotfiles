@@ -1,29 +1,27 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'b3nj5m1n/kommentary'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'kyazdani42/nvim-tree.lua', {'on': 'NvimTreeToggle'}
-  Plug 'junegunn/fzf.vim', {'on': ['Files', 'GFiles']}
-  " Appereance
-  Plug 'Smirnov-O/nten.vim'
+  " Plug 'Smirnov-O/nten.vim'
+  Plug 'projekt0n/github-nvim-theme'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'romgrk/barbar.nvim'
-  " LSP
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'hrsh7th/nvim-compe'
+  Plug 'b3nj5m1n/kommentary'
   Plug 'jiangmiao/auto-pairs'
-  " Git
-  Plug 'TimUntersberger/neogit'
-  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  " Files
+  Plug 'junegunn/fzf.vim', {'on': ['Files', 'GFiles']}
+  " Plug 'kyazdani42/nvim-tree.lua', {'on': 'NvimTreeToggle'}
   " Syntax
   Plug 'sheerun/vim-polyglot'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-  " Plug 'mattn/emmet-vim', {'on': 'EmmetInstall'}
-  " Plug 'norcalli/nvim-colorizer.lua'
+  " Completion
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'kabouzeid/nvim-lspinstall'
+  " Git
+  Plug 'lewis6991/gitsigns.nvim'
+  " Plug 'TimUntersberger/neogit'
 call plug#end()
 
-colo codedark
+" colo codedark
 let mapleader=";"
 
 "== Config
@@ -61,15 +59,12 @@ com! Term  :vs|winc L|se nonu nornu|start|term
 com! GoFmt :sil !gofmt -w %
 com! Black :sil !black %
 
-"== Emmet
-" let g:user_emmet_mode = 'i'
-" let g:user_emmet_expandabbr_key ='<c-j>'
-" au FileType html,jst,pug,vue,css,less,scss :EmmetInstall
-
 "== Filetypes
 au FileType go setl noet
 au FileType javascript,yaml,json setl et ts=2 sw=2 sts=4
 au FileType python setl et ts=4 sw=4 sts=4 ai
+autocmd BufReadPost,FileReadPost lua require "lsp_signature".on_attach()
+
 
 "== Config's
 lua require'config'

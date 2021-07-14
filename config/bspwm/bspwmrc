@@ -45,7 +45,7 @@ C urgent_border_color  "#FF6C6B"
 R kitty           desktop='^1' focus=on  follow=on
 R Google-chrome   desktop='^2' focus=on  follow=on
 R Brave           desktop='^2' focus=on  follow=on
-R Code            desktop='^3' focus=on  follow=on
+R Code            desktop='^3' focus=on  follow=on state=fullscreen
 R Postman         desktop='^4' focus=off follow=off
 R Simplenote      desktop='^4' focus=off follow=off
 R Zathura         desktop='^4' focus=on  follow=on state=tiled

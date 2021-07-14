@@ -1,10 +1,14 @@
--- LSP servers
-require'lspinstall'.setup {}
-require'lspconfig'.gopls.setup {}  -- Go
-require'lspconfig'.pyls.setup {}   -- Python
-require'lspconfig'.lua.setup {}    -- Lua
-require'tsserver'  -- JS/TS
-require'efm'       -- Linter's
+require"lspinstall".setup {}
+require"lspconfig".gopls.setup {}
+-- require"lspconfig".pyls.setup {}
+-- require"lspconfig".rls.setup  {}
+-- require"lspconfig".denols.setup {}
+require"lspconfig".lua.setup{}
+require"tsserver"
+require"efm"
+
+-- Theme
+require"github-theme".setup {}
 
 -- Compe
 require'compe'.setup {
@@ -20,7 +24,7 @@ require'compe'.setup {
 
 -- LuaLine
 require'lualine'.setup {options={
-  theme = "codedark"
+  theme = "github"
 }}
 
 -- GitSigns
@@ -41,31 +45,15 @@ require'gitsigns'.setup {
   use_internal_diff = true,
 }
 
--- NeoGit
-require'neogit'.setup {}
-
 -- NvimTree
 vim.g.nvim_tree_side = "right"
-vim.g.nvim_tree_ignore = {".git", ".cache", "node_modules", "__pycache__", "venv", "env"}
-vim.g.nvim_tree_auto_close = 0
-vim.g.nvim_tree_quit_on_open = 0
+vim.g.nvim_tree_ignore = {".git", ".cache", "node_modules", "__pycache__", "env"}
+-- vim.g.nvim_tree_auto_close = 0
 vim.g.nvim_tree_width = 24
+
 
 -- TreeSitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {'javascript', 'typescript', 'jsdoc', 'python', 'go'};
+  ensure_installed = {'javascript', 'typescript', 'jsdoc', 'python', 'go', 'bash'};
   highlight = {enable=true};
 }
-
--- Colorizer
-require'colorizer'.setup({'*';}, {
-  mode     = 'background';
-  RGB      = true;
-  RRGGBB   = true;
-  RRGGBBAA = false;
-  rgb_fn   = true;
-  hsl_fn   = false;
-  css      = false;
-  css_fn   = true;
-  names    = false;
-})

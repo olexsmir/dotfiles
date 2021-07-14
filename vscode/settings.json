@@ -1,21 +1,21 @@
 {
   "update.showReleaseNotes": false,
-  "window.menuBarVisibility": "hidden",
+  "window.menuBarVisibility": "toggle",
   "workbench.iconTheme": "material-icon-theme",
-
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "none",
-
+  "workbench.panel.defaultLocation": "left",
+  "workbench.activityBar.visible": false,
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-
   // "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'Jetbrains Mono', monospace",
-  "editor.hover.enabled": false,
-  // "editor.lightbulb.enabled""cSpell.userWords": ["postgres"]: false,
+  "editor.hover.enabled": true,
   "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
   "editor.smoothScrolling": true,
   "editor.mouseWheelZoom": true,
   "editor.formatOnPaste": false,
@@ -24,35 +24,28 @@
   "editor.wordWrap": "off",
   "editor.fontSize": 14,
   "editor.tabSize": 4,
-
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "search.quickOpen.includeHistory": false,
-
   "gitlens.codeLens.enabled": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-
-  "cSpell.userWords": ["postgres"],
   "extensions.ignoreRecommendations": true,
   "docker.showStartPage": false,
   "prettier.semi": false,
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
-
   "files.exclude": {
     "**/.cache": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/env": true
   },
-
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
-  "editor.suggestSelection": "first",
-  "cSpell.enabled": false
+  "vim.useSystemClipboard": true,
+  "editor.inlineSuggest.enabled": true,
 }
