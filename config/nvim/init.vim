@@ -1,27 +1,23 @@
 call plug#begin('~/.vim/plugged')
-  " Plug 'Smirnov-O/nten.vim'
-  Plug 'projekt0n/github-nvim-theme'
+  Plug 'Smirnov-O/nten.vim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'romgrk/barbar.nvim'
   Plug 'b3nj5m1n/kommentary'
   Plug 'jiangmiao/auto-pairs'
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
+  " LSP
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'kabouzeid/nvim-lspinstall'
   " Files
   Plug 'junegunn/fzf.vim', {'on': ['Files', 'GFiles']}
-  " Plug 'kyazdani42/nvim-tree.lua', {'on': 'NvimTreeToggle'}
   " Syntax
-  Plug 'sheerun/vim-polyglot'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  " Completion
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'kabouzeid/nvim-lspinstall'
-  " Git
-  Plug 'lewis6991/gitsigns.nvim'
-  " Plug 'TimUntersberger/neogit'
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-" colo codedark
+colo codedark
 let mapleader=";"
 
 "== Config
@@ -54,7 +50,7 @@ set ts=4 sw=4 sts=4
 set sta et ai
 
 "== Custom commands
-com! Prettier :sil !prettier -w %
+com! Prettier :sil !prettier --no-semi -w % 
 com! Term  :vs|winc L|se nonu nornu|start|term
 com! GoFmt :sil !gofmt -w %
 com! Black :sil !black %
@@ -65,8 +61,7 @@ au FileType javascript,yaml,json setl et ts=2 sw=2 sts=4
 au FileType python setl et ts=4 sw=4 sts=4 ai
 autocmd BufReadPost,FileReadPost lua require "lsp_signature".on_attach()
 
-
 "== Config's
-lua require'config'
+lua require"config"
 so $HOME/.config/nvim/vimscript/barbar.vim
 so $HOME/.config/nvim/vimscript/mappings.vim

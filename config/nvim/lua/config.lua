@@ -3,12 +3,9 @@ require"lspconfig".gopls.setup {}
 -- require"lspconfig".pyls.setup {}
 -- require"lspconfig".rls.setup  {}
 -- require"lspconfig".denols.setup {}
-require"lspconfig".lua.setup{}
+-- require"lspconfig".lua.setup{}
 require"tsserver"
 require"efm"
-
--- Theme
-require"github-theme".setup {}
 
 -- Compe
 require'compe'.setup {
@@ -24,7 +21,7 @@ require'compe'.setup {
 
 -- LuaLine
 require'lualine'.setup {options={
-  theme = "github"
+  theme = "codedark"
 }}
 
 -- GitSigns
@@ -45,15 +42,10 @@ require'gitsigns'.setup {
   use_internal_diff = true,
 }
 
--- NvimTree
-vim.g.nvim_tree_side = "right"
-vim.g.nvim_tree_ignore = {".git", ".cache", "node_modules", "__pycache__", "env"}
--- vim.g.nvim_tree_auto_close = 0
-vim.g.nvim_tree_width = 24
-
-
 -- TreeSitter
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {'javascript', 'typescript', 'jsdoc', 'python', 'go', 'bash'};
-  highlight = {enable=true};
+  highlight = {
+    enable=true
+  };
 }

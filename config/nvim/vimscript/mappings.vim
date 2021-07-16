@@ -2,7 +2,6 @@ nno <C-s> :w<cr>
 nno <C-p> :GFiles<cr>
 nno <C-n> :enew<cr>
 nno <leader>; :Files<cr>
-" nno <leader>e :NvimTreeToggle<cr>
 nno <space> :noh<cr>
 
 " Buffer
@@ -24,14 +23,14 @@ nno si :lua vim.lsp.buf.implementation()<cr>
 nno <C-h> :winc h<cr>
 nno <C-j> :winc j<cr>
 nno <C-k> :winc k<cr>
-nno <C-l> :winc l<cr>
+nno<C-l> :winc l<cr>
 
 nno <A-h> :vert res +3<cr>
 nno <A-j> :res -3<cr>
 nno <A-k> :res +3<cr>
 nno <A-l> :vert res -3<cr>
 
-nno spv :vs<cr>
-nno sph :sp<cr>
+nno spv :vnew<cr>
+nno sph :new<cr>
 nno spk :winc K<cr>
 nno spl :winc L<cr>
