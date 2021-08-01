@@ -32,11 +32,11 @@ function show() {
 case "$1" in
   add|a)  shift; add  "$@" ;;
   del|d)  shift; del  "$@" ;;
-  mv)     shift; edit "$@" ;;
+  mv|m)   shift; edit "$@" ;;
   show)   shift; show      ;;
   help) echo "add|a - [file name] add to ignore."
         echo "del|d - [file name] delete from ignore."
-        echo "mv    - [old] [new] file name for rename."
+        echo "mv|m  - [old] [new] file name for rename."
         echo "show  - show ignore file." ;;
   *) echo "Command is not valid. Type 'giti help' for help." ;;
 esac

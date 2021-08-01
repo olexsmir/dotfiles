@@ -1,6 +1,6 @@
 # BSPWM
 
-[](screen.png)
+[](./screen.png)
 --------------
 
 ### Install

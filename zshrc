@@ -10,7 +10,7 @@ export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND="fd -t f -t l -E node_modules -E env -E __pycache__"
 
 ## Oh my zsh
-plugins=(dotenv yarn node)
+plugins=(dotenv yarn pip)
 ZSH_THEME="simple"
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
@@ -19,7 +19,7 @@ eval $(fnm env)
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p"
-alias vim="nvim" vi="vim" e="$EDITOR"
+alias nvim="lvim" vim="nvim" vi="vim" e="$EDITOR" lv="lvim"
 alias ...="cd ../.." .3="cd ../../.."
 alias gor="go run" gob="go build" gog="go get" goi="go install"
 

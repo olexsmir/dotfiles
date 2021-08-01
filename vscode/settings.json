@@ -1,5 +1,4 @@
 {
-  "update.showReleaseNotes": false,
   "window.menuBarVisibility": "toggle",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "GitHub Dark",
@@ -8,11 +7,11 @@
   "workbench.startupEditor": "none",
   "workbench.panel.defaultLocation": "left",
   "workbench.activityBar.visible": false,
-  "explorer.compactFolders": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
+  "update.showReleaseNotes": false,
+  // Editor
   // "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'Jetbrains Mono', monospace",
+  "editor.inlineSuggest.enabled": true,
   "editor.hover.enabled": true,
   "editor.minimap.enabled": false,
   "editor.suggestSelection": "first",
@@ -24,28 +23,72 @@
   "editor.wordWrap": "off",
   "editor.fontSize": 14,
   "editor.tabSize": 4,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
-  "search.quickOpen.includeHistory": false,
+  // Files
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "files.insertFinalNewline": false,
+  "files.trimFinalNewlines": false,
+  "files.trimTrailingWhitespace": false,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/env": true
+  },
+  // Git
   "gitlens.codeLens.enabled": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
+  // Vim
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.leader": ";",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<esc>"
+      ]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-w>": false,
+    "<C-b>": false,
+    "<C-n>": false,
+    "<C-h>": false
+  },
+  // Expensions
   "extensions.ignoreRecommendations": true,
   "docker.showStartPage": false,
   "prettier.semi": false,
+  // Languages
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
-  "files.exclude": {
-    "**/.cache": true,
-    "**/node_modules": true,
-    "**/env": true
-  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
-  "vim.useSystemClipboard": true,
-  "editor.inlineSuggest.enabled": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 }
