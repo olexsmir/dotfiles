@@ -1,0 +1,1 @@
+/home/sasha/.dotfiles/config/lvim/.luacheckrc

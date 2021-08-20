@@ -1,0 +1,1 @@
+/home/sasha/.dotfiles/config/lvim/lua/user/hop.lua

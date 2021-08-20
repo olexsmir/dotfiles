@@ -1,7 +1,6 @@
 {
-  "window.menuBarVisibility": "toggle",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "none",
@@ -47,36 +46,17 @@
   "vim.incsearch": true,
   "vim.leader": ";",
   "vim.normalModeKeyBindings": [
-    {
-      "before": [
-        "<space>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
-    },
+    {"before": ["<space>"], "commands": [":nohl"]},
   ],
   "vim.insertModeKeyBindings": [
-    {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<esc>"
-      ]
-    }
+    {"before": ["j", "k"], "after": ["<esc>"]}
   ],
-  "vim.handleKeys": {
-    "<C-w>": false,
-    "<C-b>": false,
-    "<C-n>": false,
-    "<C-h>": false
-  },
+  "vim.handleKeys": { "<C-w>": false, "<C-b>": false, "<C-n>": false, "<C-h>": false},
   // Expensions
+  "terminal.integrated.tabs.enabled": false,
   "extensions.ignoreRecommendations": true,
   "docker.showStartPage": false,
-  "prettier.semi": false,
+  // "prettier.semi": false,
   // Languages
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
@@ -84,11 +64,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  }
+  "window.menuBarVisibility": "toggle"
+
 }

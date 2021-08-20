@@ -1,21 +1,14 @@
-# vim: ft=dosini
+; # vim: ft=dosini
 [settings]
 enable-ipc = true
 format-padding = 1
 
 [colors]
-background = #262A2B
-foreground = #cfd1dd
-secondary  = #008DCD
-alert      = #FF6C6B
-empty      = #383a42
-
-;[colors]    ; Light
-;background  = #f9f9f9
-;foreground  = #5b5b5f
-;secondary   = #0098dd
-;alert       = #df631c
-;empty       = #a0a1a7
+background = #202020
+foreground = #ABB2BF
+cyan       = #5f8ccd
+alert      = #D16969
+empty      = #262626
 
 [bar/bar]
 width = 100%
@@ -39,7 +32,7 @@ enable-click = true
 fuzzy-match = true
 enable-scroll = true
 label-focused = 
-label-focused-foreground = ${colors.secondary}
+label-focused-foreground = ${colors.cyan}
 label-focused-padding = 2
 label-occupied = 
 label-occupied-foreground = ${colors.foreground}
