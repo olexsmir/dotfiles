@@ -1,1 +1,0 @@
-/home/sasha/.dotfiles/config/lvim/config.lua

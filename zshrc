@@ -4,7 +4,7 @@
 ## Variables
 export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.luarocks/bin:$PATH"
-export EDITOR="nvim"
+export EDITOR="lvim"
 
 ## FzF
 export FZF_DEFAULT_COMMAND="fd -t f -t l -E node_modules -E env -E __pycache__ -E target"
@@ -19,7 +19,7 @@ eval $(fnm env)
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p" open="open_command" lg="lazygit"
-alias nvim="lvim" vim="nvim" vi="vim" lv="lvim"
+alias lv="lvim" vim="lvim"
 alias ...="cd ../.." .3="cd ../../.."
 alias gor="go run" gob="go build" gog="go get" goi="go install"
 
