@@ -1,11 +1,12 @@
 {
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark Default",
   "workbench.sideBar.location": "right",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "none",
-  "workbench.panel.defaultLocation": "left",
+  "workbench.panel.defaultLocation": "bottom",
   "workbench.activityBar.visible": false,
+  "window.menuBarVisibility": "toggle",
   "update.showReleaseNotes": false,
   // Editor
   // "editor.cursorSmoothCaretAnimation": true,
@@ -23,7 +24,7 @@
   "editor.fontSize": 14,
   "editor.tabSize": 4,
   // Files
-  "explorer.compactFolders": false,
+  "explorer.compactFolders": true,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "files.insertFinalNewline": false,
@@ -31,32 +32,27 @@
   "files.trimTrailingWhitespace": false,
   "files.exclude": {
     "**/node_modules": true,
-    "**/env": true
+    "**/env": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   },
   // Git
   "gitlens.codeLens.enabled": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  // Vim
-  "vim.easymotion": true,
-  "vim.surround": true,
-  "vim.useSystemClipboard": true,
-  "vim.hlsearch": true,
-  "vim.incsearch": true,
-  "vim.leader": ";",
-  "vim.normalModeKeyBindings": [
-    {"before": ["<space>"], "commands": [":nohl"]},
-  ],
-  "vim.insertModeKeyBindings": [
-    {"before": ["j", "k"], "after": ["<esc>"]}
-  ],
-  "vim.handleKeys": { "<C-w>": false, "<C-b>": false, "<C-n>": false, "<C-h>": false},
-  // Expensions
   "terminal.integrated.tabs.enabled": false,
+  // Extensions
   "extensions.ignoreRecommendations": true,
   "docker.showStartPage": false,
-  // "prettier.semi": false,
+  "calva.myCljAliases": [
+    "nREPL",
+    "nrepl",
+    "test"
+  ],
+  "calva.paredit.defaultKeyMap": "strict",
   // Languages
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
@@ -66,7 +62,5 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "window.menuBarVisibility": "toggle"
-
+  }
 }

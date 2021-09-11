@@ -1,4 +1,4 @@
-rofi.theme: nten-light
+rofi.theme: nten
 rofi.font: Jetbarains Mono 12
 rofi.auto-select: false
 rofi.hide-scrollbar: true

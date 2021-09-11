@@ -17,6 +17,11 @@ source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 ## FNM
 eval $(fnm env)
 
+## Functions
+dotnet() {
+  $HOME/dotnet/dotnet "$@"
+}
+
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p" open="open_command" lg="lazygit"
 alias lv="lvim" vim="lvim"

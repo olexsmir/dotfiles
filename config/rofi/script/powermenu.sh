@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 declare options=("ShutDown\nLogOut\nReboot")
-rofitheme="nten-light-dmenu"
+rofitheme="nten-dmenu"
 choice=$(echo -e ${options[@]} | rofi -dmenu -p "Power" -theme $rofitheme)
 
 case $choice in
