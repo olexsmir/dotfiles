@@ -7,6 +7,10 @@ lvim.lang.javascript.linters = {
 	{ exe = "eslint_d" },
 }
 
+-- Debugger
+require("dap-install").config("jsnode", {})
+
+-- Lsp
 lvim.lang.javascript.lsp.setup.handlers = {
 	["textDocument/publishDiagnostics"] = function(_, _, p, client_id, _, config)
 		if p.diagnostics ~= nil then

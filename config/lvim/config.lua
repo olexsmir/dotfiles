@@ -9,7 +9,7 @@ lvim.builtin.autopairs.active = true
 
 -- GitSigns
 lvim.builtin.gitsigns.opts.current_line_blame = true
-lvim.builtin.gitsigns.opts.current_line_blame_opts = { virt_text = true, virt_text_pos = "eol", delay = 200 }
+lvim.builtin.gitsigns.opts.current_line_blame_opts = { delay = 200 }
 
 -- TreeSitter
 lvim.builtin.treesitter.ensure_installed = { "javascript", "typescript", "jsdoc", "lua", "java" }
@@ -18,6 +18,9 @@ lvim.builtin.treesitter.indent.disable = { "clojure", "java", "python" }
 -- Telescope
 lvim.builtin.telescope.defaults.layout_config.prompt_position = "top"
 lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "node_modules", "env" }
+
+-- Debugger
+lvim.builtin.dap.active = true
 
 -- Mappings
 lvim.keys.normal_mode["<C-w>"] = "<cmd>BufferClose<cr>"
@@ -33,10 +36,9 @@ end
 -- Plugins
 lvim.plugins = {
 	{ "tpope/vim-surround", keys = { "c", "y", "d" } },
-	{ "andymass/vim-matchup", keys = { "%" } },
+	-- { "andymass/vim-matchup", keys = { "%" } },
 	{ "tzachar/cmp-tabnine", run = "./install.sh", event = "InsertEnter" },
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle" } },
 	{ "folke/todo-comments.nvim", event = "BufRead" },
-	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
-	{ "npxbr/glow.nvim", ft = { "markdown" }, cmd = { "Glow" } },
+	{ "theHamsta/nvim-dap-virtual-text", config = "require[[user.dap-virtual-text]].setup()" },
 }

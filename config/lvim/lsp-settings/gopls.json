@@ -1,0 +1,5 @@
+{
+  "go.lintTool": "golint",
+  "go.lintOnSave": "file",
+  "go.formatTool": "gofmt"
+}
