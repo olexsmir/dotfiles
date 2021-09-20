@@ -1,6 +1,6 @@
 #== Users hotkeys
 super + {_, shift} Return
-    {kitty, rofi -show drun}
+    {alacritty, rofi -show drun}
 
 super + shift + {w, e, f, z, q}
     {google-chrome-stable, \

@@ -1,4 +1,3 @@
-lvim.format_on_save = true
 lvim.lang.python.formatters = {
 	{ exe = "black" },
 	{ exe = "isort" },

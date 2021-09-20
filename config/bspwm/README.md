@@ -1,10 +1,10 @@
 # BSPWM
 
-[](./screen.png)
+![](./screen.png)
 --------------
 
 ### Install
 ```bash
-sudo pacman -S bspwm sxhkd kitty
+sudo pacman -S bspwm sxhkd alacritty
 yay -S polybar
 ```

@@ -1,6 +1,6 @@
 <h1 align="center">dotfiles</h1>
 
-[](screen.png)
+![](./config/bspwm/screen.png)
 --------------
 
 ### System configuration
@@ -23,8 +23,8 @@ yay -S rcm
 
 Install dependency:
 ```bash
-sudo pacman -S git bspwm sxhkd dunst kitty picom rofi zsh ranger ttf-font-awesome ttf-jetbrains-mono
-yay -S neovim-nightly-bin polybar
+sudo pacman -S git bspwm sxhkd dunst alacritty neovim picom rofi zsh ranger ttf-font-awesome ttf-jetbrains-mono
+yay -S polybar
 ```
 
 And install configs:

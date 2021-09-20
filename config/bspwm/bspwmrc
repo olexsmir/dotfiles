@@ -35,20 +35,17 @@ C single_monocle        true
 C focus_follows_pointer true
 
 # Colors
-C normal_border_color  "#090909"
-C active_border_color  "#1F2324"
-C focused_border_color "#008DCD"
-C urgent_border_color  "#FF6C6B"
+C normal_border_color  "#1f2227"
+C active_border_color  "#61AFEF"
+C focused_border_color "#e06c75"
+C urgent_border_color  "#5c6370"
 
 #== BSPWM Rules
 R kitty               desktop='^1' focus=on  follow=on
 R Google-chrome       desktop='^2' focus=on  follow=on
-R Brave               desktop='^2' focus=on  follow=on
 R Code                desktop='^3' focus=on  follow=on state=fullscreen
 R jetbrains-webstorm  desktop='^3' focus=on  follow=on
 R Postman             desktop='^4' focus=off follow=off
-R Simplenote          desktop='^4' focus=off follow=off
-R Zathura             desktop='^4' focus=on  follow=on state=tiled
 R discord             desktop='^5' focus=on  follow=off
 R TelegramDesktop     desktop='^5' focus=off follow=on
 R Nemo                desktop='^5' focus=on  follow=on

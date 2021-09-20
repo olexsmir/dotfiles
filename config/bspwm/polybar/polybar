@@ -4,11 +4,12 @@ enable-ipc = true
 format-padding = 1
 
 [colors]
-background = #202020
-foreground = #ABB2BF
-cyan       = #5f8ccd
-alert      = #D16969
-empty      = #262626
+background = #1f2227
+foreground = #abb2bf
+cyan  = #61AFEF
+alert = #e06c75
+empty = #5c6370
+
 
 [bar/bar]
 width = 100%
