@@ -36,8 +36,8 @@ C focus_follows_pointer true
 
 # Colors
 C normal_border_color  "#1f2227"
-C active_border_color  "#61AFEF"
-C focused_border_color "#e06c75"
+C active_border_color  "#e06c75"
+C focused_border_color "#61AFEF"
 C urgent_border_color  "#5c6370"
 
 #== BSPWM Rules
