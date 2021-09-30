@@ -12,14 +12,22 @@ export FZF_DEFAULT_COMMAND="fd -t f -t l -E node_modules -E env -E __pycache__ -
 ## Oh my zsh
 plugins=(git dotenv npm yarn extract)
 ZSH_THEME="simple"
+DISABLE_AUTO_TITLE="true"
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 ## FNM
 eval $(fnm env)
 
+## Zoxide
+eval "$(zoxide init zsh)"
+
 ## Functions
 dotnet() {
   $HOME/dotnet/dotnet "$@"
+}
+asdf() {
+  . /opt/asdf-vm/asdf.sh
+  asdf $@
 }
 
 ## Aliases

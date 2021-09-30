@@ -41,7 +41,6 @@ C focused_border_color "#61AFEF"
 C urgent_border_color  "#5c6370"
 
 #== BSPWM Rules
-R kitty               desktop='^1' focus=on  follow=on
 R Google-chrome       desktop='^2' focus=on  follow=on
 R Code                desktop='^3' focus=on  follow=on state=fullscreen
 R jetbrains-webstorm  desktop='^3' focus=on  follow=on

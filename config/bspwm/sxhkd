@@ -22,6 +22,9 @@ super + Escape
 super + q
     bspc node -c
 
+alt + f4
+    bspc node -c
+
 super + control + r
     bspc wm -r && pkill sxhkd && sxhkd -c ~/.config/bspwm/sxhkd
 

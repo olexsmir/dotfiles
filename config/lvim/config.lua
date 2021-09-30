@@ -1,5 +1,5 @@
 lvim.format_on_save = false
-lvim.lint_on_save = false
+lvim.lint_on_save = true
 lvim.colorscheme = "onedarker"
 
 -- Default fatures
@@ -14,15 +14,18 @@ lvim.builtin.gitsigns.opts.current_line_blame_opts = { delay = 200 }
 -- TreeSitter
 lvim.builtin.treesitter.ensure_installed = { "javascript", "typescript", "jsdoc", "lua", "go" }
 lvim.builtin.treesitter.indent.disable = { "clojure", "java", "python" }
-require("user.treesitter")
 
 -- Telescope
 lvim.builtin.telescope.defaults.layout_config.prompt_position = "top"
-lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "node_modules", "env" }
+lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "node_modules", "env", ".bin" }
+
+-- NvimTree
+lvim.builtin.nvimtree.ignore = { ".git", "node_modules", ".bin", "env" }
 
 -- Mappings
 lvim.keys.normal_mode["<C-w>"] = "<cmd>BufferClose<cr>"
 lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
+lvim.keys.visual_mode["jk"] = "<esc>"
 lvim.builtin.which_key.mappings.l.a = { "<cmd>Telescope lsp_code_actions<cr>", "Code Actions" }
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
@@ -43,16 +46,30 @@ end
 
 -- Pluginos
 lvim.plugins = {
-	{ "tpope/vim-surround", keys = { "c", "y", "d" } },
-	{ "andymass/vim-matchup", keys = { "%" } },
+	{ "tpope/vim-surround", keys = { "c", "y", "d" }, event = "BufRead" },
 	{ "tzachar/cmp-tabnine", run = "./install.sh", event = "InsertEnter" },
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle" } },
 	{ "folke/todo-comments.nvim", event = "BufRead" },
-	{ "theHamsta/nvim-dap-virtual-text", config = "require[[user.dap-virtual-text]].setup()" },
-	{ "vim-test/vim-test", cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" } },
+	{ "editorconfig/editorconfig-vim" },
+	{ "theHamsta/nvim-dap-virtual-text", config = "vim.g.dap_virtual_text = true" },
+	{
+		"Smirnov-O/ts-unit.nvim",
+		keys = { "vip", "cip", "yip", "dip" },
+		config = function()
+			require("ts-unit").setup({ keymaps = true })
+		end,
+	},
+	{
+		"Olical/conjure",
+		ft = { "clojure", "fennel", "scheme" },
+		requires = { { "PaterJason/cmp-conjure", after = "conjure" } },
+		config = function()
+			require("user.conjure").setup()
+		end,
+	},
 	{
 		"rcarriga/vim-ultest",
-		requires = { "vim-test/vim-test" },
+		requires = { { "vim-test/vim-test", after = "vim-ultest" } },
 		cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
 		run = ":UpdateRemotePlugins",
 	},

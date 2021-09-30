@@ -1,7 +1,7 @@
 {
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "GitHub Dark Default",
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "none",
   "workbench.panel.defaultLocation": "bottom",
@@ -62,5 +62,6 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "go.toolsManagement.autoUpdate": true
 }
