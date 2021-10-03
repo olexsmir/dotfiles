@@ -47,11 +47,40 @@ end
 -- Pluginos
 lvim.plugins = {
 	{ "tpope/vim-surround", keys = { "c", "y", "d" }, event = "BufRead" },
-	{ "tzachar/cmp-tabnine", run = "./install.sh", event = "InsertEnter" },
 	{ "folke/trouble.nvim", cmd = { "TroubleToggle" } },
-	{ "folke/todo-comments.nvim", event = "BufRead" },
 	{ "editorconfig/editorconfig-vim" },
-	{ "theHamsta/nvim-dap-virtual-text", config = "vim.g.dap_virtual_text = true" },
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		config = function()
+			require("user.conjure").setup()
+		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		event = "BufRead",
+		config = function()
+			require("todo-comments").setup({})
+		end,
+	},
+	{
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		event = "InsertEnter",
+		config = function()
+			require("cmp_tabnine.config"):setup({
+				max_lines = 1000,
+				max_num_results = 10,
+				sort = true,
+			})
+		end,
+	},
+	{
+		"folke/lua-dev.nvim",
+		ft = "lua",
+		config = function()
+			require("user.lua-dev").setup()
+		end,
+	},
 	{
 		"Smirnov-O/ts-unit.nvim",
 		keys = { "vip", "cip", "yip", "dip" },

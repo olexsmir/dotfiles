@@ -25,17 +25,13 @@ eval "$(zoxide init zsh)"
 dotnet() {
   $HOME/dotnet/dotnet "$@"
 }
-asdf() {
-  . /opt/asdf-vm/asdf.sh
-  asdf $@
-}
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p" open="open_command" lg="lazygit"
 alias lv="lvim" vim="lvim"
 alias ...="cd ../.." .3="cd ../../.."
 alias gor="go run" gob="go build" gog="go get" goi="go install" got="go test"
-alias n="npm"
+alias n="npm" asdfi=". /opt/asdf-vm/asdf.sh"
 
 if [[ -f "/bin/exa" ]]; then
    alias ls="exa -l" ll="ls" la="ls -a"

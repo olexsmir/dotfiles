@@ -12,7 +12,7 @@ require("dap-install").config("jsnode", {})
 
 -- Lsp
 lvim.lang.javascript.lsp.setup.handlers = {
-	["textDocument/publishDiagnostics"] = function(_, _, p, client_id, _, config)
+	["textDocument/publishDiagnostics"] = function(_, _, p, id, _, cfg)
 		if p.diagnostics ~= nil then
 			local i = 1
 			while i <= #p.diagnostics do
@@ -23,6 +23,6 @@ lvim.lang.javascript.lsp.setup.handlers = {
 				end
 			end
 		end
-		vim.lsp.diagnostic.on_publish_diagnostics(_, _, p, client_id, _, config)
+		vim.lsp.diagnostic.on_publish_diagnostics(_, _, p, id, _, cfg)
 	end,
 }

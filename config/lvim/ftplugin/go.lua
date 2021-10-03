@@ -1,6 +1,7 @@
 lvim.lang.go.formatters = {
-	{ exe = "gofmt" },
-	{ exe = "goimports" },
+	{ exe = "gofumpt" },
+	-- { exe = "gofmt" },
+	-- { exe = "goimports" },
 }
 
 -- Debugger
