@@ -1,6 +1,7 @@
 local M = {}
 
-M.setup = function ()
+function M.setup()
+  -- Virtual text
   vim.g.dap_virtual_text = true
 end
 

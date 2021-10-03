@@ -1,7 +1,6 @@
 {
   "yaml.schemas": {
     "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": ["docker-compose.yml", "docker-compose.yaml"],
-    "https://json.schemastore.org/ansible-playbook.json": ["*/playbook/**/*.yml", "*/playbooks/**/*.yml", "*/playbook/**/*.yaml", "*/playbooks/**/*.yaml", "ansible-playbook.yml"],
     "https://json.schemastore.org/yamllint.json": [".yamllint", ".yamllint.yml", ".yamllint.yaml"],
     "https://yarnpkg.com/configuration/yarnrc.json": [".yarnrc", ".yarnrc.yml"],
     "https://json.schemastore.org/github-action.json": ["*/.github/workflows/**/*.yml", "*/.github/workflows/**/*.yaml" ],
