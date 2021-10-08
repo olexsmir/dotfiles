@@ -1,12 +1,12 @@
 local M = {}
 
 function M.setup()
-  local ok, tabnine = pcall(require, "cmp_tabnine.config")
+  local ok, tabnine_cfg = pcall(require, "cmp_tabnine.config")
   if not ok then
     return
   end
 
-  tabnine:setup {
+  tabnine_cfg:setup {
     max_lines = 1000,
     max_num_results = 10,
     sort = true,

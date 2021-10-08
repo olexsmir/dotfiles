@@ -11,7 +11,7 @@ lvim.plugins = {
     "folke/todo-comments.nvim",
     event = "BufRead",
     config = function()
-      require "plug.todo-comment"
+      require("plug.todo-comment").setup()
     end,
   },
   {
@@ -19,7 +19,7 @@ lvim.plugins = {
     run = "./install.sh",
     event = "InsertEnter",
     config = function()
-      require "plug.tabnine"
+      require("plug.tabnine").setup()
     end,
   },
   {
@@ -33,7 +33,7 @@ lvim.plugins = {
     "Smirnov-O/ts-unit.nvim",
     keys = { "vip", "cip", "yip", "dip" },
     config = function()
-      require "plug.ts-unit"
+      require("plug.ts-unit").setup()
     end,
   },
   {
@@ -41,13 +41,10 @@ lvim.plugins = {
     requires = {
       { "vim-test/vim-test", after = "vim-ultest" },
     },
+    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
     run = ":UpdateRemotePlugins",
-    cmd = {
-      "Ultest",
-      "UltestStop",
-      "UltestClear",
-      "UltestNearest",
-      "UltestOutput",
-    },
+    config = function()
+      require("plug.ultest").setup()
+    end,
   },
 }
