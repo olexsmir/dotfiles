@@ -3,8 +3,16 @@ lvim.plugins = {
   { "folke/trouble.nvim", cmd = "TroubleToggle" },
   {
     "theHamsta/nvim-dap-virtual-text",
+    after = "nvim-dap",
     config = function()
       require("plug.dap").setup()
+    end,
+  },
+  {
+    "kristijanhusak/orgmode.nvim",
+    ft = "org",
+    config = function()
+      require"orgmode".setup {}
     end,
   },
   {
@@ -33,7 +41,7 @@ lvim.plugins = {
     "Smirnov-O/ts-unit.nvim",
     keys = { "vip", "cip", "yip", "dip" },
     config = function()
-      require("plug.ts-unit").setup()
+      require("plug.ts-unit").setup { keymaps = true }
     end,
   },
   {

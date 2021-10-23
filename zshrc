@@ -28,7 +28,7 @@ dotnet() {
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p" open="open_command" lg="lazygit"
-alias lv="lvim" vim="lvim"
+alias v="nvim" vim="v"
 alias ...="cd ../.." .3="cd ../../.."
 alias gor="go run" gob="go build" gog="go get" goi="go install" got="go test"
 alias n="npm" asdfi=". /opt/asdf-vm/asdf.sh"

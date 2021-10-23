@@ -1,3 +1,5 @@
+vim.o.relativenumber = true
+
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "onedarker"
@@ -23,7 +25,7 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "node_modules",
 lvim.builtin.nvimtree.ignore = { ".git", "node_modules", ".bin", "env" }
 
 -- LSP
--- lvim.lsp.override = {"gopls"}
+lvim.lsp.override = { "go", "gopls" }
 
 -- Others
 require "user.plugins"

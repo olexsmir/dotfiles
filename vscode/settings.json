@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "Visual Studio Dark",
   "workbench.sideBar.location": "left",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "none",
@@ -24,7 +24,7 @@
   "editor.fontSize": 14,
   "editor.tabSize": 4,
   // Files
-  "explorer.compactFolders": true,
+  "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "files.insertFinalNewline": false,
@@ -53,15 +53,23 @@
     "test"
   ],
   "calva.paredit.defaultKeyMap": "strict",
+  // Golang
+  "go.toolsManagement.autoUpdate": true,
+  "go.lintOnSave": "package",
+  "go.lintTool": "golint",
+  "go.formatTool": "gofumpt",
   // Languages
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "go.toolsManagement.autoUpdate": true
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "window.zoomLevel": 1,
 }
