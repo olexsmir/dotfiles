@@ -1,6 +1,0 @@
-{
-  "go.logging.level": "error",
-  "go.lintOnSave": "package",
-  "go.lintTool": "golint",
-  "go.formatTool": "gofumpt"
-}

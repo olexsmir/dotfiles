@@ -4,10 +4,7 @@
 ## Variables
 export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.luarocks/bin:$HOME/.cargo/bin:$PATH"
-export EDITOR="lvim"
-
-## FzF
-export FZF_DEFAULT_COMMAND="fd -t f -t l -E node_modules -E env -E __pycache__ -E target"
+export EDITOR="nvim"
 
 ## Oh my zsh
 plugins=(git dotenv npm yarn extract)
@@ -28,7 +25,7 @@ dotnet() {
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p" open="open_command" lg="lazygit"
-alias v="nvim" vim="v"
+alias v="nvim" vim="v" m="make"
 alias ...="cd ../.." .3="cd ../../.."
 alias gor="go run" gob="go build" gog="go get" goi="go install" got="go test"
 alias n="npm" asdfi=". /opt/asdf-vm/asdf.sh"

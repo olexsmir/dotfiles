@@ -57,7 +57,7 @@ ramp-volume-0 = 
 [module/archupd]
 type = custom/script
 exec = ~/.config/bspwm/polybar/scripts/updates-pacman-aur.sh
-click-left = kitty -e ~/bin/arch-upd
+click-left = alacritty -e ~/bin/arch-upd
 interval = 60
 
 [module/wifi-signal]
