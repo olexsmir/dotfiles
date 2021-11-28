@@ -11,7 +11,7 @@ source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 ## Tools
 eval $(fnm env)
-eval $(zoxide init zsh)
+eval "$(zoxide init zsh)"
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p"
