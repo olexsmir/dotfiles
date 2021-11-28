@@ -1,0 +1,87 @@
+env:
+  TERM: xterm-256color
+
+window:
+  title: Alacritty
+  dynamic_padding: false
+  padding:
+    x: 6
+    y: 6
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 5000
+  auto_scroll: true
+
+tabspaces: 4
+live_config_reload: true
+alt_send_esc: true
+background_opacity: 0.9
+dynamic_title: false
+decorations: none
+draw_bold_text_with_bright_colors: true
+
+cursor:
+  # ▇ Block
+  # _ Underline
+  # | Beam
+  style: Underline
+  unfocused_hollow: true
+
+font:
+  size: 12.0
+  normal:
+    family: JetBrains Mono
+    style: Regular
+  bold:
+    family: JetBrains Mono
+    style: Bold
+  italic:
+    family: JetBrains Mono
+    style: Italic
+  bold_italic:
+    family: JetBrains Mono
+    style: Bold Italic
+  offset:
+    x: 0
+    y: 1
+
+schemes:
+  vscode: &vscode
+    primary:
+     background: '#1e1e1e'
+     foreground: '#d4d4d4'
+    cursor:
+      text: CellBackground
+      cursor: '#d4d4d4'
+    normal:
+      black:   '#1e1e1e'
+      red:     '#f44747'
+      green:   '#608b4e'
+      yellow:  '#dcdcaa'
+      blue:    '#569cd6'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+    bright:
+      black:   '#545454'
+      red:     '#f44747'
+      green:   '#608b4e'
+      yellow:  '#dcdcaa'
+      blue:    '#569cd6'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+
+colors: *vscode
+
+key_bindings:
+  - { key: V,         mods: Control|Shift, action: Paste            }
+  - { key: C,         mods: Control|Shift, action: Copy             }
+  - { key: Key0,      mods: Control,       action: ResetFontSize    }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize }
+  - { key: F11,       mods: None,          action: ToggleFullscreen }

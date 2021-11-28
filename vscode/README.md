@@ -1,4 +1,6 @@
-# VScode
+# VSCode
+
+![VSCode screenhot](./screen.png)
 
 Install
 ```bash

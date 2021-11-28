@@ -1,75 +1,63 @@
 {
+  "workbench.colorTheme": "GitHub Light",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Visual Studio Dark",
   "workbench.sideBar.location": "left",
-  "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "none",
-  "workbench.panel.defaultLocation": "bottom",
   "workbench.activityBar.visible": false,
   "window.menuBarVisibility": "toggle",
   "update.showReleaseNotes": false,
+  // Font
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 15,
   // Editor
-  // "editor.cursorSmoothCaretAnimation": true,
-  "editor.fontFamily": "'Jetbrains Mono', monospace",
+  "editor.fontFamily": "'Jetbrains Mono'",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
   "editor.inlineSuggest.enabled": true,
   "editor.hover.enabled": true,
   "editor.minimap.enabled": false,
-  "editor.suggestSelection": "first",
-  "editor.smoothScrolling": true,
   "editor.mouseWheelZoom": true,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
   "editor.tabCompletion": "on",
+  "editor.formatOnSave": true,
   "editor.wordWrap": "off",
-  "editor.fontSize": 14,
   "editor.tabSize": 4,
   // Files
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "files.insertFinalNewline": false,
-  "files.trimFinalNewlines": false,
-  "files.trimTrailingWhitespace": false,
+  "files.trimTrailingWhitespace": true,
   "files.exclude": {
     "**/node_modules": true,
-    "**/env": true,
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
+    "**/env": true
   },
   // Git
-  "gitlens.codeLens.enabled": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  "terminal.integrated.tabs.enabled": false,
   // Extensions
   "extensions.ignoreRecommendations": true,
-  "docker.showStartPage": false,
-  "calva.myCljAliases": [
-    "nREPL",
-    "nrepl",
-    "test"
-  ],
-  "calva.paredit.defaultKeyMap": "strict",
-  // Golang
-  "go.toolsManagement.autoUpdate": true,
-  "go.lintOnSave": "package",
-  "go.lintTool": "golint",
-  "go.formatTool": "gofumpt",
+  "gitlens.codeLens.enabled": true,
   // Languages
-  "javascript.suggestionActions.enabled": false,
-  "typescript.suggestionActions.enabled": false,
+  "[go]": {
+    "editor.insertSpaces": false,
+    "go.lintOnSave": "package",
+    "go.lintTool": "golint",
+    "go.formatTool": "gofumpt"
+  },
+  "[python]": {
+    "python.formatting.provider": "black",
+    "python.analysis.autoImportCompletions": true,
+    "python.formatting.blackPath": "~/.local/bin/black",
+    "editor.tabSize": 4,
+  },
   "[javascript]": {
-    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "javascript.suggestionActions.enabled": false,
     "editor.tabSize": 2
   },
   "[typescript]": {
-    // "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "typescript.inlayHints.parameterNames.enabled": "literals",
-  "typescript.inlayHints.variableTypes.enabled": true,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "window.zoomLevel": 1,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "typescript.suggestionActions.enabled": false,
+    "editor.tabSize": 2
+  }
 }
