@@ -1,5 +1,7 @@
 <h1 align="center">dotfiles</h1>
 
+![System screenhot](./screen.png)
+
 ## System info
 - `OS` Arch linux
 - `DE` Gnome 4
