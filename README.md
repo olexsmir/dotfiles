@@ -1,6 +1,7 @@
 <h1 align="center">dotfiles</h1>
 
 ![System screenhot](./screen.png)
+--------------------------------
 
 ## System info
 - `OS` Arch linux
@@ -12,12 +13,13 @@
 
 ## Install dependencys
 ```bash
-sudo pacman -S git alacritty neovim zsh ttf-jetbrains-mono
+sudo pacman -S git alacritty github-cli neovim tmux zsh ttf-jetbrains-mono
+yay -S visual-studio-code-bin
 ```
 
 ## And install deps
 ```bash
-git clone --recursive https://github.com/Smirnov-O/dotfiles .dotfiles
+git clone --recursive https://github.com/Smirnov-O/dotfiles ~/.dotfiles
 rcup rcrc && rcup
 ```
 

@@ -1,8 +1,9 @@
 # VSCode
 
 ![VSCode screenhot](./screen.png)
+---------------------------------
 
-Install
+## Setup config
 ```bash
 mv ~/vscode/settings.json ~/.config/Code/User
 ```
