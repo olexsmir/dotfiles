@@ -38,17 +38,17 @@
   "extensions.ignoreRecommendations": true,
   "gitlens.codeLens.enabled": true,
   // Languages
+  "go.lintOnSave": "package",
+  "go.lintTool": "golangci-lint",
+  "go.formatTool": "gofumpt",
   "[go]": {
-    "editor.insertSpaces": false,
-    "go.lintOnSave": "package",
-    "go.lintTool": "golint",
-    "go.formatTool": "gofumpt"
+    "editor.insertSpaces": false
   },
   "[python]": {
     "python.formatting.provider": "black",
     "python.analysis.autoImportCompletions": true,
     "python.formatting.blackPath": "~/.local/bin/black",
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
