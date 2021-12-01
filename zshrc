@@ -1,6 +1,6 @@
 ## Variables
 export GOPATH="$HOME/go"
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.luarocks/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
 
 ## Oh my zsh
@@ -15,9 +15,9 @@ eval "$(zoxide init zsh)"
 
 ## Aliases
 alias cls="clear" cp="cp -r" mkdir="mkdir -p"
-alias gor="go run" gob="go build" gog="go get" goi="go install" got="go test" gov="go vet"
+alias gor="go run" gob="go build" gog="go get"
 alias ...="cd ../.." .3="cd ../../.."
-alias v="nvim" vim="v" asdfi=". /opt/asdf-vm/asdf.sh"
+alias v="nvim" vim="v" vi="vim" asdfi=". /opt/asdf-vm/asdf.sh"
 
 if [[ -f "/bin/exa" ]]; then
    alias ls="exa -l" ll="ls" la="ls -a"
