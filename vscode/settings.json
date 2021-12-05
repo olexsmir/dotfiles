@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Quiet Light",
+  "workbench.colorTheme": "Default Dark+",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
@@ -37,6 +37,7 @@
   // Extensions
   "extensions.ignoreRecommendations": true,
   "gitlens.codeLens.enabled": true,
+  "tabnine.experimentalAutoImports": true,
   // Languages
   "go.lintOnSave": "package",
   "go.lintTool": "golangci-lint",
@@ -44,6 +45,8 @@
   "python.formatting.provider": "black",
   "python.analysis.autoImportCompletions": true,
   "python.formatting.blackPath": "~/.local/bin/black",
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
   "[go]": {
     "editor.insertSpaces": false
   },
@@ -52,12 +55,10 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "javascript.suggestionActions.enabled": false,
     "editor.tabSize": 2
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "typescript.suggestionActions.enabled": false,
     "editor.tabSize": 2
   },
   "files.associations": {

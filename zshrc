@@ -1,6 +1,6 @@
 ## Variables
 export GOPATH="$HOME/go"
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yarn/bin:$PATH"
 export EDITOR="nvim"
 
 ## Oh my zsh
