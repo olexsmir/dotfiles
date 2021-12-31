@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "Default Dark+",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.sideBar.location": "left",
+  "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.activityBar.visible": false,
   "window.menuBarVisibility": "toggle",
@@ -11,7 +11,8 @@
   "terminal.integrated.fontSize": 15,
   // Editor
   "editor.fontFamily": "'Jetbrains Mono'",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": false,
+  "editor.cursorBlinking": "expand",
   "editor.smoothScrolling": true,
   "editor.inlineSuggest.enabled": true,
   "editor.hover.enabled": true,
@@ -28,7 +29,11 @@
   "files.trimTrailingWhitespace": true,
   "files.exclude": {
     "**/node_modules": true,
-    "**/env": true
+    "**/env": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   },
   // Git
   "git.autofetch": true,
@@ -40,7 +45,7 @@
   "tabnine.experimentalAutoImports": true,
   // Languages
   "go.lintOnSave": "package",
-  "go.lintTool": "golangci-lint",
+  // "go.lintTool": "golangci-lint",
   "go.formatTool": "gofumpt",
   "python.formatting.provider": "black",
   "python.analysis.autoImportCompletions": true,
@@ -61,7 +66,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
-  "files.associations": {
-    "justfile": "makefile"
-  }
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "workbench.editorAssociations": {
+    "*.mp4": "default"
+  },
+  "liveServer.settings.donotVerifyTags": true
 }
