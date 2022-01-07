@@ -5,6 +5,9 @@
 [github]
   name = Smirnov-O
 
+[gpg]
+	program = gpg2
+
 [core]
   editor = nvim
 

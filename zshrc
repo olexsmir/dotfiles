@@ -4,7 +4,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.golang/bin:$GOPATH/bin:$HOME/.yar
 export EDITOR="nvim"
 
 ## Oh my zsh
-plugins=(git dotenv yarn extract)
+plugins=(dotenv extract)
 ZSH_THEME="simple"
 DISABLE_AUTO_TITLE="true"
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
@@ -23,4 +23,3 @@ alias asdfi=". /opt/asdf-vm/asdf.sh" sdki=". $HOME/.sdkman/bin/sdkman-init.sh"
 if [[ -f "/bin/exa" ]]; then
    alias ls="exa -l" ll="ls" la="ls -a"
 fi
-
