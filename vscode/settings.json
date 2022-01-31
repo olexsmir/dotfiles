@@ -1,14 +1,15 @@
 {
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Nord",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": true,
   "window.menuBarVisibility": "toggle",
   "update.showReleaseNotes": false,
   // Font
   "editor.fontSize": 16,
   "terminal.integrated.fontSize": 15,
+  "go.testExplorer.enable": true,
   // Editor
   "editor.fontFamily": "'Jetbrains Mono'",
   "editor.cursorSmoothCaretAnimation": false,
@@ -71,5 +72,7 @@
   "workbench.editorAssociations": {
     "*.mp4": "default"
   },
-  "liveServer.settings.donotVerifyTags": true
+  "liveServer.settings.donotVerifyTags": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "gitlens.hovers.currentLine.over": "line"
 }
