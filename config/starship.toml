@@ -9,8 +9,14 @@ symbol = "Py "
 [elm]
 symbol = "Elm "
 
+[lua]
+lua_binary = "luajit"
+
 [package]
 symbol = "PKG "
+
+[battery]
+disabled = true
 
 [cmd_duration]
 disabled = true
