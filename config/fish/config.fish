@@ -7,6 +7,7 @@ set -g PATH $HOME/.local/bin $PATH
 set -g PATH $HOME/.golang/bin $PATH
 set -g PATH $HOME/.yarn/bin $PATH
 set -g PATH $HOME/.cargo/bin $PATH
+set -g PATH $HOME/.nimble/bin $PATH
 
 ## Configure
 set fish_greeting
@@ -14,7 +15,6 @@ if status is-interactive
     starship init fish | source
     zoxide init fish | source
     fnm env | source
-    source $HOME/.asdf/asdf.fish
 end
 
 function fish_user_key_bindings
