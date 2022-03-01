@@ -44,6 +44,17 @@
   "extensions.ignoreRecommendations": true,
   "gitlens.codeLens.enabled": true,
   "tabnine.experimentalAutoImports": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
   // Languages
   "go.lintOnSave": "package",
   // "go.lintTool": "golangci-lint",

@@ -28,6 +28,7 @@ end
 alias cls clear
 alias cp "cp -r"
 alias mkdir "mkdir -p"
+alias d docker
 
 ## Editor
 alias vim nvim

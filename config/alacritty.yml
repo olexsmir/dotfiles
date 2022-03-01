@@ -4,6 +4,7 @@ env:
 window:
   title: Alacritty
   dynamic_padding: false
+  opacity: 1
   padding:
     x: 0
     y: 2
@@ -19,7 +20,6 @@ scrolling:
 tabspaces: 4
 live_config_reload: true
 alt_send_esc: true
-background_opacity: 1
 dynamic_title: false
 draw_bold_text_with_bright_colors: true
 
