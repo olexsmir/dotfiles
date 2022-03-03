@@ -10,7 +10,11 @@ symbol = "Py "
 symbol = "Elm "
 
 [lua]
+symbol = "Lua "
 lua_binary = "luajit"
+
+[rust]
+symbol = "Rust "
 
 [package]
 symbol = "PKG "
