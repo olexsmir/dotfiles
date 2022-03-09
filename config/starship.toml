@@ -1,29 +1,35 @@
 add_newline = false
 
+[cmd_duration]
+disabled = true
+
 [nodejs]
-symbol = "Node "
-
-[python]
-symbol = "Py "
-
-[elm]
-symbol = "Elm "
-
-[lua]
-symbol = "Lua "
-lua_binary = "luajit"
-
-[rust]
-symbol = "Rust "
+symbol = " "
 
 [package]
-symbol = "PKG "
+symbol = " "
+
+[python]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[lua]
+symbol = " "
+lua_binary = "luajit"
 
 [battery]
 disabled = true
-
-[cmd_duration]
-disabled = true
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
 
 [directory]
 truncation_length = 5
