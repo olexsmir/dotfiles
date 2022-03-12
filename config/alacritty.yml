@@ -4,6 +4,7 @@ env:
 window:
   title: Alacritty
   dynamic_padding: false
+  decorations: "None"
   opacity: 1
   padding:
     x: 0
@@ -51,7 +52,7 @@ font:
 schemes:
   vscode: &vscode
     primary:
-      background: "#1e1e1e"
+      background: "#24283b"
       foreground: "#d4d4d4"
     cursor:
       text: CellBackground
