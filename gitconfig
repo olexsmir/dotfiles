@@ -1,6 +1,7 @@
 [user]
-	name = flof-ik
+    name = Smirnov Alexander
     email = ss2316544@gmail.com
+    signingkey = 02BE5DDFB607A8F79E
 
 [github]
     name = flof-ik
@@ -15,4 +16,7 @@
   defaultBranch = "main"
 
 [alias]
-  l  = log --oneline --decorate
+    l = log --oneline --decorate
+    s = status
+    sw = switch
+    cm = commit
