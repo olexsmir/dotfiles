@@ -1,9 +1,9 @@
 {
-  "workbench.colorTheme": "Nord",
+  "workbench.colorTheme": "Tokyo Storm Gogh",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
-  "workbench.activityBar.visible": true,
+  "workbench.activityBar.visible": false,
   "window.menuBarVisibility": "toggle",
   "update.showReleaseNotes": false,
   // Font
@@ -61,7 +61,6 @@
   "go.formatTool": "gofumpt",
   "python.formatting.provider": "black",
   "python.analysis.autoImportCompletions": true,
-  "python.formatting.blackPath": "~/.local/bin/black",
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
   "[go]": {

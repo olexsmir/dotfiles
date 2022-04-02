@@ -1,0 +1,4 @@
+[[language]]
+name = "python"
+roots = ["pyproject.toml"]
+language-server = { command = "$HOME/.local/share/nvim/lap_servers/python/node_modeules/.bin/pyrigut-langserver", args = ["--stdio"] }

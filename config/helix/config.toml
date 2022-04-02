@@ -1,0 +1,18 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+scrolloff = 8
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+C-s = ":w"
+
+[keys.insert]
+j = { k = "normal_mode" }
