@@ -1,16 +1,23 @@
 {
   "update.showReleaseNotes": false,
-  "workbench.tips.enabled": false,
+  "window.zoomLevel": 1,
   "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "compact",
+  "workbench.tips.enabled": false,
   "workbench.startupEditor": "readme",
   "workbench.editor.untitled.hint": "hidden",
+  "workbench.activityBar.visible": false,
   "extensions.ignoreRecommendations": true,
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "terminal.integrated.fontSize": 15,
+  "explorer.experimental.fileNesting.enabled": true,
+  "explorer.experimental.fileNesting.patterns": {
+    "package.json": "package-lock.json, yarn.lock, tsconfig*.json, yarn-error.log, .prettier*, .bsb.lock, bsconfig*.json"
+  },
+  "terminal.integrated.fontSize": 16,
   "files.trimTrailingWhitespace": true,
-  "editor.fontFamily": "Jetbrains Mono, monospace",
+  "editor.fontFamily": "Jetbrains Mono",
   "editor.cursorBlinking": "expand",
   "editor.fontSize": 16,
   "editor.smoothScrolling": true,
@@ -24,6 +31,34 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "go.formatTool": "gofumpt",
-  "window.menuBarVisibility": "compact",
-  "workbench.activityBar.visible": false,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.surround": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [{ "before": ["j", "k"], "after": ["<esc>"] }],
+  "vim.normalModeKeyBindings": [
+    { "before": ["K"], "commands": ["editor.action.showHover"] },
+    { "before": ["leader", "h"], "commands": [":nohl"] },
+    { "before": ["leader", "w"], "commands": ["workbench.action.files.save"] },
+    {
+      "before": ["leader", "c"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    { "before": ["leader", "e"], "commands": ["workbench.view.explorer"] },
+    { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"] }
+  ],
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.commandsToSkipShell": [
+    "language-julia.interrupt"
+  ],
+  "julia.symbolCacheDownload": true,
+  "julia.enableTelemetry": false
 }

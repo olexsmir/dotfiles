@@ -14,7 +14,7 @@
 ## Install dependencys
 ```bash
 sudo pacman -S git alacritty github-cli neovim tmux zsh ttf-jetbrains-mono
-yay -S rcm visual-studio-code-bin
+paru -S rcm visual-studio-code-bin
 ```
 
 ## And install deps

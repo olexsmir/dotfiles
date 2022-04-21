@@ -1,4 +1,4 @@
 #!/bin/sh
 sudo pacman -Syyuu --noconfirm
-yay -Sua --noconfirm
+paru -Sua --noconfirm
 sudo pacman -Rs $(pacman -Qdtq) --noconfirm
