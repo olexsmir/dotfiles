@@ -4,7 +4,7 @@
     signingkey = 02BE5DDFB607A8F79E
 
 [github]
-    name = flof-ik
+    name = olexsmir
 
 [gpg]
 	program = gpg2
