@@ -55,10 +55,5 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "terminal.integrated.commandsToSkipShell": [
-    "language-julia.interrupt"
-  ],
-  "julia.symbolCacheDownload": true,
-  "julia.enableTelemetry": false
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
