@@ -12,12 +12,13 @@ alias ll ls
 
 # vim
 alias vim nvim
-alias v vim
+alias e vim
 
 # go
 alias gor "go run"
 alias gob "go build"
 alias gog "go get"
+alias gom "go mod"
 
 # navigations
 alias ... "cd ../.."
