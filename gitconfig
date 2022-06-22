@@ -1,22 +1,28 @@
 [user]
-    name = Smirnov Olexander
+    name = Smirnov Oleksandr
     email = ss2316544@gmail.com
-    signingkey = 02BE5DDFB607A8F79E
+    signingkey = 300387B5D7EE0DB2
 
 [github]
     name = olexsmir
 
 [gpg]
-	program = gpg2
+    program = gpg2
 
 [core]
-  editor = nvim
+    editor = nvim
 
 [init]
-  defaultBranch = "main"
+    defaultBranch = "main"
 
 [alias]
+    a = add
     l = log --oneline --decorate
-    s = status
+    s = status -sb
+    lg = log --stat
+    f = fetch
     sw = switch
     cm = commit
+    p = pull
+    re = restore
+    r = rebase
