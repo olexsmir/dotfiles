@@ -1,2 +1,2 @@
-EXCLUDES="README.md screen.png .gitmodules"
+EXCLUDES="README.md screen.png .gitmodules bootstrap.sh"
 UNDOTTED="bin vscode"
