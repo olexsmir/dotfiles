@@ -5,15 +5,15 @@
 
 ## System info
 - `OS` Arch linux
-- `DE` Gnome 4
-- `Terminal` Alacritty
-- `Editors` nvim, vscode
-- `Browser` chrome, firefox
+- `DE` Gnome 42
+- `Terminal` Kitty
+- `Editors` nvim
+- `Browser` firefox
 - `Font` Jatbrains Mono
 
 ## Install dependencys
 ```bash
-sudo pacman -S git alacritty github-cli neovim tmux zsh ttf-jetbrains-mono
+sudo pacman -S git kitty github-cli neovim tmux zsh fish starship ttf-jetbrains-mono
 paru -S rcm visual-studio-code-bin
 ```
 
