@@ -3,6 +3,7 @@ alias cp "cp -r"
 alias mkdir "mkdir -p"
 alias py python
 alias d docker
+alias dcm "docker compose"
 alias g git
 
 # exa
