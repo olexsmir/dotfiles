@@ -21,6 +21,11 @@ alias gob "go build"
 alias gog "go get"
 alias gom "go mod"
 
+# clojure
+alias cljcider "clj -M:cider"
+alias cljrun "clj -M:run"
+alias cljtest "clj -M:test"
+
 # navigations
 alias ... "cd ../.."
 alias .3 "cd ../../.."
