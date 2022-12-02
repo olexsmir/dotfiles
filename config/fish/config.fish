@@ -9,6 +9,7 @@ set -g PATH $HOME/.golang/bin $PATH
 set -g PATH $HOME/.yarn/bin $PATH
 set -g PATH $HOME/.cargo/bin $PATH
 set -g PATH $HOME/.bun/bin $PATH
+set -g PATH $HOME/.rustup/toolchains/stable-x86_64*/bin $PATH
 
 if status is-interactive
   set fish_greeting
