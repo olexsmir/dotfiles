@@ -13,13 +13,13 @@
 
 ## Install dependencys
 ```bash
+paru -S rcm
 sudo pacman -S git kitty github-cli neovim tmux zsh fish starship ttf-jetbrains-mono
-paru -S rcm visual-studio-code-bin
 ```
 
 ## And install deps
 ```bash
-git clone --recursive https://github.com/Smirnov-O/dotfiles ~/.dotfiles
+git clone --recursive https://github.com/olexsmir/dotfiles ~/.dotfiles
 rcup rcrc && rcup
 ```
 
