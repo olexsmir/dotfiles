@@ -26,6 +26,13 @@ alias cljcider "clj -M:cider"
 alias cljrun "clj -M:run"
 alias cljtest "clj -M:test"
 
+# rust
+alias ca cargo
+alias cabu "cargo build"
+alias caru "cargo run"
+alias cate "cargo test"
+alias cats "cargo nextest"
+
 # navigations
 alias ... "cd ../.."
 alias .3 "cd ../../.."
