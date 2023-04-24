@@ -1,0 +1,44 @@
+[general]
+type = "standard"
+count_resets = true
+resets_file = "~/.resets"
+affinity = "alternate"
+
+[hooks]
+wall_reset = ""
+reset = ""
+lock = ""
+unlock = ""
+
+[obs]
+enabled = false
+port = 4440
+password = ""
+
+[reset]
+delay = 50
+pause_delay = 100
+unpause_on_focus = true
+click_on_focus = true
+
+[keybinds]
+focus = "Alt-a"
+reset = "x"
+wall_reset = ""
+wall_reset_others = "Ctrl-Shift"
+wall_play = "Shift"
+wall_lock = "Ctrl"
+
+[wall]
+stretch_windows = false
+stretch_width = 1600
+stretch_height = 300
+use_mouse = false
+goto_locked = false
+no_play_generating = true
+
+[setseed]
+seed = ""
+spawn_x = 123.0
+spawn_z = 456.0
+radius = 5.0
