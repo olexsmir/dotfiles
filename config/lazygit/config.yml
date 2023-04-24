@@ -1,0 +1,30 @@
+confirmOnQuit: false
+disableStartupPopups: true
+notARepository: "skip"
+promptToReturnFromSubprocess: true
+
+gui:
+  scrollHeight: 8 # how many lines you scroll by
+  scrollPastBottom: false # enable scrolling past the bottom
+  sidePanelWidth: .28
+  expandFocusedSidePanel: true
+  mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
+  language: "en"
+  timeFormat: "02 Jan 06 15:04 MST" # https://pkg.go.dev/time#Time.Format
+  skipUnstageLineWarning: false
+  skipStashWarning: false
+  showFileTree: false
+  showListFooter: false
+  showRandomTip: false
+  showBottomLine: false
+  showCommandLog: true
+  showIcons: true
+
+git:
+  autoFetch: true
+  autoRefresh: true
+  parseEmoji: true
+
+keybinding:
+  universal:
+    jumpToBlock: ["5", "1", "2", "3", "4"]
