@@ -5,6 +5,7 @@ alias py python
 alias d docker
 alias dcm "docker compose"
 alias g git
+alias s="kitty +kitten ssh"
 
 # exa
 alias ls "exa -l"
