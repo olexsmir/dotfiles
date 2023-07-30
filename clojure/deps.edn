@@ -3,9 +3,12 @@
   "clojars" {:url "https://repo.clojars.org/"}}
 
  :aliases
- {:new {:extra-deps {com.github.seancorfield/clj-new {:mvn/version "1.2.399"}}
-        :exec-args {:template "app"}
-        :exec-fn clj-new/create}
+ {:new-app {:extra-deps {com.github.seancorfield/clj-new {:mvn/version "1.2.399"}}
+            :exec-args {:template "app"}
+            :exec-fn clj-new/create}
+
+  :neil {:deps {io.github.babashka/neil {:git/tag "v0.1.41" :git/sha "77288d4"}}
+         :main-opts ["-m" "babashka.neil"]}
 
   :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "1.8.847"}}
              :main-opts ["-m" "antq.core"]}
@@ -15,11 +18,4 @@
                        refactor-nrepl/refactor-nrepl {:mvn/version "3.5.5"}}
           :main-opts  ["-m" "nrepl.cmdline"
                        "--middleware" "[cider.nrepl/cider-middleware,refactor-nrepl.middleware/wrap-refactor]"
-                       "--interactive"]}
-
-  :rebel {:extra-deps {nrepl/nrepl {:mvn/version "0.9.0"}
-                       cider/cider-nrepl {:mvn/version "0.28.5"}
-                       com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-          :main-opts  ["-m" "nrepl.cmdline" "--interactive"
-                       "--middleware" "[cider.nrepl/cider-middleware]"
-                       "-f" "rebel-readline.main/-main"]}}}
+                       "--interactive"]}}}
