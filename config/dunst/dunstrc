@@ -1,0 +1,46 @@
+[global]
+    monitor = 0
+    follow = mouse
+    geometry = "250x50-5+30"
+    indicate_hidden = yes
+    shrink = no
+    transparency = 0
+    notification_height = 0
+    separator_height = 4
+    padding = 16
+    horizontal_padding = 16
+    frame_width = 2
+    frame_color = "#1F2324"
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+    font = Roboto 8
+    line_height = 4
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = false
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = off
+    always_run_script = true
+    startup_notification = false
+    force_xinerama = false
+
+[urgency_low]
+    background = "#16161e"
+    foreground = "#c0caf5"
+    frame_color = "#c0caf5"
+
+[urgency_normal]
+    background = "#1a1b26"
+    foreground = "#c0caf5"
+    frame_color = "#c0caf5"
+
+[urgency_critical]
+    background = "#292e42"
+    foreground = "#db4b4b"
+    frame_color = "#db4b4b"
