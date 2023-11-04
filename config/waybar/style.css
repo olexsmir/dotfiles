@@ -6,7 +6,8 @@
 @define-color inactive-bg-color #292e42;
 @define-color inactive-fg-color #545c7e;
 @define-color green #73daca;
-@define-color red #db4b4b;
+@define-color red #f7768e;
+@define-color blue #2ac3de;
 
 * {
   border: none;
@@ -23,13 +24,17 @@ window#waybar {
   color: @fg-color;
 }
 
-#cpu, #memory, #workspaces, #window, #tray, #clock, #battery, #pulseaudio, #network, #backlight {
+#language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery, #pulseaudio, #network, #backlight {
   background-color: @bg-darker-color;
   color: @fg-color;
   border-radius: 16px;
   margin: 5px 5px 5px 5px;
   padding: 0px 10px 0px 10px;
 }
+
+#network, #backlight { color: @blue; }
+#cpu, #pulseaudio, #memory, #clock { color: @active-bg-color; }
+#language { color: @red; }
 
 #workspaces button { color: @inactive-fg-color; }
 #workspaces button.active {

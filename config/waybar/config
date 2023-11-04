@@ -18,6 +18,7 @@
     "modules-right": [
         "memory",
         "tray",
+        "hyprland/language",
         "backlight",
         "battery",
         "pulseaudio",
@@ -26,7 +27,7 @@
 
     // modules
     "clock": {
-        "format": "  {:%H:%M}",
+        "format": "  {:%a, %d %b %H:%M}",
         "tooltip": "true",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "  {:%d/%m}"
@@ -41,37 +42,45 @@
         "format": "{icon}",
         "on-click": "activate",
         "sort-by-number": true,
+        "persistent_workspaces": { "*": 9 },
         "format-icons": {
             "urgent": "",
-            "active": "",
-            "default": "󰧞"
-        },
-        "persistent_workspaces": { "*": 9 }
+            "default": "",
+            "1": "󰅨",
+            "2": "󰖟",
+            "3": "",
+            "4": "󰠮",
+            "5": "",
+            "6": "󰅨",
+            "7": "󰎄"
+        }
     },
 
-    "hyprland/window": { "max-length": "40" },
+    "hyprland/window": {
+        "max-length": "40"
+    },
 
     "battery": {
+        "format":"{icon}  {capacity}%",
+        "format-charging":"{icon}  {capacity}%",
+        "format-plugged": "{capacity}%  ",
+        "format-alt": "{icon}  {time}",
+        "format-icons": ["", "", "", "", ""],
         "states": {
             "good": 95,
             "warning": 30,
             "critical": 15
-        },
-        "format":"{icon}  {capacity}%",
-        "format-charging":"{icon}  {capacity}%",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{icon} {time}",
-        "format-icons": ["", "", "", "", ""]
+        }
     },
 
     "memory": {
-        "format": "󰍛 {used}%",
+        "format": "󰍛  {used}%",
         "interval": 5
     },
 
     "cpu": {
-        "format": "󰻠 {usage}%",
-        "format-alt": "󰻠 {avg_frequency} GHz",
+        "format": "󰻠  {usage}%",
+        "format-alt": "󰻠  {avg_frequency} GHz",
         "interval": 5
     },
 
@@ -90,17 +99,26 @@
     },
 
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "{icon}  {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-scroll-up": "brightnessctl set +10%",
         "on-scroll-down": "brightnessctl set 10%-"
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "󰝟",
-        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"],
+            "headphone": ""
+        },
         "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "hyprland/language": {
+        "format": "󰌌  {}",
+        "format-uk": "укр",
+        "format-en": "eng"
     }
 }
