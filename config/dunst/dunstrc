@@ -1,46 +1,79 @@
+# vim: ft=ini
+
 [global]
-    monitor = 0
-    follow = mouse
-    geometry = "250x50-5+30"
-    indicate_hidden = yes
-    shrink = no
-    transparency = 0
-    notification_height = 0
-    separator_height = 4
-    padding = 16
-    horizontal_padding = 16
-    frame_width = 2
-    frame_color = "#1F2324"
-    separator_color = frame
-    sort = yes
-    idle_threshold = 120
-    font = Roboto 8
-    line_height = 4
-    markup = full
-    format = "<b>%s</b>\n%b"
-    alignment = left
-    show_age_threshold = 60
-    word_wrap = yes
-    ignore_newline = no
-    stack_duplicates = false
-    hide_duplicate_count = false
-    show_indicators = yes
-    icon_position = off
-    always_run_script = true
-    startup_notification = false
-    force_xinerama = false
+font = Jetbrains 14
+icon_theme = "Papirus-Dark"
+enable_recursive_icon_lookup = true
+show_age_threshold = 60
+markup = full
+word_wrap = yes
+ignore_newline = no
+stack_duplicates = false
+hide_duplicate_count = false
+shrink = no
+idle_threshold = 120
+follow = mouse
+
+mouse_left_click = close_all
+mouse_right_click = do_action
+
+sticky_history = yes
+history_length = 10
+line_height = 4
+separator_height = 4
+padding = 15
+horizontal_padding = 15
+separator_color = auto
+startup_notification = true
+
+browser = x-www-browser -new-tab
+
+icon_position = left
+max_icon_size = 48
+
+frame_width = 0
+
+always_run_script = true
+title = Dunst
+class = Dunst
+
+geometry = "250x50-5+30"
+origin = top-right
+offset = 9x14
+width = (0,500)
+
+# Display indicators for URLs (U) and actions (A).
+show_indicators = no
+
+# %a  appname
+# %s  summary
+# %b  body
+# %i  iconname (including its path)
+# %I  iconname (without its path)
+# %p  progress value if set ([  0%] to [100%]) or nothing
+format = "<b>%s</b>\n%b"
+corner_radius = 8
+sort = no
+indicate_hidden = yes
+
+# Possible values are "left", "center" and "right".
+alignment = center
+
 
 [urgency_low]
-    background = "#16161e"
-    foreground = "#c0caf5"
-    frame_color = "#c0caf5"
+frame_color = "#1a1b26"
+background = "#1a1b26"
+foreground = "#c0caf5"
+timeout = 10
 
 [urgency_normal]
-    background = "#1a1b26"
-    foreground = "#c0caf5"
-    frame_color = "#c0caf5"
+frame_color = "#15161e"
+background = "#1a1b26"
+foreground = "#c0caf5"
+timeout = 10
 
 [urgency_critical]
-    background = "#292e42"
-    foreground = "#db4b4b"
-    frame_color = "#db4b4b"
+frame_color = "#f7768e"
+background = "#1a1b26"
+foreground = "#c0caf5"
+timeout = 10

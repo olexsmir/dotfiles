@@ -30,7 +30,7 @@
         "format": "  {:%a, %d %b %H:%M}",
         "tooltip": "true",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "  {:%d/%m}"
+        "on-click": "morgen"
     },
 
     "hyprland/workspaces": {
@@ -66,6 +66,7 @@
         "format-plugged": "{capacity}%  ",
         "format-alt": "{icon}  {time}",
         "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
         "states": {
             "good": 95,
             "warning": 30,
@@ -90,7 +91,8 @@
         "format-disconnected": "󰤭",
         "format-alt": "󰤨 {ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{essid}",
-        "on-click-right": "nm-connection-editor"
+        "on-click-right": "nm-connection-editor",
+        "tooltip": false
     },
 
     "tray": {
@@ -102,7 +104,8 @@
         "format": "{icon}  {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-scroll-up": "brightnessctl set +10%",
-        "on-scroll-down": "brightnessctl set 10%-"
+        "on-scroll-down": "brightnessctl set 10%-",
+        "tooltip": false
     },
 
     "pulseaudio": {
@@ -112,6 +115,8 @@
             "default": ["󰕿", "󰖀", "󰕾"],
             "headphone": ""
         },
+        "on-click": "pavucontrol",
+        "tooltip": false,
         "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
     },

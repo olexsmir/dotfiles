@@ -36,9 +36,15 @@ window#waybar {
 #cpu, #pulseaudio, #memory, #clock { color: @active-bg-color; }
 #language { color: @red; }
 
-#workspaces button { color: @inactive-fg-color; }
+#workspaces button { color: @active-bg-color; }
+#workspaces button.empty {
+  color: @inactive-fg-color;
+  background-color: transparent;
+  border-radius: 16px;
+}
+
 #workspaces button.active {
-  color: @active-bg-color;
+  color: @red;
   background-color: transparent;
   border-radius: 16px;
 }
