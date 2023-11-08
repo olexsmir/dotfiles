@@ -1,0 +1,25 @@
+#!/bin/env bash
+
+entries="⇠ logout\n⏾ suspend\n⭮ reboot\n⏻ poweroff"
+selected=$(echo -e "$entries" |
+	wofi --dmenu --cache-file /dev/null |
+	awk '{print tolower($2)}')
+
+shall_continue() {
+	entries="Yes\nNo"
+	selected=$(echo -e "$entries" |
+		wofi --dmenu --cache-file /dev/null |
+		awk '{print tolower($1)}')
+
+	case $selected in
+	yes) exec "$@" ;;
+	no) exit 0 ;;
+	esac
+}
+
+case $selected in
+logout) shall_continue hyprctl dispatch exit ;;
+suspend) shall_continue systemctl suspend ;;
+rebbot) shall_continue systemctl reboot ;;
+poweroff) shall_continue systemctl poweroff ;;
+esac
