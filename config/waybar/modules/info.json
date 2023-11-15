@@ -1,0 +1,68 @@
+{
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+    "clock": {
+        "format": "  {:%a, %d %b %H:%M}",
+        "tooltip": "true",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "morgen"
+    },
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-charging": "{icon}  {capacity}%",
+    "format-plugged": "{capacity}%  ",
+    "format-alt": "{icon}  {time}",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    }
+  },
+
+  "memory": {
+    "format": "󰍛  {used}%",
+    "interval": 5
+  },
+
+  "cpu": {
+    "format": "󰻠  {usage}%",
+    "format-alt": "󰻠  {avg_frequency} GHz",
+    "interval": 5
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "󰤭",
+    "format-alt": "󰤨 {ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{essid}",
+    "on-click-right": "nm-connection-editor",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "brightnessctl set +10%",
+    "on-scroll-down": "brightnessctl set 10%-",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"],
+      "headphone": ""
+    },
+    "on-click": "pavucontrol",
+    "tooltip": false,
+    "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+  }
+}

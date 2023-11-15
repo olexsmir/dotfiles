@@ -1,129 +1,26 @@
-// vim: ft=jsonc
 {
-    "position": "top",
-    "layer": "top",
-    "height": 14,
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock",
-        "cpu"
-    ],
-    "modules-right": [
-        "memory",
-        "tray",
-        "hyprland/language",
-        "backlight",
-        "battery",
-        "pulseaudio",
-        "network"
-    ],
+  "position": "top",
+  "layer": "top",
+  "height": 14,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
 
-    // modules
-    "clock": {
-        "format": "  {:%a, %d %b %H:%M}",
-        "tooltip": "true",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "morgen"
-    },
+  "include": [
+    "~/.config/waybar/modules/hypr.json",
+    "~/.config/waybar/modules/info.json"
+  ],
 
-    "hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "disable-scroll": false,
-        "on-scroll-up": "hyprctl dispatch workspace -1",
-        "on-scroll-down": "hyprctl dispatch workspace +1",
-        "format": "{icon}",
-        "on-click": "activate",
-        "sort-by-number": true,
-        "persistent_workspaces": { "*": 9 },
-        "format-icons": {
-            "urgent": "",
-            "default": "",
-            "1": "󰅨",
-            "2": "󰖟",
-            "3": "",
-            "4": "󰠮",
-            "5": "",
-            "6": "󰅨",
-            "7": "󰎄"
-        }
-    },
-
-    "hyprland/window": {
-        "max-length": "40"
-    },
-
-    "battery": {
-        "format":"{icon}  {capacity}%",
-        "format-charging":"{icon}  {capacity}%",
-        "format-plugged": "{capacity}%  ",
-        "format-alt": "{icon}  {time}",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip": false,
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        }
-    },
-
-    "memory": {
-        "format": "󰍛  {used}%",
-        "interval": 5
-    },
-
-    "cpu": {
-        "format": "󰻠  {usage}%",
-        "format-alt": "󰻠  {avg_frequency} GHz",
-        "interval": 5
-    },
-
-    "network": {
-        "format-wifi": "󰤨  {essid}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "󰤭",
-        "format-alt": "󰤨 {ifname}: {ipaddr}/{cidr}",
-        "tooltip-format": "{essid}",
-        "on-click-right": "nm-connection-editor",
-        "tooltip": false
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 5
-    },
-
-    "backlight": {
-        "format": "{icon}  {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-scroll-up": "brightnessctl set +10%",
-        "on-scroll-down": "brightnessctl set 10%-",
-        "tooltip": false
-    },
-
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"],
-            "headphone": ""
-        },
-        "on-click": "pavucontrol",
-        "tooltip": false,
-        "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
-        "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-    },
-
-    "hyprland/language": {
-        "format": "󰌌  {}",
-        "format-uk": "укр",
-        "format-en": "eng"
-    }
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock", "cpu"],
+  "modules-right": [
+    "memory",
+    "tray",
+    "hyprland/language",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "network"
+  ]
 }
