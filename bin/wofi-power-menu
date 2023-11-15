@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-entries="⇠ logout\n⏾ suspend\n⭮ reboot\n⏻ poweroff"
+entries="⏻ poweroff\n⇠ logout\n⏾ suspend\n⭮ reboot"
 selected=$(echo -e "$entries" |
 	wofi --dmenu --cache-file /dev/null |
 	awk '{print tolower($2)}')
