@@ -18,6 +18,7 @@
 [alias]
     a = add
     l = log --oneline --decorate
+    ll = log --graph --oneline --decorate --all
     s = status -sb
     lg = log --stat
     f = fetch
