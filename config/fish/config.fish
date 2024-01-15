@@ -11,6 +11,7 @@ set -g PATH $HOME/.cargo/bin $PATH
 set -g PATH $HOME/.bun/bin $PATH
 set -g PATH $HOME/.cargo/bin $PATH
 set -g PATH node_modules/.bin $PATH
+set -g PATH .bin $PATH
 
 if status is-interactive
   set fish_greeting
