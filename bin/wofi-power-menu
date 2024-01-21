@@ -20,6 +20,6 @@ shall_continue() {
 case $selected in
 logout) shall_continue hyprctl dispatch exit ;;
 suspend) shall_continue systemctl suspend ;;
-rebbot) shall_continue systemctl reboot ;;
+reboot) shall_continue systemctl reboot ;;
 poweroff) shall_continue systemctl poweroff ;;
 esac
