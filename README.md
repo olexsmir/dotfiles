@@ -5,8 +5,8 @@
 
 ## System info
 - `OS` Arch linux
-- `DE` Gnome 42
-- `Terminal` Kitty
+- `DE` hyprland
+- `Terminal` kitty
 - `Editors` nvim
 - `Browser` firefox
 - `Font` Jatbrains Mono
