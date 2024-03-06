@@ -3,12 +3,13 @@
     "icon-size": 16,
     "spacing": 10
   },
-    "clock": {
-        "format": "  {:%a, %d %b %H:%M}",
-        "tooltip": "true",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "morgen"
-    },
+
+  "clock": {
+    "format": "  {:%a, %d %b %I:%M %P}",
+    "tooltip": true,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "morgen"
+  },
 
   "battery": {
     "format": "{icon}  {capacity}%",
@@ -25,7 +26,7 @@
   },
 
   "memory": {
-    "format": "󰍛  {used}%",
+    "format": "󰍛  {used}",
     "interval": 5
   },
 
@@ -39,9 +40,8 @@
     "format-wifi": "󰤨  {essid}",
     "format-linked": " {ifname} (No IP)",
     "format-disconnected": "󰤭",
-    "format-alt": "󰤨 {ifname}: {ipaddr}/{cidr}",
+    "format-alt": "󰤨  {ifname}: {ipaddr}/{cidr}",
     "tooltip-format": "{essid}",
-    "on-click-right": "nm-connection-editor",
     "tooltip": false
   },
 

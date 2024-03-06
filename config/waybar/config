@@ -1,3 +1,4 @@
+// vim: ft=jsonc
 {
   "position": "top",
   "layer": "top",
@@ -6,7 +7,6 @@
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
-
   "include": [
     "~/.config/waybar/modules/hypr.json",
     "~/.config/waybar/modules/info.json"
