@@ -5,7 +5,12 @@ alias py python
 alias d docker
 alias dcm "docker compose"
 alias g git
-alias s="kitty +kitten ssh"
+
+# kitty specific
+if test $TERM = "xterm-kitty"
+  alias ssh "kitty +kitten ssh"
+  alias icat "kitty +kitten icat"
+end
 
 # exa
 alias ls "exa -l"
@@ -32,7 +37,6 @@ alias ca cargo
 alias cabu "cargo build"
 alias caru "cargo run"
 alias cate "cargo test"
-alias cats "cargo nextest"
 
 # navigations
 alias ... "cd ../.."
