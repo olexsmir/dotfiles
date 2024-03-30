@@ -1,7 +1,9 @@
+# vim: ft=gitconfig
+
 [user]
     name = Smirnov Oleksandr
     email = ss2316544@gmail.com
-    signingkey = 300387B5D7EE0DB2
+    signingkey = 02BE5DDFB607A8F79E1B8F0B300387B5D7EE0DB2
 
 [github]
     name = olexsmir
@@ -11,6 +13,7 @@
 
 [core]
     editor = nvim
+    pager = delta
 
 [init]
     defaultBranch = "main"
@@ -27,3 +30,29 @@
     p = pull
     re = restore
     r = rebase
+
+[interactive]
+    diffFilter = delta
+
+[delta]
+    features = tokyonight
+
+    true-color = always
+    navigate = true
+    light = false
+    keep-plus-minus-markers = true
+    line-numbers = true
+    file-decoration-style = none
+
+[delta "tokyonight"]
+    minus-style                   = syntax "#37222c"
+    minus-non-emph-style          = syntax "#37222c"
+    minus-emph-style              = syntax "#713137"
+    minus-empty-line-marker-style = syntax "#37222c"
+    line-numbers-minus-style      = "#b2555b"
+    plus-style                    = syntax "#20303b"
+    plus-non-emph-style           = syntax "#20303b"
+    plus-emph-style               = syntax "#2c5a66"
+    plus-empty-line-marker-style  = syntax "#20303b"
+    line-numbers-plus-style       = "#266d6a"
+    line-numbers-zero-style       = "#3b4261"
