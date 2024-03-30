@@ -12,6 +12,9 @@ if test $TERM = "xterm-kitty"
   alias icat "kitty +kitten icat"
 end
 
+alias killbt "rfkill block bluetooth"
+alias unkillbt "rfkill unblock bluetooth"
+
 # exa
 alias ls "exa -l"
 alias la "ls -a"
