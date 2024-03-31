@@ -5,7 +5,7 @@
   },
 
   "clock": {
-    "format": "  {:%a, %d %b %I:%M}", // replace %I with %H for 24h format
+    "format": "  {:%a, %d %b %H:%M}", // replace %I with %H for 24h format
     "tooltip": true,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click": "morgen"
