@@ -25,7 +25,13 @@
     sw = switch
 
 [interactive]
-    diffFilter = delta
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [delta]
     features = tokyonight
