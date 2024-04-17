@@ -17,7 +17,7 @@ if status is-interactive
   set fish_greeting
   starship init fish | source
   zoxide init fish | source
-  fnm env | source
+  mise activate fish | source
 
   function fish_user_key_bindings
     fish_vi_key_bindings
