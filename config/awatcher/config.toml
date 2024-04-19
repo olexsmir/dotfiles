@@ -1,0 +1,20 @@
+[server]
+host = "localhost"
+port = 5600
+
+[awatcher]
+idle-timeout-seconds=120
+poll-time-idle-seconds=5
+poll-time-window-seconds=1
+
+[[awatcher.filters]]
+match-app-id = "Spotify"
+replace-app-id = "Spotify"
+
+[[awatcher.filters]]
+match-app-id = "org.pwmt.zathura"
+replace-app-id = "Zathura"
+
+[[awatcher.filters]]
+match-app-id = "Brave-browser"
+replace-title = "Brave"
