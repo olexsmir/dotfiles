@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+
+ln -sf "$PWD/zshrc" "$HOME/.zshrc"
+ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
+ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
+
+mkdir -p "$HOME/bin/"
+for file in $(find "$PWD/bin" -type f); do
+    ln -sf "$file" "$HOME/bin"
+done
+
+mkdir -p "$HOME/.config/"
+ln -sf "$PWD/config/alacritty.yml" "$HOME/.config/alacritty.yml"
+ln -sf "$PWD/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
+ln -sf "$PWD/config/starship.toml" "$HOME/.config/starship.toml"
+
+for dir in $(find "$PWD/config/" -type d); do
+    mkdir -p "$HOME/.config${dir#$PWD/config}"
+
+    for file in $(find "$dir" -maxdepth 1 -type f); do
+        ln -sf "$file" "$HOME/.config${file#$PWD/config}"
+    done
+done

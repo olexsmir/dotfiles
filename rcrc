@@ -1,2 +1,0 @@
-EXCLUDES="README.md screen.png .gitmodules bootstrap.sh"
-UNDOTTED="bin"
