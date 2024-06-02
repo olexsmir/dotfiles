@@ -1,3 +1,5 @@
 [tools]
 node = "lts"
 usage = "latest"
+go = "latest"
+golangci-lint = "latest"
