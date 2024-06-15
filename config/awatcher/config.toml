@@ -3,9 +3,9 @@ host = "localhost"
 port = 5600
 
 [awatcher]
-idle-timeout-seconds=120
-poll-time-idle-seconds=5
-poll-time-window-seconds=1
+idle-timeout-seconds = 120
+poll-time-idle-seconds = 5
+poll-time-window-seconds = 1
 
 [[awatcher.filters]]
 match-app-id = "Spotify"
@@ -18,3 +18,11 @@ replace-app-id = "Zathura"
 [[awatcher.filters]]
 match-app-id = "Brave-browser"
 replace-title = "Brave"
+
+[[awatcher.filters]]
+match-app-id = "org.telegram.desktop"
+replace-title = "Telegram"
+
+[[awatcher.filters]]
+match-app-id = "Logseq"
+replace-title = "Logseq"

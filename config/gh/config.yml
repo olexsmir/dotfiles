@@ -4,6 +4,6 @@ editor: nvim
 prompt: enabled
 pager: bat
 aliases:
-  co: pr checkout
-  il: issues list
-  clone: repo clone
+    co: pr checkout
+    il: issues list
+    clone: repo clone

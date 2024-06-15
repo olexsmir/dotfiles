@@ -9,7 +9,8 @@
 ;;   {:shortcuts {:ui/toggle-theme "t z"
 ;;                :ui/toggle-brackets "t b"}}
 
-{:shortcuts {:auto-complete/complete ["enter" "tab"]
- :whiteboard/bring-forward ["close-square-bracket" "ctrl+o"]
- :editor/backward-kill-word ["ctrl+w"]
- :window/close []}}
+{:start-of-week 0 ;; week starts on Monday
+ :shortcuts {:auto-complete/complete ["enter" "tab"]
+             :whiteboard/bring-forward ["close-square-bracket" "ctrl+o"]
+             :editor/backward-kill-word ["ctrl+w"]
+             :window/close []}}
