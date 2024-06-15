@@ -20,8 +20,10 @@
     defaultBranch = "main"
 
 [alias]
+    push-fwl = push --force-with-lease
     l = log --oneline --decorate
-    s = status -sb
+    lg = log --oneline --graph --all
+    st = status -sb
     cm = commit -m
     sw = switch
 
