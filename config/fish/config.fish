@@ -2,12 +2,10 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 
 set -g GOPATH $HOME/go
+
 set -g PATH $HOME/bin $PATH
 set -g PATH $HOME/go/bin $PATH
 set -g PATH $HOME/.local/bin $PATH
-set -g PATH $HOME/.golang/bin $PATH
-set -g PATH $HOME/.yarn/bin $PATH
-set -g PATH $HOME/.cargo/bin $PATH
 set -g PATH $HOME/.bun/bin $PATH
 set -g PATH $HOME/.cargo/bin $PATH
 set -g PATH node_modules/.bin $PATH
