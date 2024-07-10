@@ -26,11 +26,6 @@ symbol = " "
 symbol = " "
 lua_binary = "luajit"
 
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
 [directory]
 truncation_length = 5
 truncate_to_repo = false
