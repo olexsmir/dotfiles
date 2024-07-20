@@ -1,5 +1,10 @@
 [tools]
-node = "lts"
-usage = "latest"
+node = "20.13"
 go = "latest"
 golangci-lint = "latest"
+
+usage = "latest"
+
+[settings]
+go_set_goroot = false
+go_set_gopath = false
