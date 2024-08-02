@@ -5,6 +5,7 @@ alias py python
 alias d docker
 alias dcm "docker compose"
 alias g git
+alias yaegi "rlwrap yaegi"
 
 # kitty specific
 if test $TERM = "xterm-kitty"
