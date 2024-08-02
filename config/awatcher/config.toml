@@ -26,3 +26,19 @@ replace-title = "Telegram"
 [[awatcher.filters]]
 match-app-id = "Logseq"
 replace-title = "Logseq"
+
+[[awatcher.filters]]
+match-app-id = "firefox"
+replace-title = "Firefox"
+
+[[awatcher.filters]]
+match-app-id = "anki"
+replace-title = "Anki"
+
+[[awatcher.filters]]
+match-app-id = "kitty"
+replace-title = "kitty"
+
+[[awatcher.filters]]
+match-app-id = "zoom"
+replace-app-id = "Zoom"
