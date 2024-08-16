@@ -2,9 +2,11 @@
 node = "20.13"
 go = "latest"
 golangci-lint = "latest"
-
+gleam = "latest"
 usage = "latest"
+bun = "latest"
 
 [settings]
 go_set_goroot = false
 go_set_gopath = false
+experimental = true
