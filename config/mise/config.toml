@@ -1,10 +1,11 @@
 [tools]
+usage = "latest" # required for mise to work
+bun = "latest"
 node = "20.13"
+gleam = "latest"
+rebar = "latest"
 go = "latest"
 golangci-lint = "latest"
-gleam = "latest"
-usage = "latest"
-bun = "latest"
 
 [settings]
 go_set_goroot = false
