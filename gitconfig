@@ -21,6 +21,7 @@
 
 [alias]
     push-fwl = push --force-with-lease
+    pu = push
     l = log --oneline --decorate
     lg = log --oneline --graph --all
     st = status -sb
