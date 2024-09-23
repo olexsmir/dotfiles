@@ -4,8 +4,6 @@ alias mkdir "mkdir -p"
 alias py python
 alias d docker
 alias dcm "docker compose"
-alias g git
-alias yaegi "rlwrap yaegi"
 
 # kitty specific
 if test $TERM = "xterm-kitty"
@@ -25,7 +23,12 @@ alias ll ls
 alias vim nvim
 alias e vim
 
+# git
+alias g git
+alias ga "git add"
+
 # go
+alias yaegi "rlwrap yaegi"
 alias gor "go run"
 alias gob "go build"
 alias gog "go get"
