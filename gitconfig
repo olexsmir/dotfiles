@@ -20,7 +20,7 @@
     defaultBranch = "main"
 
 [alias]
-    push-fwl = push --force-with-lease
+    push-force = push --force-with-lease
     pu = push
     l = log --oneline --decorate
     lg = log --oneline --graph --all
@@ -33,6 +33,9 @@
 
 [merge]
     conflictstyle = diff3
+
+[rerere]
+    enabled = true
 
 [diff]
     colorMoved = default
@@ -59,3 +62,9 @@
     plus-empty-line-marker-style  = syntax "#20303b"
     line-numbers-plus-style       = "#266d6a"
     line-numbers-zero-style       = "#3b4261"
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
