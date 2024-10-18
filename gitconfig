@@ -3,13 +3,14 @@
 [user]
     name = Smirnov Oleksandr
     email = ss2316544@gmail.com
-    signingkey = 02BE5DDFB607A8F79E1B8F0B300387B5D7EE0DB2
+	signingkey = /home/olex/.ssh/id_ed25519.pub
 
 [github]
     name = olexsmir
 
 [gpg]
     program = gpg2
+	format = ssh
 
 [core]
     editor = nvim
@@ -68,3 +69,9 @@
 
 [branch]
     sort = -committerdate
+
+[commit]
+	gpgSign = true
+
+[fetch]
+	writeCommitGraph = true
