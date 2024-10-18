@@ -26,6 +26,7 @@ alias e vim
 # git
 alias g git
 alias ga "git add"
+alias gc "git cm"
 
 # go
 alias yaegi "rlwrap yaegi"

@@ -2,6 +2,7 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 
 set -g GOPATH $HOME/go
+set -g GOBIN $GOPATH/bin
 
 set -g PATH $HOME/bin $PATH
 set -g PATH $HOME/go/bin $PATH
