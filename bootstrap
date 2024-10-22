@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+# the path to dir where the script and dotfiles are located
+# set to specific path so this script can be run from anywhere
+dotfilesPath="$HOME/.dotfiles"
+
 create_links_in_dir_recursively() {
-    local base_dir="$PWD/$1"
+    local base_dir="$dotfilesPath/$1"
     local target_dir="$2"
 
     for dir in $(find "$base_dir/" -type d); do
@@ -13,18 +17,18 @@ create_links_in_dir_recursively() {
     done
 }
 
-ln -sf "$PWD/zshrc" "$HOME/.zshrc"
-ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
-ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$dotfilesPath/zshrc" "$HOME/.zshrc"
+ln -sf "$dotfilesPath/gitconfig" "$HOME/.gitconfig"
+ln -sf "$dotfilesPath/tmux.conf" "$HOME/.tmux.conf"
 
 mkdir -p "$HOME/bin/"
-for file in $(find "$PWD/bin" -type f); do
+for file in $(find "$dotfilesPath/bin" -type f); do
     ln -sf "$file" "$HOME/bin"
 done
 
 create_links_in_dir_recursively "config" ".config"
-ln -sf "$PWD/config/alacritty.yml" "$HOME/.config/alacritty.yml"
-ln -sf "$PWD/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
-ln -sf "$PWD/config/starship.toml" "$HOME/.config/starship.toml"
+ln -sf "$dotfilesPath/config/alacritty.yml" "$HOME/.config/alacritty.yml"
+ln -sf "$dotfilesPath/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
+ln -sf "$dotfilesPath/config/starship.toml" "$HOME/.config/starship.toml"
 
 create_links_in_dir_recursively "logseq" ".logseq"
