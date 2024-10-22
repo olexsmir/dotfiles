@@ -6,15 +6,15 @@ set -e
 dotfilesPath="$HOME/.dotfiles"
 
 create_links_in_dir_recursively() {
-    local base_dir="$dotfilesPath/$1"
-    local target_dir="$2"
+  local base_dir="$dotfilesPath/$1"
+  local target_dir="$2"
 
-    for dir in $(find "$base_dir/" -type d); do
-        mkdir -p "$HOME/$target_dir${dir#$base_dir}"
-        for file in $(find "$dir" -maxdepth 1 -type f); do
-            ln -sf "$file" "$HOME/$target_dir${file#$base_dir}"
-        done
+  find "$base_dir/" -type d | while read -r dir; do
+    mkdir -p "$HOME/$target_dir${dir#"$base_dir"}"
+    find "$dir" -maxdepth 1 -type f | while read -r file; do
+      ln -sf "$file" "$HOME/$target_dir${file#"$base_dir"}"
     done
+  done
 }
 
 ln -sf "$dotfilesPath/zshrc" "$HOME/.zshrc"
@@ -22,9 +22,7 @@ ln -sf "$dotfilesPath/gitconfig" "$HOME/.gitconfig"
 ln -sf "$dotfilesPath/tmux.conf" "$HOME/.tmux.conf"
 
 mkdir -p "$HOME/bin/"
-for file in $(find "$dotfilesPath/bin" -type f); do
-    ln -sf "$file" "$HOME/bin"
-done
+find "$dotfilesPath/bin" -type f -exec ln -sf {} "$HOME/bin/" \;
 
 create_links_in_dir_recursively "config" ".config"
 ln -sf "$dotfilesPath/config/alacritty.yml" "$HOME/.config/alacritty.yml"
