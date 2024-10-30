@@ -5,28 +5,38 @@ set -e
 # set to specific path so this script can be run from anywhere
 dotfilesPath="$HOME/.dotfiles"
 
+h() { # ln -sf and logs path
+    ln -sf "$1" "$2"
+    echo "[ln] $2"
+}
+
+mkd() { # mkdir -p and logs path
+    mkdir -p "$1"
+    echo "[mkdir] $1"
+}
+
 create_links_in_dir_recursively() {
   local base_dir="$dotfilesPath/$1"
   local target_dir="$2"
 
   find "$base_dir/" -type d | while read -r dir; do
-    mkdir -p "$HOME/$target_dir${dir#"$base_dir"}"
+    mkd "$HOME/$target_dir${dir#"$base_dir"}"
     find "$dir" -maxdepth 1 -type f | while read -r file; do
-      ln -sf "$file" "$HOME/$target_dir${file#"$base_dir"}"
+      h "$file" "$HOME/$target_dir${file#"$base_dir"}"
     done
   done
 }
 
-ln -sf "$dotfilesPath/zshrc" "$HOME/.zshrc"
-ln -sf "$dotfilesPath/gitconfig" "$HOME/.gitconfig"
-ln -sf "$dotfilesPath/tmux.conf" "$HOME/.tmux.conf"
+h "$dotfilesPath/zshrc" "$HOME/.zshrc"
+h "$dotfilesPath/gitconfig" "$HOME/.gitconfig"
+h "$dotfilesPath/tmux.conf" "$HOME/.tmux.conf"
 
-mkdir -p "$HOME/bin/"
+mkd "$HOME/bin/"
 find "$dotfilesPath/bin" -type f -exec ln -sf {} "$HOME/bin/" \;
 
 create_links_in_dir_recursively "config" ".config"
-ln -sf "$dotfilesPath/config/alacritty.yml" "$HOME/.config/alacritty.yml"
-ln -sf "$dotfilesPath/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
-ln -sf "$dotfilesPath/config/starship.toml" "$HOME/.config/starship.toml"
+h "$dotfilesPath/config/alacritty.yml" "$HOME/.config/alacritty.yml"
+h "$dotfilesPath/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
+h "$dotfilesPath/config/starship.toml" "$HOME/.config/starship.toml"
 
 create_links_in_dir_recursively "logseq" ".logseq"
