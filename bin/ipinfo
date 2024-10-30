@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -s ipinfo.io | jq "del(.readme) | del(.loc) | ."
