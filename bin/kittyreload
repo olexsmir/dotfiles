@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+kill -SIGUSR1 "$(pidof kitty | awk '{ print $1 }')"
