@@ -1,5 +1,5 @@
 [tools]
-usage = "latest" # required for mise to work
+usage = "latest"
 bun = "latest"
 gleam = "latest"
 rebar = "latest"
@@ -7,8 +7,10 @@ go = "latest"
 golangci-lint = "latest"
 deno = "latest"
 node = "lts"
+shellcheck = "latest"
+shfmt = "latest"
 
 [settings]
+experimental = true
 go_set_goroot = false
 go_set_gopath = false
-experimental = true
