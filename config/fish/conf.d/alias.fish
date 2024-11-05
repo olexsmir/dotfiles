@@ -6,7 +6,6 @@ alias d docker
 alias dcm "docker compose"
 alias free "free -h"
 alias df "df -h"
-alias dot "cd ~/.dotfiles"
 alias chmox "chmod +x"
 
 # kitty specific
