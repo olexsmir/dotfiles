@@ -7,3 +7,4 @@ aliases:
     co: pr checkout
     il: issues list
     clone: repo clone
+    ask: copilot suggest
