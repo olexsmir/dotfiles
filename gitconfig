@@ -28,6 +28,7 @@
     st = status -sb
     cm = commit -m
     sw = switch
+    unfuck = reset HEAD~1 --soft
 
 [interactive]
     diffFilter = delta --color-only
