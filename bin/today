@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-p=$HOME/Documents/Syncthing/logseq/journals
+p=$HOME/Documents/Obsidian/journal
 d=$(date +%Y-%m-%d)
 [ -d "$p" ] && exec nvim "$p/$d.md"

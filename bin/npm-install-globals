@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec npm i -g yaml-language-server vscode-langservers-extracted typescript-language-server bash-language-server svelte-language-server
+exec npm i -g yaml-language-server vscode-langservers-extracted typescript-language-server bash-language-server

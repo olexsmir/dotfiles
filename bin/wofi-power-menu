@@ -2,19 +2,19 @@
 
 entries="⏻ poweroff\n⇠ logout\n⏾ suspend\n⭮ reboot"
 selected=$(echo -e "$entries" |
-	wofi --dmenu --cache-file /dev/null |
-	awk '{print tolower($2)}')
+  wofi --dmenu --cache-file /dev/null |
+  awk '{print tolower($2)}')
 
 shall_continue() {
-	entries="Yes\nNo"
-	selected=$(echo -e "$entries" |
-		wofi --dmenu --cache-file /dev/null |
-		awk '{print tolower($1)}')
+  entries="Yes\nNo"
+  selected=$(echo -e "$entries" |
+    wofi --dmenu --cache-file /dev/null |
+    awk '{print tolower($1)}')
 
-	case $selected in
-	yes) exec "$@" ;;
-	no) exit 0 ;;
-	esac
+  case $selected in
+  yes) exec "$@" ;;
+  no) exit 0 ;;
+  esac
 }
 
 case $selected in
