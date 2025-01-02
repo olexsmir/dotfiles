@@ -1,16 +1,13 @@
 # vim: ft=gitconfig
 
 [user]
-    name = Smirnov Oleksandr
-    email = ss2316544@gmail.com
-	signingkey = /home/olex/.ssh/id_ed25519.pub
-
-[github]
-    name = olexsmir
+    name = Oleksandr Smirnov
+    email = olexsmir@gmail.com
+    signingkey = /home/olex/.ssh/id_ed25519.pub
 
 [gpg]
     program = gpg2
-	format = ssh
+    format = ssh
 
 [core]
     editor = nvim
@@ -72,7 +69,7 @@
     sort = -committerdate
 
 [commit]
-	gpgSign = true
+    gpgSign = true
 
 [fetch]
-	writeCommitGraph = true
+    writeCommitGraph = true
