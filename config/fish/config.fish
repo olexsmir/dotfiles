@@ -17,6 +17,7 @@ if status is-interactive
   starship init fish | source
   zoxide init fish | source
   mise activate fish | source
+  direnv hook fish | source
 
   function fish_user_key_bindings
     fish_vi_key_bindings
