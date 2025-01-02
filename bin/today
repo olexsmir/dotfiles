@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-p=$HOME/Documents/Obsidian/journal
+p="$HOME/org/roam/daily"
 d=$(date +%Y-%m-%d)
-[ -d "$p" ] && exec nvim "$p/$d.md"
+[ -d "$p" ] && exec $EDITOR "$p/$d.org"
