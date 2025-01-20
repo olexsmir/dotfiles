@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-p="$HOME/org/roam/daily"
-d=$(date +%Y-%m-%d)
-[ -d "$p" ] && exec $EDITOR "$p/$d.org"
+p="$HOME/Documents/Obsidian/journal"
+[ -d "$p" ] && exec $EDITOR "$p/$(date +%Y-%m-%d).md"

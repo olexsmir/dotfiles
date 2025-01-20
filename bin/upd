@@ -9,5 +9,5 @@ upd_scripts=(
 for path in "${upd_scripts[@]}"; do
   echo -e "\e[32m====== $path\e[0m"
   cd "$path" || exit 1
-  "$path"/"$upd_fname"
+  "$path"/"$upd_fname" || exit 1
 done
