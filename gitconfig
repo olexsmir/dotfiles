@@ -25,7 +25,7 @@
     st = status -sb
     cm = commit -m
     sw = switch
-    unfuck = reset HEAD~1 --soft
+    unfuck = !git-unfuck
     main = !git switch master 2>/dev/null || git switch main
 
 [interactive]

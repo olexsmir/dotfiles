@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+git log -1 --format="%h - %an, %ar : %s"
+git reset HEAD~1 --soft
