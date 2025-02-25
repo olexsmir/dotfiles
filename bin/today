@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-p="$HOME/Documents/Obsidian/journal"
-[ -d "$p" ] && exec $EDITOR "$p/$(date +%Y-%m-%d).md"

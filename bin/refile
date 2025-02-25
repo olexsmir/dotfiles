@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-f="$HOME/org/refile.org"
-[ -f "$f" ] && exec $EDITOR "$f"
