@@ -32,13 +32,22 @@
     diffFilter = delta --color-only
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
 
 [rerere]
     enabled = true
+    autoupdate = true
 
 [diff]
-    colorMoved = default
+    algorithm = histogram
+    colorMoved = true
+    mnemonicPrefix = true
+    renames = true
 
 [delta]
     features = tokyonight
@@ -71,6 +80,21 @@
 
 [commit]
     gpgSign = true
+    verbose = true
 
 [fetch]
     writeCommitGraph = true
+    prune = true
+    pruneTags = true
+    all = true
+
+[tag]
+    sort = version:refname
+
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+
+[help]
+    autocorrect = prompt
