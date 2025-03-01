@@ -1,3 +1,3 @@
 function srtdock
-    sudo systemctl start docker
+  sudo systemctl start docker
 end

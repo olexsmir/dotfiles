@@ -1,54 +1,32 @@
 alias cls clear
 alias cp "cp -r"
 alias mkdir "mkdir -p"
-alias py python
-alias d docker
-alias dcm "docker compose"
 alias free "free -h"
 alias df "df -h"
+alias du "du -h"
 alias chmox "chmod +x"
 
-# kitty specific
-if test $TERM = "xterm-kitty"
-  alias ssh "kitty +kitten ssh"
-  alias icat "kitty +kitten icat"
-end
+alias vim nvim
+alias e vim
+
+alias f hledger
+alias g git
+alias d docker
+alias dcm "docker compose"
+
+alias ... "cd ../.."
+alias .3 "cd ../../.."
 
 alias killbt "rfkill block bluetooth"
 alias unkillbt "rfkill unblock bluetooth"
 
-# exa
-alias ls "exa -l"
-alias la "ls -a"
-alias ll ls
+if type -q eza
+  alias ls "eza -l"
+  alias la "ls -a"
+  alias ll ls
+end
 
-# vim
-alias vim nvim
-alias e vim
-
-# git
-alias g git
-alias ga "git add"
-alias gc "git cm"
-
-# go
-alias yaegi "rlwrap yaegi"
-alias gor "go run"
-alias gob "go build"
-alias gog "go get"
-alias gom "go mod"
-
-# clojure
-alias cljcider "clj -M:cider"
-alias cljrun "clj -M:run"
-alias cljtest "clj -M:test"
-
-# rust
-alias ca cargo
-alias cabu "cargo build"
-alias caru "cargo run"
-alias cate "cargo test"
-
-# navigations
-alias ... "cd ../.."
-alias .3 "cd ../../.."
+if test $TERM = "xterm-kitty"
+  alias ssh "kitty +kitten ssh"
+  alias icat "kitty +kitten icat"
+end
