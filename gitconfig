@@ -3,11 +3,14 @@
 [user]
     name = Oleksandr Smirnov
     email = olexsmir@gmail.com
-    signingkey = /home/olex/.ssh/id_ed25519.pub
+    signingkey = ~/.ssh/id_ed25519.pub
 
 [gpg]
     program = gpg2
     format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git_allowed_signers
 
 [core]
     editor = nvim
