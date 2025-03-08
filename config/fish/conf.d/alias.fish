@@ -6,10 +6,6 @@ alias df "df -h"
 alias du "du -h"
 alias chmox "chmod +x"
 
-alias vim nvim
-alias e vim
-
-alias f hledger
 alias g git
 alias d docker
 alias dcm "docker compose"
@@ -19,6 +15,13 @@ alias .3 "cd ../../.."
 
 alias killbt "rfkill block bluetooth"
 alias unkillbt "rfkill unblock bluetooth"
+
+if type -q hledger; alias f hledger; end
+
+if type -q nvim
+  alias vim nvim
+  alias e vim
+end
 
 if type -q eza
   alias ls "eza -l"
