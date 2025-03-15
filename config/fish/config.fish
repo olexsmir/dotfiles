@@ -6,7 +6,7 @@ set -g GOBIN $GOPATH/bin
 
 set -g PATH $HOME/bin $PATH
 set -g PATH $HOME/.local/bin $PATH
-set -g PATH $HOME/go/bin $PATH
+set -g PATH $GOBIN $PATH
 set -g PATH node_modules/.bin $PATH
 set -g PATH .bin $PATH
 
