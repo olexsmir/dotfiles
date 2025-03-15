@@ -1,11 +1,7 @@
 [tools]
 usage = "latest"
-bun = "latest"
-gleam = "latest"
-rebar = "latest"
 go = "latest"
 golangci-lint = "latest"
-deno = "latest"
 node = "lts"
 shellcheck = "latest"
 shfmt = "latest"
