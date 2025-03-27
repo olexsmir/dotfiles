@@ -8,5 +8,5 @@ bat cache --build
 
 read -p $'\e[32mDo you want to set the theme to tokyonight_night?\e[0m [y/N]:' -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo '--theme="tokyonight_night"' >> "$(bat --config-dir)/config"
+  echo '--theme="tokyonight_night"' >>"$(bat --config-dir)/config"
 fi
