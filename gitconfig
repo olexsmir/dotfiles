@@ -18,7 +18,7 @@
     quotePath = false
 
 [init]
-    defaultBranch = "main"
+    defaultBranch = main
 
 [alias]
     push-force = push --force-with-lease
