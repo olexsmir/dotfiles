@@ -4,6 +4,7 @@ set -gx VISUAL nvim
 set -g GOPATH $HOME/go
 set -g GOBIN $GOPATH/bin
 
+set -g PATH $GOBIN $PATH
 set -g PATH $HOME/bin $PATH
 set -g PATH $HOME/.local/bin $PATH
 set -g PATH $GOBIN $PATH
