@@ -2,10 +2,10 @@
   "general": {
     "keep_running_in_background": false,
     "autostart": false,
-    "sync_on_startup": false,
+    "sync_on_startup": true,
     "sync_on_metered": false,
     "sync_every": {
-      "Predefined": "HalfHour"
+      "Predefined": "QuaterHour"
     }
   },
   "advanced": {
@@ -15,8 +15,7 @@
     "inspect_article_view": false,
     "article_view_load_images": true,
     "ping_url": [
-      "http://example.com/",
-      "https://google.com/"
+      "http://example.com/"
     ]
   },
   "feed_list": {
@@ -29,15 +28,15 @@
     "hide_future_articles": true
   },
   "article_view": {
-    "theme": "Spring"
+    "theme": "Default"
   },
   "keybindings": {
     "general": {
       "refresh": "<Control>r",
       "search": "<ctl>F",
-      "all_articles": "<ctl>1",
-      "only_unread": "<ctl>2",
-      "only_starred": "<ctl>3"
+      "all_articles": "q",
+      "only_unread": "w",
+      "only_starred": "e"
     },
     "article_view": {
       "scroll_up": "k",
@@ -67,8 +66,8 @@
     "twitter_enabled": false,
     "mastodon_enabled": false,
     "reddit_enabled": false,
-    "telegram_enabled": false,
-    "clipboard_enabled": false,
+    "telegram_enabled": true,
+    "clipboard_enabled": true,
     "custom_enabled": false,
     "custom_name": null,
     "custom_url": null
@@ -78,19 +77,27 @@
       "inline_math": null,
       "scrap_content": true
     },
+    "feed/135": {
+      "inline_math": null,
+      "scrap_content": true
+    },
+    "feed/27": {
+      "inline_math": null,
+      "scrap_content": true
+    },
+    "feed/141": {
+      "inline_math": null,
+      "scrap_content": true
+    },
     "feed/40": {
       "inline_math": null,
       "scrap_content": false
     },
-    "feed/29": {
-      "inline_math": null,
-      "scrap_content": true
-    },
-    "feed/42": {
+    "feed/75": {
       "inline_math": null,
       "scrap_content": false
     },
-    "feed/27": {
+    "feed/132": {
       "inline_math": null,
       "scrap_content": true
     }
