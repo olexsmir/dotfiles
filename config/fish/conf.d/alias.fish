@@ -1,5 +1,7 @@
 alias cls clear
-alias cp "cp -r"
+alias cp "cp -ri"
+alias rm "rm -i"
+alias mv "mv -i"
 alias mkdir "mkdir -p"
 alias free "free -h"
 alias df "df -h"
