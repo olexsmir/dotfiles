@@ -34,6 +34,11 @@
 
 [merge]
     conflictstyle = zdiff3
+    tool = nvim-diffview
+
+[merge "nvim-diffview"]
+  cmd = "nvim +DiffviewOpen"
+  prompt = false
 
 [rebase]
     autoSquash = true
