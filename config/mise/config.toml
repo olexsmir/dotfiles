@@ -1,13 +1,14 @@
 [tools]
-usage = "latest"
 go = "latest"
 golangci-lint = "latest"
+golangci-lint-langserver = "latest"
 node = "lts"
 shellcheck = "latest"
 shfmt = "latest"
+usage = "latest"
 
 [settings]
 experimental = true
-go_set_goroot = false
-go_set_gopath = false
 go_set_gobin = false
+go_set_gopath = false
+go_set_goroot = false
