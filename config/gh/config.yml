@@ -9,3 +9,4 @@ aliases:
   clone: repo clone
   ask: copilot suggest
   prv: pr view --web
+  repov: repo view --web
