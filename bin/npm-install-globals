@@ -2,5 +2,6 @@
 exec npm i -g npm \
   yaml-language-server \
   vscode-langservers-extracted \
+  typescript \
   typescript-language-server \
   bash-language-server
