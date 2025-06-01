@@ -7,6 +7,7 @@ alias free "free -h"
 alias df "df -h"
 alias du "du -h"
 alias chmox "chmod +x"
+alias ":q" exit
 
 alias g git
 alias d docker
