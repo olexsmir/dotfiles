@@ -165,7 +165,7 @@ binds {
   Mod+Q { close-window; }
   Mod+Return { spawn "kitty"; }
   Mod+Shift+Return { spawn "wofi" "--show" "drun"; }
-  Mod+Shift+Escape { spawn "~/bin/wofi-power-menu"; }
+  Mod+Shift+Escape { spawn "~/bin/wofi-power-menu" "niri";}
   Super+Alt+L { spawn "swaylock"; } // TODO: change to hyprlock
 
   // programs {{{

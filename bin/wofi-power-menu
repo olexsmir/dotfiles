@@ -18,7 +18,12 @@ shall_continue() {
 }
 
 case $selected in
-logout) shall_continue hyprctl dispatch exit ;;
+logout)
+  case $1 in
+    "niri") shall_continue niri msg action quit ;;
+    "hypr") shall_continue hyprctl dispatch exit ;;
+  esac
+  ;;
 suspend) shall_continue systemctl suspend ;;
 reboot) shall_continue systemctl reboot ;;
 poweroff) shall_continue systemctl poweroff ;;
