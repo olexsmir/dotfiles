@@ -1,0 +1,6 @@
+[Unit]
+Description=sync notes
+
+[Service]
+Type=oneshot
+ExecStart=/home/olex/org/upd.sh

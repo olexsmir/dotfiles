@@ -1,0 +1,9 @@
+[Unit]
+Description=sync notes at 17:00 daily
+
+[Timer]
+OnCalendar=*-*-* 17:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
