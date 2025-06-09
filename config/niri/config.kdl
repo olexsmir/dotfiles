@@ -3,6 +3,7 @@
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";
 spawn-at-startup "~/.config/niri/waybar"
 spawn-at-startup "dunst";
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wlsunset" "-S" "9:00" "-s" "21:00";
 // }}}
 // env {{{
@@ -49,13 +50,16 @@ output "HDMI-A-1" {
   scale 1
   transform "normal"
   position x=0 y=0
+  background-color "#000000"
 }
 
 output "eDP-1" {
+  focus-at-startup
   mode "1920x1080@60.001"
   scale 1
   transform "normal"
   position x=1920 y=144
+  background-color "#000020"
 }
 /// }}}
 // Layout {{{
@@ -94,34 +98,65 @@ animations {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 // https://github.com/YaLTeR/niri/wiki/Configuration:-move-column-to-workspace
 
-workspace "tools"
-workspace "web"
-workspace "dev"
-workspace "media"
 workspace "laptop" { open-on-output "eDP-1"; }
+workspace "tools" { open-on-output "HDMI-A-1"; }
+workspace "web"{ open-on-output "HDMI-A-1"; }
+workspace "dev"{ open-on-output "HDMI-A-1"; }
+workspace "media" { open-on-output "HDMI-A-1"; }
 
 window-rule {
   match app-id=r#"anki$"#
   match app-id=r#"obsidian$"#
+  match app-id=r#"thunderbird$"#
   match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-
+  match app-id=r#"^org\.telegram\.desktop$"#
   open-on-workspace "tools"
 }
 
 window-rule {
   match app-id=r#"zen$"#
   match app-id=r#"brave$"#
-
   open-on-workspace "web"
 }
 
-window-rule { // zen browser's picture in picture
-  match app-id=r#"zen$"# title="^Picture-in-Picture$"
+window-rule {
+  match app-id=r#"Spotify$"#
+  match app-id=r#"^org.gnome.Snapshot$"#
+  open-on-workspace "laptop"
+}
+
+window-rule {
+  match app-id=r#"Spotify$"#
+  match app-id=r#"zen$"#
+  match app-id=r#"brave$"#
+  match app-id=r#"kitty$"#
+  match app-id=r#"anki$"#
+  match app-id=r#"obsidian$"#
+  open-maximized true
+}
+
+window-rule {
+  match app-id=r#"pavucontrol$"#
   open-floating true
 }
 
 window-rule {
+  match is-window-cast-target=true
+  border { inactive-color "#7d0d2d"; }
+  shadow { color "#7d0d2d70"; }
+  focus-ring {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
+  tab-indicator {
+    active-color "#f38ba8"
+    inactive-color "#7d0d2d"
+  }
+}
+
+window-rule {
   match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"obsidian$"#
   block-out-from "screen-capture"
 }
 // }}}
@@ -182,10 +217,10 @@ binds {
   Mod+Equal { set-column-width "+10%"; }
   // }}}
   // monitor navigation {{{
-  Mod+m { focus-monitor-left; }
-  Mod+Comma { focus-monitor-right; }
-  Mod+Shift+m { move-column-to-monitor-left; }
-  Mod+Shift+Comma { move-column-to-monitor-right; }
+  Mod+Comma { focus-monitor-left; }
+  Mod+Period { focus-monitor-right; }
+  Mod+Shift+Comma { move-column-to-monitor-left; }
+  Mod+Shift+Period { move-column-to-monitor-right; }
   // }}}
   // workspaces {{{
   Mod+1 { focus-workspace 1; }
