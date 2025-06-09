@@ -10,11 +10,11 @@
     "~/.config/waybar/modules/info.json",
     "~/.config/waybar/modules/niri.json"
   ],
-
   "modules-left": ["niri/workspaces", "niri/window"],
-  "modules-center": ["clock", "cpu"],
+  "modules-center": ["clock"],
   "modules-right": [
     "memory",
+    "cpu",
     "tray",
     "niri/language",
     "backlight",
