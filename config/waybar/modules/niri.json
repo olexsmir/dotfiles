@@ -1,0 +1,17 @@
+{
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "tools": "󰅨",
+      "web": "󰖟",
+      "dev": "",
+      "media": "󰎄",
+      "default": ""
+    }
+  },
+  "niri/language": {
+    "format": "󰌌  {}",
+    "format-uk": "укр",
+    "format-en": "eng"
+  }
+}

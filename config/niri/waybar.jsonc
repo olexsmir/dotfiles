@@ -1,0 +1,25 @@
+{
+  "position": "top",
+  "layer": "top",
+  "height": 14,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "include": [
+    "~/.config/waybar/modules/info.json",
+    "~/.config/waybar/modules/niri.json"
+  ],
+
+  "modules-left": ["niri/workspaces", "niri/window"],
+  "modules-center": ["clock", "cpu"],
+  "modules-right": [
+    "memory",
+    "tray",
+    "niri/language",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "network"
+  ]
+}

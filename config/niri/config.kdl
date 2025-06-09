@@ -1,0 +1,207 @@
+// vim: foldmethod=marker ts=2 sw=2
+// auto start {{{
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";
+spawn-at-startup "~/.config/niri/waybar"
+spawn-at-startup "dunst";
+spawn-at-startup "wlsunset" "-S" "9:00" "-s" "21:00";
+// }}}
+// env {{{
+environment {
+  DISPLAY ":0"
+  QT_QPA_PLATFORM "wayland;xcb"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+// }}}
+// inputs {{{
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+input {
+  keyboard {
+    numlock
+    xkb {
+      layout "us,ua"
+      options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+    }
+  }
+  focus-follows-mouse
+  touchpad {
+    tap
+    dwt
+    // dwtp
+    // drag false
+    // drag-lock
+    // natural-scroll
+    accel-speed 0.1
+    accel-profile "adaptive"
+    scroll-method "two-finger"
+    // disabled-on-external-mouse
+  }
+  mouse {
+    accel-speed 0.0
+    accel-profile "flat"
+  }
+}
+/// }}}
+// Monitors {{{
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+output "HDMI-A-1" {
+  focus-at-startup
+  mode "1920x1080@100.00"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+}
+
+output "eDP-1" {
+  mode "1920x1080@60.001"
+  scale 1
+  transform "normal"
+  position x=1920 y=144
+}
+/// }}}
+// Layout {{{
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+layout {
+  gaps 0
+  center-focused-column "never"
+  default-column-width { proportion 0.5; }
+  border { off; }
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+  focus-ring {
+    width 2
+    active-color "#7aa2f7"
+    inactive-color "#292e42"
+  }
+}
+// }}}
+// general {{{
+// disables client-side decorrations if possible
+prefer-no-csd
+
+// set to null if u want disable saving to disk behavior
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+  // off
+  slowdown 1.0
+}
+// }}}
+// window/workspace rules {{{
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+// https://github.com/YaLTeR/niri/wiki/Configuration:-move-column-to-workspace
+
+workspace "tools"
+workspace "web"
+workspace "dev"
+workspace "media"
+workspace "laptop" { open-on-output "eDP-1"; }
+
+window-rule {
+  match app-id=r#"anki$"#
+  match app-id=r#"obsidian$"#
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+
+  open-on-workspace "tools"
+}
+
+window-rule {
+  match app-id=r#"zen$"#
+  match app-id=r#"brave$"#
+
+  open-on-workspace "web"
+}
+
+window-rule { // zen browser's picture in picture
+  match app-id=r#"zen$"# title="^Picture-in-Picture$"
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  block-out-from "screen-capture"
+}
+// }}}
+// keybinds {{{
+binds {
+  Mod+Q { close-window; }
+  Mod+Return { spawn "kitty"; }
+  Mod+Shift+Return { spawn "wofi" "--show" "drun"; }
+  Mod+Shift+Escape { spawn "~/bin/wofi-power-menu"; }
+  Super+Alt+L { spawn "swaylock"; } // TODO: change to hyprlock
+
+  // programs {{{
+  Mod+Shift+a { spawn "anki"; }
+  Mod+Shift+d { spawn "obsidian"; }
+  // Mod+Shift+f { spawn "newsflash"; } // TODO: fix conflict
+  Mod+Shift+s { spawn "spotify"; }
+  Mod+Shift+t { spawn "telegram-desktop"; }
+  Mod+Shift+w { spawn "zen-browser"; }
+  // }}}
+  // func keys {{{
+  // audio
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+  XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
+  XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "prev"; }
+  // brighthness
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+  // screen shots
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+  // }}}
+  // wm {{{
+  Mod+O repeat=false { toggle-overview; }
+  Alt+Tab { focus-window-previous; }
+
+  // window management {{{
+  Mod+r { switch-preset-column-width; }
+  Mod+t { maximize-column; }
+  Mod+f { fullscreen-window; }
+
+  Mod+Ctrl+f       { toggle-window-floating; }
+
+  Mod+h { focus-column-left; }
+  Mod+j { focus-window-down; }
+  Mod+k { focus-window-up; }
+  Mod+l { focus-column-right; }
+  Mod+Shift+h { move-column-left; }
+  Mod+Shift+j { move-window-down; }
+  Mod+Shift+k { move-window-up; }
+  Mod+Shift+l { move-column-right; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+  // }}}
+  // monitor navigation {{{
+  Mod+m { focus-monitor-left; }
+  Mod+Comma { focus-monitor-right; }
+  Mod+Shift+m { move-column-to-monitor-left; }
+  Mod+Shift+Comma { move-column-to-monitor-right; }
+  // }}}
+  // workspaces {{{
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
+
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  // }}}
+  // }}}
+}
+// }}}

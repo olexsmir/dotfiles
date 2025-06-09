@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+waybar -c ~/.config/niri/waybar.jsonc
