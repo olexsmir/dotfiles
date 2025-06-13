@@ -4,7 +4,6 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";
 spawn-at-startup "~/.config/niri/waybar"
 spawn-at-startup "dunst";
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "wlsunset" "-S" "9:00" "-s" "21:00";
 // }}}
 // env {{{
 environment {
@@ -23,7 +22,6 @@ input {
       options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
     }
   }
-  focus-follows-mouse
   touchpad {
     tap
     dwt
@@ -90,7 +88,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-  // off
+  off
   slowdown 1.0
 }
 // }}}
@@ -105,45 +103,53 @@ workspace "dev"{ open-on-output "HDMI-A-1"; }
 workspace "media" { open-on-output "HDMI-A-1"; }
 
 window-rule {
-  match app-id=r#"anki$"#
-  match app-id=r#"obsidian$"#
-  match app-id=r#"thunderbird$"#
-  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-  match app-id=r#"^org\.telegram\.desktop$"#
+  match app-id="anki"
+  match app-id="obsidian"
+  match app-id="thunderbird"
+  match app-id="org.keepassxc.KeePassXC"
+  match app-id="org.telegram.desktop"
+  match app-id="io.gitlab.news_flash.NewsFlash"
   open-on-workspace "tools"
 }
 
 window-rule {
-  match app-id=r#"zen$"#
-  match app-id=r#"brave$"#
+  match app-id="zen"
+  match app-id="brave"
   open-on-workspace "web"
 }
 
 window-rule {
-  match app-id=r#"Emacs$"#
-  match app-id=r#"Code$"#
+  match app-id="Emacs"
+  match app-id="Code"
   open-on-workspace "dev"
 }
 
 window-rule {
-  match app-id=r#"Spotify$"#
-  match app-id=r#"^org.gnome.Snapshot$"#
-  match app-id=r#"sleek$"#
+  match app-id="Spotify"
+  match app-id="org.gnome.Snapshot"
+  match app-id="sleek"
   open-on-workspace "laptop"
 }
 
 window-rule {
-  match app-id=r#"Spotify$"#
-  match app-id=r#"zen$"#
-  match app-id=r#"brave$"#
-  match app-id=r#"kitty$"#
-  match app-id=r#"anki$"#
-  match app-id=r#"obsidian$"#
+  match app-id="org.gnome.Solanum"
+  exclude app-id="zen"
+  open-on-workspace "laptop"
+}
+
+window-rule {
+  match app-id="Spotify"
+  match app-id="zen"
+  match app-id="brave"
+  match app-id="kitty"
+  match app-id="anki"
+  match app-id="obsidian"
   open-maximized true
 }
 
 window-rule {
-  match app-id=r#"pavucontrol$"#
+  match app-id="pavucontrol"
+  match app-id="org.gnome.Solanum"
   open-floating true
 }
 
@@ -176,12 +182,12 @@ binds {
   Super+Alt+L { spawn "swaylock"; } // TODO: change to hyprlock
 
   // programs {{{
-  Mod+Ctrl+a { spawn "anki"; }
-  Mod+Ctrl+d { spawn "obsidian"; }
+  Mod+Shift+a { spawn "anki"; }
+  Mod+Shift+d { spawn "obsidian"; }
   // Mod+Shift+f { spawn "newsflash"; } // TODO: fix conflict
-  Mod+Ctrl+s { spawn "spotify"; }
-  Mod+Ctrl+t { spawn "telegram-desktop"; }
-  Mod+Ctrl+w { spawn "zen-browser"; }
+  Mod+Shift+s { spawn "spotify"; }
+  Mod+Shift+t { spawn "telegram-desktop"; }
+  Mod+Shift+w { spawn "zen-browser"; }
   // }}}
   // func keys {{{
   // audio
@@ -207,7 +213,7 @@ binds {
   // window management {{{
   Mod+r { switch-preset-column-width; }
   Mod+t { maximize-column; }
-  Mod+e { fullscreen-window; }
+  Mod+f { fullscreen-window; }
 
   Mod+Ctrl+f { toggle-window-floating; }
 
@@ -230,16 +236,16 @@ binds {
   Mod+Shift+Period { move-column-to-monitor-right; }
   // }}}
   // workspaces {{{
-  Mod+a { focus-workspace 1; }
-  Mod+s { focus-workspace 2; }
-  Mod+d { focus-workspace 3; }
-  Mod+f { focus-workspace 4; }
-  Mod+g { focus-workspace 5; }
-  Mod+Shift+a { move-column-to-workspace 1; }
-  Mod+Shift+s { move-column-to-workspace 2; }
-  Mod+Shift+d { move-column-to-workspace 3; }
-  Mod+Shift+f { move-column-to-workspace 4; }
-  Mod+Shift+g { move-column-to-workspace 5; }
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
 
   Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
   Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
