@@ -1,0 +1,13 @@
+[Unit]
+Description = Power Monitor
+After = power-profiles-daemon.service
+Wants = power-profiles-daemon.service
+
+[Service]
+Type = simple
+ExecStart = /home/olex/bin/power-monitor.sh
+Restart = on-failure
+RestartSec = 5s
+
+[Install]
+WantedBy=default.target
