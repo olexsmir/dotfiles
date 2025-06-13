@@ -38,5 +38,3 @@ create_links_in_dir_recursively "config" ".config"
 h "$dotfilesPath/config/alacritty.yml" "$HOME/.config/alacritty.yml"
 h "$dotfilesPath/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
 h "$dotfilesPath/config/starship.toml" "$HOME/.config/starship.toml"
-
-create_links_in_dir_recursively "logseq" ".logseq"
