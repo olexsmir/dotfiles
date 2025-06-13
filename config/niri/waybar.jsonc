@@ -13,13 +13,12 @@
   "modules-left": ["niri/workspaces", "niri/window"],
   "modules-center": ["clock"],
   "modules-right": [
-    "memory",
-    "cpu",
-    "tray",
     "niri/language",
-    "backlight",
-    "battery",
+    "tray",
     "pulseaudio",
+    "battery",
+    "backlight",
+    "power-profiles-daemon",
     "network"
   ]
 }

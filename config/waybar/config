@@ -1,4 +1,5 @@
 // vim: ft=jsonc
+// NOTE: hyprland config
 {
   "position": "top",
   "layer": "top",
