@@ -3,13 +3,15 @@
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";
 spawn-at-startup "~/.config/niri/waybar"
 spawn-at-startup "dunst";
-spawn-at-startup "xwayland-satellite"
+spawn-at-startup "xwayland-satellite"; // TODO: remove in next update
+spawn-at-startup "hypridle";
 // }}}
 // env {{{
 environment {
   DISPLAY ":0"
   QT_QPA_PLATFORM "wayland;xcb"
   QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  MOZ_ENABLE_WAYLAND "1";
 }
 // }}}
 // inputs {{{
@@ -82,6 +84,7 @@ layout {
 // general {{{
 // disables client-side decorrations if possible
 prefer-no-csd
+hotkey-overlay { skip-at-startup; }
 
 // set to null if u want disable saving to disk behavior
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -150,6 +153,8 @@ window-rule {
 window-rule {
   match app-id="pavucontrol"
   match app-id="org.gnome.Solanum"
+  match app-id="blueman-manager"
+  match app-id="xdg-desktop-portal-gtk"
   open-floating true
 }
 
@@ -168,8 +173,9 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-  match app-id=r#"obsidian$"#
+  match app-id="org.keepassxc.KeePassXC"
+  match app-id="obsidian"
+  match app-id="org.telegram.desktop"
   block-out-from "screen-capture"
 }
 // }}}
