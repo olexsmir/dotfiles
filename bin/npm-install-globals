@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 exec npm i -g npm \
-  yaml-language-server \
-  vscode-langservers-extracted \
-  typescript \
-  typescript-language-server \
-  bash-language-server
+  vscode-langservers-extracted yaml-language-server \
+  typescript typescript-language-server \
+  bash-language-server \
+  elm elm-test elm-format @elm-tooling/elm-language-server elm-tooling elm-review
