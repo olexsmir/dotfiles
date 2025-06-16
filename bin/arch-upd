@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-sudo pacman -Syyuu --noconfirm
+sudo pacman -Syu --noconfirm
 paru -Sua --noconfirm
 sudo pacman -Rns $(pacman -Qdtq) --noconfirm
