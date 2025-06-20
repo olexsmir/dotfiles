@@ -34,6 +34,7 @@ input {
     scroll-method "two-finger"
     // disabled-on-external-mouse
   }
+  focus-follows-mouse max-scroll-amount="25%"
   mouse {
     accel-speed 0.0
     accel-profile "flat"
