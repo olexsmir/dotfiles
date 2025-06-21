@@ -181,48 +181,52 @@ window-rule {
 // }}}
 // keybinds {{{
 binds {
-  Mod+Q { close-window; }
+  Mod+d { spawn "dunstctl" "close"; }
+  Mod+q { close-window; }
+  Mod+Alt+l { spawn "hyprlock"; }
   Mod+Return { spawn "kitty"; }
-  Mod+Shift+Return { spawn "wofi" "--show" "drun"; }
   Mod+Shift+Escape { spawn "~/bin/wofi-power-menu" "niri";}
-  Super+Alt+L { spawn "hyprlock"; }
+  Mod+Shift+Return { spawn "wofi" "--show" "drun"; }
 
   // programs {{{
   Mod+Shift+a { spawn "anki"; }
   Mod+Shift+d { spawn "obsidian"; }
   Mod+Shift+f { spawn "newsflash"; }
+  Mod+Shift+r { spawn "solanum"; }
   Mod+Shift+s { spawn "spotify"; }
   Mod+Shift+t { spawn "telegram-desktop"; }
   Mod+Shift+w { spawn "zen-browser"; }
-  Mod+Shift+r { spawn "solanum"; }
   // }}}
   // func keys {{{
   // audio
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
   XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-  XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
   XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
+  XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
   XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
   // brighthness
-  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
   // screen shots
   Print { screenshot; }
-  Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
+  Ctrl+Print { screenshot-screen; }
   // }}}
   // wm {{{
   Mod+O repeat=false { toggle-overview; }
   Alt+Tab { focus-window-previous; }
 
   // window management {{{
+  Mod+Ctrl+f { toggle-window-floating; }
+
   Mod+r { switch-preset-column-width; }
   Mod+t { maximize-column; }
   Mod+f { fullscreen-window; }
 
-  Mod+Ctrl+f { toggle-window-floating; }
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
 
   Mod+h { focus-column-left; }
   Mod+j { focus-window-down; }
@@ -233,16 +237,13 @@ binds {
   Mod+Shift+k { move-window-up; }
   Mod+Shift+l { move-column-right; }
 
-  Mod+Minus { set-column-width "-10%"; }
-  Mod+Equal { set-column-width "+10%"; }
-  // }}}
-  // monitor navigation {{{
+  // monitor navigation
   Mod+Comma { focus-monitor-left; }
   Mod+Period { focus-monitor-right; }
   Mod+Shift+Comma { move-column-to-monitor-left; }
   Mod+Shift+Period { move-column-to-monitor-right; }
-  // }}}
-  // workspaces {{{
+
+  // workspaces
   Mod+1 { focus-workspace 1; }
   Mod+2 { focus-workspace 2; }
   Mod+3 { focus-workspace 3; }
@@ -256,7 +257,6 @@ binds {
 
   Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
   Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
-  // }}}
   // }}}
 }
 // }}}
