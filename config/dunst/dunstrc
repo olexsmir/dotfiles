@@ -1,8 +1,8 @@
 # vim: ft=ini
+# https://dunst-project.org/documentation
 
 [global]
-font = Jetbrains 14
-icon_theme = "Papirus-Dark"
+font = JetBrains Mono Nerd Font 14
 enable_recursive_icon_lookup = true
 show_age_threshold = 60
 markup = full
@@ -12,7 +12,7 @@ stack_duplicates = false
 hide_duplicate_count = false
 shrink = no
 idle_threshold = 120
-follow = mouse
+follow = keyboard
 
 mouse_left_click = close_all
 mouse_right_click = do_action
