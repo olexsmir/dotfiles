@@ -1,0 +1,20 @@
+# vim: ft=bash
+# reference: /etc/todo/config
+
+export TODO_ACTIONS_DIR="$HOME/.dotfiles/config/todo/actions"
+
+export TODO_DIR=~/org/
+export TODO_FILE="$TODO_DIR/todo.txt"
+export DONE_FILE="$TODO_DIR/done.txt"
+export REPORT_FILE="$TODO_DIR/.report.txt"
+
+export PRI_A=$YELLOW
+export PRI_B=$PURPLE
+export PRI_C=$LIGHT_BLUE
+
+export COLOR_PROJECT=$GREEN
+export COLOR_CONTEXT=$CYAN
+export COLOR_DATE=$BLUE
+export COLOR_NUMBER=$CYAN
+
+export COLOR_META=$BLUE

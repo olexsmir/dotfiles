@@ -34,6 +34,8 @@ h "$dotfilesPath/tmux.conf" "$HOME/.tmux.conf"
 mkd "$HOME/bin/"
 find "$dotfilesPath/bin" -type f -exec ln -sf {} "$HOME/bin/" \;
 
+create_links_in_dir_recursively "todo.actions.d" ".todo.actions.d"
+
 create_links_in_dir_recursively "config" ".config"
 h "$dotfilesPath/config/alacritty.yml" "$HOME/.config/alacritty.yml"
 h "$dotfilesPath/config/electron-flags.conf" "$HOME/.config/electron-flags.conf"
