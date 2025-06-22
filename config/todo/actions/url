@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+action=$1
+shift
+
+if [[ $action == "usage" ]]; then
+  echo "url [task_number] - opens link in the task"
+  exit 0
+fi
+
+item=$1
+if [[ ! "$item" =~ ^[0-9]+$ ]]; then
+  echo "$item: invalid item number"
+  exit 1
+fi
+
+URL_REGEX="\b(?:https?:\/\/)?(?:[\w-]+\.)+[a-z]{2,}(?:\/[\w\-./?%&=:#@+]*)?"
+URL=$(sed "$item!d" "$TODO_FILE" | grep -Po "$URL_REGEX")
+
+if [[ -z "$URL" ]]; then
+  echo "No URL found in task $item"
+  exit 1
+fi
+
+if [[ ! "#URL" =~ ^(?!https?:\/\/) ]]; then
+  URL="https://$URL"
+fi
+
+echo "$URL"
+xdg-open "$URL" &>/dev/null

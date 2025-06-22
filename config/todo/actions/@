@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
+export TODOTXT_VERBOSE=0
+
 action=$1
 shift
+
+if [[ $action == "usage" ]]; then
+  echo "@ [context]"
+  echo "  Lists all tasks with the given context."
+  echo "  If no context is given, lists all tasks categorized by their context."
+  echo "  If task has @someday, it won't be listed."
+  exit 0
+fi
 
 CONTEXTS=$(grep -o '[^ ]*@[^ ]\+' "$TODO_FILE" | grep '^@' | sort -u | sed 's/^@//g' )
 for context in $CONTEXTS ; do
