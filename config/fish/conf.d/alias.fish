@@ -20,6 +20,7 @@ alias killbt "rfkill block bluetooth"
 alias unkillbt "rfkill unblock bluetooth"
 
 if type -q hledger; alias f hledger; end
+if type -q todo.sh; alias t todo.sh; end
 
 if type -q nvim
   alias vim nvim
