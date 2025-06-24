@@ -21,6 +21,6 @@ for context in $CONTEXTS ; do
   CONTEXT_LIST=$(_list "$TODO_FILE" "@$context\b" "$@" | sed 's/\ *@[a-zA-Z0-9._\-]*\ */ /g')
   if [[ -n "${CONTEXT_LIST}" ]]; then
     echo -e "--@${context}"
-    echo "${CONTEXT_LIST}" | eval $TODOTXT_FINAL_FILTER
+    echo "${CONTEXT_LIST}" | eval "$TODOTXT_FINAL_FILTER"
   fi
 done

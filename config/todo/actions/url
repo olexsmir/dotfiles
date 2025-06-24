@@ -8,8 +8,13 @@ if [[ $action == "usage" ]]; then
 fi
 
 item=$1
+if [[ $item == "" ]]; then
+  TODOTXT_VERBOSE=0 $TODO_FULL_SH ls @url
+  exit 0
+fi
+
 if [[ ! "$item" =~ ^[0-9]+$ ]]; then
-  echo "$item: invalid item number"
+  echo "provided [task_number] is invalid: $item"
   exit 1
 fi
 
@@ -21,7 +26,7 @@ if [[ -z "$URL" ]]; then
   exit 1
 fi
 
-if [[ ! "#URL" =~ ^(?!https?:\/\/) ]]; then
+if [[ ! "$URL" =~ ^(?!https?:\/\/) ]]; then
   URL="https://$URL"
 fi
 

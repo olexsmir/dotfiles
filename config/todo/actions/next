@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec "$TODO_SH" @ next
