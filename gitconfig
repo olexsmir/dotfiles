@@ -10,7 +10,7 @@
     format = ssh
 
 [gpg "ssh"]
-    allowedSignersFile = ~/.config/git_allowed_signers
+    allowedSignersFile = ~/.config/git/allowed_signers
 
 [core]
     editor = nvim
@@ -23,22 +23,17 @@
 [alias]
     push-force = push --force-with-lease
     pu = push
-    l = log --oneline --decorate
-    lg = log --oneline --graph --all
+    l = log --oneline --decorate --graph --all
     st = status -sb
     cm = commit -m
     sw = switch
 
 [interactive]
     diffFilter = delta --color-only
+    singlekey = true
 
 [merge]
     conflictstyle = zdiff3
-    tool = nvim-diffview
-
-[merge "nvim-diffview"]
-  cmd = "nvim +DiffviewOpen"
-  prompt = false
 
 [rebase]
     autoSquash = true
@@ -98,9 +93,12 @@
     sort = version:refname
 
 [push]
-    default = simple
+    default = current
     autoSetupRemote = true
     followTags = true
+
+[pull]
+    rebase = true
 
 [help]
     autocorrect = prompt
