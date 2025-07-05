@@ -1,12 +1,13 @@
 [tools]
-bun = "latest"
-go = "latest"
-golangci-lint = "latest"
-golangci-lint-langserver = "latest"
-node = "lts"
-shellcheck = "latest"
-shfmt = "latest"
 usage = "latest"
+shfmt = "latest"
+shellcheck = "latest"
+node = "lts"
+golangci-lint-langserver = "latest"
+golangci-lint = "latest"
+go = "latest"
+gleam = "latest"
+bun = "latest"
 
 [settings]
 experimental = true
