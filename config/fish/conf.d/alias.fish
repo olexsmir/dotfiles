@@ -1,7 +1,5 @@
 alias cls clear
-alias cp "cp -ri"
-alias rm "rm -i"
-alias mv "mv -i"
+alias cp "cp -r"
 alias mkdir "mkdir -p"
 alias free "free -h"
 alias df "df -h"
@@ -20,6 +18,7 @@ alias killbt "rfkill block bluetooth"
 alias unkillbt "rfkill unblock bluetooth"
 
 if type -q hledger; alias f hledger; end
+if type -q jj; alias j jj; end
 if type -q todo.sh; alias t todo.sh; end
 
 if type -q nvim
