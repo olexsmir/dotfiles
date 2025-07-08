@@ -1,7 +1,7 @@
 # vim: ft=gitconfig
 
 [user]
-    name = Oleksandr Smirnov
+    name = Olexandr Smirnov
     email = olexsmir@gmail.com
     signingkey = ~/.ssh/id_ed25519.pub
 
@@ -21,7 +21,7 @@
     defaultBranch = main
 
 [alias]
-    push-force = push --force-with-lease
+    pushf = push --force-with-lease
     l = log --oneline --decorate --graph --all
     st = status -sb
     sw = switch
