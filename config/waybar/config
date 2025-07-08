@@ -10,7 +10,7 @@
   "margin-right": 0,
   "include": [
     "~/.config/waybar/modules/hypr.json",
-    "~/.config/waybar/modules/info.json"
+    "~/.config/waybar/modules/info.jsonc"
   ],
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],

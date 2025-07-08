@@ -29,7 +29,7 @@ tooltip {
   border: 1px solid @bg-darker-color;
 }
 
-#language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery, #power-profiles-daemon, #pulseaudio, #network, #backlight {
+#language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery, #power-profiles-daemon, #pulseaudio, #network, #backlight, #temperature {
   background-color: @bg-darker-color;
   color: @fg-color;
   border-radius: 16px;
@@ -38,7 +38,7 @@ tooltip {
 }
 
 #network, #backlight { color: @blue; }
-#cpu, #pulseaudio, #memory, #clock { color: @active-bg-color; }
+#cpu, #pulseaudio, #memory, #clock, #temperature { color: @active-bg-color; }
 #language { color: @red; }
 
 #workspaces button { color: @active-bg-color; }

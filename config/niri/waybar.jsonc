@@ -7,11 +7,11 @@
   "margin-left": 0,
   "margin-right": 0,
   "include": [
-    "~/.config/waybar/modules/info.json",
+    "~/.config/waybar/modules/info.jsonc",
     "~/.config/waybar/modules/niri.json"
   ],
   "modules-left": ["niri/workspaces", "niri/window"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "temperature"],
   "modules-right": [
     "niri/language",
     "tray",

@@ -8,6 +8,11 @@
     "format": "  {:%a, %d %b %H:%M}", // replace %I with %H for 24h format
   },
 
+ "temperature": {
+    "hwmon-path": "/sys/devices/pci0000:00/0000:00:08.1/0000:03:00.0/hwmon/hwmon3/temp1_input",
+    "format": "  {temperatureC}°C"
+  },
+
   "battery": {
     "format": "{icon}  {capacity}%",
     "format-charging": "{icon}  {capacity}%",
