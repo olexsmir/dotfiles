@@ -1,0 +1,34 @@
+{
+  "name": "Vimium C",
+  "@time": "7/8/2025, 3:04:38 PM",
+  "time": 1751976278158,
+  "environment": {
+    "extension": "2.12.3",
+    "platform": "linux",
+    "firefox": 140
+  },
+  "exclusionRules": [
+    {
+      "passKeys": "<a-t> ",
+      "pattern": ":https://www.twitch.tv/"
+    },
+    {
+      "passKeys": "c t",
+      "pattern": ":https://www.youtube.com/"
+    },
+    {
+      "passKeys": "",
+      "pattern": ":https://monkeytype.com/"
+    }
+  ],
+  "keyLayout": 2,
+  "keyMappings": [
+    "#!no-check",
+    "# since i use vertival tabs it's move logical to use J and K to move up and down",
+    "unmap J",
+    "unmap K",
+    "map J nextTab",
+    "map K previousTab"
+  ],
+  "vimSync": true
+}
