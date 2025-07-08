@@ -5,7 +5,6 @@ spawn-at-startup "~/.config/niri/waybar"
 spawn-at-startup "dunst"
 spawn-at-startup "xwayland-satellite" // TODO: remove in next update
 spawn-at-startup "hypridle" "-c" "/home/olex/.config/niri/hypridle.conf"
-spawn-at-startup "zen-browser"
 // }}}
 // env {{{
 environment {
@@ -117,6 +116,7 @@ window-rule {
 
 window-rule {
   match app-id="zen"
+  match app-id="firefox"
   match app-id="brave"
   open-on-workspace "web"
 }
@@ -144,6 +144,7 @@ window-rule {
 window-rule {
   match app-id="Spotify"
   match app-id="zen"
+  match app-id="firefox"
   match app-id="brave"
   match app-id="kitty"
   match app-id="anki"
@@ -196,7 +197,7 @@ binds {
   Mod+Shift+r { spawn "solanum"; }
   Mod+Shift+s { spawn "spotify"; }
   Mod+Shift+t { spawn "telegram-desktop"; }
-  Mod+Shift+w { spawn "zen-browser"; }
+  Mod+Shift+w { spawn "firefox"; }
   // }}}
   // func keys {{{
   // audio
