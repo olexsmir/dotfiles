@@ -1,0 +1,11 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Olexandr Smirnov"
+email = "olexsmir@gmail.com"
+
+[ui]
+default-command = "log"
+
+[git]
+auto-local-bookmark = true
