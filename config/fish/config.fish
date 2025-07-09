@@ -12,12 +12,16 @@ set -g PATH node_modules/.bin $PATH
 set -g PATH .bin $PATH
 
 if status is-interactive
-  set fish_greeting
-
   starship init fish | source
   zoxide init fish | source
   mise activate fish | source
   direnv hook fish | source
+
+  function fish_greeting
+    if type -q todo.sh
+      todo.sh
+    end
+  end
 
   function fish_user_key_bindings
     fish_vi_key_bindings
