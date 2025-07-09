@@ -41,7 +41,7 @@
         "KC_LGUI",
         "KC_LALT",
         "KC_SPACE",
-        "KC_LBRACKET"
+        "KC_NO"
       ],
       [
         "KC_EQUAL",
@@ -81,7 +81,7 @@
         "MO(2)",
         "KC_BSPACE",
         "TD(0)",
-        "KC_RBRACKET"
+        "KC_NO"
       ]
     ],
     [
@@ -155,7 +155,7 @@
         "KC_NO",
         "KC_WH_U",
         "KC_WH_D",
-        "KC_NO"
+        "KC_BTN3"
       ],
       [
         -1,
@@ -221,7 +221,7 @@
         "KC_MPRV",
         "KC_PSCREEN",
         "KC_TRNS",
-        "LSFT(KC_BSLASH)"
+        "KC_TRNS"
       ],
       [
         "KC_TRNS",
