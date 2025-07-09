@@ -5,7 +5,7 @@ name = "Olexandr Smirnov"
 email = "olexsmir@gmail.com"
 
 [ui]
-default-command = "log"
+default-command = "l"
 editor = "nvim"
 pager = "delta"
 diff-formatter = ":git"
@@ -16,5 +16,6 @@ sign-on-push = true
 auto-local-bookmark = true
 
 [aliases]
+l = ["log", "-n10"]
 n = ["new"]
 bc = ["bookmark", "create"]
