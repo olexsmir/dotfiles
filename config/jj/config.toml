@@ -6,6 +6,15 @@ email = "olexsmir@gmail.com"
 
 [ui]
 default-command = "log"
+editor = "nvim"
+pager = "delta"
+diff-formatter = ":git"
+merge-editor = ["nvim", "-d"]
 
 [git]
+sign-on-push = true
 auto-local-bookmark = true
+
+[aliases]
+n = ["new"]
+bc = ["bookmark", "create"]
