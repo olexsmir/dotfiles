@@ -1,5 +1,6 @@
 # vim: ft=bash
 # reference: /etc/todo/config
+export TODOTXT_VERBOSE=1
 
 export TODO_ACTIONS_DIR="$HOME/.dotfiles/config/todo/actions"
 export TODOTXT_DEFAULT_ACTION="next"
@@ -18,5 +19,4 @@ export COLOR_PROJECT=$GREEN
 export COLOR_CONTEXT=$CYAN
 export COLOR_DATE=$BLUE
 export COLOR_NUMBER=$CYAN
-
 export COLOR_META=$BLUE

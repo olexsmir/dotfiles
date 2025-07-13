@@ -18,7 +18,7 @@ if status is-interactive
 
   function fish_greeting
     if type -q todo.sh
-      todo.sh listpri a
+      TODOTXT_VERBOSE=0 todo.sh listpri a
     end
   end
 
