@@ -7,7 +7,6 @@ set -g GOBIN $GOPATH/bin
 set -g PATH $GOBIN $PATH
 set -g PATH $HOME/bin $PATH
 set -g PATH $HOME/.local/bin $PATH
-set -g PATH $GOBIN $PATH
 set -g PATH node_modules/.bin $PATH
 set -g PATH .bin $PATH
 
@@ -19,12 +18,11 @@ if status is-interactive
 
   function fish_greeting
     if type -q todo.sh
-      todo.sh
+      todo.sh listpri a
     end
   end
 
   function fish_user_key_bindings
     fish_vi_key_bindings
-    bind -M insert -m default jk backward-char force-repaint
   end
 end
