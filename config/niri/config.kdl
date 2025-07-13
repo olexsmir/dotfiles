@@ -98,11 +98,11 @@ animations {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 // https://github.com/YaLTeR/niri/wiki/Configuration:-move-column-to-workspace
 
-workspace "laptop" { open-on-output "eDP-1"; }
 workspace "tools" { open-on-output "HDMI-A-1"; }
 workspace "web"{ open-on-output "HDMI-A-1"; }
 workspace "dev"{ open-on-output "HDMI-A-1"; }
 workspace "misc" { open-on-output "HDMI-A-1"; }
+workspace "laptop" { open-on-output "eDP-1"; }
 
 window-rule {
   match app-id="anki"
@@ -124,6 +124,7 @@ window-rule {
 window-rule {
   match app-id="Emacs"
   match app-id="Code"
+  match app-id="Zed"
   open-on-workspace "dev"
 }
 
@@ -136,7 +137,7 @@ window-rule {
 
 window-rule {
   match app-id="org.gnome.Solanum";
-  default-floating-position relative-to="top-left" x=10 y=10
+  default-floating-position relative-to="bottom-left" x=10 y=10
   open-focused true
   open-on-workspace "laptop"
 }
@@ -147,8 +148,9 @@ window-rule {
   match app-id="firefox"
   match app-id="brave"
   match app-id="kitty"
-  match app-id="anki"
   match app-id="obsidian"
+  match app-id="Code"
+  match app-id="Zed"
   open-maximized true
 }
 
@@ -158,20 +160,6 @@ window-rule {
   match app-id="blueman-manager"
   match app-id="xdg-desktop-portal-gtk"
   open-floating true
-}
-
-window-rule {
-  match is-window-cast-target=true
-  border { inactive-color "#7d0d2d"; }
-  shadow { color "#7d0d2d70"; }
-  focus-ring {
-    active-color "#f38ba8"
-    inactive-color "#7d0d2d"
-  }
-  tab-indicator {
-    active-color "#f38ba8"
-    inactive-color "#7d0d2d"
-  }
 }
 
 window-rule {
