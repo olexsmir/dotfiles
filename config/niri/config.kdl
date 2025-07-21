@@ -101,7 +101,6 @@ animations {
 workspace "tools" { open-on-output "HDMI-A-1"; }
 workspace "web"{ open-on-output "HDMI-A-1"; }
 workspace "dev"{ open-on-output "HDMI-A-1"; }
-workspace "misc" { open-on-output "HDMI-A-1"; }
 workspace "laptop" { open-on-output "eDP-1"; }
 
 window-rule {
