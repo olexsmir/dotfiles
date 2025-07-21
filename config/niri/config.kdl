@@ -108,7 +108,6 @@ window-rule {
   match app-id="anki"
   match app-id="obsidian"
   match app-id="thunderbird"
-  match app-id="org.keepassxc.KeePassXC"
   match app-id="org.telegram.desktop"
   match app-id="io.gitlab.news_flash.NewsFlash"
   open-on-workspace "tools"
@@ -132,6 +131,7 @@ window-rule {
   match app-id="Spotify"
   match app-id="org.gnome.Snapshot"
   match app-id="sleek"
+  match app-id="org.keepassxc.KeePassXC"
   open-on-workspace "laptop"
 }
 
