@@ -136,7 +136,7 @@ window-rule {
 
 window-rule {
   match app-id="org.gnome.Solanum";
-  default-floating-position relative-to="bottom-left" x=10 y=10
+  default-floating-position relative-to="top-left" x=10 y=10
   open-focused true
   open-on-workspace "laptop"
 }
