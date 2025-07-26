@@ -7,16 +7,13 @@ alias du "du -h"
 alias chmox "chmod +x"
 alias ":q" exit
 
-alias g git
-alias d docker
-alias dcm "docker compose"
-
 alias ... "cd ../.."
 alias .3 "cd ../../.."
 
 alias killbt "rfkill block bluetooth"
 alias unkillbt "rfkill unblock bluetooth"
 
+alias g git
 if type -q hledger; alias f hledger; end
 if type -q jj; alias j jj; end
 if type -q todo.sh; alias t todo.sh; end
