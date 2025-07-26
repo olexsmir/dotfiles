@@ -161,8 +161,8 @@
         -1,
         "KC_TRNS",
         "KC_TRNS",
-        "KC_TRNS",
         "KC_DELETE",
+        "KC_TRNS",
         "KC_NO"
       ]
     ],
@@ -184,7 +184,7 @@
         "KC_RBRACKET"
       ],
       [
-        "KC_TRNS",
+        "KC_LCTRL",
         "KC_BRID",
         "KC_BRIU",
         "KC_TRNS",
@@ -533,11 +533,11 @@
       135
     ],
     [
+      "KC_ESCAPE",
+      "KC_LALT",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      100
+      135
     ],
     [
       "KC_NO",
