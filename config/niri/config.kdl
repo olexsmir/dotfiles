@@ -129,13 +129,14 @@ window-rule {
 window-rule {
   match app-id="Spotify"
   match app-id="org.gnome.Snapshot"
+  match app-id="org.gnome.Calendar"
   match app-id="sleek"
   match app-id="org.keepassxc.KeePassXC"
   open-on-workspace "laptop"
 }
 
 window-rule {
-  match app-id="org.gnome.Solanum";
+  match app-id="org.gnome.Solanum"
   default-floating-position relative-to="top-left" x=10 y=10
   open-focused true
   open-on-workspace "laptop"
