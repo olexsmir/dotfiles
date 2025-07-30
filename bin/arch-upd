@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2046
+
 sudo pacman -Syu --noconfirm
 paru -Sua --noconfirm
 sudo pacman -Rns $(pacman -Qdtq) --noconfirm
