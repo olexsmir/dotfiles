@@ -19,7 +19,9 @@ get_battery_path() {
   echo "$bat_path"
 }
 
-readonly BAT="$(get_battery_path)"
+readonly BAT
+BAT="$(get_battery_path)"
+
 readonly BAT_STATUS="$BAT/status"
 readonly BAT_CAP="$BAT/capacity"
 readonly LOW_BAT_PERCENT=30
@@ -40,7 +42,7 @@ if ! command -v powerprofilesctl >/dev/null 2>&1; then
   exit 1
 fi
 
-if [[ -n "''${STARTUP_WAIT:-}" ]]; then
+if [[ -n "${STARTUP_WAIT:-}" ]]; then
   sleep "$STARTUP_WAIT"
 fi
 
