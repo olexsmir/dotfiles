@@ -19,3 +19,13 @@ auto-local-bookmark = true
 l = ["log", "-n10"]
 n = ["new"]
 bc = ["bookmark", "create"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[templates]
+draft_commit_description = '''
+concat(
+  coalesce(description, default_commit_description, "\n"),
+  "\nJJ: ignore-rest\n",
+  diff.git(),
+)
+'''
