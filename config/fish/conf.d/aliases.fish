@@ -1,5 +1,6 @@
 alias cls clear
 alias cp "cp -r"
+alias rm "rm -i"
 alias mkdir "mkdir -p"
 alias free "free -h"
 alias df "df -h"
@@ -15,8 +16,10 @@ alias unkillbt "rfkill unblock bluetooth"
 
 alias g git
 if type -q hledger; alias f hledger; end
-if type -q jj; alias j jj; end
-if type -q todo.sh; alias t todo.sh; end
+if type -q jj;
+  alias j jj;
+  alias js "jj st"
+end
 
 if type -q nvim
   alias vim nvim
