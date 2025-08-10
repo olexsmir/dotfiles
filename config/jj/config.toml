@@ -16,9 +16,11 @@ sign-on-push = true
 auto-local-bookmark = true
 
 [aliases]
-l = ["log", "-n10"]
+d = ["diff"]
+l = ["log", "-r", "ancestors(reachable(@, mutable()), 3)"]
+llog = ["log", "-T", "builtin_log_detailed"]
 n = ["new"]
-bc = ["bookmark", "create"]
+push = ["git", "push"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 [templates]
@@ -29,3 +31,6 @@ concat(
   diff.git(),
 )
 '''
+
+[template-aliases]
+"format_timestamp(timestamp)" = "timestamp.ago()"
