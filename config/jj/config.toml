@@ -11,6 +11,10 @@ pager = "delta"
 diff-formatter = ":git"
 merge-editor = ["nvim", "-d"]
 
+[signing]
+backend = "ssh"
+key = "~/.ssh/id_ed25519.pub"
+
 [git]
 sign-on-push = true
 auto-local-bookmark = true
@@ -27,7 +31,7 @@ tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 draft_commit_description = '''
 concat(
   coalesce(description, default_commit_description, "\n"),
-  "\nJJ: ignore-rest\n",
+  "JJ: ignore-rest\n",
   diff.git(),
 )
 '''
