@@ -2,4 +2,4 @@
 exec npm i -g npm \
   vscode-langservers-extracted yaml-language-server \
   typescript typescript-language-server \
-  elm @elm-tooling/elm-language-server elm-tooling elm-review
+  elm @elm-tooling/elm-language-server elm-test elm-tooling elm-review
