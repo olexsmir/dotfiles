@@ -104,7 +104,6 @@ workspace "dev"{ open-on-output "HDMI-A-1"; }
 workspace "laptop" { open-on-output "eDP-1"; }
 
 window-rule {
-  match app-id="anki"
   match app-id="obsidian"
   match app-id="thunderbird"
   match app-id="org.telegram.desktop"
