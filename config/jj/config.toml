@@ -9,7 +9,6 @@ default-command = "l"
 editor = "nvim"
 pager = "delta"
 diff-formatter = ":git"
-merge-editor = ["nvim", "-d"]
 
 [signing]
 backend = "ssh"
