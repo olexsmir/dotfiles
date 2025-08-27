@@ -183,7 +183,7 @@ binds {
   Mod+Shift+f { spawn "newsflash"; }
   Mod+Shift+r { spawn "solanum"; }
   Mod+Shift+s { spawn "spotify"; }
-  Mod+Shift+t { spawn "telegram-desktop"; }
+  Mod+Shift+t { spawn "Telegram"; }
   Mod+Shift+w { spawn "firefox"; }
   // }}}
   // func keys {{{
