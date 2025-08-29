@@ -1,13 +1,14 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
 [user]
-name = "Olexandr Smirnov"
+name = "Oleksandr Smirnov"
 email = "olexsmir@gmail.com"
 
 [ui]
 default-command = "l"
 editor = "nvim"
 pager = "delta"
+diff-editor = "builtin"
 diff-formatter = ":git"
 
 [signing]
@@ -38,3 +39,15 @@ concat(
 
 [revset-aliases]
 "private()" = "description(glob:'private:*')"
+
+[fix.tools.stylua]
+command = ["stylua", "-"]
+patterns = ["glob:'**/*.lua'"]
+
+[fix.tools.gofumpt]
+command = ["gofumpt"]
+patterns = ["glob:'**/*.go'"]
+
+[fix.tools.gleam]
+command = ["gleam", "format", "--stdin"]
+patterns = ["glob:'**/*.gleam'"]
