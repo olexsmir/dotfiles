@@ -8,7 +8,7 @@ email = "olexsmir@gmail.com"
 default-command = "l"
 editor = "nvim"
 pager = "delta"
-diff-editor = "builtin"
+diff-editor = ":builtin"
 diff-formatter = ":git"
 
 [signing]
