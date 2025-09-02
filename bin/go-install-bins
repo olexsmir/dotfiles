@@ -8,5 +8,6 @@ echo -e "\e[32m[yaegi]\e[0m";        go install github.com/traefik/yaegi/cmd/yae
 echo -e "\e[32m[govulncheck]\e[0m";  go install golang.org/x/vuln/cmd/govulncheck@latest
 echo -e "\e[32m[natscli]\e[0m";      go install github.com/nats-io/natscli/nats@latest
 echo -e "\e[32m[dlv]\e[0m";          go install github.com/go-delve/delve/cmd/dlv@latest
+echo -e "\e[32m[gotestsum]\e[0m";    go install gotest.tools/gotestsum@latest
 
 echo -e "\e[32m[:GoInstallDepsSync<CR>]\e[0m"; nvim --headless +GoInstallDepsSync +q
