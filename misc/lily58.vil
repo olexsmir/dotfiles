@@ -136,7 +136,7 @@
       [
         "KC_NO",
         "KC_NO",
-        "KC_NO",
+        "KC_BTN3",
         "KC_BTN2",
         "KC_BTN1",
         "KC_BTN1"
@@ -152,10 +152,10 @@
       [
         "KC_NO",
         "KC_NO",
-        "KC_NO",
+        "KC_WH_R",
         "KC_WH_U",
         "KC_WH_D",
-        "KC_BTN3"
+        "KC_WH_L"
       ],
       [
         -1,
@@ -208,7 +208,7 @@
         "KC_TRNS"
       ],
       [
-        "KC_TRNS",
+        "KC_NO",
         "KC_VOLU",
         "KC_VOLD",
         "KC_MUTE",
@@ -220,8 +220,8 @@
         "KC_MNXT",
         "KC_MPRV",
         "KC_PSCREEN",
-        "KC_TRNS",
-        "KC_TRNS"
+        "KC_NO",
+        "KC_NO"
       ],
       [
         "KC_TRNS",
@@ -232,7 +232,7 @@
         "KC_LEFT"
       ],
       [
-        "KC_TRNS",
+        "KC_SPACE",
         "KC_TRNS",
         "KC_TRNS",
         "KC_TRNS",
