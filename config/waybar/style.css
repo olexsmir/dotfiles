@@ -29,7 +29,9 @@ tooltip {
   border: 1px solid @bg-darker-color;
 }
 
-#language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery, #power-profiles-daemon, #pulseaudio, #network, #backlight, #temperature {
+#language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery,
+#power-profiles-daemon, #pulseaudio, #network, #backlight, #temperature,
+#idle_inhibitor {
   background-color: @bg-darker-color;
   color: @fg-color;
   border-radius: 16px;
@@ -69,3 +71,6 @@ tooltip {
 #power-profiles-daemon.performance { color: @blue; }
 #power-profiles-daemon.balanced { color: @green; }
 #power-profiles-daemon.power-saver { color: @red; }
+
+#idle_inhibitor.activated { color: @red; }
+#idle_inhibitor.deactivated { color: @green; }

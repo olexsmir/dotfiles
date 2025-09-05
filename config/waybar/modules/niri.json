@@ -13,6 +13,11 @@
   "niri/language": {
     "format": "󰌌  {}",
     "format-uk": "укр",
-    "format-en": "eng"
+    "format-en": "eng",
+    "tooltip": false
+  },
+  "niri/window": {
+    "swap-icon-label": true,
+    "tooltip": false
   }
 }
