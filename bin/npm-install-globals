@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exec npm i -g npm \
+exec bun install -g \
   vscode-langservers-extracted yaml-language-server \
   typescript typescript-language-server \
-  elm @elm-tooling/elm-language-server elm-test elm-tooling elm-review
+  elm elm-test elm-format @elm-tooling/elm-language-server elm-tooling elm-review
