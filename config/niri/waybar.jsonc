@@ -17,8 +17,8 @@
     "tray",
     "battery",
     "power-profiles-daemon",
-    "backlight",
     "idle_inhibitor",
+    "backlight",
     "pulseaudio",
     "network"
   ]

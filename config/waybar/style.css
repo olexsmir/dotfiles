@@ -30,14 +30,20 @@ tooltip {
 }
 
 #language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery,
-#power-profiles-daemon, #pulseaudio, #network, #backlight, #temperature,
-#idle_inhibitor {
+#pulseaudio, #network, #backlight, #temperature {
   background-color: @bg-darker-color;
   color: @fg-color;
   border-radius: 16px;
   margin: 5px 5px 5px 5px;
   padding: 0px 10px 0px 10px;
 }
+
+#power-profiles-daemon, #idle_inhibitor {
+  background-color: @bg-darker-color;
+  padding: 0px 10px 0px 14px;
+}
+#power-profiles-daemon { border-radius: 16px 0 0 16px; margin: 5px 0 5px 5px; }
+#idle_inhibitor { border-radius: 0 16px 16px 0; margin: 5px 5px 5px 0; }
 
 #network, #backlight { color: @blue; }
 #cpu, #pulseaudio, #memory, #clock, #temperature { color: @active-bg-color; }
