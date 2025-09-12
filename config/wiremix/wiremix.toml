@@ -1,0 +1,3 @@
+tab = "output"
+max_volume_percent = 120.0
+enforce_max_volume = true
