@@ -20,7 +20,6 @@ colocate = true
 sign-on-push = true
 auto-local-bookmark = true
 private-commits = "private()"
-# push-bookmark-prefix = "olexsmir/"
 
 [aliases]
 l = ["log", "-r", "ancestors(reachable(@, mutable()), 3)"]
@@ -52,3 +51,7 @@ patterns = ["glob:'**/*.go'"]
 [fix.tools.gleam]
 command = ["gleam", "format", "--stdin"]
 patterns = ["glob:'**/*.gleam'"]
+
+[fix.tools.shfmt]
+command = ["shfmt"]
+patterns = ["glob:'**/*.sh'"]
