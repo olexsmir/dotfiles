@@ -5,5 +5,6 @@ prompt: enabled
 pager: bat
 aliases:
   clone: repo clone
+  sync: repo sync
   prv: pr view --web
   repov: repo view --web
