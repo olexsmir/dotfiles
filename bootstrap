@@ -1,35 +1,33 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
-# the path to dir where the script and dotfiles are located
-# set to specific path so this script can be run from anywhere
-dotfilesPath="$HOME/.dotfiles"
+: "${DOTFILES_PATH:=$HOME/.dotfiles}"
+: "${DOTFILES_HOME:=$HOME}"
 
-h() { # ln -sf and logs path
-    ln -sf "$1" "$2"
-    echo "[ln] $2"
+lnk() {
+  [[ -e "$2" ]] &&
+    echo -e "\e[31m[ln] $1 (overwritten)\e[0m" ||
+    echo -e "\r\e[32m[ln] $2\e[0m"
+  ln -sf "$1" "$2"
 }
 
-mkd() { # mkdir -p and logs path
-    mkdir -p "$1"
-    echo "[mkdir] $1"
+dr() {
+  mkdir -p "$1"
+  echo -e "\e[34m[mkdir] $1\e[0m"
 }
 
-create_links_in_dir_recursively() {
-  local base_dir="$dotfilesPath/$1"
+dotify() {
+  local base_dir="$DOTFILES_PATH/$1"
   local target_dir="$2"
 
-  find "$base_dir/" -type d | while read -r dir; do
-    mkd "$HOME/$target_dir${dir#"$base_dir"}"
-    find "$dir" -maxdepth 1 -type f | while read -r file; do
-      h "$file" "$HOME/$target_dir${file#"$base_dir"}"
+  find "$base_dir" -type d -print0 | while IFS= read -r -d '' dir; do
+    dr "$DOTFILES_HOME/$target_dir${dir#"$base_dir"}"
+    find "$dir" -maxdepth 1 -type f -print0 | while IFS= read -r -d '' file; do
+      lnk "$file" "$DOTFILES_HOME/$target_dir${file#"$base_dir"}"
     done
   done
 }
 
-h "$dotfilesPath/tmux.conf" "$HOME/.tmux.conf"
-
-mkd "$HOME/bin/"
-find "$dotfilesPath/bin" -type f -exec ln -sf {} "$HOME/bin/" \;
-
-create_links_in_dir_recursively "config" ".config"
+# let the lord do the linking
+dotify "config" ".config"
+dotify "bin" "bin"
