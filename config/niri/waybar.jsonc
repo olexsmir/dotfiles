@@ -11,11 +11,12 @@
     "~/.config/waybar/modules/niri.json"
   ],
   "modules-left": ["niri/workspaces", "niri/window"],
-  "modules-center": ["clock", "temperature"],
+  "modules-center": ["clock"],
   "modules-right": [
     "niri/language",
     "tray",
     "battery",
+    "temperature",
     "power-profiles-daemon",
     "idle_inhibitor",
     "backlight",

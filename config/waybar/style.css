@@ -30,7 +30,7 @@ tooltip {
 }
 
 #language, #cpu, #memory, #workspaces, #window, #tray, #clock, #battery,
-#pulseaudio, #network, #backlight, #temperature {
+#pulseaudio, #network, #backlight, #temperature, #custom-timew {
   background-color: @bg-darker-color;
   color: @fg-color;
   border-radius: 16px;
@@ -46,7 +46,7 @@ tooltip {
 #idle_inhibitor { border-radius: 0 16px 16px 0; margin: 5px 5px 5px 0; }
 
 #network, #backlight { color: @blue; }
-#cpu, #pulseaudio, #memory, #clock, #temperature { color: @active-bg-color; }
+#cpu, #pulseaudio, #memory, #clock, #temperature, #custom-timew { color: @active-bg-color; }
 #language { color: @red; }
 
 #workspaces button { color: @active-bg-color; }
