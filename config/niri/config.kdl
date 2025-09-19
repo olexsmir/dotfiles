@@ -27,6 +27,7 @@ input {
     // dwtp
     drag-lock
     accel-speed 0.1
+    scroll-factor 0.5
     accel-profile "adaptive"
     click-method "clickfinger"
     scroll-method "two-finger"
@@ -112,7 +113,7 @@ window-rule {
 window-rule {
   match app-id="zen"
   match app-id="firefox"
-  match app-id="brave"
+  match app-id="Brave-browser"
   open-on-workspace "web"
 }
 
@@ -136,6 +137,7 @@ window-rule {
   match app-id="org.gnome.Solanum"
   default-floating-position relative-to="top-left" x=10 y=10
   open-focused true
+  open-floating true
   open-on-workspace "laptop"
 }
 
@@ -143,7 +145,7 @@ window-rule {
   match app-id="Spotify"
   match app-id="zen"
   match app-id="firefox"
-  match app-id="brave"
+  match app-id="Brave-browser"
   match app-id="kitty"
   match app-id="obsidian"
   match app-id="Code"
@@ -153,7 +155,6 @@ window-rule {
 
 window-rule {
   match app-id="pavucontrol"
-  match app-id="org.gnome.Solanum"
   match app-id="blueman-manager"
   match app-id="xdg-desktop-portal-gtk"
   open-floating true
@@ -182,7 +183,7 @@ binds {
   Mod+Shift+r { spawn "solanum"; }
   Mod+Shift+s { spawn "spotify"; }
   Mod+Shift+t { spawn "Telegram"; }
-  Mod+Shift+w { spawn "firefox"; }
+  Mod+Shift+w { spawn "brave"; }
   // }}}
   // func keys {{{
   // audio
