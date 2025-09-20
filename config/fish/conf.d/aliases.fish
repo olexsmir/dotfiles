@@ -16,10 +16,7 @@ alias unkillbt "rfkill unblock bluetooth"
 
 alias g git
 if type -q hledger; alias f hledger; end
-if type -q jj;
-  alias j jj;
-  alias js "jj st"
-end
+if type -q jj; alias j jj; end
 
 if type -q nvim
   alias vim nvim
