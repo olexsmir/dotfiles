@@ -38,7 +38,7 @@ concat(
 "format_timestamp(timestamp)" = "timestamp.ago()"
 
 [revset-aliases]
-"private()" = "description(glob:'private:*')"
+"private()" = "description(glob:'private:*') | description(glob:'wip:*')"
 
 [fix.tools.stylua]
 command = ["stylua", "-"]
