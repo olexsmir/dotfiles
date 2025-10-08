@@ -16,13 +16,12 @@ backend = "ssh"
 key = "~/.ssh/id_ed25519.pub"
 
 [git]
-colocate = true
 sign-on-push = true
 auto-local-bookmark = true
 private-commits = "private()"
 
 [aliases]
-l = ["log", "-r", "ancestors(reachable(@, mutable()), 3)"]
+l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 [templates]
