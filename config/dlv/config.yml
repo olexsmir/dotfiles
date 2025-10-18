@@ -1,0 +1,8 @@
+tab: "│·"
+source-list-line-count: 4
+max-array-values: 64
+max-variable-recurse: 1
+aliases:
+  rebuild: ["re"]
+  stepout: ["S"]
+  locals: ["ll"]
