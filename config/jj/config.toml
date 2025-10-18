@@ -18,7 +18,6 @@ key = "~/.ssh/id_ed25519.pub"
 [git]
 sign-on-push = true
 auto-local-bookmark = true
-private-commits = "private()"
 
 [aliases]
 l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
@@ -35,9 +34,6 @@ concat(
 
 [template-aliases]
 "format_timestamp(timestamp)" = "timestamp.ago()"
-
-[revset-aliases]
-"private()" = "description(glob:'private:*') | description(glob:'wip:*')"
 
 [fix.tools.stylua]
 command = ["stylua", "-"]
