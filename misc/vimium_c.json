@@ -1,7 +1,7 @@
 {
   "name": "Vimium C",
-  "@time": "7/8/2025, 3:04:38 PM",
-  "time": 1751976278158,
+  "@time": "10/21/2025, 9:07:10 PM",
+  "time": 1761070030010,
   "environment": {
     "extension": "2.12.3",
     "platform": "linux",
@@ -9,7 +9,7 @@
   },
   "exclusionRules": [
     {
-      "passKeys": "<a-t> ",
+      "passKeys": "<a-t>",
       "pattern": ":https://www.twitch.tv/"
     },
     {
@@ -30,5 +30,6 @@
     "map J nextTab",
     "map K previousTab"
   ],
+  "linkHintCharacters": "asdfjklrewuio",
   "vimSync": true
 }
