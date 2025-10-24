@@ -1,0 +1,10 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "c" ]
+run  = "cd ~/.dotfiles"
+desc = "goto .dotfiles"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "v" ]
+run  = "cd ~/vods"
+desc = "goto ~/vods"
+

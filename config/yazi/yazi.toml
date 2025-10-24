@@ -1,0 +1,6 @@
+[mgr]
+sort_sensitive = false
+sort_dir_first = true
+linemode = "none"
+show_symlink = true
+show_hidden = false
