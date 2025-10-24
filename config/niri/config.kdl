@@ -25,13 +25,12 @@ input {
     tap
     dwt
     // dwtp
-    drag-lock
+    // drag-lock
     accel-speed 0.1
     scroll-factor 0.5
     accel-profile "adaptive"
     click-method "clickfinger"
     scroll-method "two-finger"
-    disabled-on-external-mouse
   }
   focus-follows-mouse max-scroll-amount="25%"
   mouse {
