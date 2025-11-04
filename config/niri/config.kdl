@@ -82,23 +82,18 @@ layout {
 // disables client-side decorrations if possible
 prefer-no-csd
 hotkey-overlay { skip-at-startup; }
+animations { off; }
 
 // set to null if u want disable saving to disk behavior
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
-animations {
-  off
-  slowdown 1.0
-}
 // }}}
 // window/workspace rules {{{
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 // https://github.com/YaLTeR/niri/wiki/Configuration:-move-column-to-workspace
 
 workspace "tools" { open-on-output "HDMI-A-1"; }
-workspace "web"{ open-on-output "HDMI-A-1"; }
-workspace "dev"{ open-on-output "HDMI-A-1"; }
+workspace "web" { open-on-output "HDMI-A-1"; }
+workspace "dev" { open-on-output "HDMI-A-1"; }
 workspace "laptop" { open-on-output "eDP-1"; }
 
 window-rule {
@@ -114,13 +109,7 @@ window-rule {
   match app-id="firefox"
   match app-id="Brave-browser"
   open-on-workspace "web"
-}
-
-window-rule {
-  match app-id="Emacs"
-  match app-id="Code"
-  match app-id="Zed"
-  open-on-workspace "dev"
+  open-focused true
 }
 
 window-rule {
@@ -242,8 +231,8 @@ binds {
   Mod+Shift+4 { move-column-to-workspace 4; }
   Mod+Shift+5 { move-column-to-workspace 5; }
 
-  Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-  Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+  Mod+WheelScrollDown cooldown-ms=50 { focus-workspace-down; }
+  Mod+WheelScrollUp   cooldown-ms=50 { focus-workspace-up; }
   // }}}
 }
 // }}}
