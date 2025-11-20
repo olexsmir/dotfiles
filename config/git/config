@@ -3,7 +3,7 @@
 [user]
     name = Oleksandr Smirnov
     email = olexsmir@gmail.com
-    signingkey = ~/.ssh/id_ed25519.pub
+    signingkey = ~/.ssh/git-sign.pub
 
 [gpg]
     program = gpg2
