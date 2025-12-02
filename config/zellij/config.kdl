@@ -34,7 +34,7 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
         bind "tab" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "t" { NewTab; SwitchToMode "normal"; }
-        bind "y" { SwitchToMode "renametab"; TabNameInput 0; }
+        bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "," { MoveTab "left"; SwitchToMode "normal"; }
         bind "." { MoveTab "right"; SwitchToMode "normal"; }
 
