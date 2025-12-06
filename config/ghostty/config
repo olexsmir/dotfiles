@@ -1,0 +1,5 @@
+theme = TokyoNight Night
+window-theme = ghostty
+font-family = Jetbrains Mono
+font-size = 13
+command = fish

@@ -135,6 +135,7 @@ window-rule {
   match app-id="firefox"
   match app-id="Brave-browser"
   match app-id="kitty"
+  match app-id="ghostty"
   match app-id="obsidian"
   match app-id="Code"
   match app-id="Zed"
