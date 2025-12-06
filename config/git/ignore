@@ -3,3 +3,4 @@
 /.docker/
 .env
 AGENTS.md
+tags
