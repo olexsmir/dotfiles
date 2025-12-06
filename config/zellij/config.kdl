@@ -25,6 +25,11 @@ keybinds clear-defaults=true {
         bind "Alt 3" { GoToTab 3; SwitchToMode "normal"; }
         bind "Alt 4" { GoToTab 4; SwitchToMode "normal"; }
         bind "Alt 5" { GoToTab 5; SwitchToMode "normal"; }
+        bind "Alt 6" { GoToTab 6; SwitchToMode "normal"; }
+        bind "Alt 7" { GoToTab 7; SwitchToMode "normal"; }
+        bind "Alt 8" { GoToTab 8; SwitchToMode "normal"; }
+        bind "Alt 8" { GoToTab 8; SwitchToMode "normal"; }
+        bind "Alt 9" { GoToTab 9; SwitchToMode "normal"; }
     }
 
     tmux {
