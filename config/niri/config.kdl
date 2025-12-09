@@ -26,8 +26,8 @@ input {
     dwt
     // dwtp
     // drag-lock
-    accel-speed 0.1
-    scroll-factor 0.5
+    accel-speed 0.2
+    scroll-factor 1.5
     accel-profile "adaptive"
     click-method "clickfinger"
     scroll-method "two-finger"
@@ -108,6 +108,7 @@ window-rule {
   match app-id="zen"
   match app-id="firefox"
   match app-id="Brave-browser"
+  match app-id="brave-browser"
   open-on-workspace "web"
   open-focused true
 }
@@ -161,7 +162,7 @@ binds {
   Mod+d { spawn "dunstctl" "close"; }
   Mod+q { close-window; }
   Mod+Alt+l { spawn "hyprlock"; }
-  Mod+Return { spawn "kitty"; }
+  Mod+Return { spawn "ghostty"; }
   Mod+Shift+Escape { spawn "~/bin/wofi-power-menu" "niri";}
   Mod+Shift+Return { spawn "wofi" "--show" "drun"; }
 
