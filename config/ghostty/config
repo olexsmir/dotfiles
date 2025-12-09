@@ -3,3 +3,8 @@ window-theme = ghostty
 font-family = Jetbrains Mono
 font-size = 13
 command = fish
+mouse-hide-while-typing = true
+
+keybind = ctrl+,=unbind
+keybind = ctrl+shift+.=move_tab:1
+keybind = ctrl+shift+,=move_tab:-1
