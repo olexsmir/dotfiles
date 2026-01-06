@@ -1,0 +1,8 @@
+youtube.com###related:remove() /* recommendations */
+youtube.com###guide-button:remove() /* side menu toggle */
+youtube.com###guide-inner-content /* side bar content */
+youtube.com###buttons > ytd-button-renderer > yt-button-shape /* create button */
+youtube.com##ytd-notification-topbar-button-renderer /* notifications button */
+youtube.com###voice-search-button
+youtube.com###chips-content /* the thing that let's you choose content categories on home page */
+youtube.com##ytd-browse[page-subtype="home"] /* home page */
