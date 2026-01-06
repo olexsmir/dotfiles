@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 echo -e "\e[32m[gopls]\e[0m";        go install golang.org/x/tools/gopls@latest
+echo -e "\e[32m[revive]\e[0m";       go install github.com/mgechev/revive@latest
 echo -e "\e[32m[gofumpt]\e[0m";      go install mvdan.cc/gofumpt@latest
 echo -e "\e[32m[goimports]\e[0m";    go install golang.org/x/tools/cmd/goimports@latest
 echo -e "\e[32m[golines]\e[0m";      go install github.com/segmentio/golines@latest
