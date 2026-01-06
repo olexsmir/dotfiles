@@ -1,10 +1,8 @@
-[[mgr.prepend_keymap]]
-on   = [ "g", "c" ]
-run  = "cd ~/.dotfiles"
-desc = "goto .dotfiles"
-
-[[mgr.prepend_keymap]]
-on   = [ "g", "v" ]
-run  = "cd ~/vods"
-desc = "goto ~/vods"
-
+mgr.prepend_keymap = [
+  { on = ["g", "."], run = "cd ~/.dotfiles", desc = "goto .dotfiles" },
+  { on = ["g", "o"], run = "cd ~/org", desc = "goto ~/org" },
+  { on = ["g", "c"], run = "cd ~/code", desc = "goto ~/code" },
+  { on = ["g", "p"], run = "cd ~/Pictures", desc = "goto ~/Pictures" },
+  { on = ["g", "v"], run = "cd ~/vods", desc = "goto ~/vods" },
+  { on = ["g", "b"], run = "cd ~/Documents/Books", desc = "goto /Books" },
+]
