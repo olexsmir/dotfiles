@@ -1,12 +1,13 @@
-set -g GOPATH $HOME/go
-set -g GOBIN $GOPATH/bin
+set -gx GOPATH $HOME/go
+set -gx GOBIN $GOPATH/bin
 
-set -g PATH $GOBIN $PATH
-set -g PATH $HOME/bin $PATH
-set -g PATH $HOME/.local/bin $PATH
-set -g PATH $HOME/.bun/bin $PATH
-set -g PATH node_modules/.bin $PATH
-
+set -gx PATH $GOBIN $PATH
+set -gx PATH $HOME/bin $PATH
+set -gx PATH $HOME/.local/bin $PATH
+set -gx PATH $HOME/.bun/bin $PATH
+set -gx PATH node_modules/.bin $PATH
+set -gx NIX_PATH $HOME/.local/nix
+set -gx LEDGER_FILE "$HOME/org/finance/2026.journal"
 
 if type -q nvim
   set -gx EDITOR nvim
