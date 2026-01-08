@@ -1,0 +1,36 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "theme": "tokyonight",
+  "keybinds": {
+    "leader": "ctrl+x",
+    "app_exit": "ctrl+c,ctrl+d,<leader>x",
+    "messages_half_page_down": "ctrl+d",
+    "messages_half_page_up": "ctrl+u",
+    "input_delete_to_line_start": "none",
+    "input_delete": "delete,shift+delete"
+  },
+  "mcp": {
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+    },
+    "grep-app": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+    }
+  }
+}
