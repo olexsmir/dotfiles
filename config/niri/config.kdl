@@ -115,6 +115,7 @@ window-rule {
 
 window-rule {
   match app-id="Spotify"
+  match app-id="spotify"
   match app-id="org.gnome.Snapshot"
   match app-id="org.gnome.Calendar"
   match app-id="sleek"
@@ -132,9 +133,11 @@ window-rule {
 
 window-rule {
   match app-id="Spotify"
+  match app-id="spotify"
   match app-id="zen"
   match app-id="firefox"
   match app-id="Brave-browser"
+  match app-id="brave-browser"
   match app-id="kitty"
   match app-id="ghostty"
   match app-id="obsidian"
@@ -162,9 +165,9 @@ binds {
   Mod+d { spawn "dunstctl" "close"; }
   Mod+q { close-window; }
   Mod+Alt+l { spawn "hyprlock"; }
-  Mod+Return { spawn "ghostty"; }
+  Mod+Return { spawn "kitty"; }
   Mod+Shift+Escape { spawn "~/bin/wofi-power-menu" "niri";}
-  Mod+Shift+Return { spawn "wofi" "--show" "drun"; }
+  Mod+Shift+Return { spawn "wofi"; }
 
   // programs {{{
   Mod+Shift+a { spawn "anki"; }
