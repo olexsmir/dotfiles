@@ -1,0 +1,4 @@
+[
+  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLLJdkVYKZgsayw+sHanKPKZbI0RMS2CakqBCEi5Trz" # laptop
+  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINeXccmMQ9jfLG2Z8CITaZZ+pUgYVNVYDFtmdkBHd3xk u0_a930@localhost" # phone
+]
