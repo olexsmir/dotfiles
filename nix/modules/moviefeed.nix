@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   configFile = "/home/q/moviedfeed.yml";
-  version = "2bda86db";
+  version = "1875224";
   moviefeed = pkgs.buildGoModule {
     pname = "moviefeed";
     inherit version;
@@ -10,7 +10,7 @@ let
       owner = "olexsmir";
       repo = "moviefeed";
       rev = version;
-      hash = "sha256-g05iqKH3g6Q536AF3Xb2zYx3jiLXybaavM7UB9Hu5Dg=";
+      hash = "sha256-rmFLFbVQ4P2LdezM6ZGS+DI9NY4VMpXrp1p1QjB9FO0=";
     };
   };
 in
