@@ -12,7 +12,12 @@ in
       layer4 {
         :6697 {
           route {
-            tls
+            tls {
+              connection_policy {
+                alpn http/1.1 http/1.0 irc
+                default_sni ${domain}
+              }
+            }
             proxy {
               proxy_protocol v2
               upstream localhost:6667
