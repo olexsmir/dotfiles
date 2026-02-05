@@ -14,6 +14,10 @@
       url = "git+https://tangled.org/@tangled.org/core?ref=refs/tags/v1.11.0-alpha";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mugit = {
+      url = "github:olexsmir/mugit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,6 +26,7 @@
       agenix,
       disko,
       tangled,
+      mugit,
       ...
     }:
     {
@@ -33,6 +38,7 @@
           disko.nixosModules.disko
           tangled.nixosModules.knot
           tangled.nixosModules.spindle
+          mugit.nixosModules.default
         ];
       };
     };
