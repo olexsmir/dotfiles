@@ -1,6 +1,9 @@
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
 
+set -gx OPAMROOT $HOME/.local/share/opam
+set -gx CARGO_HOME $HOME/.local/share/cargo
+
 set -gx PATH $GOBIN $PATH
 set -gx PATH $HOME/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
