@@ -8,10 +8,8 @@
     ../../users/q.nix
 
     ../../modules/freshrss.nix
-    ../../modules/tangled.nix
     ../../modules/moviefeed.nix
     ../../modules/mugit.nix
     ../../modules/wireguard.nix
-    ../../modules/soju.nix
   ];
 }
