@@ -4,6 +4,7 @@
     reverse_proxy localhost:8008
   '';
 
+  networking.firewall.allowedTCPPorts = [ 22 ];
   services.mugit = {
     enable = true;
     openFirewall = true;

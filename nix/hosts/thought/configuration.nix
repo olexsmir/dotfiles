@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 
   swapDevices = [
     {
@@ -24,14 +24,10 @@
 
   networking = {
     hostName = "vps";
-    useDHCP = true;
-    # Interface names will be auto-detected in hardware-configuration.nix
-    # Using generic DHCP setting
     interfaces = { };
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22
         80
         443
         2222
@@ -39,14 +35,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    htop
-    tmux
-  ];
-
-  age.identityPaths = [ "/keys.txt" ]; # TODO: i dont like that i overwrites literally everything
+  age.identityPaths = [ "/keys.txt" ];
 
   services = {
     caddy = {
@@ -80,4 +69,10 @@
       ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+    htop
+  ];
 }
