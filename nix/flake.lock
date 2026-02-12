@@ -261,11 +261,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770404159,
-        "narHash": "sha256-jeHLWDhT8GAgmdTLyveDwgwQM8W5VDRSQo78eCp5N/Q=",
+        "lastModified": 1770934049,
+        "narHash": "sha256-K/FIuS/yj+ZHWnjia2g3hQV8BzBBu+MsoMmFiqBA478=",
         "owner": "olexsmir",
         "repo": "mugit",
-        "rev": "e6fe8220d1822f3b98bb22da5ef766ed759309d0",
+        "rev": "cce3826a6adee0abf65f5a7878cfa484972a84ae",
         "type": "github"
       },
       "original": {

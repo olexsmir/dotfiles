@@ -10,4 +10,6 @@ in
   "q-password.age".publicKeys = allKeys;
   "freshrss-olex.age".publicKeys = allKeys;
   "wg-private-key.age".publicKeys = allKeys;
+  "github_token.age".publicKeys = allKeys;
+  "mugit_host.age".publicKeys = allKeys;
 }
