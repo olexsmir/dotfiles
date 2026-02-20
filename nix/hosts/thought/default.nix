@@ -12,5 +12,6 @@
     ../../modules/mugit.nix
     ../../modules/wireguard.nix
     ../../modules/shortener.nix
+    ../../modules/vikunja.nix
   ];
 }
