@@ -38,13 +38,7 @@
   age.identityPaths = [ "/keys.txt" ];
 
   services = {
-    caddy = {
-      enable = true;
-      package = pkgs.caddy.withPlugins {
-        plugins = [ "github.com/mholt/caddy-l4@v0.0.0-20260116154418-93f52b6a03ba" ];
-        hash = "sha256-s8D9p8k/Gote8s4fk0pv35R7aIwRi5ze7gbBHj+Fm8U=";
-      };
-    };
+    caddy.enable = true;
     openssh = {
       enable = true;
       ports = [ 2222 ];
