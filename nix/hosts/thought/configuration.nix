@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ ... }: {
   imports = [
     ./disko-config.nix
     ./hardware-configuration.nix
@@ -7,35 +6,25 @@
 
   system.stateVersion = "25.11";
 
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 2048; # MB
-    }
-  ];
-
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
 
+  swapDevices = [ {
+   device = "/swapfile";
+    size = 2048; # MB
+  } ];
+
   time.timeZone = "Europe/Kyiv";
   i18n.defaultLocale = "en_US.UTF-8";
-
   networking = {
-    hostName = "vps";
-    interfaces = { };
+    hostName = "thought";
     firewall = {
       enable = true;
-      allowedTCPPorts = [
-        80
-        443
-        2222
-      ];
+      allowedTCPPorts = [ 80 443 2222 ];
     };
   };
-
-  age.identityPaths = [ "/keys.txt" ];
 
   services = {
     caddy.enable = true;
@@ -48,25 +37,4 @@
       };
     };
   };
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    htop
-  ];
 }

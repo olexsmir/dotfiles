@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   age.secrets.freshrss-olex = {
-    file = ../secrets/freshrss-olex.age;
+    file = ../../secrets/freshrss-olex.age;
     owner = "freshrss";
     group = "freshrss";
   };

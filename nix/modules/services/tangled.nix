@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   services.caddy.virtualHosts."knot.olexsmir.xyz".extraConfig = ''
     reverse_proxy localhost:5555
   '';
