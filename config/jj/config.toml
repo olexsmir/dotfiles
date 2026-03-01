@@ -17,7 +17,7 @@ key = "~/.ssh/git-sign.pub"
 
 [git]
 sign-on-push = true
-private-commits = "description(glob:'wip:*') | description(glob:'private:*')"
+private-commits = "private()"
 
 [remotes]
 origin.auto-track-bookmarks = "glob:*"
@@ -25,9 +25,18 @@ olexsmir.auto-track-bookmarks = "glob:*"
 upstream.auto-track-bookmarks = "main | master"
 
 [aliases]
+e = ["edit"]
 l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
 llog = ["log", "-r", ".."]
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+n = ["new"]
+restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
+
+[revset-aliases]
+"private()" = "description(glob:'private:*') | description(glob:'wip:*')"
+"mutable_roots()" = "roots(trunk()..) & mutable()"
+"closest_bookmark(to)" = "heads(::to & bookmarks())"
+"closest_pushable(to)" = "heads(::to & ~description(exact:'') & (~empty() | merges()))"
 
 [templates]
 git_push_bookmark = '"olexsmir/" ++ change_id.short()'
