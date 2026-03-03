@@ -2,10 +2,9 @@
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "tools": "󰅨",
-      "web": "󰖟",
-      "dev": "",
-      "misc": "",
+      "one": "󰅨",
+      "two": "󰖟",
+      "tri": "",
       "laptop": "",
       "default": ""
     }

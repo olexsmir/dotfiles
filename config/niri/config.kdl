@@ -91,9 +91,9 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 // https://github.com/YaLTeR/niri/wiki/Configuration:-move-column-to-workspace
 
-workspace "tools" { open-on-output "HDMI-A-1"; }
-workspace "web" { open-on-output "HDMI-A-1"; }
-workspace "dev" { open-on-output "HDMI-A-1"; }
+workspace "one" { open-on-output "HDMI-A-1"; }
+workspace "two" { open-on-output "HDMI-A-1"; }
+workspace "tri" { open-on-output "HDMI-A-1"; }
 workspace "laptop" { open-on-output "eDP-1"; }
 
 window-rule {
@@ -225,14 +225,14 @@ binds {
   Mod+Shift+Period { move-column-to-monitor-right; }
 
   // workspaces
-  Mod+1 { focus-workspace 1; }
-  Mod+2 { focus-workspace 2; }
-  Mod+3 { focus-workspace 3; }
+  Mod+1 { focus-workspace "one"; }
+  Mod+2 { focus-workspace "two"; }
+  Mod+3 { focus-workspace "tri"; }
   Mod+4 { focus-workspace 4; }
   Mod+5 { focus-workspace 5; }
-  Mod+Shift+1 { move-column-to-workspace 1; }
-  Mod+Shift+2 { move-column-to-workspace 2; }
-  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+1 { move-column-to-workspace "one"; }
+  Mod+Shift+2 { move-column-to-workspace "two"; }
+  Mod+Shift+3 { move-column-to-workspace "tri"; }
   Mod+Shift+4 { move-column-to-workspace 4; }
   Mod+Shift+5 { move-column-to-workspace 5; }
 
