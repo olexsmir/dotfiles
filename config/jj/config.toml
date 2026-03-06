@@ -28,8 +28,8 @@ upstream.auto-track-bookmarks = "main | master"
 e = ["edit"]
 l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
 llog = ["log", "-r", ".."]
-n = ["new"]
 restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()"]
+sync = ["util", "exec", "--", "sh", "-c", "jj git fetch && jj new 'trunk()'"]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 
 [revset-aliases]
@@ -39,7 +39,7 @@ tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pus
 "closest_pushable(to)" = "heads(::to & ~description(exact:'') & (~empty() | merges()))"
 
 [templates]
-git_push_bookmark = '"olexsmir/" ++ change_id.short()'
+git_push_bookmark = '"olex/" ++ change_id.short()'
 draft_commit_description = '''
 concat(
   coalesce(description, default_commit_description, "\n"),
