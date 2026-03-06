@@ -1,11 +1,11 @@
 [tools]
 bun = "latest"
-flyctl = "latest"
 gleam = "latest"
 go = "latest"
 golangci-lint = "latest"
 golangci-lint-langserver = "latest"
-lua-language-server = "latest"
+hledger = "latest"
+lua-language-server = "3.16.4"
 node = "lts"
 shellcheck = "latest"
 shfmt = "latest"
