@@ -3,12 +3,14 @@ set -gx GOBIN $GOPATH/bin
 
 set -gx OPAMROOT $HOME/.local/share/opam
 set -gx CARGO_HOME $HOME/.local/share/cargo
+set -gx RUSTUP_HOME $HOME/.local/share/rustup
 
 set -gx NIX_PATH $HOME/.local/nix
 set -gx LEDGER_FILE "$HOME/org/finance/$(date +%Y).journal"
 set -gx LESS "--mouse"
 
 set -gx PATH $GOBIN $PATH
+set -gx PATH $CARGO_HOME/bin $PATH
 set -gx PATH $HOME/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.bun/bin $PATH
