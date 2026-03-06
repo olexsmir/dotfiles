@@ -88,13 +88,6 @@
       "activated": "󰅶",
       "deactivated": "󰛊"
     }
-  },
-
-  "custom/timew": {
-    "exec": "~/bin/time.sh status",
-    "format": "󰚭 {text}",
-    "interval": 5,
-    "tooltip": false
   }
 }
 // vim: ft=jsonc
