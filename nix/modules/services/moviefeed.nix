@@ -8,8 +8,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "olexsmir";
       repo = "moviefeed";
-      rev = "1875224";
-      hash = "sha256-rmFLFbVQ4P2LdezM6ZGS+DI9NY4VMpXrp1p1QjB9FO0=";
+      rev = "d1fd0edc3de3384f8f4e06e5a0813a311a9ce13d";
+      hash = "sha256-KYSAeb4hA60aL2XjuwwTN13dJgvbove+jESNyU5wrKM=";
     };
   };
 in {
