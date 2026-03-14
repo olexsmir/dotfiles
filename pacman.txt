@@ -3,7 +3,6 @@ bat
 bc
 blueman
 brightnessctl
-codespell
 ctags
 dash
 direnv
@@ -20,7 +19,6 @@ git-delta
 github-cli
 gnome-keyring
 gnu-free-fonts
-gnu-free-fonts
 grim
 htop
 hypridle
@@ -31,6 +29,7 @@ jujutsu
 keepassxc
 kitty
 ly
+mergiraf
 mise
 mpv
 niri
@@ -69,7 +68,6 @@ ttf-liberation
 waybar
 wget
 wireguard-tools
-wiremix
 wiremix
 wireplumber
 xdg-desktop-portal-gnome
