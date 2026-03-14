@@ -20,15 +20,16 @@ sign-on-push = true
 private-commits = "private()"
 
 [remotes]
-origin.auto-track-bookmarks = "glob:*"
-olexsmir.auto-track-bookmarks = "glob:*"
+origin.auto-track-bookmarks = "*"
+olexsmir.auto-track-bookmarks = "*"
 upstream.auto-track-bookmarks = "main | master"
 
 [aliases]
 e = ["edit"]
 llog = ["log", "-r", ".."]
-restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()"]
-sync = ["util", "exec", "--", "sh", "-c", "jj git fetch && jj new 'trunk()'"]
+restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
+solve = ["resolve", "--tool", "mergiraf"]
+sync = ["util", "exec", "--", "sh", "-c", "jj git fetch && jj rebase -d 'trunk()'"]
 tug = ["bookmark", "advance"]
 
 [revsets]
