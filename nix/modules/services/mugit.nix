@@ -11,7 +11,6 @@ in {
   services.mugit = {
     enable = true;
     exposeCli = true;
-    openFirewall = true;
     config = {
       server.port = 8008;
       repo.dir = "/var/lib/mugit/";

@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
     ./digitalocean.nix
     ./disko-config.nix
@@ -38,4 +38,10 @@
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    git
+    htop
+    neovim
+  ];
 }
