@@ -12,7 +12,9 @@ shfmt = "latest"
 usage = "latest"
 
 [settings]
-experimental = true
 go_set_gobin = false
 go_set_gopath = false
 go_set_goroot = false
+
+npm.package_manager = "bun"
+

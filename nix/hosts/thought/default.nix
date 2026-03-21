@@ -1,8 +1,6 @@
 { ... }: {
   imports = [
-    ./digitalocean.nix
     ./configuration.nix
-    ./hardware-configuration.nix
 
     ../../modules/common.nix
     ../../modules/users/q.nix

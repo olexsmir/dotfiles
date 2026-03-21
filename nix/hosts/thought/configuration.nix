@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./digitalocean.nix
     ./disko-config.nix
     ./hardware-configuration.nix
   ];
@@ -12,7 +13,7 @@
   };
 
   swapDevices = [ {
-   device = "/swapfile";
+    device = "/swapfile";
     size = 2048; # MB
   } ];
 

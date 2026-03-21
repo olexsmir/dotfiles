@@ -45,7 +45,7 @@ bookmark-advance-from = "closest_bookmark(@)"
 "closest_pushable(to)" = "heads(::to & ~description(exact:'') & (~empty() | merges()))"
 
 [templates]
-git_push_bookmark = '"olex/" ++ change_id.short()'
+git_push_bookmark = '"olex/" ++ change_id.shortest(6)'
 draft_commit_description = "builtin_draft_commit_description_with_diff"
 
 [template-aliases]
