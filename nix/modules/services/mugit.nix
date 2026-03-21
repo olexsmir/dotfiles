@@ -4,6 +4,7 @@ in {
   age.secrets.github-token = mkSec ../../secrets/github-token.age;
   age.secrets.mugit-host   = mkSec ../../secrets/mugit-host.age;
 
+  networking.firewall.allowedTCPPorts = [ 22 ];
   services.caddy.virtualHosts."git.olexsmir.xyz".extraConfig = ''
     reverse_proxy localhost:8008
   '';
@@ -11,7 +12,6 @@ in {
   services.mugit = {
     enable = true;
     exposeCli = true;
-    openFirewall = true;
     config = {
       server.port = 8008;
       repo.dir = "/var/lib/mugit/";
