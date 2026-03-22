@@ -29,7 +29,7 @@ if type -q eza
   alias ll ls
 end
 
-if test $TERM = "xterm-kitty"
+if test "$TERM" = "xterm-kitty"
   alias ssh "kitty +kitten ssh"
   alias icat "kitty +kitten icat"
 end

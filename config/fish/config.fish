@@ -22,7 +22,6 @@ if type -q nvim
 end
 
 if status is-interactive
-  starship init fish | source
   zoxide init fish | source
   mise activate fish | source
   direnv hook fish | source

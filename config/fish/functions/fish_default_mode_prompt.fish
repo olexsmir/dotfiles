@@ -1,0 +1,2 @@
+function fish_default_mode_prompt
+end
