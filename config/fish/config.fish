@@ -6,15 +6,15 @@ set -gx CARGO_HOME $HOME/.local/share/cargo
 set -gx RUSTUP_HOME $HOME/.local/share/rustup
 
 set -gx NIX_PATH $HOME/.local/nix
-set -gx LEDGER_FILE "$HOME/org/finance/$(date +%Y).journal"
-set -gx LESS "--mouse"
+set -gx LEDGER_FILE "$HOME/org/finance/"(date +%Y)".journal"
 
-set -gx PATH $GOBIN $PATH
-set -gx PATH $CARGO_HOME/bin $PATH
-set -gx PATH $HOME/bin $PATH
-set -gx PATH $HOME/.local/bin $PATH
-set -gx PATH $HOME/.bun/bin $PATH
-set -gx PATH node_modules/.bin $PATH
+fish_add_path -g $GOBIN
+fish_add_path -g $CARGO_HOME/bin
+fish_add_path -g $HOME/bin
+fish_add_path -g $HOME/.local/bin
+fish_add_path -g $HOME/.bun/bin
+fish_add_path -g ~/.local/share/mise/shims
+fish_add_path -P node_modules/.bin
 
 if type -q nvim
   set -gx EDITOR nvim
@@ -23,7 +23,6 @@ end
 
 if status is-interactive
   zoxide init fish | source
-  mise activate fish | source
   direnv hook fish | source
 
   function fish_user_key_bindings
