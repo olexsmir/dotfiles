@@ -31,7 +31,7 @@
     caddy.enable = true;
     openssh = {
       enable = true;
-      ports = [ 2222 ];
+      ports = [ 22 ];
       settings = {
         PasswordAuthentication = false;
         PermitRootLogin = "no";

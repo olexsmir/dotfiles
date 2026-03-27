@@ -1,10 +1,10 @@
-{ config, ... }:
-let mkSec = file: { inherit file; owner = "mugit"; group = "mugit"; };
-in {
-  age.secrets.github-token = mkSec ../../secrets/github-token.age;
-  age.secrets.mugit-host   = mkSec ../../secrets/mugit-host.age;
+{ config, ... }: {
+  age.secrets.github-token = {
+    file = ../../secrets/github-token.age;
+    owner = "git";
+    group = "git";
+  };
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
   services.caddy.virtualHosts."git.olexsmir.xyz".extraConfig = ''
     reverse_proxy localhost:8008
   '';
@@ -22,8 +22,6 @@ in {
       };
       ssh = {
         enable = true;
-        port = 22;
-        host_key = config.age.secrets.mugit-host.path;
         keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLLJdkVYKZgsayw+sHanKPKZbI0RMS2CakqBCEi5Trz"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMPQ0Qz0DFB+rGrD8ScUqbUTZ1/O8FHrOBF5bIAGQgMj"

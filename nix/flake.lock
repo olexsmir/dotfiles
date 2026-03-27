@@ -93,11 +93,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774130688,
-        "narHash": "sha256-j+ZRZJlcgZxIg1zOqNDjy+rUhcRhmdOSh6slcyolVw4=",
+        "lastModified": 1774641352,
+        "narHash": "sha256-g5Y0zW+Oa3nKpA2wbHVvQJTH4+FishXOR0PxBNo4On8=",
         "owner": "olexsmir",
         "repo": "mugit",
-        "rev": "8287e68ce6dd20094e2f7f9562d5378f9b97533f",
+        "rev": "c1b5a725e6aaf13c8d6f7fcd63844b63d6151a42",
         "type": "github"
       },
       "original": {
@@ -108,11 +108,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1773964973,
-        "narHash": "sha256-NV/J+tTER0P5iJhUDL/8HO5MDjDceLQPRUYgdmy5wXw=",
+        "lastModified": 1774388614,
+        "narHash": "sha256-tFwzTI0DdDzovdE9+Ras6CUss0yn8P9XV4Ja6RjA+nU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "812b3986fd1568f7a858f97fcf425ad996ba7d25",
+        "rev": "1073dad219cb244572b74da2b20c7fe39cb3fa9e",
         "type": "github"
       },
       "original": {
