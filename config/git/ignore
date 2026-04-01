@@ -1,5 +1,7 @@
-/.jj/
-/.nvim.lua
 /.docker/
+/.jj/
+/.tests/
+/.nvim.lua
+/tags
 .env
-tags
+Session.vim

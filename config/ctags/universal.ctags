@@ -1,7 +1,12 @@
 --recurse=yes
 --tag-relative=yes
+
+# qualifies MyStruct.MyMethod to MyMethod
+#--extras=+q
+# full kind names, instead of single letters
 --fields=-k+K
---extras=+q
+# language of the tag (for multi language codebases)
+--fields=+l
 
 --languages=-markdown,json,yaml,iniconf,html,css
 --sh-kinds=-h

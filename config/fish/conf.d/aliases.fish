@@ -21,6 +21,7 @@ if type -q tmux; alias t "tmux attach 2>/dev/null || tmux"; end
 if type -q nvim
   alias vim nvim
   alias e vim
+  alias ee "nvim -S"
 end
 
 if type -q eza

@@ -1,4 +1,5 @@
 [tools]
+usage = "latest"
 bun = "latest"
 gleam = "latest"
 go = "latest"
@@ -8,8 +9,6 @@ hledger = "latest"
 lua-language-server = "3.16.4"
 node = "lts"
 shellcheck = "latest"
-shfmt = "latest"
-usage = "latest"
 
 [settings]
 npm.package_manager = "bun"
