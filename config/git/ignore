@@ -1,6 +1,7 @@
 /.docker/
 /.jj/
 /.tests/
+/.opencode/plans/
 /.nvim.lua
 /tags
 .env
