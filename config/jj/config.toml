@@ -29,7 +29,6 @@ e = ["edit"]
 llog = ["log", "-r", ".."]
 restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
 solve = ["resolve", "--tool", "mergiraf"]
-sync = ["util", "exec", "--", "sh", "-c", "jj git fetch && jj rebase -d 'trunk()'"]
 tug = ["bookmark", "advance"]
 
 [revsets]
