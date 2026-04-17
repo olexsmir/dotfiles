@@ -20,9 +20,8 @@ sign-on-push = true
 private-commits = "private()"
 
 [remotes]
-origin.auto-track-bookmarks = "*"
-olexsmir.auto-track-bookmarks = "*"
 upstream.auto-track-bookmarks = "main | master"
+origin.auto-track-bookmarks = "*"
 
 [aliases]
 e = ["edit"]
