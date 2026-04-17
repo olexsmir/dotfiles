@@ -7,8 +7,9 @@
 # sudo chmod 664 /etc/hosts
 
 readonly TC="$HOME/org/time.timeclock"
-readonly CATS=$'stop\nWORK\nVIM\nWASTE'
-readonly BLOCKED=("news.ycombinator.com" "www.lobste.rs" "www.twitch.tv" "www.reddit.com" "www.chess.com" "www.lichess.org") # "www.youtube.com" "youtube.com"
+readonly CATS=("stop" "WORK" "WASTE")
+readonly BLOCKED=("news.ycombinator.com" "lobste.rs" "www.reddit.com" "www.chess.com" "www.lichess.org"
+                  "discord.com" "www.x.com" "www.bsky.app" "www.twitch.tv" "www.youtube.com" "youtube.com")
 
 now() { date '+%Y-%m-%d %H:%M:%S'; }
 current() { awk '/^[io]/ { last_type=$1; last_cat=$4 } END { if (last_type == "i") print last_cat }' "$TC"; }
@@ -35,11 +36,12 @@ case "${1:-}" in
     open=$(current)
     [[ -n "$open" ]] && printf '%s\n' "${open#t:}"
   ;;
-  ""|s)
-    cat=$(printf '%s\n' "$CATS" | fzf) || exit
-    [[ -z "$cat" || "$cat" == stop ]] && { stop_tracking; block_sites rm; update_tmux ""; exit; }
-
+  "")
+    cat=$(printf '%s\n' "${CATS[@]}" | fzf) || exit
     stop_tracking
+
+    [[ -z "$cat" || "$cat" == stop ]] && { block_sites rm; update_tmux ""; exit; }
+
     printf 'i %s t:%s\n' "$(now)" "$cat" >> "$TC"
     [[ "$cat" == WASTE ]] && block_sites rm || block_sites add
     update_tmux "$cat"
