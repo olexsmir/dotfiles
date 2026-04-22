@@ -8,6 +8,7 @@
     ../../modules/services/mugit.nix
     ../../modules/services/wireguard.nix
     ../../modules/services/moviefeed.nix
+    ../../modules/services/rss-tools.nix
     ../../modules/services/music.nix
   ];
 }
