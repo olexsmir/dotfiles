@@ -9,9 +9,12 @@ hledger = "latest"
 lua-language-server = "3.16.4"
 node = "lts"
 shellcheck = "latest"
+shfmt = "latest"
+unison = "latest"
+tinymist = "latest"
 
 [settings]
 npm.package_manager = "bun"
 go_set_gobin = false
 go_set_gopath = false
-go_set_goroot = false
+go_set_goroot = true

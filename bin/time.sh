@@ -37,7 +37,7 @@ case "${1:-}" in
     [[ -n "$open" ]] && printf '%s\n' "${open#t:}"
   ;;
   "")
-    cat=$(printf '%s\n' "${CATS[@]}" | fzf) || exit
+    cat=$(printf '%s\n' "${CATS[@]}" | fzf --reverse --no-info) || exit
     stop_tracking
 
     [[ -z "$cat" || "$cat" == stop ]] && { block_sites rm; update_tmux ""; exit; }
