@@ -26,6 +26,7 @@ origin.auto-track-bookmarks = "*"
 [aliases]
 e = ["edit"]
 llog = ["log", "-r", ".."]
+push = ["git", "push"]
 restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
 solve = ["resolve", "--tool", "mergiraf"]
 tug = ["bookmark", "advance"]

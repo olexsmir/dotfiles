@@ -10,7 +10,6 @@ lua-language-server = "3.16.4"
 node = "lts"
 shellcheck = "latest"
 shfmt = "latest"
-unison = "latest"
 tinymist = "latest"
 
 [settings]

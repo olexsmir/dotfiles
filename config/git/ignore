@@ -1,8 +1,8 @@
 /.docker/
 /.jj/
-/.tests/
-/.opencode/plans/
 /.nvim.lua
-/tags
+/.opencode/plans/
+/.tests/
 .env
 Session.vim
+tags
