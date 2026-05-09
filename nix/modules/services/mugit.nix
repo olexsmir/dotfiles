@@ -19,6 +19,7 @@
         description = "hey kid, come get your free software";
         title = "git.olexsmir.xyz";
         host = "git.olexsmir.xyz";
+        modt = "Welcome to 🐮 mugit!";
       };
       ssh = {
         enable = true;
