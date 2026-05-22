@@ -102,6 +102,7 @@ window-rule {
 window-rule {
   match app-id="firefox"
   match app-id="brave-browser"
+  match app-id="helium"
   open-on-workspace "two"
   open-focused true
 }
@@ -115,18 +116,11 @@ window-rule {
 }
 
 window-rule {
-  match app-id="org.gnome.Solanum"
-  default-floating-position relative-to="top-left" x=10 y=10
-  open-focused true
-  open-floating true
-  open-on-workspace "laptop"
-}
-
-window-rule {
   match app-id="Spotify"
   match app-id="spotify"
   match app-id="zen"
   match app-id="firefox"
+  match app-id="helium"
   match app-id="Brave-browser"
   match app-id="brave-browser"
   match app-id="kitty"
@@ -160,15 +154,10 @@ binds {
   Mod+Shift+Escape { spawn "~/bin/wofi-power-menu" "niri";}
   Mod+Shift+Return { spawn "wofi"; }
 
-  // programs {{{
   Mod+Shift+a { spawn "anki"; }
-  Mod+Shift+d { spawn "obsidian"; }
-  Mod+Shift+f { spawn "newsflash"; }
-  Mod+Shift+r { spawn "solanum"; }
-  Mod+Shift+s { spawn "spotify"; }
+  Mod+Shift+s { spawn "gelly"; }
   Mod+Shift+t { spawn "Telegram"; }
-  Mod+Shift+w { spawn "brave"; }
-  // }}}
+  Mod+Shift+w { spawn "helium-browser"; }
   // func keys {{{
   // audio
   XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }

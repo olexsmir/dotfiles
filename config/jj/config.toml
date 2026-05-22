@@ -13,6 +13,7 @@ diff-formatter = ":git"
 
 [signing]
 backend = "ssh"
+backends.ssh.allowed-signers = "~/.config/git/allowed_signers"
 key = "~/.ssh/git-sign.pub"
 
 [git]
@@ -32,7 +33,7 @@ solve = ["resolve", "--tool", "mergiraf"]
 tug = ["bookmark", "advance"]
 
 [revsets]
-bookmark-advance-to = "heads(::@ & ~description(exact:'') & (~empty() | merges()))"
+bookmark-advance-to = "heads(::@ & ~description(exact:'') & ~private():: & (~empty() | merges()))"
 
 [revset-aliases]
 "private()" = "description(glob:'private:*') | description(glob:'wip:*')"

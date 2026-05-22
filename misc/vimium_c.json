@@ -1,11 +1,11 @@
 {
   "name": "Vimium C",
-  "@time": "10/21/2025, 9:07:10 PM",
-  "time": 1761070030010,
+  "@time": "5/18/2026, 12:10:14 AM",
+  "time": 1779052214158,
   "environment": {
-    "extension": "2.12.3",
+    "extension": "2.12.2",
     "platform": "linux",
-    "firefox": 140
+    "chromium": 148
   },
   "exclusionRules": [
     {
@@ -19,6 +19,10 @@
     {
       "passKeys": "",
       "pattern": ":https://monkeytype.com/"
+    },
+    {
+      "passKeys": "r",
+      "pattern": ":https://rss.olexsmir.xyz/"
     }
   ],
   "keyLayout": 2,

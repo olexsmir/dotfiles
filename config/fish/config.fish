@@ -50,7 +50,7 @@ alias .3 "cd ../../.."
 
 if type -q hledger; alias f hledger; end
 if type -q jj; abbr --add j jj; end
-if type -q tmux; alias t "tmux attach 2>/dev/null || tmux"; end
+if type -q tmux; and not set -q TMUX; alias t "tmux attach 2>/dev/null || tmux"; end
 
 if type -q eza
   alias ls "eza -l"
