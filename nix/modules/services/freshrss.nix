@@ -16,12 +16,12 @@
       pkgs.freshrss-extensions.reddit-image
       (pkgs.stdenv.mkDerivation {
         pname = "freshrss-official-extensions";
-        version = "unstable-2025-01-16";
+        version = "unstable-2026-05-30";
         src = pkgs.fetchFromGitHub {
           owner = "FreshRSS";
           repo = "Extensions";
-          rev = "3605f65b65e13ad818d4acbe337f7147feeb0970";
-          hash = "sha256-1c0d0szF21JHm/Sw16iSLPik3HIv2xjxKmvuAkLKqM0=";
+          rev = "8f48feec3a849a842dd99884b2a3c14f19410941";
+          hash = "sha256-F4xQ0S+K1LFo/tOftThbURSU4amZDdD1HrHBEfUsaOE=";
         };
         installPhase = ''
           mkdir -p $out/share/freshrss/extensions
