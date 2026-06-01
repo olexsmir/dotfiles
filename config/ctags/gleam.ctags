@@ -1,0 +1,11 @@
+--langdef=Gleam
+--langmap=Gleam:.gleam
+--kinddef-Gleam=f,function,functions
+--kinddef-Gleam=t,type,types
+--kinddef-Gleam=c,constant,constants
+--kinddef-Gleam=v,variant,variants
+--regex-Gleam=/^(pub\s+)?fn\s+([a-z_][a-zA-Z0-9_]*)\(/\2/f/x
+--regex-Gleam=/^(pub\s+)?(opaque\s+)?type\s+([A-Z][a-zA-Z0-9_]*)/\3/t/x
+--regex-Gleam=/^(pub\s+)?const\s+([a-z_][a-zA-Z0-9_]*)\s*=/\2/c/x
+--regex-Gleam=/^  ([A-Z][a-zA-Z0-9_]+)$/\1/v/x
+--regex-Gleam=/^  ([A-Z][a-zA-Z0-9_]+)\(.*/\1/v/x

@@ -7,9 +7,9 @@
 # sudo chmod 664 /etc/hosts
 
 readonly TC="$HOME/org/time.timeclock"
-readonly CATS=("stop" "WORK" "WASTE")
+readonly CATS=("stop" "WORK" "SEMI-WASTE" "WASTE")
 readonly BLOCKED=("news.ycombinator.com" "lobste.rs" "www.reddit.com" "www.chess.com" "www.lichess.org"
-                  "discord.com" "www.x.com" "www.bsky.app" "www.twitch.tv" "www.youtube.com" "youtube.com")
+                  "discord.com" "www.x.com" "bsky.app" "www.youtube.com" "youtube.com" "www.twitch.tv")
 
 now() { date '+%Y-%m-%d %H:%M:%S'; }
 current() { awk '/^[io]/ { last_type=$1; last_cat=$4 } END { if (last_type == "i") print last_cat }' "$TC"; }
@@ -17,8 +17,16 @@ stop_tracking() { [[ -n "$(current)" ]] && printf 'o %s\n' "$(now)" >>"$TC"; }
 
 block_sites() {
   for domain in "${BLOCKED[@]}"; do
-    hostess "$1" "$domain" "::1" >/dev/null 2>&1
+    grep -qF "::1 $domain" /etc/hosts 2>/dev/null || printf '%s\t%s\n' '::1' "$domain" >>/etc/hosts
   done
+}
+
+unblock_sites() {
+  local pattern
+  for domain in "${BLOCKED[@]}"; do
+    pattern+="/^::1[[:space:]]\+$domain\([[:space:]]\|$\)/d;"
+  done
+  sed "$pattern" /etc/hosts >/tmp/hosts.tmp && cat /tmp/hosts.tmp >/etc/hosts
 }
 
 update_tmux() {
@@ -40,10 +48,10 @@ case "${1:-}" in
     cat=$(printf '%s\n' "${CATS[@]}" | fzf --reverse --no-info) || exit
     stop_tracking
 
-    [[ -z "$cat" || "$cat" == stop ]] && { block_sites rm; update_tmux ""; exit; }
+    [[ -z "$cat" || "$cat" == stop ]] && { unblock_sites; update_tmux ""; exit; }
 
     printf 'i %s t:%s\n' "$(now)" "$cat" >> "$TC"
-    [[ "$cat" == WASTE ]] && block_sites rm || block_sites add
+    [[ "$cat" == WASTE ]] && unblock_sites || block_sites
     update_tmux "$cat"
   ;;
 esac

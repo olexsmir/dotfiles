@@ -1,2 +1,3 @@
 --smart-case
 --fixed-strings
+--max-columns=500

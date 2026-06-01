@@ -2,7 +2,10 @@
 
 p="$(tmux run 'echo #{pane_current_path}')"
 cd "$p"
-url=$(git remote get-url origin 2>/dev/null) || { echo "No remote 'origin' found in $p"; exit 1; }
+url=$(git remote get-url origin 2>/dev/null) \
+  || url=$(git remote get-url olexsmir 2>/dev/null) \
+  || url=$(git remote get-url upstream 2>/dev/null) \
+  || { echo "No remote 'origin', 'olexsmir', or 'upstream' found in $p"; exit 1; }
 
 if [[ $url == git@* ]]; then
   url="${url#git@}"

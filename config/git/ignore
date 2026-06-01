@@ -4,5 +4,7 @@
 /.opencode/plans/
 /.tests/
 .env
+PLAN.md
+TASK.md
 Session.vim
-tags
+/tags

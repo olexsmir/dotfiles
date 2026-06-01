@@ -15,23 +15,24 @@
 # line number
 --fields=+n
 
---languages=-markdown,json,yaml,iniconf
+--languages=-markdown,json,yaml,iniconf,css,html
 --sh-kinds=-h
 --Go-kinds=-p
 --Odin-kinds=-p
 
---exclude=.nvim.lua
---exclude=Session.vim
+--exclude=.docker
 --exclude=.git
 --exclude=.jj
---exclude=.docker
+--exclude=.nvim.lua
 --exclude=.tests
---exclude=elm-stuff
---exclude=dist
+--exclude=Session.vim
 --exclude=_site
 --exclude=build
---exclude=vendor
---exclude=target
+--exclude=dist
+--exclude=elm-stuff
 --exclude=node_modules
+--exclude=target
+--exclude=testdata
+--exclude=vendor
 --exclude=*.min.js
 --exclude=*.pb.go
