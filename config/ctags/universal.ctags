@@ -1,5 +1,5 @@
 --recurse=yes
---totals=yes
+# --totals=yes
 --tag-relative=yes
 
 # qualifies MyStruct.MyMethod to MyMethod

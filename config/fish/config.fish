@@ -1,12 +1,11 @@
-set -gx GOPATH $HOME/go
+set -gx GOPATH $HOME/.local/share/go
 set -gx GOBIN $GOPATH/bin
-
 set -gx CARGO_HOME $HOME/.local/share/cargo
-set -gx LEDGER_FILE "$HOME/org/finance/"(date +%Y)".journal"
-set -gx NIX_PATH $HOME/.local/nix
-set -gx OPAMROOT $HOME/.local/share/opam
-set -gx RIPGREP_CONFIG_PATH $HOME/.config/rgrc
 set -gx RUSTUP_HOME $HOME/.local/share/rustup
+set -gx OPAMROOT $HOME/.local/share/opam
+set -gx NIX_PATH $HOME/.local/nix
+set -gx LEDGER_FILE $HOME/org/finance/2026.journal
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/rgrc
 
 fish_add_path -g $GOBIN
 fish_add_path -g $CARGO_HOME/bin
