@@ -25,6 +25,7 @@
 --exclude=.jj
 --exclude=.nvim.lua
 --exclude=.tests
+--exclude=.venv
 --exclude=Session.vim
 --exclude=_site
 --exclude=build
@@ -35,4 +36,5 @@
 --exclude=testdata
 --exclude=vendor
 --exclude=*.min.js
+--exclude=*.min.css
 --exclude=*.pb.go

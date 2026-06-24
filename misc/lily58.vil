@@ -208,7 +208,7 @@
         "KC_TRNS"
       ],
       [
-        "KC_NO",
+        "KC_TRNS",
         "KC_VOLU",
         "KC_VOLD",
         "KC_MUTE",
@@ -220,8 +220,8 @@
         "KC_MNXT",
         "KC_MPRV",
         "KC_PSCREEN",
-        "KC_NO",
-        "KC_NO"
+        "KC_TRNS",
+        "KC_TRNS"
       ],
       [
         "KC_TRNS",
@@ -232,7 +232,7 @@
         "KC_LEFT"
       ],
       [
-        "KC_SPACE",
+        "KC_TRNS",
         "KC_TRNS",
         "KC_TRNS",
         "KC_TRNS",

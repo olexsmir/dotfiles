@@ -4,14 +4,12 @@ bun = "latest"
 gleam = "latest"
 go = "latest"
 golangci-lint = "latest"
-golangci-lint-langserver = "latest"
 hledger = "latest"
 lua-language-server = "latest"
 node = "lts"
 shellcheck = "latest"
 shfmt = "latest"
 tinymist = "latest"
-odin = { version = "latest", exe = "odin" }
 
 [settings]
 npm.package_manager = "bun"

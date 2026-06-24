@@ -95,6 +95,7 @@ workspace "laptop" { open-on-output "eDP-1"; }
 
 window-rule {
   match app-id="obsidian"
+  match app-id="discord"
   match app-id="org.mozilla.Thunderbird"
   match app-id="org.telegram.desktop"
   open-on-workspace "one"
@@ -129,6 +130,7 @@ window-rule {
   match app-id="obsidian"
   match app-id="Code"
   match app-id="Zed"
+  match app-id="discord"
   open-maximized true
 }
 
@@ -156,6 +158,7 @@ binds {
   Mod+Shift+Return { spawn "wofi"; }
 
   Mod+Shift+a { spawn "anki"; }
+  Mod+Shift+r { spawn "sioyek"; }
   Mod+Shift+s { spawn "gelly"; }
   Mod+Shift+t { spawn "Telegram"; }
   Mod+Shift+w { spawn "helium-browser"; }
