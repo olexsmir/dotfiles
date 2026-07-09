@@ -25,6 +25,7 @@ upstream.auto-track-bookmarks = "main | master"
 origin.auto-track-bookmarks = "*"
 
 [aliases]
+jj = []
 e = ["edit"]
 llog = ["log", "-r", ".."]
 push = ["git", "push"]
@@ -38,7 +39,6 @@ bookmark-advance-to = "heads(::@ & ~description(exact:'') & ~private():: & (~emp
 [revset-aliases]
 "private()" = "description(glob:'private:*') | description(glob:'wip:*')"
 "stack()" = "ancestors(reachable(@, mutable()), 2)"
-"user(x)" = "author(x) | committer(x)"
 "mutable_roots()" = "roots(trunk()..) & mutable()"
 
 [templates]

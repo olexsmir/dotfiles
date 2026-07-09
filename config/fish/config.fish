@@ -25,6 +25,14 @@ if type -q nvim
   alias ee "nvim -S"
 end
 
+alias chmox "chmod +x"
+alias cp "cp -r"
+alias df "df -h"
+alias du "du -h"
+alias free "free -h"
+alias mkdir "mkdir -p"
+alias rm "rm -i"
+
 if status is-interactive
   zoxide init fish | source
   direnv hook fish | source
@@ -32,32 +40,22 @@ if status is-interactive
   function fish_user_key_bindings
     fish_vi_key_bindings
   end
-end
 
-alias cls clear
-alias cp "cp -r"
-alias rm "rm -i"
-alias mkdir "mkdir -p"
-alias free "free -h"
-alias df "df -h"
-alias du "du -h"
-alias chmox "chmod +x"
-alias ":q" exit
+  alias ":q" exit
+  alias ... "cd ../.."
+  alias .3 "cd ../../.."
 
-alias ... "cd ../.."
-alias .3 "cd ../../.."
+  if type -q hledger; alias f hledger; end
+  if type -q jj; abbr --add j jj; end
+  if type -q tmux; and not set -q TMUX; alias t "tmux attach 2>/dev/null || tmux"; end
+  if type -q eza
+    alias ls "eza -l"
+    alias la "ls -a"
+    alias ll ls
+  end
 
-if type -q hledger; alias f hledger; end
-if type -q jj; abbr --add j jj; end
-if type -q tmux; and not set -q TMUX; alias t "tmux attach 2>/dev/null || tmux"; end
-
-if type -q eza
-  alias ls "eza -l"
-  alias la "ls -a"
-  alias ll ls
-end
-
-if test "$TERM" = "xterm-kitty"
-  alias ssh "kitty +kitten ssh"
-  alias icat "kitty +kitten icat"
+  if test "$TERM" = "xterm-kitty"
+    alias ssh "kitty +kitten ssh"
+    alias icat "kitty +kitten icat"
+  end
 end
