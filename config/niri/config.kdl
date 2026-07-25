@@ -1,16 +1,17 @@
 // vim: foldenable foldmethod=marker ts=2 sw=2
 // auto start {{{
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "~/.config/niri/waybar"
-spawn-at-startup "dunst"
-spawn-at-startup "hypridle" "-c" "/home/olex/.config/niri/hypridle.conf"
+spawn-at-startup "noctalia"
 // }}}
 // env {{{
 environment {
-  QT_QPA_PLATFORM "wayland;xcb"
-  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-  MOZ_ENABLE_WAYLAND "1"
+  XDG_CURRENT_DESKTOP "niri"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
   GTK_IM_MODULE "simple"
+  MOZ_ENABLE_WAYLAND "1"
+  QT_QPA_PLATFORM "wayland"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 }
 // }}}
 // inputs {{{
@@ -38,6 +39,10 @@ input {
     accel-speed 0.0
     accel-profile "flat"
   }
+}
+
+switch-events {
+  lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
 /// }}}
 // Monitors {{{
@@ -78,10 +83,10 @@ layout {
 }
 // }}}
 // general {{{
-// disables client-side decorrations if possible
 prefer-no-csd
 hotkey-overlay { skip-at-startup; }
 animations { off; }
+debug { honor-xdg-activation-with-invalid-serial; }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // }}}
 // window/workspace rules {{{
@@ -112,7 +117,6 @@ window-rule {
 window-rule {
   match app-id="spotify"
   match app-id="org.gnome.Snapshot"
-  match app-id="org.gnome.Calendar"
   match app-id="org.keepassxc.KeePassXC"
   open-on-workspace "laptop"
 }
@@ -120,7 +124,6 @@ window-rule {
 window-rule {
   match app-id="Spotify"
   match app-id="spotify"
-  match app-id="zen"
   match app-id="firefox"
   match app-id="helium"
   match app-id="Brave-browser"
@@ -147,30 +150,43 @@ window-rule {
   match app-id="org.telegram.desktop"
   block-out-from "screen-capture"
 }
+
+// noctalia
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
 // }}}
 // keybinds {{{
 binds {
-  Mod+d { spawn "dunstctl" "close"; }
   Mod+q { close-window; }
-  Mod+Alt+l { spawn "hyprlock"; }
-  Mod+Return { spawn "ghostty"; }
-  Mod+Shift+Escape { spawn "~/bin/wofi-power-menu" "niri";}
-  Mod+Shift+Return { spawn "wofi"; }
+  Mod+d { spawn "noctalia" "msg" "notification-clear-active"; }
+  Mod+Alt+l { spawn "noctalia" "msg" "session" "lock"; }
+  Mod+Shift+Escape { spawn "noctalia" "msg" "panel-toggle" "session"; }
+  Mod+Shift+Return { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
+  Mod+Return  { spawn "ghostty"; }
   Mod+Shift+a { spawn "anki"; }
-  Mod+Shift+r { spawn "sioyek"; }
-  Mod+Shift+s { spawn "gelly"; }
+  Mod+Shift+d { spawn "discord"; }
+  Mod+Shift+s { spawn "sioyek"; }
   Mod+Shift+t { spawn "Telegram"; }
   Mod+Shift+w { spawn "helium-browser"; }
+
   // func keys {{{
-  // audio
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
-  XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+  XF86AudioNext { spawn "playerctl" "next"; }
+  XF86AudioPlay { spawn "playerctl" "play-pause"; }
+  XF86AudioPrev { spawn "playerctl" "previous"; }
   // brighthness
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
   XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
@@ -183,9 +199,8 @@ binds {
   Mod+O repeat=false { toggle-overview; }
   Alt+Tab { focus-window-previous; }
 
-  // window management {{{
+  // window management
   Mod+Ctrl+f { toggle-window-floating; }
-
   Mod+r { switch-preset-column-width; }
   Mod+t { maximize-column; }
   Mod+f { fullscreen-window; }

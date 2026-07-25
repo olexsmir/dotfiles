@@ -1,0 +1,283 @@
+[audio]
+enable_overdrive = true
+
+[backdrop]
+enabled = true
+tint_intensity = 0.79999998211860657
+
+[bar.default]
+capsule = true
+end = [ "keyboard_layout", "tray", "battery", "cpu", "volume", "clipboard", "notifications", "bluetooth", "network" ]
+margin_ends = 0
+padding = 16
+panel_overlap = 0
+radius = 0
+shadow = false
+start = [ "workspaces", "active_window" ]
+thickness = 35
+
+[battery]
+warning_threshold = 30
+
+[calendar]
+enabled = true
+refresh_minutes = 20
+
+    [calendar.account.personal_google]
+    name = "Google Calendar"
+    type = "google"
+
+[control_center]
+hidden_tabs = [ "media", "monitor" ]
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1796.0
+    cy = 124.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "sysmon"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[location]
+address = "Городниця Звягель"
+custom_schedule = true
+sunrise = "06:00"
+sunset = "22:30"
+
+[lockscreen]
+fingerprint = false
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 8
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 80.0
+    box_width = 384.0
+    cx = 960.0
+    cy = 664.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.0
+        background_radius = 0.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 972.0
+    cy = 639.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.0
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_password_hint = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 192.0
+    box_width = 336.0
+    cx = 960.0
+    cy = 556.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 216.0
+    box_width = 376.0
+    cx = 960.0
+    cy = 532.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+
+[nightlight]
+enabled = true
+
+[notification]
+collapse_on_dismiss = false
+
+[osd.kinds]
+keyboard_layout = false
+media = false
+
+[[plugins.source]]
+enabled = false
+kind = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+name = "official"
+
+[[plugins.source]]
+enabled = false
+kind = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+name = "community"
+
+[shell]
+clipboard_history_max_entries = 50
+niri_overview_type_to_launch_enabled = true
+polkit_agent = true
+popup_shadows = false
+screen_time_enabled = true
+settings_show_advanced = false
+show_location = false
+
+    [shell.animation]
+    enabled = false
+
+    [shell.launcher]
+    categories = false
+    compact = true
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+    open_near_click_session = true
+
+[system.monitor]
+cpu_temp_activity_threshold = 55
+gpu_temp_activity_threshold = 55
+
+[theme]
+builtin = "Ayu"
+community_palette = "Peche"
+custom_palette = "wall-mc"
+mode = "dark"
+source = "community"
+
+    [theme.templates]
+    enable_community_templates = false
+
+[wallpaper]
+directory = "/home/olex/Pictures/walls"
+transition = [ "disc", "fade", "honeycomb", "stripes", "wipe", "zoom" ]
+
+    [wallpaper.default]
+    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+
+    [wallpaper.last]
+    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+
+[widget.active_window]
+display = "text_only"
+interactive = false
+max_length = 360
+min_length = 0
+
+[widget.battery]
+display_mode = "graphic"
+hide_when_full = true
+
+[widget.bluetooth]
+enabled = false
+
+[widget.clock]
+format = "{:%H:%M %a, %d}"
+
+[widget.cpu]
+stat = "cpu_temp"
+
+[widget.keyboard_layout]
+show_icon = false
+
+    [widget.keyboard_layout.custom_labels]
+    "English (US)" = "eng"
+    Ukrainian = "укр"
+
+[widget.workspaces]
+active_pill_size = 1.5

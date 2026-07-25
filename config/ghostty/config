@@ -1,4 +1,4 @@
-theme = TokyoNight Night
+theme = dark:TokyoNight Night,light:Zenbones Light
 window-theme = ghostty
 font-family = Jetbrains Mono
 font-size = 13
