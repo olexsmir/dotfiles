@@ -1,15 +1,14 @@
 [tools]
 usage = "latest"
 bun = "latest"
+node = "lts"
 gleam = "latest"
 go = "latest"
 golangci-lint = "latest"
 hledger = "latest"
 lua-language-server = "latest"
-node = "lts"
 shellcheck = "latest"
 shfmt = "latest"
-tinymist = "latest"
 
 [settings]
 npm.package_manager = "bun"

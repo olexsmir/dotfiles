@@ -8,7 +8,3 @@
 - Do not extract one-use helpers. Inline unless used ≥2 times.
 - Do not create new types unless grouping data or implementing an interface.
 - Do not add input validation beyond existing patterns for the same thing.
-
-# MCPs
-- If you are unsure how to do something, use `grep-app` to search code examples from GitHub.
-- When you need to search docs, use `context7` tools.
