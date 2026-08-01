@@ -13,7 +13,6 @@ diff-formatter = ":git"
 
 [signing]
 backend = "ssh"
-backends.ssh.allowed-signers = "~/.config/git/allowed_signers"
 key = "~/.ssh/git-sign.pub"
 
 [git]

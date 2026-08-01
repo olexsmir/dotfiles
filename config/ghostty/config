@@ -1,10 +1,15 @@
-theme = dark:TokyoNight Night,light:Zenbones Light
-window-theme = ghostty
-font-family = Jetbrains Mono
-font-size = 13
 command = fish
+theme = dark:TokyoNight Night,light:Zenbones Light
+# font-family = Jetbrains Mono
+font-family = Maple Mono
+font-size = 13
+font-feature = -calt, -liga, -dlig
 mouse-hide-while-typing = true
+
+gtk-custom-css = ~/.config/ghostty/tab-style.css
 
 keybind = ctrl+,=unbind
 keybind = ctrl+shift+.=move_tab:1
 keybind = ctrl+shift+,=move_tab:-1
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right

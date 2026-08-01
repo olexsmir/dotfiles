@@ -3,6 +3,11 @@ function fish_prompt
   set -l cwd (prompt_pwd --full-length-dirs 1)
   set -l vcs (prompt_vcs)
 
+  set -l session ''
+  if set -q ZMX_SESSION
+    set session (set_color --dim blue)"($ZMX_SESSION) "(set_color normal)
+  end
+
   switch $fish_bind_mode
     case default
       set mode_char "❮"
@@ -16,5 +21,5 @@ function fish_prompt
       end
   end
 
-  printf '%s%s%s%s %s%s%s ' (set_color cyan) $cwd (set_color normal) $vcs $mode_color $mode_char (set_color normal)
+  printf '%s%s%s%s%s%s%s%s ' $session (set_color cyan) $cwd (set_color normal) $vcs $mode_color $mode_char (set_color normal)
 end
