@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   imports = [
-    ./digitalocean.nix
     ./disko-config.nix
     ./hardware-configuration.nix
   ];
@@ -10,6 +9,8 @@
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
+    # No device install: Azure VHD boots via the EFI-removable path (BOOTX64.EFI).
+    device = "nodev";
   };
 
   swapDevices = [ {
