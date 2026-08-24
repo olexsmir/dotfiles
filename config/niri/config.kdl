@@ -6,9 +6,10 @@ spawn-at-startup "noctalia"
 environment {
   XDG_CURRENT_DESKTOP "niri"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
+  DISPLAY null
   GTK_IM_MODULE "simple"
   MOZ_ENABLE_WAYLAND "1"
-  QT_QPA_PLATFORM "wayland"
+  QT_QPA_PLATFORM "wayland;xcb"
   QT_QPA_PLATFORMTHEME "gtk3"
   QT_QPA_PLATFORMTHEME_QT6 "gtk3"
   QT_WAYLAND_DISABLE_WINDOWDECORATION "1"

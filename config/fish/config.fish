@@ -1,3 +1,4 @@
+set -gx SHELL fish
 set -gx GOPATH $HOME/.local/share/go
 set -gx GOBIN $GOPATH/bin
 set -gx CARGO_HOME $HOME/.local/share/cargo
@@ -36,10 +37,6 @@ alias rm "rm -i"
 if status is-interactive
   zoxide init fish | source
   direnv hook fish | source
-
-  function fish_user_key_bindings
-    fish_vi_key_bindings
-  end
 
   alias ":q" exit
   alias ... "cd ../.."

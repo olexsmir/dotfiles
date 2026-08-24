@@ -1,12 +1,15 @@
 command = fish
+mouse-hide-while-typing = true
+
 theme = dark:TokyoNight Night,light:Zenbones Light
 # font-family = Jetbrains Mono
 font-family = Maple Mono
 font-size = 13
-font-feature = -calt, -liga, -dlig
-mouse-hide-while-typing = true
+font-feature = -calt -liga -dlig
 
-gtk-custom-css = ~/.config/ghostty/tab-style.css
+cursor-style = bar
+cursor-style-blink = false
+shell-integration-features = no-cursor
 
 keybind = ctrl+,=unbind
 keybind = ctrl+shift+.=move_tab:1
