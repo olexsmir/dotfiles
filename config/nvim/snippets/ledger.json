@@ -1,0 +1,39 @@
+{
+  "Expense transaction": {
+    "prefix": "exp",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * ${1:unknown payee}",
+      "  expenses:${2:misc}  ${3:0}.00 UAH",
+      "  assets:bank",
+      ""
+    ]
+  },
+  "Income transaction": {
+    "prefix": "inc",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * ${1:unknown payee}",
+      "  assets:bank  ${2:0}.00 UAH",
+      "  income:${3:job}",
+      ""
+    ]
+  },
+  "receivable": {
+    "prefix": "rec",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * lend",
+      "  assets:receivable:${somebody}  ${1:0}.00 UAH",
+      "  assets:${2:bank}",
+      ""
+    ]
+  },
+  "reconsile": {
+    "prefix": "reconsile",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * reconcile",
+      "  assets:bank  = ${1:0}.00 UAH",
+      "  assets:cash  = ${2:0}.00 UAH",
+      "  assets:${3:cash}  = ",
+      ""
+    ]
+  }
+}
