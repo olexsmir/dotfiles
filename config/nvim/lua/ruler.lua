@@ -30,5 +30,5 @@ local function git_diff()
 end
 
 return function()
-  return join { git_diff(), diagnostics(), "%m", "%#TabLineSel# %l:%c %*" }
+  return join { "%#Delimiter#%t%*", git_diff(), diagnostics(), "%m", "%#TabLineSel# %l:%c %*" }
 end
