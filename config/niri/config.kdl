@@ -173,7 +173,7 @@ binds {
   Mod+Shift+Escape { spawn "noctalia" "msg" "panel-toggle" "session"; }
   Mod+Shift+Return { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
-  Mod+Return  { spawn "ghostty"; }
+  Mod+Return  { spawn "kitty"; }
   Mod+Shift+a { spawn "anki"; }
   Mod+Shift+d { spawn "discord"; }
   Mod+Shift+s { spawn "sioyek"; }
