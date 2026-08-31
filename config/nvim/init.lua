@@ -104,7 +104,7 @@ vim.o.spelllang = "en_us,uk"
 vim.o.laststatus = 0
 vim.o.showmode = false
 vim.o.ruler = true
-vim.o.rulerformat = "%50(%=%{%v:lua.require'ruler'()%}%)"
+vim.o.rulerformat = "%45(%=%{%v:lua.require'ruler'()%}%)"
 
 vim.o.list = true
 vim.opt.listchars:append {

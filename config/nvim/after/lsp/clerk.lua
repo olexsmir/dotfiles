@@ -3,6 +3,6 @@ return {
   cmd = { "clerk", "lsp" },
   filetypes = { "ledger" },
   settings = {
-    latinToCyrillicCompletion = true,
+    latin_to_cyrillic_completion = true,
   }
 }
