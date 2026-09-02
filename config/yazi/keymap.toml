@@ -5,4 +5,6 @@ mgr.prepend_keymap = [
   { on = ["g", "p"], run = "cd ~/pics", desc = "goto ~/pics" },
   { on = ["g", "v"], run = "cd ~/Pictures/Videos", desc = "goto ~/vods" },
   { on = ["g", "b"], run = "cd ~/doc/Books", desc = "goto /Books" },
+  { on = ["g", "m"], run = "cd /run/media/olex/", desc = "mounts" },
+  { on = ["m", "m"], run = "plugin mount", desc = "plugin: mount" },
 ]

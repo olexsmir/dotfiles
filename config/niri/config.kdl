@@ -130,6 +130,7 @@ window-rule {
   match app-id="Brave-browser"
   match app-id="brave-browser"
   match app-id="kitty"
+  match app-id="wezterm"
   match app-id="ghostty"
   match app-id="obsidian"
   match app-id="Code"
@@ -173,7 +174,7 @@ binds {
   Mod+Shift+Escape { spawn "noctalia" "msg" "panel-toggle" "session"; }
   Mod+Shift+Return { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
-  Mod+Return  { spawn "kitty"; }
+  Mod+Return  { spawn "wezterm"; }
   Mod+Shift+a { spawn "anki"; }
   Mod+Shift+d { spawn "discord"; }
   Mod+Shift+s { spawn "sioyek"; }
