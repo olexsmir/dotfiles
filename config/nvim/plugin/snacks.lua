@@ -7,6 +7,7 @@ end
 Config.map("n", "<leader>b", wrap("picker", "buffers"))
 Config.map("n", "<leader>d", wrap("picker", "diagnostics"))
 Config.map("n", "<leader>f", wrap("picker", "smart"))
+Config.map("n", "<leader>sd", wrap("picker", "git_diff"))
 Config.map("n", "<leader>sg", wrap("picker", "grep", { args = { "-i" } }))
 Config.map("n", "<leader>sh", wrap("picker", "help"))
 Config.map("n", "<leader>sr", wrap("picker", "recent"))

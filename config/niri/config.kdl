@@ -136,6 +136,7 @@ window-rule {
   match app-id="Code"
   match app-id="Zed"
   match app-id="discord"
+  match app-id="vesktop"
   open-maximized true
 }
 
@@ -182,16 +183,16 @@ binds {
   Mod+Shift+w { spawn "helium-browser"; }
 
   // func keys {{{
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-  XF86AudioNext { spawn "playerctl" "next"; }
-  XF86AudioPlay { spawn "playerctl" "play-pause"; }
-  XF86AudioPrev { spawn "playerctl" "previous"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+  XF86AudioMute        allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
+  XF86AudioNext { spawn "noctalia" "msg" "media" "next"; }
+  XF86AudioPlay { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioPrev { spawn "noctalia" "msg" "media" "previous"; }
   // brighthness
-  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
-  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
   // screen shots
   Print { screenshot; }
   Alt+Print { screenshot-window; }

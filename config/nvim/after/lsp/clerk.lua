@@ -4,5 +4,8 @@ return {
   filetypes = { "ledger" },
   settings = {
     latin_to_cyrillic_completion = true,
+    lint = {
+      unused_account = "off",
+    },
   }
 }
