@@ -12,13 +12,13 @@ if vim.o.background == "dark" then
     danger = "#db6f6f",    -- errors, deletions
   }
 else
-  require "kolir" {
-    fg = "#774f38",
-    bg = "#f7efdf",
-    primary = "#308444",
-    secondary = "#b95942",
-    muted = "#308090",
-    marker = "#878787",
-    danger = "#f10000",
+  require "kolir" { -- source: github.com/projekt0n/github-nvim-theme
+    fg = "#1f2328",
+    bg = "#f6f8fa",
+    primary = "#0969da",
+    secondary = "#116329",
+    muted = "#8a3a30", -- keyword brick red
+    marker = "#0550ae",
+    danger = "#b03b2c", -- error terracotta
   }
 end

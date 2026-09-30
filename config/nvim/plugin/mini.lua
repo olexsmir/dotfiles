@@ -21,7 +21,7 @@ Config.later(function()
     highlighters = {
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
       fixme = hi_words({ "FIXME" }, "MiniHipatternsFixme"),
-      todo = hi_words({ "TODO", "Todo" }, "MiniHipatternsTodo"),
+      todo = hi_words({ "TODO" }, "MiniHipatternsTodo"),
       note = hi_words({ "NOTE" }, "MiniHipatternsNote"),
       hack = hi_words({ "HACK" }, "MiniHipatternsHack"),
     },

@@ -11,16 +11,10 @@ Config.map("n", "<leader>gS", wrap "undo_stage_hunk")
 Config.map("n", "<leader>gr", wrap "reset_hunk")
 Config.map("n", "<leader>gb", wrap "blame")
 
-Config.later(function()
+vim.schedule(function()
   require("gitsigns").setup {
-    signs = {
-      add = { text = "" },
-      change = { text = "" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "" },
-      untracked = { text = "" },
-    },
+    numhl = true,
+    signcolumn = false,
     current_line_blame = true,
     current_line_blame_opts = {
       virt_text_pos = "eol",

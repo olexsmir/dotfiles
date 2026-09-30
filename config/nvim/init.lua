@@ -168,10 +168,12 @@ Config.map("n", "<C-q>", function()
   vim.cmd.copen()
 end)
 
-Config.map("n", "<C-n>", function() vim.cmd "silent! 1argument" end)
-Config.map("n", "<C-m>", function() vim.cmd "silent! 2argument" end)
-Config.map("n", "<C-,>", function() vim.cmd "silent! 3argument" end)
-Config.map("n", "<C-.>", function() vim.cmd "silent! 4argument" end)
+for i = 1, 5 do Config.map("n", ("<C-%d>"):format(i), ("<cmd>%dtabnext<cr>"):format(i)) end
+
+Config.map("n", "<M-u>", function() vim.cmd "silent! 1argument" end)
+Config.map("n", "<M-i>", function() vim.cmd "silent! 2argument" end)
+Config.map("n", "<M-o>", function() vim.cmd "silent! 3argument" end)
+Config.map("n", "<M-.>", function() vim.cmd "silent! 4argument" end)
 Config.map("n", "<leader>a", function()
   vim.cmd("argadd %")
   vim.cmd("argdedup")
@@ -255,7 +257,7 @@ Config.later(function()
   }
 end)
 
-vim.cmd.packadd "viye"
+-- vim.cmd.packadd "viye"
 Config.later(function()
   -- HACK: wait till https://github.com/neovim/neovim/pull/37727 gets merged
   -- ln -s ~/code/gopher.nvim ~/.local/share/nvim/site/pack/my-plugins/opt/gopher.nvim

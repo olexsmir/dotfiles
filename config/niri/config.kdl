@@ -6,7 +6,7 @@ spawn-at-startup "noctalia"
 environment {
   XDG_CURRENT_DESKTOP "niri"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
-  DISPLAY null
+  DISPLAY ":0"
   GTK_IM_MODULE "simple"
   MOZ_ENABLE_WAYLAND "1"
   QT_QPA_PLATFORM "wayland;xcb"
@@ -151,6 +151,7 @@ window-rule {
   match app-id="KeePassXC"
   match app-id="obsidian"
   match app-id="org.telegram.desktop"
+  match title="^Google Calendar "
   block-out-from "screen-capture"
 }
 
@@ -169,20 +170,18 @@ window-rule {
 // }}}
 // keybinds {{{
 binds {
+  Mod+Return  { spawn "wezterm"; }
   Mod+q { close-window; }
+  Mod+w { spawn "helium-browser"; }
+  Mod+a { spawn "anki"; }
+  Mod+s { spawn "sioyek"; }
   Mod+d { spawn "noctalia" "msg" "notification-clear-active"; }
+  Mod+m { spawn "Telegram"; }
+
   Mod+Alt+l { spawn "noctalia" "msg" "session" "lock"; }
-  Mod+Shift+Escape { spawn "noctalia" "msg" "panel-toggle" "session"; }
   Mod+Shift+Return { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
-  Mod+Return  { spawn "wezterm"; }
-  Mod+Shift+a { spawn "anki"; }
-  Mod+Shift+d { spawn "discord"; }
-  Mod+Shift+s { spawn "sioyek"; }
-  Mod+Shift+t { spawn "Telegram"; }
-  Mod+Shift+w { spawn "helium-browser"; }
-
-  // func keys {{{
+  // func keys {{
   XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
   XF86AudioMute        allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
@@ -199,7 +198,7 @@ binds {
   Ctrl+Print { screenshot-screen; }
   // }}}
   // wm {{{
-  Mod+O repeat=false { toggle-overview; }
+  Mod+o repeat=false { toggle-overview; }
   Alt+Tab { focus-window-previous; }
 
   // window management
