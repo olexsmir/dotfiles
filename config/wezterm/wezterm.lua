@@ -47,6 +47,7 @@ c.keys = {
   { mods = "CTRL", key = "=", action = a.IncreaseFontSize },
   { mods = "CTRL", key = "-", action = a.DecreaseFontSize },
   { mods = "CTRL", key = "0", action = a.ResetFontSize },
+  { mods = "LEADER|CTRL", key = "t", action = a.SendKey { key = "t", mods = "CTRL" } },
   { mods = "LEADER", key = "t", action = a.SpawnCommandInNewTab {} },
   { mods = "LEADER", key = "w", action = a.CloseCurrentPane { confirm = false } },
   { mods = "LEADER", key = "n", action = a.SplitHorizontal {} },

@@ -13,7 +13,7 @@ Config.later(function()
   require("mini.ai").setup {}
   require("mini.bufremove").setup { silent = true }
   require("mini.comment").setup {}
-  require("mini.pairs").setup {}
+  -- require("mini.pairs").setup {}
   require("mini.splitjoin").setup {}
 
   local hi_words = require("mini.extra").gen_highlighter.words
@@ -21,7 +21,7 @@ Config.later(function()
     highlighters = {
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
       fixme = hi_words({ "FIXME" }, "MiniHipatternsFixme"),
-      todo = hi_words({ "TODO" }, "MiniHipatternsTodo"),
+      todo = { pattern = "TODO[(: ]", group = "MiniHipatternsTodo" },
       note = hi_words({ "NOTE" }, "MiniHipatternsNote"),
       hack = hi_words({ "HACK" }, "MiniHipatternsHack"),
     },
@@ -47,6 +47,8 @@ require("mini.files").setup {
         [".git"] = {},
         [".jj"] = {},
         [".tests"] = {},
+        [".merlin"] = {},
+        ["_build"] = {},
         ["build"] = {},
         ["dist"] = {},
         ["elm-stuff"] = {},

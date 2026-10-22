@@ -191,7 +191,8 @@ Config.aucmd("BufReadPost", "*", function() vim.fn.setpos(".", vim.fn.getpos "'\
 
 Config.aucmd("TermOpen", "term://*", function()
   vim.cmd.startinsert()
-  vim.keymap.set('n', '<leader>q', '<cmd>hide<CR>', { buffer = true })
+  Config.map("n", "<leader>q", "<cmd>hide<CR>", true)
+  vim.opt_local.sidescrolloff = 0
 end)
 Config.aucmd("TermRequest", nil, function(ev)
   local pwd, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
@@ -214,7 +215,7 @@ Config.aucmd("FileType", "*", function()
 end)
 
 --- lsp --------------------------------------------------------------
-vim.lsp.enable { "clerk", "gleam", "gopls", "lua_ls", "ts_ls" }
+vim.lsp.enable { "clerk", "gleam", "gopls", "lua_ls", "ts_ls", "ocamllsp" }
 Config.aucmd("LspAttach", nil, function(ev)
   local bufnr = ev.buf
   local client = vim.lsp.get_client_by_id(ev.data.client_id)

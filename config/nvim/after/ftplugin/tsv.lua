@@ -1,6 +1,7 @@
 vim.opt_local.spell = true
 vim.opt_local.expandtab = false
 vim.opt_local.softtabstop = 0
+vim.opt_local.spellcapcheck = ""
 
 Config.map("x", "<localleader>b", "<Esc>`>a</b><Esc>`<i<b><Esc>", true)
 Config.map("n", "<localleader>b", "viw<Esc>`>a</b><Esc>`<i<b><Esc>", true)
