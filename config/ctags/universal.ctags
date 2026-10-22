@@ -29,6 +29,7 @@
 --exclude=Session.vim
 --exclude=_site
 --exclude=build
+--exclude=_build
 --exclude=dist
 --exclude=elm-stuff
 --exclude=node_modules

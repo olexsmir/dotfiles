@@ -131,6 +131,7 @@ window-rule {
   match app-id="brave-browser"
   match app-id="kitty"
   match app-id="wezterm"
+  match app-id="foot"
   match app-id="ghostty"
   match app-id="obsidian"
   match app-id="Code"
@@ -151,6 +152,7 @@ window-rule {
   match app-id="KeePassXC"
   match app-id="obsidian"
   match app-id="org.telegram.desktop"
+  match app-id="brave-browser"
   match title="^Google Calendar "
   block-out-from "screen-capture"
 }
@@ -170,7 +172,7 @@ window-rule {
 // }}}
 // keybinds {{{
 binds {
-  Mod+Return  { spawn "wezterm"; }
+  Mod+Return  { spawn "foot"; }
   Mod+q { close-window; }
   Mod+w { spawn "helium-browser"; }
   Mod+a { spawn "anki"; }
@@ -196,7 +198,7 @@ binds {
   Print { screenshot; }
   Alt+Print { screenshot-window; }
   Ctrl+Print { screenshot-screen; }
-  // }}}
+
   // wm {{{
   Mod+o repeat=false { toggle-overview; }
   Alt+Tab { focus-window-previous; }

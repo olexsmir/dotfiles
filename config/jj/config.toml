@@ -26,11 +26,14 @@ origin.auto-track-bookmarks = "*"
 [aliases]
 jj = []
 e = ["edit"]
+aba = ["abandon"]
 llog = ["log", "-r", ".."]
-push = ["git", "push"]
-restack = ["rebase", "-d", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
+stage = ["stack", "closest_merge(@)+:: ~ empty()"]
+stack = ["rebase", "-A", "trunk()", "-B", "closest_merge(@)", "-r"]
+restack = ["rebase", "-o", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
 solve = ["resolve", "--tool", "mergiraf"]
 tug = ["bookmark", "advance"]
+push = ["git", "push"]
 
 [revsets]
 bookmark-advance-to = "heads(::@ & ~description(exact:'') & ~private():: & (~empty() | merges()))"
@@ -39,6 +42,7 @@ bookmark-advance-to = "heads(::@ & ~description(exact:'') & ~private():: & (~emp
 "private()" = "description(glob:'private:*') | description(glob:'wip:*')"
 "stack()" = "ancestors(reachable(@, mutable()), 2)"
 "mutable_roots()" = "roots(trunk()..) & mutable()"
+"closest_merge(to)" = "heads(::to & merges())"
 
 [templates]
 git_push_bookmark = '"olex/" ++ change_id.shortest(6)'

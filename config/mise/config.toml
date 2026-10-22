@@ -1,17 +1,17 @@
 [tools]
 usage = "latest"
-bun = "latest"
-node = "lts"
-gleam = "latest"
+deno = { version = "latest", lazy = true }
+node = "latest"
+gleam = { version = "latest", lazy = true }
 go = "latest"
-golangci-lint = "latest"
-hledger = "latest"
+golangci-lint = { version = "latest", lazy = true }
+hledger = { version = "latest", lazy = true }
 lua-language-server = "latest"
-shellcheck = "latest"
-shfmt = "latest"
+"github:anomalyco/opencode" = { version = "latest" }
+opam = { version = "latest", asset_pattern = "opam-*-{gnu_arch}-{os}" }
+"npm:@earendil-works/pi-coding-agent" = "latest"
 
 [settings]
-npm.package_manager = "bun"
-go_set_gobin = false
-go_set_gopath = false
-go_set_goroot = true
+# lockfile = true
+go.set_gobin = false
+go.set_goroot = true

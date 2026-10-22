@@ -12,7 +12,6 @@ fish_add_path -g $GOBIN
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $HOME/bin
 fish_add_path -g $HOME/.local/bin
-fish_add_path -g $HOME/.bun/bin
 fish_add_path -g ~/.local/share/mise/shims
 fish_add_path -P node_modules/.bin
 
