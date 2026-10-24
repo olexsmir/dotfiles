@@ -5,16 +5,30 @@ enable_overdrive = true
 enabled = true
 tint_intensity = 0.79999998211860657
 
-[bar.default]
-capsule = true
-end = [ "keyboard_layout", "tray", "battery", "cpu", "volume", "clipboard", "notifications", "bluetooth", "network" ]
-margin_ends = 0
-padding = 16
-panel_overlap = 0
-radius = 0
-shadow = false
-start = [ "workspaces", "active_window" ]
-thickness = 35
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    capsule = true
+    end = [
+        "brightness",
+        "keyboard_layout",
+        "tray",
+        "battery",
+        "cpu",
+        "volume",
+        "clipboard",
+        "notifications",
+        "bluetooth",
+        "network"
+    ]
+    margin_ends = 0
+    padding = 16
+    panel_overlap = 0
+    radius = 0
+    shadow = false
+    start = [ "workspaces", "active_window", "indicator" ]
+    thickness = 30
 
 [battery]
 warning_threshold = 30
@@ -64,6 +78,8 @@ widget_order = [ "desktop-widget-0000000000000001" ]
     cx = 1796.0
     cy = 124.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "sysmon"
 
@@ -114,11 +130,13 @@ widget_order = [
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 80.0
-    box_width = 384.0
+    box_height = 196.0
+    box_width = 720.0
     cx = 960.0
     cy = 664.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -129,17 +147,23 @@ widget_order = [
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = false
-        show_password_hint = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 70.0
-    box_width = 400.0
-    cx = 972.0
-    cy = 639.0
+    box_height = 150.0
+    box_width = 720.0
+    cx = 960.0
+    cy = 596.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -150,10 +174,14 @@ widget_order = [
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = false
-        show_password_hint = true
+        show_media = true
+        show_session_buttons = false
+        show_unlock_hint = false
+        show_weather = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 192.0
@@ -161,6 +189,8 @@ widget_order = [
     cx = 960.0
     cy = 556.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -171,8 +201,10 @@ widget_order = [
     box_height = 216.0
     box_width = 376.0
     cx = 960.0
-    cy = 532.0
+    cy = 436.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -184,6 +216,7 @@ enabled = true
 
 [notification]
 collapse_on_dismiss = false
+layer = "overlay"
 
 [osd.kinds]
 keyboard_layout = false
@@ -203,6 +236,7 @@ name = "community"
 
 [shell]
 clipboard_history_max_entries = 50
+font_family = "JetBrains Mono"
 niri_overview_type_to_launch_enabled = true
 polkit_agent = true
 popup_shadows = false
@@ -212,6 +246,10 @@ show_location = false
 
     [shell.animation]
     enabled = false
+
+    [shell.keyboard_layout.custom_labels]
+    "English (US)" = "eng"
+    Ukrainian = "укр"
 
     [shell.launcher]
     categories = false
@@ -235,6 +273,7 @@ mode = "dark"
 source = "community"
 
     [theme.templates]
+    enable_builtin_templates = false
     enable_community_templates = false
 
 [wallpaper]
@@ -242,16 +281,16 @@ directory = "/home/olex/Pictures/walls"
 transition = [ "disc", "fade", "honeycomb", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+    path = "/home/olex/Pictures/walls/wall.png"
 
     [wallpaper.last]
-    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+    path = "/home/olex/Pictures/walls/wall.png"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+    path = "/home/olex/Pictures/walls/wall.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/olex/Pictures/walls/31394ad8a3bdd0dd.PNG"
+    path = "/home/olex/Pictures/walls/wall.png"
 
 [widget.active_window]
 display = "text_only"
@@ -272,12 +311,11 @@ format = "{:%H:%M %a, %d}"
 [widget.cpu]
 stat = "cpu_temp"
 
-[widget.keyboard_layout]
-show_icon = false
+[widget.indicator]
+type = "rxtsel/portctl:indicator"
 
-    [widget.keyboard_layout.custom_labels]
-    "English (US)" = "eng"
-    Ukrainian = "укр"
+[widget.keyboard_layout]
+show_glyph = false
 
 [widget.workspaces]
 active_pill_size = 1.5
