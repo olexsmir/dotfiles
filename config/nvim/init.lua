@@ -307,3 +307,138 @@ Config.aucmd("FileType", "*", function(ev)
   if not ev.match or ev.match == "" or ev.match == "text" then vim.treesitter.stop() end
   pcall(vim.treesitter.start, ev.buf)
 end)
+
+
+-- snacks
+do
+  Config.add "folke/snacks.nvim"
+  local function wrap(mod, fn, opts)
+    return function() return Snacks[mod][fn](opts or {}) end
+  end
+
+  Config.map("n", "<leader>b", wrap("picker", "buffers"))
+  Config.map("n", "<leader>d", wrap("picker", "diagnostics"))
+  Config.map("n", "<leader>f", wrap("picker", "smart"))
+  Config.map("n", "<leader>sd", wrap("picker", "git_diff"))
+  Config.map("n", "<leader>sg", wrap("picker", "grep", { args = { "-i" } }))
+  Config.map("n", "<leader>sh", wrap("picker", "help"))
+  Config.map("n", "<leader>sr", wrap("picker", "recent"))
+  Config.map("n", "<leader>ss", wrap("picker", "resume"))
+  Config.map("n", "<leader>st", wrap("picker", "tags"))
+
+  require("snacks").setup {
+    picker = {
+      enabled = true,
+      main = { current = true },
+      layout = {
+        preset = "ivy",
+        layout = { height = 25 },
+      },
+      win = { input = { keys = {
+        ["<Esc>"] = { "close", mode = { "n", "i" } },
+      } } },
+      sources = {
+        select = { layout = { preset = "ivy" } },
+        spelling = { layout = { preset = "ivy" } },
+        smart = { multi = { "buffers", "files" } },
+      },
+    },
+  }
+end
+
+-- gitsigns
+do
+  Config.add "lewis6991/gitsigns.nvim"
+
+  local function wrap(fn)
+    return function() return require("gitsigns")[fn]() end
+  end
+
+  Config.map("n", "]g", wrap "next_hunk")
+  Config.map("n", "[g", wrap "prev_hunk")
+  Config.map("n", "<leader>gs", wrap "stage_hunk")
+  Config.map("n", "<leader>gS", wrap "undo_stage_hunk")
+  Config.map("n", "<leader>gr", wrap "reset_hunk")
+  Config.map("n", "<leader>gb", wrap "blame")
+
+  Config.later(function()
+    require("gitsigns").setup {
+      numhl = true,
+      signcolumn = false,
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text_pos = "eol",
+        delay = 300,
+      },
+    }
+  end)
+end
+
+-- mini.nvim
+do
+  Config.add "echasnovski/mini.nvim"
+
+  Config.map("n", "<leader>c", function() MiniBufremove.delete() end)
+  Config.map("n", "<leader>e", function()
+    local path = vim.api.nvim_buf_get_name(0)
+    if path == nil or vim.startswith(path, "term://") or vim.fn.filereadable(path) == 0 then path = vim.uv.cwd() or "" end
+    MiniFiles.open(path, true)
+    MiniFiles.reveal_cwd()
+  end)
+
+  require("mini.icons").setup {}
+  Config.later(function()
+    require("mini.ai").setup {}
+    require("mini.bufremove").setup { silent = true }
+    require("mini.comment").setup {}
+    -- require("mini.pairs").setup {}
+    require("mini.splitjoin").setup {}
+
+    local hi_words = require("mini.extra").gen_highlighter.words
+    require("mini.hipatterns").setup {
+      highlighters = {
+        hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+        fixme = hi_words({ "FIXME" }, "MiniHipatternsFixme"),
+        todo = { pattern = "TODO[(: ]", group = "MiniHipatternsTodo" },
+        note = hi_words({ "NOTE" }, "MiniHipatternsNote"),
+        hack = hi_words({ "HACK" }, "MiniHipatternsHack"),
+      },
+    }
+  end)
+
+  Config.aucmd("User", "MiniFilesBufferCreate", function(ev)
+    vim.schedule(function()
+      vim.api.nvim_set_option_value("buftype", "acwrite", { buf = 0 })
+      vim.api.nvim_create_autocmd("BufWriteCmd", {
+        callback = function() require("mini.files").synchronize() end,
+        buffer = ev.data.buf_id,
+      })
+    end)
+  end)
+
+  require("mini.files").setup {
+    content = {
+      filter = function(f)
+        return ({
+          [".bin"] = {},
+          [".docker"] = {},
+          [".git"] = {},
+          [".jj"] = {},
+          [".tests"] = {},
+          [".merlin"] = {},
+          ["_build"] = {},
+          ["build"] = {},
+          ["dist"] = {},
+          ["elm-stuff"] = {},
+          ["node_modules"] = {},
+          ["target"] = {},
+        })[f.name] == nil
+      end,
+    },
+    mappings = {
+      synchronize = "<cr>",
+      go_in = "",
+      go_in_plus = "l",
+    },
+  }
+end
