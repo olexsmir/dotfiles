@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+cmd="${1:-show}"
+selected=$(
+  jj log -r 'all()' --color=always \
+    | fzf \
+      --min-height=15 \
+      --cycle \
+      --ansi \
+      --multi \
+      --prompt "jj $cmd> "
+) || exit 0
+
+revs=$(echo "$selected" | awk '{for(i=1;i<=NF;i++) if(length($i)>=7){print $i; next}}') #' have another quote so that the syntax highlighting recovers
+
+# https://superuser.com/questions/284187/how-to-iterate-over-lines-in-a-variable-in-bash
+while IFS= read -r r || [[ -n "$r" ]]; do
+  jj "$cmd" -r "$r" "${@:2}"
+done < <(printf '%s' "$revs")
