@@ -83,6 +83,7 @@ vim.o.number = true
 vim.o.termguicolors = true
 vim.o.infercase = true
 vim.o.completeopt = "menuone,noselect,noinsert,fuzzy,popup"
+vim.o.tabclose = "uselast"
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.pumheight = 8
@@ -93,7 +94,6 @@ vim.o.signcolumn = "yes"
 vim.o.title = true
 vim.o.wrap = false
 vim.o.foldenable = false
-
 vim.o.undofile = true
 vim.o.swapfile = false
 vim.o.writebackup = false
@@ -142,10 +142,16 @@ Config.map("n", "<leader>u", "<cmd>Undotree<cr>")
 Config.map("n", "<leader>n", "<cmd>e ~/org/todo.md<cr>")
 Config.map({ "n", "x" }, "<leader>z", "1z=")
 
+Config.map("n", "<A-h>", "<cmd>tabprev<cr>")
+Config.map("n", "<A-l>", "<cmd>tabnext<cr>")
 Config.map("n", "<C-h>", "<cmd>wincmd h<cr>")
 Config.map("n", "<C-j>", "<cmd>wincmd j<cr>")
 Config.map("n", "<C-k>", "<cmd>wincmd k<cr>")
 Config.map("n", "<C-l>", "<cmd>wincmd l<cr>")
+Config.map("t", "<C-h>", "<C-\\><C-N><C-w><C-h>")
+Config.map("t", "<C-j>", "<C-\\><C-N><C-w><C-j>")
+Config.map("t", "<C-k>", "<C-\\><C-N><C-w><C-k>")
+Config.map("t", "<C-l>", "<C-\\><C-N><C-w><C-l>")
 Config.map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 Config.map("n", "<C-Down>", "<cmd>resize +2<cr>")
 Config.map("n", "<C-Up>", "<cmd>resize -1<cr>")
@@ -173,7 +179,7 @@ for i = 1, 5 do Config.map("n", ("<C-%d>"):format(i), ("<cmd>%dtabnext<cr>"):for
 Config.map("n", "<M-u>", function() vim.cmd "silent! 1argument" end)
 Config.map("n", "<M-i>", function() vim.cmd "silent! 2argument" end)
 Config.map("n", "<M-o>", function() vim.cmd "silent! 3argument" end)
-Config.map("n", "<M-.>", function() vim.cmd "silent! 4argument" end)
+Config.map("n", "<M-p>", function() vim.cmd "silent! 4argument" end)
 Config.map("n", "<leader>a", function()
   vim.cmd("argadd %")
   vim.cmd("argdedup")
@@ -419,20 +425,11 @@ do
   require("mini.files").setup {
     content = {
       filter = function(f)
-        return ({
-          [".bin"] = {},
-          [".docker"] = {},
-          [".git"] = {},
-          [".jj"] = {},
-          [".tests"] = {},
-          [".merlin"] = {},
-          ["_build"] = {},
-          ["build"] = {},
-          ["dist"] = {},
-          ["elm-stuff"] = {},
-          ["node_modules"] = {},
-          ["target"] = {},
-        })[f.name] == nil
+        return not vim.tbl_contains({
+          ".git", ".jj",
+          ".bin", ".docker", ".tests",
+          "build", "dist", "_build", "target", "elm-stuff", "node_modules",
+        }, f.name)
       end,
     },
     mappings = {
