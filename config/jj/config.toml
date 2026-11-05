@@ -6,7 +6,7 @@ email = "olexsmir@gmail.com"
 
 [ui]
 default-command = ["log", "-r", "stack()"]
-editor = "nvim"
+editor = ["nvim", "+$line"]
 pager = "delta"
 diff-editor = ":builtin"
 diff-formatter = ":git"
@@ -16,7 +16,6 @@ backend = "ssh"
 key = "~/.ssh/git-sign.pub"
 
 [git]
-sign-on-push = true
 private-commits = "private()"
 
 [remotes]
@@ -26,26 +25,30 @@ origin.auto-track-bookmarks = "*"
 [aliases]
 jj = []
 e = ["edit"]
+a = ["absorb"]
+s = ["show"]
 aba = ["abandon"]
 llog = ["log", "-r", ".."]
-stage = ["stack", "closest_merge(@)+:: ~ empty()"]
-stack = ["rebase", "-A", "trunk()", "-B", "closest_merge(@)", "-r"]
-restack = ["rebase", "-o", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
-solve = ["resolve", "--tool", "mergiraf"]
 tug = ["bookmark", "advance"]
 push = ["git", "push"]
+solve = ["resolve", "--tool", "mergiraf"]
+stage = ["stack", "closest_merge(@)+:: ~ empty()"]
+restack = ["rebase", "-o", "trunk()", "-s", "mutable_roots()", "--simplify-parents"]
+stack = ["rebase", "-A", "trunk()", "-B", "closest_merge(@)", "-r"]
 
 [revsets]
+git-sign-on-push = "~signed() & mine()"
 bookmark-advance-to = "heads(::@ & ~description(exact:'') & ~private():: & (~empty() | merges()))"
 
 [revset-aliases]
+"/" = "trunk()"
 "private()" = "description(glob:'private:*') | description(glob:'wip:*')"
 "stack()" = "ancestors(reachable(@, mutable()), 2)"
 "mutable_roots()" = "roots(trunk()..) & mutable()"
 "closest_merge(to)" = "heads(::to & merges())"
 
 [templates]
-git_push_bookmark = '"olex/" ++ change_id.shortest(6)'
+git_push_bookmark = '"olex/" ++ change_id.shortest(4)'
 draft_commit_description = "builtin_draft_commit_description_with_diff"
 
 [template-aliases]
@@ -70,3 +73,7 @@ patterns = ["glob:'**/*.gleam'"]
 [fix.tools.shfmt]
 command = ["shfmt"]
 patterns = ["glob:'**/*.sh'"]
+
+[fix.tools.ormolu]
+command = ["ormolu", "--no-cabal"]
+patterns = ["glob:'**/*.hs'"]
